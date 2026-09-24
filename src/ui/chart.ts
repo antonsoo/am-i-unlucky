@@ -16,11 +16,16 @@ export interface ChartMarker {
 }
 
 const WIDTH = 640;
-const HEIGHT = 260;
+const HEIGHT = 280;
 const PAD_LEFT = 8;
 const PAD_RIGHT = 8;
 const PAD_TOP = 14;
-const PAD_BOTTOM = 30;
+// Tall enough to fit the tick row and the axis title on two clearly
+// separated lines — a cramped bottom pad is what caused the tick label
+// and the axis title to overlap.
+const PAD_BOTTOM = 48;
+const TICK_LABEL_Y = HEIGHT - 32;
+const AXIS_TITLE_Y = HEIGHT - 8;
 
 export function renderDistributionChart(
   points: ChartPoint[],
@@ -66,15 +71,20 @@ export function renderDistributionChart(
     })
     .join("");
 
-  const xTicks: { value: number; anchor: string }[] = [
-    { value: xMin, anchor: "start" },
-    { value: Math.round((xMin + xMax) / 2), anchor: "middle" },
-    { value: xMax, anchor: "end" },
-  ];
+  // Five evenly spaced ticks instead of three, so the shape of a bimodal
+  // (soft-pity + hard-pity) distribution reads clearly along the axis.
+  const tickFractions = [0, 0.25, 0.5, 0.75, 1];
+  const xTicks: { value: number; anchor: string }[] = tickFractions.map(
+    (f, i) => ({
+      value: Math.round(xMin + (xMax - xMin) * f),
+      anchor:
+        i === 0 ? "start" : i === tickFractions.length - 1 ? "end" : "middle",
+    }),
+  );
   const xTickLabels = xTicks
     .map(
       (t) =>
-        `<text x="${sx(t.value).toFixed(2)}" y="${HEIGHT - 8}" class="chart-axis-label" text-anchor="${t.anchor}">${t.value.toLocaleString(
+        `<text x="${sx(t.value).toFixed(2)}" y="${TICK_LABEL_Y}" class="chart-axis-label" text-anchor="${t.anchor}">${t.value.toLocaleString(
           "en-US",
         )}</text>`,
     )
@@ -96,6 +106,6 @@ export function renderDistributionChart(
     <path d="${cdfPath}" class="chart-cdf" />
     ${markerLines}
     ${xTickLabels}
-    <text x="${WIDTH / 2}" y="${HEIGHT}" class="chart-axis-label" text-anchor="middle">${xLabel}</text>
+    <text x="${WIDTH / 2}" y="${AXIS_TITLE_Y}" class="chart-axis-label chart-axis-title" text-anchor="middle">${xLabel}</text>
   </svg>`;
 }
