@@ -64,6 +64,15 @@ The two methods agree to within the simulation's own confidence interval — see
 
 ![Collection mode with Monte Carlo cross-check](./docs/assets/collection-mode.png)
 
+**Time to drop** — a 2%-per-run source at 1 run/day, needing 1 copy:
+
+| Metric             | Value               |
+| ------------------ | ------------------- |
+| Expected time      | 50 days             |
+| 50% / 90% / 99% by | 35 / 114 / 228 days |
+
+![Time to drop mode](./docs/assets/time-mode.png)
+
 ![Exported luck card](./docs/assets/luck-card.png)
 
 ## How it works
