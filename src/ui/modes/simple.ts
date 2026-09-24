@@ -106,8 +106,7 @@ export function mountSimpleMode(
     } else if (showPercentile) {
       luckHtml = renderLuckMeter(
         result.luckPercentile,
-        `${fmtNum(result.luckPercentile, 1)}%`,
-        `Luckier than ${fmtNum(result.luckPercentile, 1)}% of players who make ${fmtInt(n)} attempts at ${esc(oddsLabel)} (${esc(pctLabel)}) odds needing ${k} cop${k === 1 ? "y" : "ies"}.`,
+        `based on ${fmtInt(n)} attempts at ${oddsLabel} (${pctLabel}) odds needing ${k} cop${k === 1 ? "y" : "ies"}`,
       );
     } else {
       luckHtml = `<p class="note">Enter at least 1 attempt to see your luck percentile.</p>`;

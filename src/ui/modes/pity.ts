@@ -188,8 +188,7 @@ export function mountPityMode(
 
     const luckHtml = renderLuckMeter(
       historyPercentile,
-      `${fmtNum(historyPercentile, 1)}%`,
-      `If it took you ${fmtInt(actualPulls)} pulls, you're luckier than ${fmtNum(historyPercentile, 1)}% of players chasing the same ${target} cop${target === 1 ? "y" : "ies"}.`,
+      `based on ${fmtInt(actualPulls)} pulls chasing ${target} cop${target === 1 ? "y" : "ies"}`,
     );
 
     resultsEl.innerHTML = `

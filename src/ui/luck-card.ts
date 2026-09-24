@@ -1,5 +1,10 @@
 /** Renders the shareable "luck card" PNG onto a canvas. */
-import { classifyLuck, TIER_COLORS, type LuckTier } from "../math/tiers.js";
+import {
+  classifyLuck,
+  tierLabel,
+  TIER_COLORS,
+  type LuckTier,
+} from "../math/tiers.js";
 
 export interface LuckCardData {
   headline: string;
@@ -96,14 +101,12 @@ export function renderLuckCard(
   ctx.fillStyle = "#edeffb";
   wrapText(ctx, data.headline, W / 2, 760, W - 200, 52);
 
-  // Direction word.
+  // Tier + direction, spelled out the same way the in-app badge does
+  // ("rare bad luck", "epic good luck", "common") so the card never
+  // disagrees with what the page just showed.
   ctx.font = "600 30px 'IBM Plex Mono', monospace";
   ctx.fillStyle = "#aab0d6";
-  ctx.fillText(
-    direction === "average" ? "right in the middle" : `running ${direction}`,
-    W / 2,
-    900,
-  );
+  ctx.fillText(tierLabel(tier, direction).toLowerCase(), W / 2, 900);
 
   // Detail line.
   ctx.font = "400 28px 'IBM Plex Sans', sans-serif";
