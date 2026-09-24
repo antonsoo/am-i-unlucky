@@ -21,7 +21,7 @@ simulation (`tests/pity.test.ts`).
 A simple drop has a fixed per-attempt success probability $p$. Two classical
 distributions describe it:
 
-- **Geometric distribution.** The number of attempts $T$ until the *first*
+- **Geometric distribution.** The number of attempts $T$ until the _first_
   success: $P(T = n) = (1-p)^{n-1} p$, $P(T \le n) = 1 - (1-p)^n$.
 - **Negative binomial distribution.** The number of attempts $T_k$ until the
   $k$-th success: $P(T_k = n) = \binom{n-1}{k-1} p^k (1-p)^{n-k}$ for $n \ge k$.
@@ -57,7 +57,7 @@ successes, define
 
 $$\text{luckPercentile}(n, p, k) = 100 \times \bigl(1 - P(T_k \le n)\bigr) = 100 \times P(T_k > n).$$
 
-This is the share of players who would need *more* attempts than you did —
+This is the share of players who would need _more_ attempts than you did —
 equivalently, the share of players who are less lucky. If you got the $k$-th
 success quickly, $n$ is small, $P(T_k \le n)$ is small, and the percentile is
 close to 100 (you're luckier than almost everyone). If you needed far more
@@ -67,11 +67,11 @@ close to 0. Because $P(T_k \le n) = P(X \ge k)$, this is literally
 "P(at least k by n)", just complemented.
 
 Two edge cases are called out explicitly rather than silently producing a
-number that *looks* fine but isn't:
+number that _looks_ fine but isn't:
 
 - **$n = 0$.** $P(T_k \le 0) = 0$ for any $k \ge 1$ (you can't succeed in zero
   attempts), so the percentile is trivially 100 — not because you're lucky,
-  but because *nobody* could have succeeded in fewer attempts either. The UI
+  but because _nobody_ could have succeeded in fewer attempts either. The UI
   hides the luck meter until at least one attempt is entered.
 - **$p = 0$ or $p = 1$.** These are degenerate: at $p=0$ nobody ever
   succeeds, so ranking "how lucky" you are against other players is
@@ -102,13 +102,13 @@ Pity systems violate both assumptions:
   the rate increases every pull. The "rate" isn't one number; it's a
   function of how many pulls you've made since your last success.
 - **A 50/50-with-guarantee mechanic is path-dependent.** Losing a 50/50 roll
-  *deterministically* changes the outcome of your next win: it's now a
+  _deterministically_ changes the outcome of your next win: it's now a
   guaranteed success instead of another coin flip. No memoryless
   distribution captures "the outcome of trial $t$ depends on whether you
   lost trial $t-1$'s sub-roll."
 
 Both effects mean that the number of pulls-to-success is not geometric or
-negative binomial at all. The only way to get an *exact* answer is to model
+negative binomial at all. The only way to get an _exact_ answer is to model
 the full state machine and solve it — which is what `src/math/pity.ts` does.
 
 ## 3. The pity Markov chain
@@ -150,13 +150,13 @@ instead **absorbed** into `pmf[t]` — the probability that exactly $t$ pulls
 were needed to reach the target. Because the state space (pity counter
 $\times$ guarantee flag $\times$ copies-still-needed) is small — at most
 `hardPity * 2 * target` — this DP is fast: computing the exact distribution
-for 10 copies at `hardPity = 90` takes about 57ms and visits a horizon of
-1,801 pulls on this machine (14 vCPU WSL2 Linux, 48GB RAM; measured in
-`tests/`, see the README's Development section for how to reproduce).
+for 10 copies at `hardPity = 90` visits a horizon of 1,801 pulls and runs
+in tens of milliseconds on ordinary hardware, fast enough to recompute on
+every keystroke in the UI.
 
 **Why the DP horizon is exact when the guarantee mechanic is on.** Every
 item-tier hit resolves within at most `hardPity` pulls, because hard pity
-*forces* $\text{rate} = 1$ by pull `hardPity`. Getting one additional copy
+_forces_ $\text{rate} = 1$ by pull `hardPity`. Getting one additional copy
 costs at most two such cycles in the worst case: one cycle that ends in a
 loss (bounded by `hardPity` pulls), and a second cycle whose win is
 guaranteed (also bounded by `hardPity` pulls, and guaranteed to be a win).
@@ -204,7 +204,7 @@ until you have at least one of each?
 
 **Expected attempts**, via inclusion-exclusion over subsets of items. For a
 nonempty subset $S \subseteq \{1, \dots, m\}$, let $P(S) = \sum_{i \in S} p_i$
-be the probability that a single attempt produces *some* item in $S$. Then:
+be the probability that a single attempt produces _some_ item in $S$. Then:
 
 $$E[T] = \sum_{\emptyset \neq S \subseteq \{1,\dots,m\}} (-1)^{|S|+1} \frac{1}{P(S)}.$$
 
@@ -212,12 +212,12 @@ This is the natural generalization of the classic equal-probability coupon
 collector formula $E[T] = m \cdot H_m$ (harmonic number), and reduces to it
 exactly when all $p_i = 1/m$ — checked directly in `tests/collection.test.ts`.
 
-**Completion CDF**, via inclusion-exclusion again, this time over *all*
+**Completion CDF**, via inclusion-exclusion again, this time over _all_
 subsets including the empty one:
 
 $$P(T \le n) = \sum_{S \subseteq \{1,\dots,m\}} (-1)^{|S|} \bigl(1 - P(S)\bigr)^n.$$
 
-$(1-P(S))^n$ is the probability that *none* of the items in $S$ appeared in
+$(1-P(S))^n$ is the probability that _none_ of the items in $S$ appeared in
 $n$ attempts; the alternating sum over all subsets converts "some item is
 still missing" into "every item has appeared" by inclusion-exclusion.
 
@@ -225,9 +225,9 @@ still missing" into "every item has appeared" by inclusion-exclusion.
 precomputes $P(S)$ for every mask in $O(2^m)$ time via a standard
 subset-DP (`sums[mask] = sums[mask without lowest bit] + p[lowest bit
 index]`), and each formula then does one more $O(2^m)$ pass. That's fast for
-realistic set sizes (a 16-item banner is $2^{16} = 65{,}536$ subsets, well
-under 10ms — measured in the README's Development section) but genuinely
-exponential, so `collectionExpectedAttempts` is capped at
+realistic set sizes (a 16-item banner is $2^{16} = 65{,}536$ subsets; on
+ordinary hardware that's a few milliseconds) but genuinely exponential, so
+`collectionExpectedAttempts` is capped at
 `MAX_EXACT_EXPECTATION_ITEMS = 24` items and `collectionCdf` at
 `MAX_EXACT_CDF_ITEMS = 18` (the CDF is evaluated once per chart point, so its
 cap is tighter). Beyond the cap, only the Monte Carlo estimate below is
@@ -257,7 +257,7 @@ $$q = 1 - \prod_i (1 - p_i)^{r_i}.$$
 
 $(1-p_i)^{r_i}$ is the probability source $i$ produces zero successes that
 day (its $r_i$ attempts are independent), and the product over sources is
-the probability that *every* source whiffs that day, because the sources
+the probability that _every_ source whiffs that day, because the sources
 are independent of each other too. `combinedDailyRate` in `src/math/time.ts`
 computes exactly this expression — no simulation, no approximation.
 
@@ -274,7 +274,7 @@ A few practices recur throughout `src/math/`:
   functions are computed as sums of logarithms (`logGamma`, `logChoose`,
   `Math.log1p`) and only exponentiated at the end, avoiding overflow for
   large $n$ and underflow for tiny $p$. `negativeBinomialPmf`, for instance,
-  computes `logChoose(n-1, k-1) + k*log(p) + (n-k)*log1p(1-p)` before a
+  computes `logChoose(n-1, k-1) + k*log(p) + (n-k)*log1p(-p)` before a
   single `Math.exp`.
 - **`Math.log1p` / `Math.expm1`** are used instead of `Math.log(1+x)` /
   `Math.exp(x)-1` wherever $x$ can be very small (e.g. `geometricCdf`'s
@@ -288,6 +288,6 @@ A few practices recur throughout `src/math/`:
   (except the one disclosed case in Section 3) — and cross-checked in
   `tests/oracle.test.ts` against `scipy.stats.binom` / `nbinom` / `geom`
   fixtures (`scripts/oracle.py`), typically agreeing to 6-9 decimal digits
-  depending on magnitude. "Exact" is a claim about the *method*
+  depending on magnitude. "Exact" is a claim about the _method_
   (closed-form probability theory, not sampling), not a claim of infinite
   precision arithmetic.

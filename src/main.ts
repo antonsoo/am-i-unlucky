@@ -142,7 +142,8 @@ function openLuckCardModal(data: LuckCardData): void {
   renderLuckCard(canvas, data);
 
   const previouslyFocused = document.activeElement as HTMLElement | null;
-  const downloadBtn = backdrop.querySelector<HTMLButtonElement>("#download-card")!;
+  const downloadBtn =
+    backdrop.querySelector<HTMLButtonElement>("#download-card")!;
   const closeBtn = backdrop.querySelector<HTMLButtonElement>("#close-card")!;
   downloadBtn.focus();
 
@@ -204,7 +205,9 @@ function main(): void {
         ${m.label} <span class="tab-key">${m.key}</span>
       </button>`,
     ).join("");
-    const buttons = Array.from(tabsEl.querySelectorAll<HTMLButtonElement>(".mode-tab"));
+    const buttons = Array.from(
+      tabsEl.querySelectorAll<HTMLButtonElement>(".mode-tab"),
+    );
     buttons.forEach((btn) => {
       btn.addEventListener("click", () => {
         switchMode(btn.dataset.mode as Mode);
@@ -214,7 +217,8 @@ function main(): void {
         if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
           e.preventDefault();
           const dir = e.key === "ArrowRight" ? 1 : -1;
-          const next = buttons[(index + dir + buttons.length) % buttons.length]!;
+          const next =
+            buttons[(index + dir + buttons.length) % buttons.length]!;
           switchMode(next.dataset.mode as Mode);
         }
       });

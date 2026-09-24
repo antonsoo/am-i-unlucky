@@ -37,28 +37,28 @@ Open the printed `localhost` URL. That's the whole setup — no build step, no a
 
 **Simple drop** — 900 attempts at a 1/512 rate, needing 1 copy:
 
-| Metric | Value |
-|---|---|
-| P(at least 1 by 900) | 82.79% |
-| Luck percentile | 17.2% ("luckier than 17.2% of players") |
-| Expected attempts | 512 |
-| 50% / 90% / 99% by | 355 / 1,178 / 2,356 attempts |
+| Metric               | Value                                   |
+| -------------------- | --------------------------------------- |
+| P(at least 1 by 900) | 82.79%                                  |
+| Luck percentile      | 17.2% ("luckier than 17.2% of players") |
+| Expected attempts    | 512                                     |
+| 50% / 90% / 99% by   | 355 / 1,178 / 2,356 attempts            |
 
 **Pity system** — the bundled soft-pity gacha preset (0.6% base, soft pity from pull 74, hard pity 90, 50/50 with guarantee), asking for 1 copy from a fresh pity counter:
 
-| Metric | Value |
-|---|---|
-| Expected pulls | 93.4 |
-| Std. deviation | 43.1 |
+| Metric             | Value                |
+| ------------------ | -------------------- |
+| Expected pulls     | 93.4                 |
+| Std. deviation     | 43.1                 |
 | 50% / 90% / 99% by | 80 / 155 / 161 pulls |
 
 ![Pity system calculator, light mode](./docs/assets/pity-mode.png)
 
 **Collection** — 4 items at rates 0.3 / 0.2 / 0.1 / 0.05, exact via inclusion-exclusion over `2^4` subsets, cross-checked against a 20,000-run Monte Carlo simulation:
 
-| Metric | Exact | Monte Carlo (n=20,000) |
-|---|---|---|
-| Expected attempts | 24.00 | 23.98 ± 0.25 (95% CI) |
+| Metric            | Exact | Monte Carlo (n=20,000) |
+| ----------------- | ----- | ---------------------- |
+| Expected attempts | 24.00 | 23.98 ± 0.25 (95% CI)  |
 
 The two methods agree to within the simulation's own confidence interval — see [docs/MATH.md](./docs/MATH.md) for the derivation.
 
