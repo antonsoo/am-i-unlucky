@@ -18,7 +18,8 @@ npm run fmt:write   # prettier --write
 ```
 
 Please keep `npm run lint`, `npm run typecheck`, and `npm test` green before
-opening a PR — CI enforces all three, plus a production build.
+opening a PR — that's exactly what `.github/workflows/ci.yml` runs, plus a
+production build.
 
 ## Regenerating the SciPy oracle fixtures
 
@@ -32,8 +33,8 @@ if you add or change a case in `scripts/oracle.py`, regenerate them with
 uv run --with scipy python3 scripts/oracle.py
 ```
 
-CI also regenerates and diffs this file on every push, so a stale commit
-will fail the `oracle-fixtures` job.
+The `oracle-fixtures` job in CI also regenerates and diffs this file, so a
+stale commit fails that check.
 
 ## Adding new math
 

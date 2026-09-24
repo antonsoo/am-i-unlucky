@@ -2,7 +2,6 @@
 
 **Exact drop-rate and pity math for gamers. Find out whether you're unlucky, or the system is.**
 
-[![CI](https://github.com/antonsoo/am-i-unlucky/actions/workflows/ci.yml/badge.svg)](https://github.com/antonsoo/am-i-unlucky/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
 [![Live demo](https://img.shields.io/badge/live%20demo-antonsoo.github.io-6c7bff)](https://antonsoo.github.io/am-i-unlucky/)
 
