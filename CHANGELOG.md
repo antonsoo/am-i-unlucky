@@ -28,7 +28,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   "luck card" PNG export (canvas-rendered, common through legendary tiers).
 - Light and dark themes, keyboard-accessible tab navigation, a focus-trapped
   export modal, and `prefers-reduced-motion` support.
-- Test suite (`tests/`): 123 tests across 9 files, including SciPy-generated
+- Test suite (`tests/`): 136 tests across 10 files, including SciPy-generated
   oracle fixtures (`scripts/oracle.py`) for the closed-form math and a large
   seeded simulation cross-check for the pity dynamic program.
 - `docs/MATH.md`: full derivations for every formula the app uses.
