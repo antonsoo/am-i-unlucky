@@ -137,27 +137,28 @@ function isRecord(v: unknown): v is Record<string, unknown> {
   return typeof v === "object" && v !== null && !Array.isArray(v);
 }
 
-function namedRates(raw: unknown, rateKey: "rate"): CollectionItemState[] {
+function namedRates(raw: unknown): CollectionItemState[] {
   if (!Array.isArray(raw) || raw.length === 0) throw new MalformedState();
-  return raw.map((item) => {
+  return raw.map((item: unknown) => {
     if (
       !isRecord(item) ||
       typeof item.name !== "string" ||
-      typeof item[rateKey] !== "string"
+      typeof item.rate !== "string"
     ) {
       throw new MalformedState();
     }
-    return { name: item.name, rate: item[rateKey] };
+    return { name: item.name, rate: item.rate };
   });
 }
 
 function timeSources(raw: unknown): TimeSourceState[] {
-  const named = namedRates(raw, "rate");
-  return named.map((item, i) => {
-    const runs = (raw as Record<string, unknown>[])[i]?.runsPerDay;
-    if (typeof runs !== "number" || !Number.isFinite(runs))
+  return namedRates(raw).map((item, i) => {
+    const record: unknown = (raw as unknown[])[i];
+    const runsPerDay = isRecord(record) ? record.runsPerDay : undefined;
+    if (typeof runsPerDay !== "number" || !Number.isFinite(runsPerDay)) {
       throw new MalformedState();
-    return { ...item, runsPerDay: runs };
+    }
+    return { ...item, runsPerDay };
   });
 }
 
@@ -208,7 +209,7 @@ export function decodeState(search: string): AppState {
       case "collection": {
         const rawItems = params.get("items");
         const items = rawItems
-          ? namedRates(JSON.parse(rawItems), "rate")
+          ? namedRates(JSON.parse(rawItems))
           : base.collection.items;
         base.collection = { items, n: num(params, "n", base.collection.n) };
         break;
