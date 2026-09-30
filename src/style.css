@@ -817,6 +817,10 @@ footer.site-footer a {
   .field-row {
     grid-template-columns: 1fr;
   }
+  /* Stacked, the row's last field has no bottom margin of its own. */
+  .field-row + .field {
+    margin-top: 16px;
+  }
   .item-row {
     grid-template-columns: 1fr 74px 30px;
   }
