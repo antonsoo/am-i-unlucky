@@ -19,6 +19,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   as a best case. Share links from before the change keep their old meaning.
 - A share link whose collection items or time sources had the wrong shape was
   passed straight to the page; it now falls back to that mode's defaults.
+- The luck readout's best case for a player still waiting now uses the next
+  attempt (n + 1), not the last one; for a frequent drop the two differ (a
+  50% drop still missing after 3 tries is at best the 6.25th percentile, not
+  the 12.5th).
+- Percentiles read with the right ordinal (71st, 22nd, 17.2nd) instead of
+  always "th", and a NaN value formats as a dash rather than as infinity.
 
 ## [0.1.0] - 2026-09-24
 

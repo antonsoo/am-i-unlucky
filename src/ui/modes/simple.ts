@@ -1,4 +1,8 @@
-import { negativeBinomialDistribution, simpleDrop } from "../../math/simple.js";
+import {
+  luckPercentile,
+  negativeBinomialDistribution,
+  simpleDrop,
+} from "../../math/simple.js";
 import {
   formatRateAsOdds,
   formatRateAsPercent,
@@ -100,6 +104,10 @@ export function mountSimpleMode(
         : `Got copy ${k} on the last of those attempts`;
 
     const result = simpleDrop({ p, n, k });
+    // Still waiting, the best case is the drop coming on the next attempt.
+    const shownPercentile = got
+      ? result.luckPercentile
+      : luckPercentile(n + 1, p, k);
     // p=0 and p=1 are degenerate: everyone gets the same outcome (never, or
     // always on the k-th attempt), so a percentile against "other players"
     // is meaningless rather than 0% or 100% — show a plain note instead of
@@ -122,6 +130,7 @@ export function mountSimpleMode(
           ? `based on ${fmtInt(n)} attempts at ${oddsLabel} (${pctLabel}) odds needing ${k} cop${k === 1 ? "y" : "ies"}`
           : `still waiting after ${fmtInt(n)} attempts at ${oddsLabel} (${pctLabel}) odds, needing ${k} cop${k === 1 ? "y" : "ies"}`,
         got,
+        shownPercentile,
       );
     } else {
       luckHtml = `<p class="note">Enter at least 1 attempt to see your luck percentile.</p>`;
@@ -196,7 +205,7 @@ export function mountSimpleMode(
         headline: got
           ? `Took ${fmtInt(n)} attempts at ${oddsLabel} odds for ${k} cop${k === 1 ? "y" : "ies"}.`
           : `${fmtInt(n)} attempts at ${oddsLabel} odds and still waiting for ${k === 1 ? "it" : `copy ${k}`}.`,
-        percentile: result.luckPercentile,
+        percentile: shownPercentile,
         modeLabel: "Simple drop",
         detail: `P(at least ${k} by ${fmtInt(n)}) = ${fmtPercent(result.probabilityAtLeastK)}. Expected ${fmtNum(result.expectedAttempts, 0)} attempts.`,
       });

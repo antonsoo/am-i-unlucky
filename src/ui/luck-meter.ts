@@ -1,5 +1,5 @@
 import { classifyLuck, tierLabel } from "../math/tiers.js";
-import { esc, fmtNum } from "./format.js";
+import { esc, fmtOrdinal } from "./format.js";
 import { luckVerdict, meterPercentile } from "./verdict.js";
 
 /**
@@ -14,15 +14,18 @@ export function renderLuckMeter(
   percentile: number,
   contextSentence: string,
   finished = true,
+  /** For a player still waiting: the percentile if it comes on the next attempt. */
+  bestCase = percentile,
 ): string {
-  const shown = meterPercentile(percentile, finished);
+  const reading = finished ? percentile : bestCase;
+  const shown = meterPercentile(reading, finished);
   const { tier, direction } = classifyLuck(shown);
   const verdict = luckVerdict(percentile, finished);
-  const clamped = Math.min(100, Math.max(0, percentile));
+  const clamped = Math.min(100, Math.max(0, reading));
   const badge = tierLabel(tier, direction);
   const precise = finished
-    ? `${fmtNum(clamped, 1)}th percentile`
-    : `At best the ${fmtNum(clamped, 1)}th percentile, if it comes on your next attempt`;
+    ? `${fmtOrdinal(clamped, 1)} percentile`
+    : `At best the ${fmtOrdinal(clamped, 1)} percentile, if it comes on your next attempt`;
 
   return `
     <div class="luck-verdict">
