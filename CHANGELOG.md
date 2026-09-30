@@ -5,6 +5,21 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.2.0] - 2026-09-30
+
+### Fixed
+
+- Simple mode couldn't tell "got it on attempt n" from "still waiting after n
+  attempts", and read every input as the first. A player still without a
+  1/512 drop after 100 attempts was told "Lucky: you beat 82.2% of players",
+  though 82% of players would still be waiting too. A new "Got it on the last
+  of those attempts" checkbox (unchecked by default) separates the two; still
+  waiting, the verdict is "Unlucky" once most players would have it by now and
+  "Not unlucky yet" before that, never "Lucky", and the percentile is labeled
+  as a best case. Share links from before the change keep their old meaning.
+- A share link whose collection items or time sources had the wrong shape was
+  passed straight to the page; it now falls back to that mode's defaults.
+
 ## [0.1.0] - 2026-09-24
 
 ### Added
