@@ -82,4 +82,26 @@ describe("app-state URL round trip", () => {
       decodeState("?mode=simple&rate=1%2F512&n=20&k=1&got=0").simple.got,
     ).toBe(false);
   });
+
+  it("falls back to defaults when a link's collection items or time sources have the wrong shape", () => {
+    for (const items of ['{"name":"x"}', "[1,2]", '[{"name":"A"}]', "[]"]) {
+      const decoded = decodeState(
+        `?mode=collection&items=${encodeURIComponent(items)}&n=5`,
+      );
+      expect(decoded.collection).toEqual(defaultState().collection);
+    }
+    const badSources = encodeURIComponent(
+      '[{"name":"Q","rate":"2%","runsPerDay":"lots"}]',
+    );
+    expect(decodeState(`?mode=time&sources=${badSources}&k=1`).time).toEqual(
+      defaultState().time,
+    );
+    const good = encodeURIComponent(
+      '[{"name":"Q","rate":"2%","runsPerDay":3}]',
+    );
+    expect(decodeState(`?mode=time&sources=${good}&k=2`).time).toEqual({
+      sources: [{ name: "Q", rate: "2%", runsPerDay: 3 }],
+      k: 2,
+    });
+  });
 });

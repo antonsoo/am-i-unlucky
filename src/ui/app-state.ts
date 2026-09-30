@@ -130,6 +130,37 @@ function num(params: URLSearchParams, key: string, fallback: number): number {
   return Number.isFinite(value) ? value : fallback;
 }
 
+/** A share link's JSON is untrusted input: anything but the expected shape falls back to defaults. */
+class MalformedState extends Error {}
+
+function isRecord(v: unknown): v is Record<string, unknown> {
+  return typeof v === "object" && v !== null && !Array.isArray(v);
+}
+
+function namedRates(raw: unknown, rateKey: "rate"): CollectionItemState[] {
+  if (!Array.isArray(raw) || raw.length === 0) throw new MalformedState();
+  return raw.map((item) => {
+    if (
+      !isRecord(item) ||
+      typeof item.name !== "string" ||
+      typeof item[rateKey] !== "string"
+    ) {
+      throw new MalformedState();
+    }
+    return { name: item.name, rate: item[rateKey] };
+  });
+}
+
+function timeSources(raw: unknown): TimeSourceState[] {
+  const named = namedRates(raw, "rate");
+  return named.map((item, i) => {
+    const runs = (raw as Record<string, unknown>[])[i]?.runsPerDay;
+    if (typeof runs !== "number" || !Number.isFinite(runs))
+      throw new MalformedState();
+    return { ...item, runsPerDay: runs };
+  });
+}
+
 export function decodeState(search: string): AppState {
   const base = defaultState();
   const params = new URLSearchParams(search);
@@ -177,7 +208,7 @@ export function decodeState(search: string): AppState {
       case "collection": {
         const rawItems = params.get("items");
         const items = rawItems
-          ? (JSON.parse(rawItems) as CollectionItemState[])
+          ? namedRates(JSON.parse(rawItems), "rate")
           : base.collection.items;
         base.collection = { items, n: num(params, "n", base.collection.n) };
         break;
@@ -185,7 +216,7 @@ export function decodeState(search: string): AppState {
       case "time": {
         const rawSources = params.get("sources");
         const sources = rawSources
-          ? (JSON.parse(rawSources) as TimeSourceState[])
+          ? timeSources(JSON.parse(rawSources))
           : base.time.sources;
         base.time = { sources, k: num(params, "k", base.time.k) };
         break;
