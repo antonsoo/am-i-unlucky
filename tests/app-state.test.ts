@@ -5,7 +5,7 @@ describe("app-state URL round trip", () => {
   it("round-trips the simple mode fields", () => {
     const state = defaultState();
     state.mode = "simple";
-    state.simple = { rate: "1/4096", n: 4096, k: 2 };
+    state.simple = { rate: "1/4096", n: 4096, k: 2, got: true };
     const decoded = decodeState(`?${encodeState(state)}`);
     expect(decoded.mode).toBe("simple");
     expect(decoded.simple).toEqual(state.simple);
@@ -72,5 +72,14 @@ describe("app-state URL round trip", () => {
   it("ignores non-numeric values for numeric fields and keeps the default", () => {
     const decoded = decodeState("?mode=simple&rate=1%2F512&n=not-a-number&k=1");
     expect(decoded.simple.n).toBe(defaultState().simple.n);
+  });
+
+  it("reads a simple-mode link from before the got field as 'got it on attempt n'", () => {
+    expect(decodeState("?mode=simple&rate=1%2F512&n=20&k=1").simple.got).toBe(
+      true,
+    );
+    expect(
+      decodeState("?mode=simple&rate=1%2F512&n=20&k=1&got=0").simple.got,
+    ).toBe(false);
   });
 });

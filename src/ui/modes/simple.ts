@@ -46,6 +46,10 @@ export function mountSimpleMode(
               <input type="number" id="simple-k" min="1" step="1" value="${s.k}" />
             </div>
           </div>
+          <div class="field">
+            <label class="checkbox-field"><input type="checkbox" id="simple-got" ${s.got ? "checked" : ""}/> <span id="simple-got-label">Got it on the last of those attempts</span></label>
+            <p class="field-note">Leave it unchecked if you're still waiting.</p>
+          </div>
         </section>
         <section class="panel">
           <h2 class="panel-title">Presets</h2>
@@ -67,6 +71,8 @@ export function mountSimpleMode(
   const rateInput = root.querySelector<HTMLInputElement>("#simple-rate")!;
   const nInput = root.querySelector<HTMLInputElement>("#simple-n")!;
   const kInput = root.querySelector<HTMLInputElement>("#simple-k")!;
+  const gotInput = root.querySelector<HTMLInputElement>("#simple-got")!;
+  const gotLabel = root.querySelector<HTMLSpanElement>("#simple-got-label")!;
   const errorEl = root.querySelector<HTMLDivElement>("#simple-rate-error")!;
   const resultsEl = root.querySelector<HTMLDivElement>("#simple-results")!;
 
@@ -83,9 +89,15 @@ export function mountSimpleMode(
     }
     const n = Math.max(0, Math.floor(Number(nInput.value) || 0));
     const k = Math.max(1, Math.floor(Number(kInput.value) || 1));
+    const got = gotInput.checked;
     s.rate = rateInput.value;
     s.n = n;
     s.k = k;
+    s.got = got;
+    gotLabel.textContent =
+      k === 1
+        ? "Got it on the last of those attempts"
+        : `Got copy ${k} on the last of those attempts`;
 
     const result = simpleDrop({ p, n, k });
     // p=0 and p=1 are degenerate: everyone gets the same outcome (never, or
@@ -106,7 +118,10 @@ export function mountSimpleMode(
     } else if (showPercentile) {
       luckHtml = renderLuckMeter(
         result.luckPercentile,
-        `based on ${fmtInt(n)} attempts at ${oddsLabel} (${pctLabel}) odds needing ${k} cop${k === 1 ? "y" : "ies"}`,
+        got
+          ? `based on ${fmtInt(n)} attempts at ${oddsLabel} (${pctLabel}) odds needing ${k} cop${k === 1 ? "y" : "ies"}`
+          : `still waiting after ${fmtInt(n)} attempts at ${oddsLabel} (${pctLabel}) odds, needing ${k} cop${k === 1 ? "y" : "ies"}`,
+        got,
       );
     } else {
       luckHtml = `<p class="note">Enter at least 1 attempt to see your luck percentile.</p>`;
@@ -155,7 +170,8 @@ export function mountSimpleMode(
           </div>
         </div>
         ${
-          showPercentile
+          // Still waiting and not yet unlucky: there is no verdict to put on a card.
+          showPercentile && (got || result.luckPercentile < 40)
             ? `<button type="button" class="btn btn-primary" id="simple-export" style="margin-top:16px;">Export luck card</button>`
             : ""
         }
@@ -177,7 +193,9 @@ export function mountSimpleMode(
       resultsEl.querySelector<HTMLButtonElement>("#simple-export");
     exportBtn?.addEventListener("click", () => {
       ctx.openLuckCard({
-        headline: `Took ${fmtInt(n)} attempts at ${oddsLabel} odds for ${k} cop${k === 1 ? "y" : "ies"}.`,
+        headline: got
+          ? `Took ${fmtInt(n)} attempts at ${oddsLabel} odds for ${k} cop${k === 1 ? "y" : "ies"}.`
+          : `${fmtInt(n)} attempts at ${oddsLabel} odds and still waiting for ${k === 1 ? "it" : `copy ${k}`}.`,
         percentile: result.luckPercentile,
         modeLabel: "Simple drop",
         detail: `P(at least ${k} by ${fmtInt(n)}) = ${fmtPercent(result.probabilityAtLeastK)}. Expected ${fmtNum(result.expectedAttempts, 0)} attempts.`,
@@ -191,6 +209,7 @@ export function mountSimpleMode(
   rateInput.addEventListener("input", debouncedRecompute);
   nInput.addEventListener("input", debouncedRecompute);
   kInput.addEventListener("input", debouncedRecompute);
+  gotInput.addEventListener("change", recompute);
 
   root.querySelectorAll<HTMLButtonElement>("[data-preset]").forEach((btn) => {
     btn.addEventListener("click", () => {

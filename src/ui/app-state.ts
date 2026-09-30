@@ -7,6 +7,8 @@ export interface SimpleState {
   rate: string;
   n: number;
   k: number;
+  /** Whether the k-th copy came on attempt n; false means still waiting after n attempts. */
+  got: boolean;
 }
 
 export interface PityState extends PityConfig, PityUserState {
@@ -47,7 +49,7 @@ export interface AppState {
 export function defaultState(): AppState {
   return {
     mode: "simple",
-    simple: { rate: "1/512", n: 900, k: 1 },
+    simple: { rate: "1/512", n: 900, k: 1, got: false },
     pity: {
       baseRate: 0.006,
       softPityStart: 74,
@@ -87,6 +89,7 @@ export function encodeState(state: AppState): string {
       params.set("rate", s.rate);
       params.set("n", String(s.n));
       params.set("k", String(s.k));
+      params.set("got", s.got ? "1" : "0");
       break;
     }
     case "pity": {
@@ -149,6 +152,8 @@ export function decodeState(search: string): AppState {
           rate: params.get("rate") ?? base.simple.rate,
           n: num(params, "n", base.simple.n),
           k: num(params, "k", base.simple.k),
+          // Links shared before this field existed meant "got it on attempt n".
+          got: (params.get("got") ?? "1") === "1",
         };
         break;
       case "pity":

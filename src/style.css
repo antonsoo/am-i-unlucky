@@ -418,6 +418,11 @@ main {
   height: 18px;
   accent-color: var(--accent);
 }
+.field-note {
+  margin: 6px 0 0 27px;
+  font-size: 0.78rem;
+  color: var(--ink-faint);
+}
 
 .btn {
   display: inline-flex;

@@ -66,6 +66,23 @@ close to 0. Because $P(T_k \le n) = P(X \ge k)$, this is literally
 `100 * (1 - binomialSurvival(n, p, k))` — the same function that answers
 "P(at least k by n)", just complemented.
 
+That reading assumes the $k$-th success came _on_ attempt $n$. A player
+**still waiting** after $n$ attempts will need more than $n$, so the same number
+is only their best case: the percentile they would reach if the drop came on
+attempt $n + 1$. Their eventual percentile is somewhere below it. So for a
+player still waiting, the app:
+
+- calls it **unlucky** once $P(T_k \le n) > 0.6$ — most players would have
+  it by now — and says so in those terms ("82.8% of players would have it by
+  now");
+- otherwise says **not unlucky yet**, never "lucky": being without the drop
+  when most players are too is ordinary;
+- keeps the meter's needle and rarity badge at or below the median, and
+  labels the percentile "at best".
+
+Shared links from before this distinction existed are read as "got it on
+attempt $n$", which is what the number meant then.
+
 Two edge cases are called out explicitly rather than silently producing a
 number that _looks_ fine but isn't:
 
