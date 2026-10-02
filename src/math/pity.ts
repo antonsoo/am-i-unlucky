@@ -47,6 +47,17 @@ export interface PityDistribution {
 
 const ABSOLUTE_HORIZON_CAP = 200_000;
 
+/**
+ * The most (copies still needed, pity, guarantee) states the walk keeps: 4,000 for the
+ * product of the target and the hard pity, e.g. 44 copies at a hard pity of 90. The work
+ * grows with the square of that product, and at this size it is a few seconds; with no
+ * limit, a mistyped target froze the page for minutes.
+ */
+export const MAX_PITY_STATES = 8_000;
+
+/** Unabsorbed probability below which the remaining pulls cannot change any reported figure. */
+const STOP_BELOW = 1e-15;
+
 /** Per-pull item-tier hit probability, given pulls-since-last-hit. */
 export function itemTierRate(pity: number, config: PityConfig): number {
   const pullNumber = pity + 1;
@@ -95,7 +106,14 @@ export function pityDistribution(
 
   const hardPity = config.hardPity;
   const size = target * hardPity * 2;
+  if (size > MAX_PITY_STATES) {
+    throw new RangeError(
+      `That is ${target} copies at a hard pity of ${hardPity}: more states than this tracks exactly ` +
+        `(the product can be at most ${MAX_PITY_STATES / 2}). Lower one of them.`,
+    );
+  }
   let state = new Float64Array(size);
+  let next = new Float64Array(size);
   state[
     stateIndex(
       0,
@@ -107,8 +125,10 @@ export function pityDistribution(
 
   const pmf = new Float64Array(horizon + 1);
 
+  let lastPull = horizon;
+
   for (let t = 1; t <= horizon; t++) {
-    const next = new Float64Array(size);
+    next.fill(0);
     let absorbed = 0;
 
     for (let copies = 0; copies < target; copies++) {
@@ -156,17 +176,29 @@ export function pityDistribution(
     }
 
     pmf[t] = absorbed;
-    state = next;
+    [state, next] = [next, state];
+
+    // Every so often, add up the probability not yet absorbed (from the states themselves:
+    // one minus the running total would carry its rounding error). Once it is below
+    // anything a double can add to 1, the rest of the horizon would only add zeros.
+    if (t % 32 === 0) {
+      let remaining = 0;
+      for (let i = 0; i < size; i++) remaining += state[i]!;
+      if (remaining < STOP_BELOW) {
+        lastPull = t;
+        break;
+      }
+    }
   }
 
   let total = 0;
-  for (let t = 0; t <= horizon; t++) total += pmf[t]!;
+  for (let t = 0; t <= lastPull; t++) total += pmf[t]!;
 
   return {
-    pmf,
+    pmf: lastPull < horizon ? pmf.slice(0, lastPull + 1) : pmf,
     exact: config.hasGuarantee,
     tailMass: Math.max(0, 1 - total),
-    horizon,
+    horizon: lastPull,
   };
 }
 

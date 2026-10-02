@@ -5,6 +5,32 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.2.1] - 2026-10-01
+
+### Fixed
+
+- Binomial tails were wrong for large numbers of attempts. They went through
+  the regularized incomplete beta function, by a continued fraction capped at
+  300 steps and a prefactor built from log-gammas; that matches SciPy up to
+  about a million attempts, is off by 0.001 at ten million and by 0.14 at a
+  hundred million, and at a billion coin flips it put the chance of reaching
+  the median at 0. Tails are now summed term by term from an accurate binomial
+  probability (Loader's saddle-point form, the algorithm behind R's `dbinom`),
+  away from the mean. 647 reference values from `scipy.stats.binom`, from 10
+  attempts to 10^15 and odds down to 10^-15, are matched to nine significant
+  digits, far tails included.
+- The pity calculation froze the page on large setups: 40 copies without a
+  guarantee took 9.6 s, and a mistyped target took minutes. The walk now stops
+  once all the probability is absorbed (same figures, to nine decimals) and
+  refuses a setup past 4,000 for copies times hard pity, saying which number
+  to lower. The largest setup it accepts takes about a second.
+
+### Changed
+
+- Past ten billion expected drops (a variance of 10^10) the simple and time
+  modes say the numbers are beyond what they compute exactly, instead of
+  showing a figure.
+
 ## [0.2.0] - 2026-09-30
 
 ### Fixed

@@ -80,7 +80,17 @@ export function mountSimpleMode(
   const errorEl = root.querySelector<HTMLDivElement>("#simple-rate-error")!;
   const resultsEl = root.querySelector<HTMLDivElement>("#simple-results")!;
 
+  /** Recomputes the results, or says why it can't for numbers beyond what the math covers. */
   function recompute(): void {
+    try {
+      computeResults();
+    } catch (err) {
+      if (!(err instanceof RangeError)) throw err;
+      resultsEl.innerHTML = `<section class="panel"><p class="note">${esc(err.message)}</p></section>`;
+    }
+  }
+
+  function computeResults(): void {
     let p: number;
     try {
       p = parseRate(rateInput.value);

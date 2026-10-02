@@ -7,11 +7,7 @@
  * (see numeric.ts) rather than summing binomial terms, so they stay exact
  * and fast for n in the millions.
  */
-import {
-  clampProbability,
-  logChoose,
-  regularizedIncompleteBeta,
-} from "./numeric.js";
+import { binomialPmf, clampProbability } from "./numeric.js";
 
 export interface SimpleDropInput {
   /** Per-attempt success probability, in (0, 1]. */
@@ -36,8 +32,47 @@ export interface SimpleDropResult {
 }
 
 /**
- * P(X >= k) for X ~ Binomial(n, p), computed via the regularized
- * incomplete beta function: P(X >= k) = I_p(k, n - k + 1).
+ * The largest variance n p (1 - p) the tail sum is run for: a standard
+ * deviation of 100,000 successes, about 900,000 terms. That is ten billion
+ * expected successes at even odds, far past any number of attempts a person
+ * makes; beyond it the function says so instead of taking seconds per call.
+ */
+export const MAX_BINOMIAL_VARIANCE = 1e10;
+
+/**
+ * The sum of pmf(j) from j = `from` to the end of the support in the given
+ * direction. Called only on the side away from the mean, so the first term is
+ * the largest and the sum can stop once a term no longer changes it.
+ */
+function tailSum(
+  n: number,
+  p: number,
+  from: number,
+  direction: 1 | -1,
+): number {
+  let term = binomialPmf(n, p, from);
+  let sum = term;
+  if (term === 0) return 0;
+  const odds = p / (1 - p);
+  if (direction === 1) {
+    for (let j = from; j < n; j++) {
+      term *= ((n - j) / (j + 1)) * odds;
+      sum += term;
+      if (term < sum * 1e-17) break;
+    }
+  } else {
+    for (let j = from; j > 0; j--) {
+      term *= j / (n - j + 1) / odds;
+      sum += term;
+      if (term < sum * 1e-17) break;
+    }
+  }
+  return sum;
+}
+
+/**
+ * P(X >= k) for X ~ Binomial(n, p): the pmf summed over whichever tail lies
+ * away from the mean (and one minus that, if it is the lower one).
  */
 export function binomialSurvival(n: number, p: number, k: number): number {
   if (k <= 0) return 1;
@@ -45,7 +80,13 @@ export function binomialSurvival(n: number, p: number, k: number): number {
   if (k > n) return 0;
   if (p <= 0) return 0;
   if (p >= 1) return 1;
-  return clampProbability(regularizedIncompleteBeta(p, k, n - k + 1));
+  if (n * p * (1 - p) > MAX_BINOMIAL_VARIANCE) {
+    throw new RangeError(
+      "Too many expected drops to compute exactly: this handles up to about ten billion.",
+    );
+  }
+  if (k > n * p) return clampProbability(tailSum(n, p, k, 1));
+  return clampProbability(1 - tailSum(n, p, k - 1, -1));
 }
 
 /** P(X <= k) for X ~ Binomial(n, p). */
@@ -77,9 +118,8 @@ export function negativeBinomialPmf(k: number, p: number, n: number): number {
   if (n < k || !Number.isInteger(n)) return 0;
   if (p <= 0) return 0;
   if (p >= 1) return n === k ? 1 : 0;
-  const logPmf =
-    logChoose(n - 1, k - 1) + k * Math.log(p) + (n - k) * Math.log1p(-p);
-  return Math.exp(logPmf);
+  // C(n-1, k-1) p^k q^(n-k) = (k / n) * P(Binomial(n, p) = k).
+  return (k / n) * binomialPmf(n, p, k);
 }
 
 /** CDF of the negative binomial: P(T_k <= n) = P(Binomial(n, p) >= k). */

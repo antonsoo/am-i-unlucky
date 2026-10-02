@@ -8,6 +8,7 @@ Output: tests/oracle/fixtures.json (committed, so CI doesn't need SciPy).
 """
 
 import json
+import math
 from pathlib import Path
 
 from scipy import stats
@@ -54,7 +55,31 @@ geometric_cases = [
     (1e-6, 500_000),
 ]
 
-fixtures = {"binomial_survival": [], "negative_binomial": [], "geometric": []}
+fixtures = {"binomial_survival": [], "binomial_grid": [], "negative_binomial": [], "geometric": []}
+
+# A grid across the whole supported range (variance n p (1 - p) up to 1e10): for each n and p,
+# k at 1, 2, 10 and 50 and at the mean and 1, 2 and 4 standard deviations either side of it.
+# The earlier cases stop at n = 1e7; the closed form they were written for was wrong from there on.
+for n in (10, 1000, 10**5, 10**6, 10**7, 10**8, 10**9, 10**12, 10**15):
+    for p in (1e-15, 1e-12, 1e-9, 1e-6, 1e-4, 0.01, 0.3, 0.5, 0.9, 0.999999):
+        variance = n * p * (1 - p)
+        if variance > 1e10:
+            continue
+        mean, sd = n * p, math.sqrt(variance)
+        ks = {1, 2, 10, 50} | {int(round(mean + z * sd)) for z in (-4, -2, -1, 0, 1, 2, 4)}
+        for k in sorted(ks):
+            if not 1 <= k <= n:
+                continue
+            fixtures["binomial_grid"].append(
+                {
+                    "n": n,
+                    "p": p,
+                    "k": k,
+                    "survival": float(stats.binom.sf(k - 1, n, p)),
+                    "cdf": float(stats.binom.cdf(k, n, p)),
+                    "pmf": float(stats.binom.pmf(k, n, p)),
+                }
+            )
 
 for n, p, k in binomial_cases:
     sf = float(stats.binom.sf(k - 1, n, p))  # P(X >= k) = P(X > k-1)

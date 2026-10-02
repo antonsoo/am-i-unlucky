@@ -2,11 +2,16 @@
  * Numerical primitives shared across the math library.
  *
  * The headline correctness claim of this project is "exact wherever feasible".
- * For binomial / negative-binomial tails that means evaluating the
- * regularized incomplete beta function directly instead of summing
- * individual binomial terms, so results stay accurate (and fast) even when
- * `n` is in the millions. See docs/MATH.md for the derivation and the
- * cross-check against SciPy that backs the tolerances used in tests.
+ * Binomial and negative-binomial tails are summed from an accurate pmf
+ * (`binomialPmf`, below) outward from the point asked about, away from the
+ * mean, where the terms only shrink. See docs/MATH.md for the derivation and
+ * the cross-check against SciPy that backs the tolerances used in tests.
+ *
+ * `regularizedIncompleteBeta` is the closed form the tails used to go through.
+ * Its continued fraction stops after 300 steps and its prefactor is a
+ * difference of log-gammas, which is fine up to n of about a million and wrong
+ * beyond: at n = 1e9, p = 0.5 it put the chance of reaching the median at 0.
+ * It is kept for callers with moderate arguments.
  */
 
 // Lanczos approximation coefficients (g = 7, n = 9), the standard
@@ -109,6 +114,82 @@ export function regularizedIncompleteBeta(
     return (front * betaContinuedFraction(x, a, b)) / a;
   }
   return 1 - (front * betaContinuedFraction(1 - x, b, a)) / b;
+}
+
+// --- Binomial probabilities for any n -----------------------------------------
+//
+// Catherine Loader's saddle-point form of the binomial pmf ("Fast and Accurate
+// Computation of Binomial Probabilities", 2000; it is what R's dbinom uses).
+// Writing the pmf as log C(n, k) + k log p + (n - k) log q subtracts numbers of
+// size n to get one of size 1, so its error grows with n: by n = 1e9 nothing is
+// left. Loader's form adds only small terms: the error of Stirling's formula at
+// n, k and n - k, and two deviance terms that vanish when k is near n p.
+
+const LOG_2PI = Math.log(2 * Math.PI);
+
+/** log(n!) for the small n where Stirling's series is not yet accurate enough. */
+const SMALL_LOG_FACTORIALS: number[] = (() => {
+  const logs = [0];
+  let factorial = 1;
+  for (let n = 1; n <= 15; n++) {
+    factorial *= n; // exact: 15! is below 2^53
+    logs.push(Math.log(factorial));
+  }
+  return logs;
+})();
+
+/** log(n!) - log(sqrt(2 pi n) (n / e)^n), for an integer n >= 1. */
+export function stirlingError(n: number): number {
+  if (n <= 15) {
+    return (
+      SMALL_LOG_FACTORIALS[n]! - ((n + 0.5) * Math.log(n) - n + 0.5 * LOG_2PI)
+    );
+  }
+  const nn = n * n;
+  if (n > 500) return (1 / 12 - 1 / 360 / nn) / n;
+  if (n > 80) return (1 / 12 - (1 / 360 - 1 / 1260 / nn) / nn) / n;
+  if (n > 35)
+    return (1 / 12 - (1 / 360 - (1 / 1260 - 1 / 1680 / nn) / nn) / nn) / n;
+  return (
+    (1 / 12 -
+      (1 / 360 - (1 / 1260 - (1 / 1680 - 1 / 1188 / nn) / nn) / nn) / nn) /
+    n
+  );
+}
+
+/** x log(x / np) + np - x, by a series when x is close to np (where the direct form cancels). */
+function deviance(x: number, np: number): number {
+  if (Math.abs(x - np) < 0.1 * (x + np)) {
+    let v = (x - np) / (x + np);
+    let sum = (x - np) * v;
+    let term = 2 * x * v;
+    v *= v;
+    for (let j = 1; j < 1000; j++) {
+      term *= v;
+      const next = sum + term / (2 * j + 1);
+      if (next === sum) return next;
+      sum = next;
+    }
+    return sum;
+  }
+  return x * Math.log(x / np) + np - x;
+}
+
+/** P(X = k) for X ~ Binomial(n, p), accurate to double precision whatever the size of n. */
+export function binomialPmf(n: number, p: number, k: number): number {
+  if (k < 0 || k > n || !Number.isInteger(k)) return 0;
+  if (p <= 0) return k === 0 ? 1 : 0;
+  if (p >= 1) return k === n ? 1 : 0;
+  if (k === 0) return Math.exp(n * Math.log1p(-p));
+  if (k === n) return Math.exp(n * Math.log(p));
+  const logCore =
+    stirlingError(n) -
+    stirlingError(k) -
+    stirlingError(n - k) -
+    deviance(k, n * p) -
+    deviance(n - k, n * (1 - p));
+  const logScale = LOG_2PI + Math.log(k) + Math.log1p(-k / n);
+  return Math.exp(logCore - 0.5 * logScale);
 }
 
 /** Kahan summation for alternating/inclusion-exclusion sums that cancel heavily. */

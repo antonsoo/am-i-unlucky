@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import { mulberry32 } from "../src/math/collection.js";
 import {
   itemTierRate,
+  MAX_PITY_STATES,
   pityDistribution,
   pityDistributionPoints,
   pityLuckPercentile,
@@ -187,5 +188,43 @@ describe("pityDistributionPoints", () => {
     for (let i = 1; i < points.length; i++) {
       expect(points[i]!.cdf).toBeGreaterThanOrEqual(points[i - 1]!.cdf - 1e-12);
     }
+  });
+});
+
+describe("pityDistribution on large setups", () => {
+  it("stops once the probability is absorbed instead of walking the whole horizon", () => {
+    // 20 copies with no guarantee: the horizon is 36,000 pulls, and everything that can
+    // happen has happened by about 8,000. The walk used to go on adding zeros.
+    const config = { ...GACHA_PRESET, hasGuarantee: false };
+    const dist = pityDistribution(config, { pity: 0, guaranteed: false }, 20);
+    expect(dist.horizon).toBeLessThan(10_000);
+    expect(dist.pmf).toHaveLength(dist.horizon + 1);
+    let total = 0;
+    for (const mass of dist.pmf) total += mass;
+    expect(total).toBeCloseTo(1, 12);
+    const summary = summarizePity(dist);
+    // The same figures the full walk gave.
+    expect(summary.expectedPulls).toBeCloseTo(2491.893281585, 8);
+    expect(summary.stdDevPulls).toBeCloseTo(422.94414465, 7);
+    expect(summary.pullsFor).toEqual({ p50: 2461, p90: 3049, p99: 3609 });
+  });
+
+  it("answers the largest setup it accepts in a few seconds at most", () => {
+    const target = MAX_PITY_STATES / 2 / GACHA_PRESET.hardPity; // 44 copies at hard pity 90
+    const started = performance.now();
+    const dist = pityDistribution(
+      GACHA_PRESET,
+      { pity: 0, guaranteed: false },
+      Math.floor(target),
+    );
+    expect(performance.now() - started).toBeLessThan(5000); // 40 copies without a guarantee took 9.6 s
+    expect(dist.tailMass).toBeLessThan(1e-12);
+  });
+
+  it("refuses a setup too large to track, saying which numbers to lower", () => {
+    // A mistyped target froze the page for minutes.
+    expect(() =>
+      pityDistribution(GACHA_PRESET, { pity: 0, guaranteed: false }, 1000),
+    ).toThrow(/1000 copies at a hard pity of 90.*at most 4000/);
   });
 });

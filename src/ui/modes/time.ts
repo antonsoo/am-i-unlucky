@@ -68,7 +68,17 @@ export function mountTimeMode(
     }));
   }
 
+  /** Recomputes the results, or says why it can't for numbers beyond what the math covers. */
   function recompute(): void {
+    try {
+      computeResults();
+    } catch (err) {
+      if (!(err instanceof RangeError)) throw err;
+      resultsEl.innerHTML = `<section class="panel"><p class="note">${esc(err.message)}</p></section>`;
+    }
+  }
+
+  function computeResults(): void {
     s.sources = readSourcesFromDom();
     s.k = Math.max(1, Math.floor(Number(kInput.value) || 1));
 

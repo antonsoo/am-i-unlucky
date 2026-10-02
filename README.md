@@ -83,7 +83,7 @@ The two methods agree to within the simulation's own confidence interval — see
 
 The full derivations live in [`docs/MATH.md`](./docs/MATH.md). Summary:
 
-- **Binomial / negative-binomial tails** are computed via the regularized incomplete beta function, $P(X \geq k) = I_p(k, n-k+1)$ for $X \sim \text{Binomial}(n,p)$, evaluated with a continued-fraction algorithm (Lentz's method) rather than by summing individual binomial terms. That keeps it exact and fast even at $n$ in the millions or $p$ as small as $1/1{,}000{,}000$ — see `src/math/numeric.ts`.
+- **Binomial / negative-binomial tails** are summed term by term from an accurate binomial probability (Loader's saddle-point form, the algorithm behind R's `dbinom`), outward from the point asked about and away from the mean, where the terms only shrink. That keeps them exact from a handful of attempts to billions, and for $p$ as small as one in a trillion: 647 reference values from `scipy.stats.binom`, up to $n = 10^{15}$, are matched to nine significant digits — see `src/math/numeric.ts` and `docs/MATH.md`.
 - **Pity systems** are modeled as a Markov chain with state `(pity counter, guarantee flag, copies obtained)` and solved by forward dynamic programming over pulls (`src/math/pity.ts`), which is exact — not simulated — whenever the guarantee mechanic bounds the DP horizon. Naive formulas fail here because the per-pull probability isn't constant (soft pity ramps it) and a lost 50/50 deterministically changes the next roll.
 - **Collections** with unequal per-item rates use inclusion-exclusion over subsets of items (`src/math/collection.ts`): $E[T] = \sum_{\emptyset \neq S} (-1)^{|S|+1} / P(S)$. That's exact but $O(2^m)$, so it's capped at 24 items for the expectation and 18 for the full CDF curve, with a Monte Carlo cross-check always shown alongside.
 - **Time to drop** reduces to the same negative-binomial machinery once multiple sources are collapsed into one exact per-day success probability, $q = 1 - \prod_i (1-p_i)^{\text{runs}_i}$.
@@ -111,7 +111,7 @@ stateDiagram-v2
 ## Development
 
 ```bash
-npm test          # vitest — 145 tests across 11 files
+npm test          # vitest — 154 tests across 11 files
 npm run lint       # eslint, strict + type-checked
 npm run typecheck  # tsc --noEmit, strict mode
 npm run build      # tsc --noEmit && vite build

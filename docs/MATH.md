@@ -34,23 +34,46 @@ least $k$:
 
 $$P(T_k \le n) = P(X \ge k), \quad X \sim \text{Binomial}(n, p).$$
 
-This is useful because $P(X \ge k)$ has a closed form in terms of the
-**regularized incomplete beta function**:
+`binomialSurvival(n, p, k)` in `src/math/simple.ts` computes $P(X \ge k)$ as a
+sum of binomial probabilities, in two steps that keep it exact at any size.
 
-$$P(X \ge k) = I_p(k,\, n-k+1).$$
+_An accurate single term._ Writing $P(X = k)$ as
+$\exp\bigl(\log\binom{n}{k} + k\log p + (n-k)\log(1-p)\bigr)$ subtracts
+numbers of size $n$ to get one of size 1, so its error grows with $n$.
+`binomialPmf` in `src/math/numeric.ts` uses Catherine Loader's saddle-point
+form instead ("Fast and Accurate Computation of Binomial Probabilities", 2000,
+the algorithm behind R's `dbinom`):
 
-`binomialSurvival(n, p, k)` in `src/math/simple.ts` computes exactly this,
-via `regularizedIncompleteBeta` in `src/math/numeric.ts`. That function is
-evaluated with a continued-fraction algorithm (a standard numerical recipe,
-sometimes called Lentz's method) rather than by summing $n - k + 1$ individual
-binomial terms. The difference matters in practice: summing terms is $O(n)$
-and can lose precision when $p$ is tiny (many near-zero terms) or $n$ is
-huge (millions of terms); the continued fraction converges in a bounded
-number of iterations regardless of $n$, so `binomialSurvival(10_000_000,
-1e-6, 1)` is as fast and as accurate as `binomialSurvival(10, 0.5, 5)`. The
-regularized incomplete beta function itself needs $\log \Gamma$ (log-gamma)
-for its normalizing constant $B(a,b) = \Gamma(a)\Gamma(b)/\Gamma(a+b)$, computed
-via a Lanczos approximation (`logGamma`).
+$$P(X = k) = \sqrt{\frac{n}{2\pi k (n-k)}}\; \exp\Bigl(\delta(n) - \delta(k) - \delta(n-k) - D(k, np) - D(n-k, n(1-p))\Bigr),$$
+
+where $\delta(m) = \log m! - \log\bigl(\sqrt{2\pi m}\,(m/e)^m\bigr)$ is the
+error of Stirling's formula (a short series, or exact factorials for
+$m \le 15$) and $D(x, \mu) = x\log(x/\mu) + \mu - x$ is a deviance, computed
+by its own series when $x$ is close to $\mu$. Every term is small, so nothing
+cancels.
+
+_Summing away from the mean._ The tail is then added up term by term from $k$
+outward, each term from the last by the ratio
+$\frac{P(X=j+1)}{P(X=j)} = \frac{n-j}{j+1}\cdot\frac{p}{1-p}$, always on the
+side of $k$ that lies away from the mean $np$ (and subtracted from 1 when that
+is the lower side). There the first term is the largest and the rest only
+shrink, so the sum stops as soon as a term no longer changes it: a handful of
+terms for a rare drop, and at most about nine standard deviations' worth near
+the mean. A probability as small as $4 \times 10^{-159}$ comes out as that
+number, not as a rounded-off zero.
+
+The work is proportional to the standard deviation $\sqrt{np(1-p)}$, so the
+function sets a limit: a variance of $10^{10}$ (ten billion expected successes
+at even odds), far beyond any number of attempts a person makes. Past it,
+it raises an error rather than taking seconds per call.
+
+An earlier version used the closed form $P(X \ge k) = I_p(k, n-k+1)$ (the
+regularized incomplete beta function, by a continued fraction capped at 300
+steps, normalized through $\log\Gamma$). That agrees with SciPy up to about a
+million attempts and then degrades: off by $10^{-3}$ at $n = 10^7$, and at
+$n = 10^9$, $p = 0.5$ it put the chance of reaching the median at 0.
+`tests/oracle.test.ts` now checks 647 values from $n = 10$ to $10^{15}$
+against `scipy.stats.binom` to nine significant digits.
 
 **Luck percentile.** Given that you made $n$ attempts and needed $k$
 successes, define
