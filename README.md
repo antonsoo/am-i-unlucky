@@ -111,7 +111,7 @@ stateDiagram-v2
 ## Development
 
 ```bash
-npm test          # vitest — 154 tests across 11 files
+npm test          # vitest
 npm run lint       # eslint, strict + type-checked
 npm run typecheck  # tsc --noEmit, strict mode
 npm run build      # tsc --noEmit && vite build
