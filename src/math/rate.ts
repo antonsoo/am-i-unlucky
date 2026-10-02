@@ -65,7 +65,7 @@ export function formatRateAsOdds(p: number): string {
   const n = 1 / p;
   const rounded = Math.round(n);
   if (Math.abs(n - rounded) < 1e-9) {
-    return `1 in ${rounded.toLocaleString()}`;
+    return `1 in ${rounded.toLocaleString("en-US")}`;
   }
   return `1 in ${n.toFixed(1)}`;
 }

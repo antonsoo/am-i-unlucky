@@ -5,6 +5,15 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.2.2] - 2026-10-02
+
+### Fixed
+
+- "1 in N" odds followed the browser's locale (`1 in 8.192` in a German one)
+  while every other number on the page is written with a decimal point. They
+  are `1 in 8,192` everywhere. CI now runs the tests a second time in a
+  comma-decimal locale.
+
 ## [0.2.1] - 2026-10-01
 
 ### Fixed

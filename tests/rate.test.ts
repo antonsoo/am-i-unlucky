@@ -43,6 +43,8 @@ describe("parseRate", () => {
 describe("formatRateAsOdds", () => {
   it("formats clean fractions", () => {
     expect(formatRateAsOdds(1 / 512)).toBe("1 in 512");
+    // The same in every locale: the page's other numbers are written with a decimal point.
+    expect(formatRateAsOdds(1 / 8192)).toBe("1 in 8,192");
   });
   it("handles extremes", () => {
     expect(formatRateAsOdds(0)).toBe("never");
