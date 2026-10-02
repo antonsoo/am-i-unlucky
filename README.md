@@ -106,7 +106,7 @@ stateDiagram-v2
 - Collection mode's exact math is capped at 24 items (expectation) / 18 items (full CDF curve) because inclusion-exclusion is `O(2^m)`. Above that, only the Monte Carlo estimate is available.
 - The "luck percentile" is defined as $100 \times (1 - P(T_k \le n))$ — the share of players who'd need more attempts than you did. That holds when the drop came on attempt `n`; for a player still waiting it is only an upper bound, so the verdict can be "Unlucky" or "Not unlucky yet" but not "Lucky" (see [docs/MATH.md](./docs/MATH.md)). At `n = 0` it is trivially 100%; the UI hides it until at least one attempt is entered.
 - Presets are archetypes, not official data mining. Only the two shiny-hunt presets cite a specific published rate (Pokémon's documented 1/4096 base and 3/4096-with-Shiny-Charm encounter odds, in place since Generation VI); the pity preset and the MMO/loot-box presets are generic and explicitly labeled as such. Every number is editable.
-- This is a client-side static site: no accounts, no analytics, nothing phones home. Shared links embed your inputs in the URL query string in plain text.
+- This is a client-side static site: no accounts, no analytics, nothing phones home (the page asks no other host for anything, and its Content-Security-Policy would not let it). Shared links embed your inputs in the URL query string in plain text.
 
 ## Development
 

@@ -16,6 +16,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   different: screenshots before and after match. The page now loads with
   every other host blocked, and "nothing phones home" has no exception left.
 
+### Security
+
+- The built page carries a Content-Security-Policy. Scripts, styles, fonts and
+  workers load from the page's own origin only, and `connect-src 'self'` has
+  the browser refuse to send what you give the page to any other host, even
+  for a script injected through a bug in how the page renders a file. Inline
+  event handlers and `eval` are not allowed. Every control was exercised
+  in Chromium and Firefox with a listener for policy violations: none.
+
 ## [0.2.2] - 2026-10-02
 
 ### Fixed
