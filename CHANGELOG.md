@@ -25,6 +25,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   event handlers and `eval` are not allowed. Every control was exercised
   in Chromium and Firefox with a listener for policy violations: none.
 
+### Accessibility
+
+- Checked with axe-core (WCAG 2.1 A and AA, and its best-practice rules) in light and dark,
+  at desktop and phone widths, on every tab: no findings now. The
+  faint text of the dark theme was 3.8:1 to 4.1:1; it is above 4.5:1.
+
 ## [0.2.2] - 2026-10-02
 
 ### Fixed

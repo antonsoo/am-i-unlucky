@@ -81,7 +81,7 @@ export function renderLuckCard(
   ctx.font = "600 30px 'IBM Plex Mono', monospace";
   ctx.textAlign = "center";
   ctx.fillText("AM I UNLUCKY?", W / 2, 160);
-  ctx.fillStyle = "#767ca3";
+  ctx.fillStyle = "#848aad";
   ctx.font = "500 26px 'IBM Plex Mono', monospace";
   ctx.fillText(data.modeLabel.toUpperCase(), W / 2, 200);
 
