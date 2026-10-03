@@ -1,6 +1,6 @@
 {
   "name": "am-i-unlucky",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "Exact drop-rate and pity math for gamers. Find out whether you're unlucky, or the system is.",
   "type": "module",
   "author": "Anton Soloviev",

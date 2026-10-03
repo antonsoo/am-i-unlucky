@@ -37,8 +37,8 @@ export function mountSimpleMode(
           <p class="panel-subtitle">A fixed per-attempt rate, no pity. Works for shiny hunts, loot boxes, rare drops.</p>
           <div class="field">
             <label class="field-label" for="simple-rate">Drop rate <span class="field-hint">1/512, 0.2%, or 0.002</span></label>
-            <input type="text" id="simple-rate" value="${esc(s.rate)}" inputmode="decimal" autocomplete="off" />
-            <div class="field-error" id="simple-rate-error"></div>
+            <input type="text" id="simple-rate" value="${esc(s.rate)}" inputmode="decimal" autocomplete="off" aria-describedby="simple-rate-error" />
+            <div class="field-error" id="simple-rate-error" aria-live="polite"></div>
           </div>
           <div class="field-row">
             <div class="field">
@@ -95,9 +95,13 @@ export function mountSimpleMode(
     try {
       p = parseRate(rateInput.value);
       errorEl.textContent = "";
+      rateInput.removeAttribute("aria-invalid");
     } catch (err) {
       errorEl.textContent =
         err instanceof RateParseError ? err.message : "Invalid rate.";
+      // Read with the field (aria-describedby) and announced politely: the field re-checks on
+      // every keystroke, so an alert would interrupt each one.
+      rateInput.setAttribute("aria-invalid", "true");
       resultsEl.innerHTML = `<section class="panel"><p class="note">Fix the rate above to see results.</p></section>`;
       return;
     }

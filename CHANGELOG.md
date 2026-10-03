@@ -5,6 +5,15 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.2.4] - 2026-10-03
+
+### Accessibility
+
+- A drop rate the page could not read ("one in five") showed its message under the field, but
+  a screen reader was not told and the field did not say it was wrong. The message is linked
+  to the field, announced politely as it changes, and the field is marked invalid until the
+  rate reads.
+
 ## [0.2.3] - 2026-10-02
 
 ### Changed
