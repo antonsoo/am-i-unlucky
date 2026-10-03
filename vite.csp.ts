@@ -2,7 +2,10 @@ import type { Plugin } from "vite";
 
 /** The CSP source that allows one inline script: the SHA-256 of its text. */
 async function hashSource(script: string): Promise<string> {
-  const digest = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(script));
+  const digest = await crypto.subtle.digest(
+    "SHA-256",
+    new TextEncoder().encode(script),
+  );
   return `'sha256-${btoa(String.fromCharCode(...new Uint8Array(digest)))}'`;
 }
 
@@ -19,7 +22,9 @@ async function hashSource(script: string): Promise<string> {
  *
  * Built pages only. The dev server injects scripts and styles of its own.
  */
-export function contentSecurityPolicy(additions: Record<string, string[]> = {}): Plugin {
+export function contentSecurityPolicy(
+  additions: Record<string, string[]> = {},
+): Plugin {
   return {
     name: "content-security-policy",
     apply: "build",
@@ -27,8 +32,16 @@ export function contentSecurityPolicy(additions: Record<string, string[]> = {}):
       order: "post",
       async handler(html) {
         const inlineScripts = await Promise.all(
-          [...html.matchAll(/<script(?![^>]*\bsrc=)([^>]*)>([\s\S]*?)<\/script>/g)]
-            .filter(([, attrs, body]) => !/type="application\/(ld\+)?json"/.test(attrs ?? "") && (body ?? "").trim() !== "")
+          [
+            ...html.matchAll(
+              /<script(?![^>]*\bsrc=)([^>]*)>([\s\S]*?)<\/script>/g,
+            ),
+          ]
+            .filter(
+              ([, attrs, body]) =>
+                !/type="application\/(ld\+)?json"/.test(attrs ?? "") &&
+                (body ?? "").trim() !== "",
+            )
             .map(([, , body]) => hashSource(body ?? "")),
         );
         const policy: Record<string, string[]> = {
@@ -52,7 +65,10 @@ export function contentSecurityPolicy(additions: Record<string, string[]> = {}):
           .join("; ");
         const tag = `<meta http-equiv="Content-Security-Policy" content="${content}" />`;
         const charset = /<meta charset="[^"]*"\s*\/?>/i;
-        if (!charset.test(html)) throw new Error("index.html has no <meta charset> to put the policy after");
+        if (!charset.test(html))
+          throw new Error(
+            "index.html has no <meta charset> to put the policy after",
+          );
         // First thing after the charset: a policy only governs what follows it.
         return html.replace(charset, (match) => `${match}\n    ${tag}`);
       },
