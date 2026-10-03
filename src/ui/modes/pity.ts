@@ -125,7 +125,7 @@ export function mountPityMode(
     return Number.isFinite(v) ? v : fallback;
   }
 
-  function recompute(): void {
+  function readInputs() {
     const hardPity = Math.max(1, Math.floor(Number(els.hard.value) || 1));
     const config = {
       baseRate: Math.min(1, Math.max(0, parsePct(els.base.value, s.baseRate))),
@@ -159,7 +159,14 @@ export function mountPityMode(
       budget,
       actualPulls,
     });
+    return { config, pity0, target, budget, actualPulls };
+  }
+  ctx.registerCapture(() => {
+    readInputs();
+  });
 
+  function recompute(): void {
+    const { config, pity0, target, budget, actualPulls } = readInputs();
     let dist;
     try {
       dist = pityDistribution(
@@ -253,7 +260,7 @@ export function mountPityMode(
     ctx.onStateChange();
   }
 
-  const debouncedRecompute = debounce(recompute, 150);
+  const debouncedRecompute = debounce(recompute, 150, ctx.signal);
   Object.values(els).forEach((el) => {
     el.addEventListener(
       el.type === "checkbox" ? "change" : "input",

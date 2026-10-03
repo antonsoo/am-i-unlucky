@@ -45,8 +45,12 @@ describe("app-state URL round trip", () => {
     const state = defaultState();
     state.mode = "time";
     state.time = {
-      sources: [{ name: "Daily", rate: "2%", runsPerDay: 3 }],
+      sources: [
+        { name: "Daily", rate: "2%", attempts: 3, everyDays: 1 },
+        { name: "Raid", rate: "5%", attempts: 2, everyDays: 7 },
+      ],
       k: 2,
+      days: 14,
     };
     const decoded = decodeState(`?${encodeState(state)}`);
     expect(decoded.mode).toBe("time");
@@ -56,6 +60,29 @@ describe("app-state URL round trip", () => {
   it("falls back to defaults for an empty query string", () => {
     const decoded = decodeState("");
     expect(decoded).toEqual(defaultState());
+  });
+
+  it("keeps invalid but well-formed legacy numbers for an actionable correction", () => {
+    const sources = [{ name: "Weekly-ish", rate: "5%", runsPerDay: 0.2 }];
+    const decoded = decodeState(
+      `?mode=time&sources=${encodeURIComponent(JSON.stringify(sources))}&k=2.5&days=-1`,
+    );
+    expect(decoded.time).toEqual({
+      sources: [
+        { name: "Weekly-ish", rate: "5%", attempts: 0.2, everyDays: 1 },
+      ],
+      k: 2.5,
+      days: -1,
+    });
+  });
+
+  it("preserves a zero-day budget and unsupported numeric cadence instead of substituting daily", () => {
+    const sources = [{ name: "Custom", rate: "5%", attempts: 2, everyDays: 2 }];
+    const decoded = decodeState(
+      `?mode=time&sources=${encodeURIComponent(JSON.stringify(sources))}&days=0`,
+    );
+    expect(decoded.time.days).toBe(0);
+    expect(decoded.time.sources).toEqual(sources);
   });
 
   it("falls back to defaults for an unknown mode", () => {
@@ -100,8 +127,9 @@ describe("app-state URL round trip", () => {
       '[{"name":"Q","rate":"2%","runsPerDay":3}]',
     );
     expect(decodeState(`?mode=time&sources=${good}&k=2`).time).toEqual({
-      sources: [{ name: "Q", rate: "2%", runsPerDay: 3 }],
+      sources: [{ name: "Q", rate: "2%", attempts: 3, everyDays: 1 }],
       k: 2,
+      days: 30,
     });
   });
 });

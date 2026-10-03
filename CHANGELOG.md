@@ -5,6 +5,33 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.3.0] - 2026-10-03
+
+### Fixed
+
+- Time-to-drop counted successful days instead of copies. Ten guaranteed
+  daily attempts incorrectly needed five days for five copies; they now
+  finish on day 1. The new count model preserves multiple successes in
+  each batch and uses an exact cycle recurrence for the expected time.
+- Very small nonzero rates no longer disappear through `1 - product(...)`
+  cancellation. Beyond-horizon milestones and overflowing means are
+  distinguished from impossible schedules.
+- Old panel debounces and time workers are cancelled on navigation or
+  superseding edits. Immediate time-mode sharing captures the edited
+  inputs. Clipboard denial or absence opens a copyable link dialog.
+- Single-day chart ticks and coincident milestone labels no longer overlap.
+
+### Added
+
+- Explicit daily and weekly batch schedules, a day-budget probability,
+  accessible source cards, whole-number validation, and clear timing
+  assumptions. Existing integer daily links migrate automatically;
+  fractional daily drafts remain visible with correction instructions.
+- Worker calculations with cancellation, bounded inputs, timeout, and retry.
+- Independent 80-digit Decimal schedule fixtures and production Chromium/
+  Firefox tests for calculations, input races, worker failures, sharing,
+  malicious input text, keyboard navigation, and mobile accessibility.
+
 ## [0.2.4] - 2026-10-03
 
 ### Accessibility

@@ -35,7 +35,7 @@ const MODE_INTRO: Record<Mode, { title: string; body: string }> = {
   },
   time: {
     title: "Time to drop",
-    body: "Turn attempt rates and runs-per-day into a realistic time estimate, in hours, days, or months.",
+    body: "Plan daily and weekly attempts. See your chance of collecting every copy before your deadline.",
   },
 };
 
@@ -182,9 +182,10 @@ function main(): void {
   const { tabsEl, mainEl, liveEl } = buildShell();
 
   let state: AppState = decodeState(window.location.search);
+  let modeLifetime: AbortController | undefined;
+  let captureInputs: (() => void) | undefined;
 
-  const updateUrl = debounce(() => {
-    const query = encodeState(state);
+  const updateUrl = debounce((query: string) => {
     const url = `${window.location.pathname}?${query}`;
     window.history.replaceState(null, "", url);
   }, 300);
@@ -194,7 +195,7 @@ function main(): void {
     state.mode = mode;
     renderTabs();
     renderMain();
-    updateUrl();
+    updateUrl(encodeState(state));
     tabsEl.querySelector<HTMLButtonElement>(`[data-mode="${mode}"]`)?.focus();
   }
 
@@ -215,18 +216,36 @@ function main(): void {
       });
       btn.addEventListener("keydown", (e: KeyboardEvent) => {
         const index = Number(btn.dataset.index);
-        if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
+        if (["ArrowRight", "ArrowLeft", "Home", "End"].includes(e.key)) {
           e.preventDefault();
           const dir = e.key === "ArrowRight" ? 1 : -1;
           const next =
-            buttons[(index + dir + buttons.length) % buttons.length]!;
+            buttons[
+              e.key === "Home"
+                ? 0
+                : e.key === "End"
+                  ? buttons.length - 1
+                  : (index + dir + buttons.length) % buttons.length
+            ]!;
           switchMode(next.dataset.mode as Mode);
         }
       });
     });
+    tabsEl
+      .querySelector<HTMLButtonElement>('[aria-selected="true"]')
+      ?.scrollIntoView({ block: "nearest", inline: "nearest" });
   }
 
   function renderMain(): void {
+    captureInputs?.();
+    captureInputs = undefined;
+    modeLifetime?.abort();
+    modeLifetime = new AbortController();
+    const signal = modeLifetime.signal;
+    const shareButton = document.getElementById(
+      "share-btn",
+    ) as HTMLButtonElement;
+    shareButton.disabled = false;
     const intro = MODE_INTRO[state.mode];
     mainEl.innerHTML = `
       <div class="intro">
@@ -237,8 +256,15 @@ function main(): void {
     `;
     const mount = document.getElementById("mode-mount")!;
     const ctx = {
+      signal,
+      registerCapture: (capture: () => void) => {
+        captureInputs = capture;
+      },
+      setShareEnabled: (enabled: boolean) => {
+        if (!signal.aborted) shareButton.disabled = !enabled;
+      },
       onStateChange: () => {
-        updateUrl();
+        if (!signal.aborted) updateUrl(encodeState(state));
       },
       openLuckCard: openLuckCardModal,
     };
@@ -261,19 +287,44 @@ function main(): void {
   syncThemeIcon();
   document.getElementById("theme-btn")!.addEventListener("click", toggleTheme);
   document.getElementById("share-btn")!.addEventListener("click", () => {
+    captureInputs?.();
     const query = encodeState(state);
     const url = `${window.location.origin}${window.location.pathname}?${query}`;
-    void navigator.clipboard
-      .writeText(url)
-      .then(() => {
+    void (async () => {
+      try {
+        await navigator.clipboard.writeText(url);
         liveEl.textContent = "Link copied to clipboard.";
-      })
-      .catch(() => {
-        liveEl.textContent = url;
-      });
+      } catch {
+        const dialog = document.createElement("dialog");
+        dialog.className = "modal share-dialog";
+        dialog.setAttribute("aria-labelledby", "share-title");
+        dialog.innerHTML = `<h2 id="share-title">Copy your link</h2>
+          <p>Automatic copying is unavailable. Select and copy the link below.</p>
+          <div class="field"><label class="field-label" for="share-url">Shareable link</label><input id="share-url" type="text" readonly /></div>
+          <button type="button" class="btn btn-primary">Close</button>`;
+        document.body.appendChild(dialog);
+        const input = dialog.querySelector<HTMLInputElement>("input")!;
+        input.value = url;
+        dialog.addEventListener(
+          "close",
+          () => {
+            dialog.remove();
+            document.getElementById("share-btn")!.focus();
+          },
+          { once: true },
+        );
+        dialog.querySelector("button")!.addEventListener("click", () => {
+          dialog.close();
+        });
+        dialog.showModal();
+        input.focus();
+        input.select();
+      }
+    })();
   });
 
   window.addEventListener("popstate", () => {
+    updateUrl.cancel();
     state = decodeState(window.location.search);
     renderTabs();
     renderMain();

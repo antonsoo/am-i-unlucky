@@ -1,6 +1,6 @@
 {
   "name": "am-i-unlucky",
-  "version": "0.2.4",
+  "version": "0.3.0",
   "description": "Exact drop-rate and pity math for gamers. Find out whether you're unlucky, or the system is.",
   "type": "module",
   "author": "Anton Soloviev",
@@ -32,10 +32,13 @@
     "lint": "eslint . --max-warnings 0",
     "typecheck": "tsc --noEmit",
     "fmt": "prettier --check .",
-    "fmt:write": "prettier --write ."
+    "fmt:write": "prettier --write .",
+    "test:browser": "playwright test"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
     "@eslint/js": "^10.0.1",
+    "@playwright/test": "^1.63.0",
     "@types/node": "^24.6.2",
     "eslint": "^10.11.0",
     "prettier": "^3.9.9",

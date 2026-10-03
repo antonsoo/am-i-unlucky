@@ -68,9 +68,14 @@ export function mountCollectionMode(
     );
   }
 
-  function recompute(): void {
+  function captureInputs(): void {
     s.items = readItemsFromDom();
     s.n = Math.max(0, Math.floor(Number(nInput.value) || 0));
+  }
+  ctx.registerCapture(captureInputs);
+
+  function recompute(): void {
+    captureInputs();
 
     const probs: number[] = [];
     let parseError = "";
@@ -158,7 +163,7 @@ export function mountCollectionMode(
     ctx.onStateChange();
   }
 
-  const debouncedRecompute = debounce(recompute, 150);
+  const debouncedRecompute = debounce(recompute, 150, ctx.signal);
 
   function wireRow(row: HTMLDivElement): void {
     row

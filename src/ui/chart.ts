@@ -62,23 +62,43 @@ export function renderDistributionChart(
     )
     .join(" ");
 
-  const markerLines = markers
+  const groupedMarkers = new Map<number, string[]>();
+  for (const marker of markers) {
+    const labels = groupedMarkers.get(marker.x) ?? [];
+    labels.push(marker.label);
+    groupedMarkers.set(marker.x, labels);
+  }
+  const markerLines = Array.from(groupedMarkers, ([x, labels]) => ({
+    x,
+    label: labels.join(" / "),
+  }))
     .filter((m) => m.x >= xMin && m.x <= xMax)
     .map((m) => {
-      const x = sx(m.x).toFixed(2);
+      const position = sx(m.x);
+      const x = position.toFixed(2);
+      const halfLabelWidth = m.label.length * 3;
+      const anchor =
+        position < halfLabelWidth + PAD_LEFT
+          ? "start"
+          : position > WIDTH - PAD_RIGHT - halfLabelWidth
+            ? "end"
+            : "middle";
       return `<line x1="${x}" y1="${PAD_TOP}" x2="${x}" y2="${PAD_TOP + plotH}" class="chart-marker" />
-        <text x="${x}" y="${PAD_TOP - 2}" class="chart-marker-label" text-anchor="middle">${m.label}</text>`;
+        <text x="${x}" y="${PAD_TOP - 2}" class="chart-marker-label" text-anchor="${anchor}">${m.label}</text>`;
     })
     .join("");
 
   // Five evenly spaced ticks instead of three, so the shape of a bimodal
   // (soft-pity + hard-pity) distribution reads clearly along the axis.
   const tickFractions = [0, 0.25, 0.5, 0.75, 1];
-  const xTicks: { value: number; anchor: string }[] = tickFractions.map(
-    (f, i) => ({
-      value: Math.round(xMin + (xMax - xMin) * f),
+  const tickValues = [
+    ...new Set(tickFractions.map((f) => Math.round(xMin + (xMax - xMin) * f))),
+  ];
+  const xTicks: { value: number; anchor: string }[] = tickValues.map(
+    (value, i) => ({
+      value,
       anchor:
-        i === 0 ? "start" : i === tickFractions.length - 1 ? "end" : "middle",
+        i === 0 ? "start" : i === tickValues.length - 1 ? "end" : "middle",
     }),
   );
   const xTickLabels = xTicks

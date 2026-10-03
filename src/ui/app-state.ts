@@ -30,12 +30,14 @@ export interface CollectionState {
 export interface TimeSourceState {
   name: string;
   rate: string;
-  runsPerDay: number;
+  attempts: number;
+  everyDays: number;
 }
 
 export interface TimeState {
   sources: TimeSourceState[];
   k: number;
+  days: number;
 }
 
 export interface AppState {
@@ -73,8 +75,9 @@ export function defaultState(): AppState {
       n: 60,
     },
     time: {
-      sources: [{ name: "Daily quest", rate: "2%", runsPerDay: 1 }],
+      sources: [{ name: "Daily quest", rate: "2%", attempts: 1, everyDays: 1 }],
       k: 1,
+      days: 30,
     },
   };
 }
@@ -117,6 +120,7 @@ export function encodeState(state: AppState): string {
       const t = state.time;
       params.set("sources", JSON.stringify(t.sources));
       params.set("k", String(t.k));
+      params.set("days", String(t.days));
       break;
     }
   }
@@ -154,11 +158,21 @@ function namedRates(raw: unknown): CollectionItemState[] {
 function timeSources(raw: unknown): TimeSourceState[] {
   return namedRates(raw).map((item, i) => {
     const record: unknown = (raw as unknown[])[i];
-    const runsPerDay = isRecord(record) ? record.runsPerDay : undefined;
-    if (typeof runsPerDay !== "number" || !Number.isFinite(runsPerDay)) {
+    if (!isRecord(record)) throw new MalformedState();
+    // Preserve legacy fractional drafts so the UI can explain how to replace
+    // them with explicit weekly batches, rather than silently changing intent.
+    const legacy = !("attempts" in record) && "runsPerDay" in record;
+    const attempts = legacy ? record.runsPerDay : record.attempts;
+    const everyDays = legacy ? 1 : record.everyDays;
+    if (
+      typeof attempts !== "number" ||
+      !Number.isFinite(attempts) ||
+      typeof everyDays !== "number" ||
+      !Number.isFinite(everyDays)
+    ) {
       throw new MalformedState();
     }
-    return { ...item, runsPerDay };
+    return { ...item, attempts, everyDays };
   });
 }
 
@@ -219,7 +233,11 @@ export function decodeState(search: string): AppState {
         const sources = rawSources
           ? timeSources(JSON.parse(rawSources))
           : base.time.sources;
-        base.time = { sources, k: num(params, "k", base.time.k) };
+        base.time = {
+          sources,
+          k: num(params, "k", base.time.k),
+          days: num(params, "days", base.time.days),
+        };
         break;
       }
     }

@@ -750,13 +750,81 @@ main {
   border-color: var(--danger);
 }
 
-/* sources list (time-to-drop mode) */
-.source-row {
+/* Schedule sources stay legible inside the narrow input column. */
+.time-source {
+  min-width: 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 12px;
+  margin: 0 0 16px;
+}
+.time-source legend {
+  padding: 0 6px;
+  color: var(--ink-dim);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+.time-source-heading {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 32px;
+  grid-template-columns: minmax(0, 1fr) 44px;
   gap: 8px;
-  align-items: center;
-  margin-bottom: 8px;
+  align-items: end;
+  margin-bottom: 12px;
+}
+.time-source .field {
+  min-width: 0;
+  margin: 0;
+}
+.time-source .item-remove {
+  width: 44px;
+  height: 44px;
+}
+.time-source-fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+.time-source-schedule {
+  grid-column: 1 / -1;
+}
+.time-source .field-label {
+  font-size: 0.78rem;
+}
+.time-workspace > div {
+  min-width: 0;
+}
+.time-assumptions p + p {
+  margin-top: 10px;
+}
+.time-assumptions p,
+.time-budget p {
+  font-size: 0.85rem;
+  color: var(--ink-dim);
+  line-height: 1.6;
+}
+.time-budget {
+  margin-top: 18px;
+  padding: 18px;
+  border-radius: var(--radius-md);
+  background: var(--accent-soft);
+}
+.time-budget-value {
+  color: var(--accent);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-family: var(--font-mono);
+  font-weight: 600;
+  margin: 6px 0;
+}
+.time-budget .stat-tile-label {
+  color: var(--ink-dim);
+}
+.time-workspace .stat-tile-value {
+  font-size: 1.08rem;
+  overflow-wrap: anywhere;
+}
+.time-workspace button:disabled {
+  opacity: 0.5;
+  cursor: default;
 }
 
 footer.site-footer {
@@ -804,6 +872,18 @@ footer.site-footer a {
   display: flex;
   gap: 10px;
 }
+.share-dialog {
+  margin: auto;
+  border: 1px solid var(--border);
+  color: var(--ink);
+  max-width: min(560px, calc(100vw - 32px));
+}
+.share-dialog::backdrop {
+  background: hsl(var(--shadow-color) / 0.55);
+}
+.share-dialog .field {
+  margin-top: 16px;
+}
 
 .sr-live {
   position: absolute;
@@ -814,6 +894,20 @@ footer.site-footer a {
 }
 
 @media (max-width: 480px) {
+  .header-row {
+    gap: 8px;
+  }
+  .brand {
+    gap: 8px;
+    font-size: 1rem;
+  }
+  .brand-die {
+    width: 22px;
+    height: 22px;
+  }
+  .header-actions {
+    gap: 6px;
+  }
   .field-row {
     grid-template-columns: 1fr;
   }

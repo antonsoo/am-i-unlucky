@@ -289,22 +289,83 @@ check with its sample size and CI stated plainly.
 
 ## 5. Time to drop
 
-Given several independent attempt sources, each with its own per-attempt
-rate $p_i$ and attempts-per-day $r_i$, the probability that a given day
-produces **at least one** success is exact, not approximate:
+Each source has a fixed per-attempt probability $p_i$, an **integer**
+batch size $a_i$, and an interval $s_i$ of 1 or 7 days. The first batch
+finishes at the end of day $s_i$, with later batches on its multiples.
+After $d$ complete days, that source has made
 
-$$q = 1 - \prod_i (1 - p_i)^{r_i}.$$
+$$n_i(d) = a_i \lfloor d/s_i \rfloor$$
 
-$(1-p_i)^{r_i}$ is the probability source $i$ produces zero successes that
-day (its $r_i$ attempts are independent), and the product over sources is
-the probability that _every_ source whiffs that day, because the sources
-are independent of each other too. `combinedDailyRate` in `src/math/time.ts`
-computes exactly this expression — no simulation, no approximation.
+independent attempts. Its copy count is
+$X_i(d) \sim \operatorname{Binomial}(n_i(d),p_i)$. For $k$ required copies,
 
-Once $q$ is known, "days to get $k$ copies" is precisely the simple-drop
-negative-binomial problem from Section 1 with "day" as the unit of attempt:
-`timeToDrop` reuses `attemptsForConfidence` and `binomialSurvival` directly,
-just parameterized by $q$ instead of a single source's $p$.
+$$P(D_k \le d) = P\left(\sum_i X_i(d) \ge k\right).$$
+
+The implementation convolves the count distributions below $k$, retaining
+an absorbing state for reaching the goal. Upper-tail contributions are
+added directly, preserving very small completion probabilities that
+$1-P(\text{not finished})$ would round to zero. Equal-rate groups are
+combined; guaranteed copies are accounted for before random copies.
+Symmetric count distributions retain an exact 50% majority boundary.
+Confidence milestones use a monotone search over **whole days**.
+
+For **one copy** with daily batches, the geometric reduction still holds:
+$q = 1-\prod_i(1-p_i)^{a_i}$ and $E[D_1]=1/q$. This is evaluated with
+`log1p` and `expm1`. It does **not** extend to $k>1$: a batch can give
+multiple copies. For example, ten guaranteed daily attempts give five
+copies on day 1. Versions before 0.3.0 incorrectly predicted five days.
+Fractional daily attempts also lack an exact schedule interpretation;
+use one weekly attempt rather than $1/7$ of an attempt per day.
+
+### Exact expected time
+
+The daily/weekly schedule repeats every $L=1$ or $7$ days. Let $Y_d$ be
+the copies obtained in the first $d$ days of one cycle, and define
+$c_j=P(Y_L=j)$ and
+$g_r=\sum_{d=0}^{L-1}P(Y_d<r)=E[\min(D_r,L)]$.
+
+After the first cycle, a run that still needs copies starts the same
+schedule again, with fewer copies remaining. Thus, with $E_0=0$,
+
+$$E_r = g_r + \sum_{j=0}^{r-1} c_j E_{r-j},$$
+
+or equivalently,
+
+$$E_r = \frac{g_r+\sum_{j=1}^{r-1}c_jE_{r-j}}{1-c_0}.$$
+
+The denominator is computed directly as the chance of at least one copy
+in a cycle, avoiding cancellation for rare drops. This finite recurrence
+does not truncate time or use simulation. Two daily attempts at 50%, for
+two required copies, give $E_2=20/9$ days; two weekly attempts give
+$140/9$ days.
+
+### Bounds and independent checks
+
+- Up to 12 sources, 100 required copies, and 1,000,000 attempts per batch.
+- Budget probabilities and confidence searches cover up to 1,000,000,000
+  days, keeping each source's attempt count exactly representable.
+  A milestone beyond that limit is `null`, displayed as "Over ... days",
+  rather than infinity. The mean has no search horizon.
+- No productive sources means an impossible goal. An overflowing mean
+  is separately reported as beyond numeric range.
+- Results use double precision. Very small tails may underflow; inputs
+  whose probability is within rounding error of a confidence threshold
+  can make the threshold numerically ambiguous. The chart groups all
+  finishing days into at most 159 intervals through the 99% milestone
+  (or the search limit), states its covered probability, and connects
+  interval-end CDF values. It does not sample and discard intervening mass.
+- Fixed independent probabilities, no pity, no missed batches, and
+  synchronized starts as specified above. Calendar reset offsets and
+  within-day timing are not modeled.
+
+`scripts/time-oracle.py` independently advances **individual Bernoulli
+attempts**, using 80-digit Python Decimal arithmetic, and sums the survival
+probability over successive days. It bounds the unsummed expectation
+below $10^{-30}$ rather than assuming a finite cutoff is exact. The 32
+committed fixtures check expected times, probabilities, and the earliest
+50/90/99% days in `tests/time-oracle.test.ts`. Additional enumerated cases
+and deterministic, rare-event, validation, and numeric-limit regressions
+live in `tests/time.test.ts`.
 
 ## 6. Numerical stability
 

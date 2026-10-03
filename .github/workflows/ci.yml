@@ -30,6 +30,8 @@ jobs:
           LC_ALL: de_DE.UTF-8
           LANG: de_DE.UTF-8
       - run: npm run build
+      - run: npx playwright install --with-deps chromium firefox
+      - run: npm run test:browser
 
   oracle-fixtures:
     runs-on: ubuntu-latest
@@ -42,3 +44,7 @@ jobs:
         run: |
           uv run --with scipy python3 scripts/oracle.py
           git diff --exit-code tests/oracle/fixtures.json
+      - name: Regenerate independent Decimal schedule fixtures
+        run: |
+          python3 scripts/time-oracle.py
+          git diff --exit-code tests/oracle/time-fixtures.json

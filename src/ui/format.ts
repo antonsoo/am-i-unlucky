@@ -35,6 +35,7 @@ export function fmtPercent(p: number, digits = 2): string {
 
 export function fmtDays(days: number): string {
   if (!Number.isFinite(days)) return "∞";
+  if (days === 1) return "1 day";
   if (days < 1) return `${fmtNum(days * 24, 1)} hours`;
   if (days < 60) return `${fmtNum(days, 1)} days`;
   return `${fmtNum(days / 30.44, 1)} months (${fmtInt(days)} days)`;

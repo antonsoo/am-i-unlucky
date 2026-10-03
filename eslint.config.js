@@ -2,7 +2,15 @@ import js from "@eslint/js";
 import tseslint from "typescript-eslint";
 
 export default tseslint.config(
-  { ignores: ["dist/**", "node_modules/**", "coverage/**"] },
+  {
+    ignores: [
+      "dist/**",
+      "node_modules/**",
+      "coverage/**",
+      "test-results/**",
+      "playwright-report/**",
+    ],
+  },
   js.configs.recommended,
   ...tseslint.configs.recommendedTypeChecked,
   ...tseslint.configs.stylisticTypeChecked,
@@ -30,12 +38,32 @@ export default tseslint.config(
     },
   },
   {
-    files: ["*.config.js", "*.config.ts", "vite.csp.ts"],
+    files: [
+      "*.config.js",
+      "*.config.ts",
+      "*.config.mjs",
+      "tests/browser/*.mjs",
+      "vite.csp.ts",
+    ],
     languageOptions: {
       parserOptions: {
         projectService: false,
       },
     },
     ...tseslint.configs.disableTypeChecked,
+  },
+  {
+    files: ["tests/browser/*.mjs"],
+    languageOptions: {
+      globals: {
+        window: "readonly",
+        document: "readonly",
+        navigator: "readonly",
+        Worker: "readonly",
+        setTimeout: "readonly",
+        URL: "readonly",
+        URLSearchParams: "readonly",
+      },
+    },
   },
 );

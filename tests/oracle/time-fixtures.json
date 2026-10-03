@@ -1,0 +1,2650 @@
+[
+  {
+    "sources": [
+      {
+        "p": 1.0,
+        "attempts": 10,
+        "everyDays": 1,
+        "name": "Source 1"
+      }
+    ],
+    "k": 5,
+    "expectedDays": 1.0,
+    "expectationRemainderBound": 0.0,
+    "daysFor": {
+      "p50": 1,
+      "p90": 1,
+      "p99": 1
+    },
+    "probabilities": [
+      {
+        "days": 0,
+        "chance": 0.0
+      },
+      {
+        "days": 1,
+        "chance": 1.0
+      },
+      {
+        "days": 2,
+        "chance": 1.0
+      },
+      {
+        "days": 3,
+        "chance": 1.0
+      },
+      {
+        "days": 6,
+        "chance": 1.0
+      },
+      {
+        "days": 7,
+        "chance": 1.0
+      },
+      {
+        "days": 8,
+        "chance": 1.0
+      },
+      {
+        "days": 13,
+        "chance": 1.0
+      },
+      {
+        "days": 14,
+        "chance": 1.0
+      },
+      {
+        "days": 15,
+        "chance": 1.0
+      },
+      {
+        "days": 21,
+        "chance": 1.0
+      },
+      {
+        "days": 30,
+        "chance": 1.0
+      },
+      {
+        "days": 60,
+        "chance": 1.0
+      },
+      {
+        "days": 90,
+        "chance": 1.0
+      }
+    ]
+  },
+  {
+    "sources": [
+      {
+        "p": 0.5,
+        "attempts": 3,
+        "everyDays": 1,
+        "name": "Source 1"
+      }
+    ],
+    "k": 5,
+    "expectedDays": 3.6637115487594456,
+    "expectationRemainderBound": 8.111111735169066e-72,
+    "daysFor": {
+      "p50": 3,
+      "p90": 5,
+      "p99": 7
+    },
+    "probabilities": [
+      {
+        "days": 0,
+        "chance": 0.0
+      },
+      {
+        "days": 1,
+        "chance": 0.0
+      },
+      {
+        "days": 2,
+        "chance": 0.109375
+      },
+      {
+        "days": 3,
+        "chance": 0.5
+      },
+      {
+        "days": 6,
+        "chance": 0.98455810546875
+      },
+      {
+        "days": 7,
+        "chance": 0.996401309967041
+      },
+      {
+        "days": 8,
+        "chance": 0.9992280602455139
+      },
+      {
+        "days": 13,
+        "chance": 0.9999998323419277
+      },
+      {
+        "days": 14,
+        "chance": 0.9999999717342689
+      },
+      {
+        "days": 15,
+        "chance": 0.9999999953325585
+      },
+      {
+        "days": 21,
+        "chance": 0.9999999999999309
+      },
+      {
+        "days": 30,
+        "chance": 1.0
+      },
+      {
+        "days": 60,
+        "chance": 1.0
+      },
+      {
+        "days": 90,
+        "chance": 1.0
+      }
+    ]
+  },
+  {
+    "sources": [
+      {
+        "p": 0.5,
+        "attempts": 2,
+        "everyDays": 7,
+        "name": "Source 1"
+      }
+    ],
+    "k": 2,
+    "expectedDays": 15.555555555555555,
+    "expectationRemainderBound": 6.093642344041214e-31,
+    "daysFor": {
+      "p50": 14,
+      "p90": 28,
+      "p99": 42
+    },
+    "probabilities": [
+      {
+        "days": 0,
+        "chance": 0.0
+      },
+      {
+        "days": 1,
+        "chance": 0.0
+      },
+      {
+        "days": 2,
+        "chance": 0.0
+      },
+      {
+        "days": 3,
+        "chance": 0.0
+      },
+      {
+        "days": 6,
+        "chance": 0.0
+      },
+      {
+        "days": 7,
+        "chance": 0.25
+      },
+      {
+        "days": 8,
+        "chance": 0.25
+      },
+      {
+        "days": 13,
+        "chance": 0.25
+      },
+      {
+        "days": 14,
+        "chance": 0.6875
+      },
+      {
+        "days": 15,
+        "chance": 0.6875
+      },
+      {
+        "days": 21,
+        "chance": 0.890625
+      },
+      {
+        "days": 30,
+        "chance": 0.96484375
+      },
+      {
+        "days": 60,
+        "chance": 0.9997406005859375
+      },
+      {
+        "days": 90,
+        "chance": 0.9999985098838806
+      }
+    ]
+  },
+  {
+    "sources": [
+      {
+        "p": 0.5,
+        "attempts": 1,
+        "everyDays": 1,
+        "name": "Source 1"
+      },
+      {
+        "p": 1.0,
+        "attempts": 1,
+        "everyDays": 7,
+        "name": "Source 2"
+      }
+    ],
+    "k": 2,
+    "expectedDays": 3.8748779296875,
+    "expectationRemainderBound": 0.0,
+    "daysFor": {
+      "p50": 3,
+      "p90": 7,
+      "p99": 7
+    },
+    "probabilities": [
+      {
+        "days": 0,
+        "chance": 0.0
+      },
+      {
+        "days": 1,
+        "chance": 0.0
+      },
+      {
+        "days": 2,
+        "chance": 0.25
+      },
+      {
+        "days": 3,
+        "chance": 0.5
+      },
+      {
+        "days": 6,
+        "chance": 0.890625
+      },
+      {
+        "days": 7,
+        "chance": 0.9921875
+      },
+      {
+        "days": 8,
+        "chance": 0.99609375
+      },
+      {
+        "days": 13,
+        "chance": 0.9998779296875
+      },
+      {
+        "days": 14,
+        "chance": 1.0
+      },
+      {
+        "days": 15,
+        "chance": 1.0
+      },
+      {
+        "days": 21,
+        "chance": 1.0
+      },
+      {
+        "days": 30,
+        "chance": 1.0
+      },
+      {
+        "days": 60,
+        "chance": 1.0
+      },
+      {
+        "days": 90,
+        "chance": 1.0
+      }
+    ]
+  },
+  {
+    "sources": [
+      {
+        "p": 0.5,
+        "attempts": 1,
+        "everyDays": 1,
+        "name": "Source 1"
+      },
+      {
+        "p": 0.5,
+        "attempts": 2,
+        "everyDays": 1,
+        "name": "Source 2"
+      }
+    ],
+    "k": 5,
+    "expectedDays": 3.6637115487594456,
+    "expectationRemainderBound": 8.111111735169066e-72,
+    "daysFor": {
+      "p50": 3,
+      "p90": 5,
+      "p99": 7
+    },
+    "probabilities": [
+      {
+        "days": 0,
+        "chance": 0.0
+      },
+      {
+        "days": 1,
+        "chance": 0.0
+      },
+      {
+        "days": 2,
+        "chance": 0.109375
+      },
+      {
+        "days": 3,
+        "chance": 0.5
+      },
+      {
+        "days": 6,
+        "chance": 0.98455810546875
+      },
+      {
+        "days": 7,
+        "chance": 0.996401309967041
+      },
+      {
+        "days": 8,
+        "chance": 0.9992280602455139
+      },
+      {
+        "days": 13,
+        "chance": 0.9999998323419277
+      },
+      {
+        "days": 14,
+        "chance": 0.9999999717342689
+      },
+      {
+        "days": 15,
+        "chance": 0.9999999953325585
+      },
+      {
+        "days": 21,
+        "chance": 0.9999999999999309
+      },
+      {
+        "days": 30,
+        "chance": 1.0
+      },
+      {
+        "days": 60,
+        "chance": 1.0
+      },
+      {
+        "days": 90,
+        "chance": 1.0
+      }
+    ]
+  },
+  {
+    "sources": [
+      {
+        "p": 0.02,
+        "attempts": 3,
+        "everyDays": 1,
+        "name": "Source 1"
+      },
+      {
+        "p": 0.1,
+        "attempts": 2,
+        "everyDays": 7,
+        "name": "Source 2"
+      }
+    ],
+    "k": 3,
+    "expectedDays": 35.08000503934578,
+    "expectationRemainderBound": 9.65624264283526e-31,
+    "daysFor": {
+      "p50": 31,
+      "p90": 61,
+      "p99": 95
+    },
+    "probabilities": [
+      {
+        "days": 0,
+        "chance": 0.0
+      },
+      {
+        "days": 1,
+        "chance": 8e-06
+      },
+      {
+        "days": 2,
+        "chance": 0.00015291456
+      },
+      {
+        "days": 3,
+        "chance": 0.000613886126375936
+      },
+      {
+        "days": 6,
+        "chance": 0.005212412817673724
+      },
+      {
+        "days": 7,
+        "chance": 0.02180172527095683
+      },
+      {
+        "days": 8,
+        "chance": 0.028292986686548713
+      },
+      {
+        "days": 13,
+        "chance": 0.07315121821163012
+      },
+      {
+        "days": 14,
+        "chance": 0.12511060926286485
+      },
+      {
+        "days": 15,
+        "chance": 0.13898342264971225
+      },
+      {
+        "days": 21,
+        "chance": 0.2843953893798621
+      },
+      {
+        "days": 30,
+        "chance": 0.48492218962544886
+      },
+      {
+        "days": 60,
+        "chance": 0.8966389053833824
+      },
+      {
+        "days": 90,
+        "chance": 0.9855370025728517
+      }
+    ]
+  },
+  {
+    "sources": [
+      {
+        "p": 0.0,
+        "attempts": 3,
+        "everyDays": 1,
+        "name": "Source 1"
+      },
+      {
+        "p": 0.2,
+        "attempts": 0,
+        "everyDays": 1,
+        "name": "Source 2"
+      },
+      {
+        "p": 1.0,
+        "attempts": 2,
+        "everyDays": 7,
+        "name": "Source 3"
+      }
+    ],
+    "k": 5,
+    "expectedDays": 21.0,
+    "expectationRemainderBound": 0.0,
+    "daysFor": {
+      "p50": 21,
+      "p90": 21,
+      "p99": 21
+    },
+    "probabilities": [
+      {
+        "days": 0,
+        "chance": 0.0
+      },
+      {
+        "days": 1,
+        "chance": 0.0
+      },
+      {
+        "days": 2,
+        "chance": 0.0
+      },
+      {
+        "days": 3,
+        "chance": 0.0
+      },
+      {
+        "days": 6,
+        "chance": 0.0
+      },
+      {
+        "days": 7,
+        "chance": 0.0
+      },
+      {
+        "days": 8,
+        "chance": 0.0
+      },
+      {
+        "days": 13,
+        "chance": 0.0
+      },
+      {
+        "days": 14,
+        "chance": 0.0
+      },
+      {
+        "days": 15,
+        "chance": 0.0
+      },
+      {
+        "days": 21,
+        "chance": 1.0
+      },
+      {
+        "days": 30,
+        "chance": 1.0
+      },
+      {
+        "days": 60,
+        "chance": 1.0
+      },
+      {
+        "days": 90,
+        "chance": 1.0
+      }
+    ]
+  },
+  {
+    "sources": [
+      {
+        "p": 0.75,
+        "attempts": 1,
+        "everyDays": 7,
+        "name": "Source 1"
+      }
+    ],
+    "k": 3,
+    "expectedDays": 28.0,
+    "expectationRemainderBound": 3.393759395908739e-31,
+    "daysFor": {
+      "p50": 28,
+      "p90": 42,
+      "p99": 56
+    },
+    "probabilities": [
+      {
+        "days": 0,
+        "chance": 0.0
+      },
+      {
+        "days": 1,
+        "chance": 0.0
+      },
+      {
+        "days": 2,
+        "chance": 0.0
+      },
+      {
+        "days": 3,
+        "chance": 0.0
+      },
+      {
+        "days": 6,
+        "chance": 0.0
+      },
+      {
+        "days": 7,
+        "chance": 0.0
+      },
+      {
+        "days": 8,
+        "chance": 0.0
+      },
+      {
+        "days": 13,
+        "chance": 0.0
+      },
+      {
+        "days": 14,
+        "chance": 0.0
+      },
+      {
+        "days": 15,
+        "chance": 0.0
+      },
+      {
+        "days": 21,
+        "chance": 0.421875
+      },
+      {
+        "days": 30,
+        "chance": 0.73828125
+      },
+      {
+        "days": 60,
+        "chance": 0.9957733154296875
+      },
+      {
+        "days": 90,
+        "chance": 0.9999623894691467
+      }
+    ]
+  },
+  {
+    "sources": [
+      {
+        "p": 0.25,
+        "attempts": 1,
+        "everyDays": 7,
+        "name": "Source 1"
+      },
+      {
+        "p": 0.75,
+        "attempts": 3,
+        "everyDays": 1,
+        "name": "Source 2"
+      },
+      {
+        "p": 0.05,
+        "attempts": 4,
+        "everyDays": 7,
+        "name": "Source 3"
+      },
+      {
+        "p": 1.0,
+        "attempts": 1,
+        "everyDays": 1,
+        "name": "Source 4"
+      }
+    ],
+    "k": 1,
+    "expectedDays": 1.0,
+    "expectationRemainderBound": 0.0,
+    "daysFor": {
+      "p50": 1,
+      "p90": 1,
+      "p99": 1
+    },
+    "probabilities": [
+      {
+        "days": 0,
+        "chance": 0.0
+      },
+      {
+        "days": 1,
+        "chance": 1.0
+      },
+      {
+        "days": 2,
+        "chance": 1.0
+      },
+      {
+        "days": 3,
+        "chance": 1.0
+      },
+      {
+        "days": 6,
+        "chance": 1.0
+      },
+      {
+        "days": 7,
+        "chance": 1.0
+      },
+      {
+        "days": 8,
+        "chance": 1.0
+      },
+      {
+        "days": 13,
+        "chance": 1.0
+      },
+      {
+        "days": 14,
+        "chance": 1.0
+      },
+      {
+        "days": 15,
+        "chance": 1.0
+      },
+      {
+        "days": 21,
+        "chance": 1.0
+      },
+      {
+        "days": 30,
+        "chance": 1.0
+      },
+      {
+        "days": 60,
+        "chance": 1.0
+      },
+      {
+        "days": 90,
+        "chance": 1.0
+      }
+    ]
+  },
+  {
+    "sources": [
+      {
+        "p": 0.75,
+        "attempts": 4,
+        "everyDays": 1,
+        "name": "Source 1"
+      },
+      {
+        "p": 0.125,
+        "attempts": 3,
+        "everyDays": 7,
+        "name": "Source 2"
+      }
+    ],
+    "k": 6,
+    "expectedDays": 2.335998783469289,
+    "expectationRemainderBound": 1.0166204499502603e-204,
+    "daysFor": {
+      "p50": 2,
+      "p90": 3,
+      "p99": 4
+    },
+    "probabilities": [
+      {
+        "days": 0,
+        "chance": 0.0
+      },
+      {
+        "days": 1,
+        "chance": 0.0
+      },
+      {
+        "days": 2,
+        "chance": 0.6785430908203125
+      },
+      {
+        "days": 3,
+        "chance": 0.985747218132019
+      },
+      {
+        "days": 6,
+        "chance": 0.9999999600448213
+      },
+      {
+        "days": 7,
+        "chance": 0.9999999997546674
+      },
+      {
+        "days": 8,
+        "chance": 0.9999999999980642
+      },
+      {
+        "days": 13,
+        "chance": 1.0
+      },
+      {
+        "days": 14,
+        "chance": 1.0
+      },
+      {
+        "days": 15,
+        "chance": 1.0
+      },
+      {
+        "days": 21,
+        "chance": 1.0
+      },
+      {
+        "days": 30,
+        "chance": 1.0
+      },
+      {
+        "days": 60,
+        "chance": 1.0
+      },
+      {
+        "days": 90,
+        "chance": 1.0
+      }
+    ]
+  },
+  {
+    "sources": [
+      {
+        "p": 0.25,
+        "attempts": 2,
+        "everyDays": 1,
+        "name": "Source 1"
+      }
+    ],
+    "k": 6,
+    "expectedDays": 12.249997875035062,
+    "expectationRemainderBound": 6.922633751327093e-31,
+    "daysFor": {
+      "p50": 12,
+      "p90": 18,
+      "p99": 25
+    },
+    "probabilities": [
+      {
+        "days": 0,
+        "chance": 0.0
+      },
+      {
+        "days": 1,
+        "chance": 0.0
+      },
+      {
+        "days": 2,
+        "chance": 0.0
+      },
+      {
+        "days": 3,
+        "chance": 0.000244140625
+      },
+      {
+        "days": 6,
+        "chance": 0.05440223217010498
+      },
+      {
+        "days": 7,
+        "chance": 0.11166897043585777
+      },
+      {
+        "days": 8,
+        "chance": 0.1896545726340264
+      },
+      {
+        "days": 13,
+        "chance": 0.6628558854120912
+      },
+      {
+        "days": 14,
+        "chance": 0.7362100009300997
+      },
+      {
+        "days": 15,
+        "chance": 0.7974019257778622
+      },
+      {
+        "days": 21,
+        "chance": 0.9693490648500619
+      },
+      {
+        "days": 30,
+        "chance": 0.9990438712572239
+      },
+      {
+        "days": 60,
+        "chance": 0.9999999990877659
+      },
+      {
+        "days": 90,
+        "chance": 0.9999999999999998
+      }
+    ]
+  },
+  {
+    "sources": [
+      {
+        "p": 0.25,
+        "attempts": 1,
+        "everyDays": 1,
+        "name": "Source 1"
+      },
+      {
+        "p": 0.05,
+        "attempts": 3,
+        "everyDays": 7,
+        "name": "Source 2"
+      },
+      {
+        "p": 0.25,
+        "attempts": 4,
+        "everyDays": 1,
+        "name": "Source 3"
+      },
+      {
+        "p": 1.0,
+        "attempts": 2,
+        "everyDays": 7,
+        "name": "Source 4"
+      }
+    ],
+    "k": 7,
+    "expectedDays": 5.694334317656892,
+    "expectationRemainderBound": 0.0,
+    "daysFor": {
+      "p50": 6,
+      "p90": 7,
+      "p99": 9
+    },
+    "probabilities": [
+      {
+        "days": 0,
+        "chance": 0.0
+      },
+      {
+        "days": 1,
+        "chance": 0.0
+      },
+      {
+        "days": 2,
+        "chance": 0.003505706787109375
+      },
+      {
+        "days": 3,
+        "chance": 0.05662031006067991
+      },
+      {
+        "days": 6,
+        "chance": 0.6519457109758039
+      },
+      {
+        "days": 7,
+        "chance": 0.9629764106599779
+      },
+      {
+        "days": 8,
+        "chance": 0.9856028519214464
+      },
+      {
+        "days": 13,
+        "chance": 0.9999316896933105
+      },
+      {
+        "days": 14,
+        "chance": 0.9999996034307362
+      },
+      {
+        "days": 15,
+        "chance": 0.9999998926739242
+      },
+      {
+        "days": 21,
+        "chance": 0.999999999999952
+      },
+      {
+        "days": 30,
+        "chance": 1.0
+      },
+      {
+        "days": 60,
+        "chance": 1.0
+      },
+      {
+        "days": 90,
+        "chance": 1.0
+      }
+    ]
+  },
+  {
+    "sources": [
+      {
+        "p": 0.25,
+        "attempts": 2,
+        "everyDays": 7,
+        "name": "Source 1"
+      },
+      {
+        "p": 0.125,
+        "attempts": 2,
+        "everyDays": 1,
+        "name": "Source 2"
+      }
+    ],
+    "k": 1,
+    "expectedDays": 3.9514663945005806,
+    "expectationRemainderBound": 9.121735424307796e-31,
+    "daysFor": {
+      "p50": 3,
+      "p90": 7,
+      "p99": 14
+    },
+    "probabilities": [
+      {
+        "days": 0,
+        "chance": 0.0
+      },
+      {
+        "days": 1,
+        "chance": 0.234375
+      },
+      {
+        "days": 2,
+        "chance": 0.413818359375
+      },
+      {
+        "days": 3,
+        "chance": 0.5512046813964844
+      },
+      {
+        "days": 6,
+        "chance": 0.7985827619995689
+      },
+      {
+        "days": 7,
+        "chance": 0.913256834025205
+      },
+      {
+        "days": 8,
+        "chance": 0.9335872635505476
+      },
+      {
+        "days": 13,
+        "chance": 0.9825284310939438
+      },
+      {
+        "days": 14,
+        "chance": 0.9924756231566692
+      },
+      {
+        "days": 15,
+        "chance": 0.9942391489793249
+      },
+      {
+        "days": 21,
+        "chance": 0.9993473117306221
+      },
+      {
+        "days": 30,
+        "chance": 0.9999668125955176
+      },
+      {
+        "days": 60,
+        "chance": 0.9999999988985961
+      },
+      {
+        "days": 90,
+        "chance": 0.9999999999999635
+      }
+    ]
+  },
+  {
+    "sources": [
+      {
+        "p": 0.75,
+        "attempts": 2,
+        "everyDays": 7,
+        "name": "Source 1"
+      }
+    ],
+    "k": 1,
+    "expectedDays": 7.466666666666667,
+    "expectationRemainderBound": 4.601688613789236e-31,
+    "daysFor": {
+      "p50": 7,
+      "p90": 7,
+      "p99": 14
+    },
+    "probabilities": [
+      {
+        "days": 0,
+        "chance": 0.0
+      },
+      {
+        "days": 1,
+        "chance": 0.0
+      },
+      {
+        "days": 2,
+        "chance": 0.0
+      },
+      {
+        "days": 3,
+        "chance": 0.0
+      },
+      {
+        "days": 6,
+        "chance": 0.0
+      },
+      {
+        "days": 7,
+        "chance": 0.9375
+      },
+      {
+        "days": 8,
+        "chance": 0.9375
+      },
+      {
+        "days": 13,
+        "chance": 0.9375
+      },
+      {
+        "days": 14,
+        "chance": 0.99609375
+      },
+      {
+        "days": 15,
+        "chance": 0.99609375
+      },
+      {
+        "days": 21,
+        "chance": 0.999755859375
+      },
+      {
+        "days": 30,
+        "chance": 0.9999847412109375
+      },
+      {
+        "days": 60,
+        "chance": 0.9999999997671694
+      },
+      {
+        "days": 90,
+        "chance": 0.9999999999999964
+      }
+    ]
+  },
+  {
+    "sources": [
+      {
+        "p": 1.0,
+        "attempts": 1,
+        "everyDays": 1,
+        "name": "Source 1"
+      },
+      {
+        "p": 0.125,
+        "attempts": 1,
+        "everyDays": 7,
+        "name": "Source 2"
+      },
+      {
+        "p": 1.0,
+        "attempts": 1,
+        "everyDays": 7,
+        "name": "Source 3"
+      }
+    ],
+    "k": 8,
+    "expectedDays": 7.0,
+    "expectationRemainderBound": 0.0,
+    "daysFor": {
+      "p50": 7,
+      "p90": 7,
+      "p99": 7
+    },
+    "probabilities": [
+      {
+        "days": 0,
+        "chance": 0.0
+      },
+      {
+        "days": 1,
+        "chance": 0.0
+      },
+      {
+        "days": 2,
+        "chance": 0.0
+      },
+      {
+        "days": 3,
+        "chance": 0.0
+      },
+      {
+        "days": 6,
+        "chance": 0.0
+      },
+      {
+        "days": 7,
+        "chance": 1.0
+      },
+      {
+        "days": 8,
+        "chance": 1.0
+      },
+      {
+        "days": 13,
+        "chance": 1.0
+      },
+      {
+        "days": 14,
+        "chance": 1.0
+      },
+      {
+        "days": 15,
+        "chance": 1.0
+      },
+      {
+        "days": 21,
+        "chance": 1.0
+      },
+      {
+        "days": 30,
+        "chance": 1.0
+      },
+      {
+        "days": 60,
+        "chance": 1.0
+      },
+      {
+        "days": 90,
+        "chance": 1.0
+      }
+    ]
+  },
+  {
+    "sources": [
+      {
+        "p": 0.75,
+        "attempts": 3,
+        "everyDays": 7,
+        "name": "Source 1"
+      },
+      {
+        "p": 0.25,
+        "attempts": 1,
+        "everyDays": 1,
+        "name": "Source 2"
+      }
+    ],
+    "k": 1,
+    "expectedDays": 3.4733086834819558,
+    "expectationRemainderBound": 1.1256173901164866e-32,
+    "daysFor": {
+      "p50": 3,
+      "p90": 7,
+      "p99": 7
+    },
+    "probabilities": [
+      {
+        "days": 0,
+        "chance": 0.0
+      },
+      {
+        "days": 1,
+        "chance": 0.25
+      },
+      {
+        "days": 2,
+        "chance": 0.4375
+      },
+      {
+        "days": 3,
+        "chance": 0.578125
+      },
+      {
+        "days": 6,
+        "chance": 0.822021484375
+      },
+      {
+        "days": 7,
+        "chance": 0.9979143142700195
+      },
+      {
+        "days": 8,
+        "chance": 0.9984357357025146
+      },
+      {
+        "days": 13,
+        "chance": 0.9996287927497178
+      },
+      {
+        "days": 14,
+        "chance": 0.9999956499150358
+      },
+      {
+        "days": 15,
+        "chance": 0.9999967374362768
+      },
+      {
+        "days": 21,
+        "chance": 0.9999999909270899
+      },
+      {
+        "days": 30,
+        "chance": 0.9999999999893556
+      },
+      {
+        "days": 60,
+        "chance": 1.0
+      },
+      {
+        "days": 90,
+        "chance": 1.0
+      }
+    ]
+  },
+  {
+    "sources": [
+      {
+        "p": 0.05,
+        "attempts": 2,
+        "everyDays": 7,
+        "name": "Source 1"
+      },
+      {
+        "p": 0.125,
+        "attempts": 4,
+        "everyDays": 1,
+        "name": "Source 2"
+      },
+      {
+        "p": 0.125,
+        "attempts": 4,
+        "everyDays": 7,
+        "name": "Source 3"
+      }
+    ],
+    "k": 2,
+    "expectedDays": 4.232510149941575,
+    "expectationRemainderBound": 5.9462927912779615e-31,
+    "daysFor": {
+      "p50": 4,
+      "p90": 7,
+      "p99": 12
+    },
+    "probabilities": [
+      {
+        "days": 0,
+        "chance": 0.0
+      },
+      {
+        "days": 1,
+        "chance": 0.078857421875
+      },
+      {
+        "days": 2,
+        "chance": 0.2636951804161072
+      },
+      {
+        "days": 3,
+        "chance": 0.45329606828454416
+      },
+      {
+        "days": 6,
+        "chance": 0.8203377119035155
+      },
+      {
+        "days": 7,
+        "chance": 0.9285832277480126
+      },
+      {
+        "days": 8,
+        "chance": 0.9539227552265156
+      },
+      {
+        "days": 13,
+        "chance": 0.9953528072920602
+      },
+      {
+        "days": 14,
+        "chance": 0.9983613276947803
+      },
+      {
+        "days": 15,
+        "chance": 0.9989864247434092
+      },
+      {
+        "days": 21,
+        "chance": 0.9999700721254304
+      },
+      {
+        "days": 30,
+        "chance": 0.9999998205339592
+      },
+      {
+        "days": 60,
+        "chance": 0.999999999999997
+      },
+      {
+        "days": 90,
+        "chance": 1.0
+      }
+    ]
+  },
+  {
+    "sources": [
+      {
+        "p": 0.05,
+        "attempts": 4,
+        "everyDays": 1,
+        "name": "Source 1"
+      },
+      {
+        "p": 0.125,
+        "attempts": 2,
+        "everyDays": 1,
+        "name": "Source 2"
+      },
+      {
+        "p": 1.0,
+        "attempts": 4,
+        "everyDays": 7,
+        "name": "Source 3"
+      }
+    ],
+    "k": 4,
+    "expectedDays": 6.386780180849907,
+    "expectationRemainderBound": 0.0,
+    "daysFor": {
+      "p50": 7,
+      "p90": 7,
+      "p99": 7
+    },
+    "probabilities": [
+      {
+        "days": 0,
+        "chance": 0.0
+      },
+      {
+        "days": 1,
+        "chance": 0.0003291015625
+      },
+      {
+        "days": 2,
+        "chance": 0.008810587191514969
+      },
+      {
+        "days": 3,
+        "chance": 0.039788335141577605
+      },
+      {
+        "days": 6,
+        "chance": 0.28232962406497714
+      },
+      {
+        "days": 7,
+        "chance": 1.0
+      },
+      {
+        "days": 8,
+        "chance": 1.0
+      },
+      {
+        "days": 13,
+        "chance": 1.0
+      },
+      {
+        "days": 14,
+        "chance": 1.0
+      },
+      {
+        "days": 15,
+        "chance": 1.0
+      },
+      {
+        "days": 21,
+        "chance": 1.0
+      },
+      {
+        "days": 30,
+        "chance": 1.0
+      },
+      {
+        "days": 60,
+        "chance": 1.0
+      },
+      {
+        "days": 90,
+        "chance": 1.0
+      }
+    ]
+  },
+  {
+    "sources": [
+      {
+        "p": 0.9,
+        "attempts": 2,
+        "everyDays": 7,
+        "name": "Source 1"
+      }
+    ],
+    "k": 6,
+    "expectedDays": 24.558360301075343,
+    "expectationRemainderBound": 3.0346437614266666e-32,
+    "daysFor": {
+      "p50": 21,
+      "p90": 28,
+      "p99": 35
+    },
+    "probabilities": [
+      {
+        "days": 0,
+        "chance": 0.0
+      },
+      {
+        "days": 1,
+        "chance": 0.0
+      },
+      {
+        "days": 2,
+        "chance": 0.0
+      },
+      {
+        "days": 3,
+        "chance": 0.0
+      },
+      {
+        "days": 6,
+        "chance": 0.0
+      },
+      {
+        "days": 7,
+        "chance": 0.0
+      },
+      {
+        "days": 8,
+        "chance": 0.0
+      },
+      {
+        "days": 13,
+        "chance": 0.0
+      },
+      {
+        "days": 14,
+        "chance": 0.0
+      },
+      {
+        "days": 15,
+        "chance": 0.0
+      },
+      {
+        "days": 21,
+        "chance": 0.531441
+      },
+      {
+        "days": 30,
+        "chance": 0.96190821
+      },
+      {
+        "days": 60,
+        "chance": 0.9999999729714844
+      },
+      {
+        "days": 90,
+        "chance": 0.9999999999999974
+      }
+    ]
+  },
+  {
+    "sources": [
+      {
+        "p": 0.125,
+        "attempts": 2,
+        "everyDays": 7,
+        "name": "Source 1"
+      },
+      {
+        "p": 0.25,
+        "attempts": 2,
+        "everyDays": 7,
+        "name": "Source 2"
+      }
+    ],
+    "k": 3,
+    "expectedDays": 30.528209323024523,
+    "expectationRemainderBound": 5.211403879380607e-31,
+    "daysFor": {
+      "p50": 28,
+      "p90": 49,
+      "p99": 77
+    },
+    "probabilities": [
+      {
+        "days": 0,
+        "chance": 0.0
+      },
+      {
+        "days": 1,
+        "chance": 0.0
+      },
+      {
+        "days": 2,
+        "chance": 0.0
+      },
+      {
+        "days": 3,
+        "chance": 0.0
+      },
+      {
+        "days": 6,
+        "chance": 0.0
+      },
+      {
+        "days": 7,
+        "chance": 0.0205078125
+      },
+      {
+        "days": 8,
+        "chance": 0.0205078125
+      },
+      {
+        "days": 13,
+        "chance": 0.0205078125
+      },
+      {
+        "days": 14,
+        "chance": 0.17357921600341797
+      },
+      {
+        "days": 15,
+        "chance": 0.17357921600341797
+      },
+      {
+        "days": 21,
+        "chance": 0.3973986366763711
+      },
+      {
+        "days": 30,
+        "chance": 0.6030384956893613
+      },
+      {
+        "days": 60,
+        "chance": 0.9566994640185729
+      },
+      {
+        "days": 90,
+        "chance": 0.9968999381608502
+      }
+    ]
+  },
+  {
+    "sources": [
+      {
+        "p": 0.9,
+        "attempts": 4,
+        "everyDays": 1,
+        "name": "Source 1"
+      }
+    ],
+    "k": 6,
+    "expectedDays": 2.0381419973759995,
+    "expectationRemainderBound": 0.0,
+    "daysFor": {
+      "p50": 2,
+      "p90": 2,
+      "p99": 3
+    },
+    "probabilities": [
+      {
+        "days": 0,
+        "chance": 0.0
+      },
+      {
+        "days": 1,
+        "chance": 0.0
+      },
+      {
+        "days": 2,
+        "chance": 0.96190821
+      },
+      {
+        "days": 3,
+        "chance": 0.999949819662
+      },
+      {
+        "days": 6,
+        "chance": 0.9999999999999974
+      },
+      {
+        "days": 7,
+        "chance": 1.0
+      },
+      {
+        "days": 8,
+        "chance": 1.0
+      },
+      {
+        "days": 13,
+        "chance": 1.0
+      },
+      {
+        "days": 14,
+        "chance": 1.0
+      },
+      {
+        "days": 15,
+        "chance": 1.0
+      },
+      {
+        "days": 21,
+        "chance": 1.0
+      },
+      {
+        "days": 30,
+        "chance": 1.0
+      },
+      {
+        "days": 60,
+        "chance": 1.0
+      },
+      {
+        "days": 90,
+        "chance": 1.0
+      }
+    ]
+  },
+  {
+    "sources": [
+      {
+        "p": 0.05,
+        "attempts": 3,
+        "everyDays": 1,
+        "name": "Source 1"
+      },
+      {
+        "p": 0.125,
+        "attempts": 4,
+        "everyDays": 1,
+        "name": "Source 2"
+      }
+    ],
+    "k": 1,
+    "expectedDays": 2.0103633593117745,
+    "expectationRemainderBound": 5.982903778836808e-31,
+    "daysFor": {
+      "p50": 2,
+      "p90": 4,
+      "p99": 7
+    },
+    "probabilities": [
+      {
+        "days": 0,
+        "chance": 0.0
+      },
+      {
+        "days": 1,
+        "chance": 0.4974225158691406
+      },
+      {
+        "days": 2,
+        "chance": 0.7474158724446958
+      },
+      {
+        "days": 3,
+        "chance": 0.8730569046418671
+      },
+      {
+        "days": 6,
+        "chance": 0.9838854505408959
+      },
+      {
+        "days": 7,
+        "chance": 0.9919011902749412
+      },
+      {
+        "days": 8,
+        "chance": 0.9959297205839254
+      },
+      {
+        "days": 13,
+        "chance": 0.9998694913301257
+      },
+      {
+        "days": 14,
+        "chance": 0.9999344092810373
+      },
+      {
+        "days": 15,
+        "chance": 0.9999670355814814
+      },
+      {
+        "days": 21,
+        "chance": 0.9999994687932474
+      },
+      {
+        "days": 30,
+        "chance": 0.9999999989133471
+      },
+      {
+        "days": 60,
+        "chance": 1.0
+      },
+      {
+        "days": 90,
+        "chance": 1.0
+      }
+    ]
+  },
+  {
+    "sources": [
+      {
+        "p": 0.9,
+        "attempts": 3,
+        "everyDays": 1,
+        "name": "Source 1"
+      }
+    ],
+    "k": 3,
+    "expectedDays": 1.2722730034636536,
+    "expectationRemainderBound": 6.869207333333333e-263,
+    "daysFor": {
+      "p50": 1,
+      "p90": 2,
+      "p99": 2
+    },
+    "probabilities": [
+      {
+        "days": 0,
+        "chance": 0.0
+      },
+      {
+        "days": 1,
+        "chance": 0.729
+      },
+      {
+        "days": 2,
+        "chance": 0.99873
+      },
+      {
+        "days": 3,
+        "chance": 0.999997002
+      },
+      {
+        "days": 6,
+        "chance": 0.9999999999999875
+      },
+      {
+        "days": 7,
+        "chance": 1.0
+      },
+      {
+        "days": 8,
+        "chance": 1.0
+      },
+      {
+        "days": 13,
+        "chance": 1.0
+      },
+      {
+        "days": 14,
+        "chance": 1.0
+      },
+      {
+        "days": 15,
+        "chance": 1.0
+      },
+      {
+        "days": 21,
+        "chance": 1.0
+      },
+      {
+        "days": 30,
+        "chance": 1.0
+      },
+      {
+        "days": 60,
+        "chance": 1.0
+      },
+      {
+        "days": 90,
+        "chance": 1.0
+      }
+    ]
+  },
+  {
+    "sources": [
+      {
+        "p": 0.05,
+        "attempts": 4,
+        "everyDays": 7,
+        "name": "Source 1"
+      }
+    ],
+    "k": 4,
+    "expectedDays": 142.62500293704326,
+    "expectationRemainderBound": 9.314151013554862e-31,
+    "daysFor": {
+      "p50": 133,
+      "p90": 231,
+      "p99": 350
+    },
+    "probabilities": [
+      {
+        "days": 0,
+        "chance": 0.0
+      },
+      {
+        "days": 1,
+        "chance": 0.0
+      },
+      {
+        "days": 2,
+        "chance": 0.0
+      },
+      {
+        "days": 3,
+        "chance": 0.0
+      },
+      {
+        "days": 6,
+        "chance": 0.0
+      },
+      {
+        "days": 7,
+        "chance": 6.25e-06
+      },
+      {
+        "days": 8,
+        "chance": 6.25e-06
+      },
+      {
+        "days": 13,
+        "chance": 6.25e-06
+      },
+      {
+        "days": 14,
+        "chance": 0.0003717513671875
+      },
+      {
+        "days": 15,
+        "chance": 0.0003717513671875
+      },
+      {
+        "days": 21,
+        "chance": 0.0022364032297277833
+      },
+      {
+        "days": 30,
+        "chance": 0.0070039076562072936
+      },
+      {
+        "days": 60,
+        "chance": 0.07380549164360033
+      },
+      {
+        "days": 90,
+        "chance": 0.21796452895713472
+      }
+    ]
+  },
+  {
+    "sources": [
+      {
+        "p": 0.5,
+        "attempts": 4,
+        "everyDays": 1,
+        "name": "Source 1"
+      },
+      {
+        "p": 0.9,
+        "attempts": 3,
+        "everyDays": 1,
+        "name": "Source 2"
+      },
+      {
+        "p": 0.75,
+        "attempts": 1,
+        "everyDays": 7,
+        "name": "Source 3"
+      },
+      {
+        "p": 0.9,
+        "attempts": 3,
+        "everyDays": 7,
+        "name": "Source 4"
+      }
+    ],
+    "k": 8,
+    "expectedDays": 2.116419144208702,
+    "expectationRemainderBound": 0.0,
+    "daysFor": {
+      "p50": 2,
+      "p90": 3,
+      "p99": 3
+    },
+    "probabilities": [
+      {
+        "days": 0,
+        "chance": 0.0
+      },
+      {
+        "days": 1,
+        "chance": 0.0
+      },
+      {
+        "days": 2,
+        "chance": 0.883981796875
+      },
+      {
+        "days": 3,
+        "chance": 0.9995993832792969
+      },
+      {
+        "days": 6,
+        "chance": 0.9999999999999639
+      },
+      {
+        "days": 7,
+        "chance": 1.0
+      },
+      {
+        "days": 8,
+        "chance": 1.0
+      },
+      {
+        "days": 13,
+        "chance": 1.0
+      },
+      {
+        "days": 14,
+        "chance": 1.0
+      },
+      {
+        "days": 15,
+        "chance": 1.0
+      },
+      {
+        "days": 21,
+        "chance": 1.0
+      },
+      {
+        "days": 30,
+        "chance": 1.0
+      },
+      {
+        "days": 60,
+        "chance": 1.0
+      },
+      {
+        "days": 90,
+        "chance": 1.0
+      }
+    ]
+  },
+  {
+    "sources": [
+      {
+        "p": 1.0,
+        "attempts": 2,
+        "everyDays": 7,
+        "name": "Source 1"
+      },
+      {
+        "p": 0.25,
+        "attempts": 3,
+        "everyDays": 1,
+        "name": "Source 2"
+      },
+      {
+        "p": 0.9,
+        "attempts": 4,
+        "everyDays": 7,
+        "name": "Source 3"
+      }
+    ],
+    "k": 5,
+    "expectedDays": 5.994289310736467,
+    "expectationRemainderBound": 0.0,
+    "daysFor": {
+      "p50": 7,
+      "p90": 7,
+      "p99": 7
+    },
+    "probabilities": [
+      {
+        "days": 0,
+        "chance": 0.0
+      },
+      {
+        "days": 1,
+        "chance": 0.0
+      },
+      {
+        "days": 2,
+        "chance": 0.004638671875
+      },
+      {
+        "days": 3,
+        "chance": 0.04892730712890625
+      },
+      {
+        "days": 6,
+        "chance": 0.4813306695432402
+      },
+      {
+        "days": 7,
+        "chance": 0.9998084587988884
+      },
+      {
+        "days": 8,
+        "chance": 0.9999147451877839
+      },
+      {
+        "days": 13,
+        "chance": 0.9999985433595092
+      },
+      {
+        "days": 14,
+        "chance": 0.9999999999999434
+      },
+      {
+        "days": 15,
+        "chance": 0.9999999999999761
+      },
+      {
+        "days": 21,
+        "chance": 1.0
+      },
+      {
+        "days": 30,
+        "chance": 1.0
+      },
+      {
+        "days": 60,
+        "chance": 1.0
+      },
+      {
+        "days": 90,
+        "chance": 1.0
+      }
+    ]
+  },
+  {
+    "sources": [
+      {
+        "p": 0.125,
+        "attempts": 4,
+        "everyDays": 7,
+        "name": "Source 1"
+      },
+      {
+        "p": 1.0,
+        "attempts": 4,
+        "everyDays": 7,
+        "name": "Source 2"
+      },
+      {
+        "p": 0.9,
+        "attempts": 1,
+        "everyDays": 1,
+        "name": "Source 3"
+      },
+      {
+        "p": 0.05,
+        "attempts": 4,
+        "everyDays": 1,
+        "name": "Source 4"
+      }
+    ],
+    "k": 6,
+    "expectedDays": 5.559367772327622,
+    "expectationRemainderBound": 0.0,
+    "daysFor": {
+      "p50": 6,
+      "p90": 7,
+      "p99": 7
+    },
+    "probabilities": [
+      {
+        "days": 0,
+        "chance": 0.0
+      },
+      {
+        "days": 1,
+        "chance": 0.0
+      },
+      {
+        "days": 2,
+        "chance": 0.00030389549453125
+      },
+      {
+        "days": 3,
+        "chance": 0.014813686637840691
+      },
+      {
+        "days": 6,
+        "chance": 0.8173926908361346
+      },
+      {
+        "days": 7,
+        "chance": 0.9999990792667088
+      },
+      {
+        "days": 8,
+        "chance": 0.9999999145471347
+      },
+      {
+        "days": 13,
+        "chance": 0.9999999999995062
+      },
+      {
+        "days": 14,
+        "chance": 1.0
+      },
+      {
+        "days": 15,
+        "chance": 1.0
+      },
+      {
+        "days": 21,
+        "chance": 1.0
+      },
+      {
+        "days": 30,
+        "chance": 1.0
+      },
+      {
+        "days": 60,
+        "chance": 1.0
+      },
+      {
+        "days": 90,
+        "chance": 1.0
+      }
+    ]
+  },
+  {
+    "sources": [
+      {
+        "p": 0.75,
+        "attempts": 1,
+        "everyDays": 1,
+        "name": "Source 1"
+      }
+    ],
+    "k": 4,
+    "expectedDays": 5.333333333333333,
+    "expectationRemainderBound": 7.815725014485708e-47,
+    "daysFor": {
+      "p50": 5,
+      "p90": 7,
+      "p99": 9
+    },
+    "probabilities": [
+      {
+        "days": 0,
+        "chance": 0.0
+      },
+      {
+        "days": 1,
+        "chance": 0.0
+      },
+      {
+        "days": 2,
+        "chance": 0.0
+      },
+      {
+        "days": 3,
+        "chance": 0.0
+      },
+      {
+        "days": 6,
+        "chance": 0.83056640625
+      },
+      {
+        "days": 7,
+        "chance": 0.929443359375
+      },
+      {
+        "days": 8,
+        "chance": 0.9727020263671875
+      },
+      {
+        "days": 13,
+        "chance": 0.9998738765716553
+      },
+      {
+        "days": 14,
+        "chance": 0.9999601766467094
+      },
+      {
+        "days": 15,
+        "chance": 0.9999876357614994
+      },
+      {
+        "days": 21,
+        "chance": 0.9999999913907232
+      },
+      {
+        "days": 30,
+        "chance": 0.9999999999999014
+      },
+      {
+        "days": 60,
+        "chance": 1.0
+      },
+      {
+        "days": 90,
+        "chance": 1.0
+      }
+    ]
+  },
+  {
+    "sources": [
+      {
+        "p": 0.05,
+        "attempts": 2,
+        "everyDays": 7,
+        "name": "Source 1"
+      }
+    ],
+    "k": 2,
+    "expectedDays": 141.74884944115712,
+    "expectationRemainderBound": 9.281324870834345e-31,
+    "daysFor": {
+      "p50": 119,
+      "p90": 273,
+      "p99": 455
+    },
+    "probabilities": [
+      {
+        "days": 0,
+        "chance": 0.0
+      },
+      {
+        "days": 1,
+        "chance": 0.0
+      },
+      {
+        "days": 2,
+        "chance": 0.0
+      },
+      {
+        "days": 3,
+        "chance": 0.0
+      },
+      {
+        "days": 6,
+        "chance": 0.0
+      },
+      {
+        "days": 7,
+        "chance": 0.0025
+      },
+      {
+        "days": 8,
+        "chance": 0.0025
+      },
+      {
+        "days": 13,
+        "chance": 0.0025
+      },
+      {
+        "days": 14,
+        "chance": 0.01401875
+      },
+      {
+        "days": 15,
+        "chance": 0.01401875
+      },
+      {
+        "days": 21,
+        "chance": 0.032773828125
+      },
+      {
+        "days": 30,
+        "chance": 0.0572446502734375
+      },
+      {
+        "days": 60,
+        "chance": 0.18924034722043162
+      },
+      {
+        "days": 90,
+        "chance": 0.3391827343911986
+      }
+    ]
+  },
+  {
+    "sources": [
+      {
+        "p": 0.25,
+        "attempts": 2,
+        "everyDays": 1,
+        "name": "Source 1"
+      },
+      {
+        "p": 0.125,
+        "attempts": 3,
+        "everyDays": 7,
+        "name": "Source 2"
+      },
+      {
+        "p": 0.05,
+        "attempts": 3,
+        "everyDays": 1,
+        "name": "Source 3"
+      }
+    ],
+    "k": 5,
+    "expectedDays": 7.711620873052842,
+    "expectationRemainderBound": 8.000272678983165e-31,
+    "daysFor": {
+      "p50": 7,
+      "p90": 12,
+      "p99": 16
+    },
+    "probabilities": [
+      {
+        "days": 0,
+        "chance": 0.0
+      },
+      {
+        "days": 1,
+        "chance": 7.8125e-06
+      },
+      {
+        "days": 2,
+        "chance": 0.0030784493408203125
+      },
+      {
+        "days": 3,
+        "chance": 0.028928281146677493
+      },
+      {
+        "days": 6,
+        "chance": 0.34771381440233456
+      },
+      {
+        "days": 7,
+        "chance": 0.5642417079574948
+      },
+      {
+        "days": 8,
+        "chance": 0.6807639552227569
+      },
+      {
+        "days": 13,
+        "chance": 0.9570268420833027
+      },
+      {
+        "days": 14,
+        "chance": 0.9793701160246516
+      },
+      {
+        "days": 15,
+        "chance": 0.9873526175085278
+      },
+      {
+        "days": 21,
+        "chance": 0.9996114726881763
+      },
+      {
+        "days": 30,
+        "chance": 0.9999985686288605
+      },
+      {
+        "days": 60,
+        "chance": 0.9999999999999987
+      },
+      {
+        "days": 90,
+        "chance": 1.0
+      }
+    ]
+  },
+  {
+    "sources": [
+      {
+        "p": 0.75,
+        "attempts": 3,
+        "everyDays": 1,
+        "name": "Source 1"
+      },
+      {
+        "p": 0.125,
+        "attempts": 4,
+        "everyDays": 1,
+        "name": "Source 2"
+      }
+    ],
+    "k": 5,
+    "expectedDays": 2.212175788721647,
+    "expectationRemainderBound": 3.8888703950243654e-172,
+    "daysFor": {
+      "p50": 2,
+      "p90": 3,
+      "p99": 4
+    },
+    "probabilities": [
+      {
+        "days": 0,
+        "chance": 0.0
+      },
+      {
+        "days": 1,
+        "chance": 0.036289215087890625
+      },
+      {
+        "days": 2,
+        "chance": 0.7656753250194015
+      },
+      {
+        "days": 3,
+        "chance": 0.9863159794599539
+      },
+      {
+        "days": 6,
+        "chance": 0.9999997873735608
+      },
+      {
+        "days": 7,
+        "chance": 0.9999999962701797
+      },
+      {
+        "days": 8,
+        "chance": 0.9999999999402552
+      },
+      {
+        "days": 13,
+        "chance": 1.0
+      },
+      {
+        "days": 14,
+        "chance": 1.0
+      },
+      {
+        "days": 15,
+        "chance": 1.0
+      },
+      {
+        "days": 21,
+        "chance": 1.0
+      },
+      {
+        "days": 30,
+        "chance": 1.0
+      },
+      {
+        "days": 60,
+        "chance": 1.0
+      },
+      {
+        "days": 90,
+        "chance": 1.0
+      }
+    ]
+  },
+  {
+    "sources": [
+      {
+        "p": 0.05,
+        "attempts": 2,
+        "everyDays": 7,
+        "name": "Source 1"
+      },
+      {
+        "p": 0.25,
+        "attempts": 2,
+        "everyDays": 7,
+        "name": "Source 2"
+      },
+      {
+        "p": 0.05,
+        "attempts": 2,
+        "everyDays": 7,
+        "name": "Source 3"
+      },
+      {
+        "p": 1.0,
+        "attempts": 2,
+        "everyDays": 7,
+        "name": "Source 4"
+      }
+    ],
+    "k": 3,
+    "expectedDays": 10.207118359375,
+    "expectationRemainderBound": 0.0,
+    "daysFor": {
+      "p50": 7,
+      "p90": 14,
+      "p99": 14
+    },
+    "probabilities": [
+      {
+        "days": 0,
+        "chance": 0.0
+      },
+      {
+        "days": 1,
+        "chance": 0.0
+      },
+      {
+        "days": 2,
+        "chance": 0.0
+      },
+      {
+        "days": 3,
+        "chance": 0.0
+      },
+      {
+        "days": 6,
+        "chance": 0.0
+      },
+      {
+        "days": 7,
+        "chance": 0.541840234375
+      },
+      {
+        "days": 8,
+        "chance": 0.541840234375
+      },
+      {
+        "days": 13,
+        "chance": 0.541840234375
+      },
+      {
+        "days": 14,
+        "chance": 1.0
+      },
+      {
+        "days": 15,
+        "chance": 1.0
+      },
+      {
+        "days": 21,
+        "chance": 1.0
+      },
+      {
+        "days": 30,
+        "chance": 1.0
+      },
+      {
+        "days": 60,
+        "chance": 1.0
+      },
+      {
+        "days": 90,
+        "chance": 1.0
+      }
+    ]
+  }
+]

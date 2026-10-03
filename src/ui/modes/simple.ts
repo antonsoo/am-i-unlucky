@@ -18,6 +18,9 @@ import { SIMPLE_PRESETS } from "../../presets.js";
 import type { LuckCardData } from "../luck-card.js";
 
 export interface ModeContext {
+  signal: AbortSignal;
+  registerCapture: (capture: () => void) => void;
+  setShareEnabled: (enabled: boolean) => void;
   onStateChange: () => void;
   openLuckCard: (data: LuckCardData) => void;
 }
@@ -80,6 +83,14 @@ export function mountSimpleMode(
   const errorEl = root.querySelector<HTMLDivElement>("#simple-rate-error")!;
   const resultsEl = root.querySelector<HTMLDivElement>("#simple-results")!;
 
+  function captureInputs(): void {
+    s.rate = rateInput.value;
+    s.n = Math.max(0, Math.floor(Number(nInput.value) || 0));
+    s.k = Math.max(1, Math.floor(Number(kInput.value) || 1));
+    s.got = gotInput.checked;
+  }
+  ctx.registerCapture(captureInputs);
+
   /** Recomputes the results, or says why it can't for numbers beyond what the math covers. */
   function recompute(): void {
     try {
@@ -91,6 +102,7 @@ export function mountSimpleMode(
   }
 
   function computeResults(): void {
+    captureInputs();
     let p: number;
     try {
       p = parseRate(rateInput.value);
@@ -105,13 +117,7 @@ export function mountSimpleMode(
       resultsEl.innerHTML = `<section class="panel"><p class="note">Fix the rate above to see results.</p></section>`;
       return;
     }
-    const n = Math.max(0, Math.floor(Number(nInput.value) || 0));
-    const k = Math.max(1, Math.floor(Number(kInput.value) || 1));
-    const got = gotInput.checked;
-    s.rate = rateInput.value;
-    s.n = n;
-    s.k = k;
-    s.got = got;
+    const { n, k, got } = s;
     gotLabel.textContent =
       k === 1
         ? "Got it on the last of those attempts"
@@ -228,7 +234,7 @@ export function mountSimpleMode(
     ctx.onStateChange();
   }
 
-  const debouncedRecompute = debounce(recompute, 120);
+  const debouncedRecompute = debounce(recompute, 120, ctx.signal);
   rateInput.addEventListener("input", debouncedRecompute);
   nInput.addEventListener("input", debouncedRecompute);
   kInput.addEventListener("input", debouncedRecompute);
