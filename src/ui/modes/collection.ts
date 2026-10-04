@@ -1,16 +1,21 @@
 import {
-  collectionCdf,
-  collectionDistributionPoints,
-  collectionExpectedAttempts,
-  collectionMonteCarlo,
+  MAX_COLLECTION_ITEMS,
+  MAX_COLLECTION_ATTEMPTS,
   MAX_EXACT_CDF_ITEMS,
-  MAX_EXACT_EXPECTATION_ITEMS,
+  validateCollectionBudget,
+  validateCollectionProbabilities,
 } from "../../math/collection.js";
-import { parseRate, RateParseError } from "../../math/rate.js";
+import { parseRate } from "../../math/rate.js";
+import { kahanSum } from "../../math/numeric.js";
 import type { AppState, CollectionItemState } from "../app-state.js";
 import { debounce } from "../debounce.js";
 import { esc, fmtInt, fmtNum, fmtPercent } from "../format.js";
 import { renderDistributionChart } from "../chart.js";
+import { runCollectionPlan } from "../collection-engine.js";
+import type {
+  CollectionPlan,
+  CollectionPlanRequest,
+} from "../collection-plan.js";
 import type { ModeContext } from "./simple.js";
 
 export function mountCollectionMode(
@@ -19,182 +24,265 @@ export function mountCollectionMode(
   ctx: ModeContext,
 ): void {
   const s = state.collection;
-
-  function itemsHtml(): string {
-    return s.items
-      .map(
-        (item, i) => `
-      <div class="item-row" data-index="${i}">
-        <input type="text" class="item-name" value="${esc(item.name)}" placeholder="Item name" aria-label="Item ${i + 1} name" />
-        <input type="text" class="item-rate" value="${esc(item.rate)}" placeholder="rate" aria-label="Item ${i + 1} drop rate" />
-        <button type="button" class="item-remove" aria-label="Remove ${esc(item.name) || `item ${i + 1}`}" title="Remove">✕</button>
-      </div>`,
-      )
-      .join("");
-  }
-
-  root.innerHTML = `
-    <div class="workspace">
-      <div>
-        <section class="panel">
-          <h2 class="panel-title">Items to collect</h2>
-          <p class="panel-subtitle">Independent per-attempt probability for each item. Duplicates don't help.</p>
-          <div id="item-rows">${itemsHtml()}</div>
-          <button type="button" class="btn btn-ghost btn-block" id="add-item">+ Add item</button>
-        </section>
-        <section class="panel">
-          <div class="field">
-            <label class="field-label" for="coll-n">Attempts to check P(complete by)</label>
-            <input type="number" id="coll-n" min="0" step="1" value="${s.n}" />
-          </div>
-        </section>
+  let nextId = 0;
+  let pending: AbortController | undefined;
+  let request: CollectionPlanRequest | undefined;
+  function itemHtml(item: CollectionItemState): string {
+    const id = `collection-item-${nextId++}`;
+    return `<fieldset class="collection-item">
+      <legend>Item</legend>
+      <div class="collection-item-fields">
+        <div class="field"><label class="field-label" for="${id}-name">Name</label>
+          <input type="text" id="${id}-name" class="item-name" value="${esc(item.name)}" maxlength="120" /></div>
+        <div class="field"><label class="field-label" for="${id}-rate">Rate per attempt</label>
+        <input type="text" id="${id}-rate" class="item-rate" value="${esc(item.rate)}" placeholder="5% or 1/20" required /></div>
+        <button type="button" class="item-remove" aria-label="Remove item" title="Remove item">&#215;</button>
       </div>
-      <div id="collection-results"></div>
+    </fieldset>`;
+  }
+  root.innerHTML = `<div class="workspace collection-workspace">
+    <div>
+      <section class="panel">
+        <div class="field"><label class="field-label" for="coll-n">Attempt budget</label>
+          <input type="number" id="coll-n" value="${s.n}" min="0" max="${MAX_COLLECTION_ATTEMPTS}" step="1" required /></div>
+        <p id="collection-total" class="field-note"></p>
+        <button type="button" class="btn btn-ghost btn-block collection-jump">View results</button>
+      </section>
+      <section class="panel">
+        <h2 class="panel-title">Items you still need</h2>
+        <p class="panel-subtitle">One listed item at most per attempt. Collect one of each; duplicates don't help.</p>
+        <div id="item-rows">${s.items.map(itemHtml).join("")}</div>
+        <button type="button" class="btn btn-ghost btn-block" id="add-item">+ Add item</button>
+        <p class="field-note">Up to ${MAX_COLLECTION_ITEMS} items. Already own one? Leave it out of this list.</p>
+      </section>
+      <section class="panel collection-assumptions">
+        <h2 class="panel-title">How drops are counted</h2>
+        <p>Attempts are independent, with fixed rates and no pity. Item outcomes within one attempt are mutually exclusive, so their rates must total at most 100%.</p>
+        <p>The remaining chance covers everything outside this list, including no drop. Owned items and duplicates still consume an attempt. Separate rolls that can drop several listed items at once are not modeled here.</p>
+      </section>
     </div>
-  `;
-
+    <div><p id="collection-status" class="field-note" role="status" aria-live="polite"></p>
+      <div id="collection-results" role="region" aria-label="Collection results" tabindex="-1" aria-busy="false"></div></div>
+  </div>`;
   const rowsEl = root.querySelector<HTMLDivElement>("#item-rows")!;
   const addBtn = root.querySelector<HTMLButtonElement>("#add-item")!;
   const nInput = root.querySelector<HTMLInputElement>("#coll-n")!;
   const resultsEl = root.querySelector<HTMLDivElement>("#collection-results")!;
+  const statusEl =
+    root.querySelector<HTMLParagraphElement>("#collection-status")!;
+  const totalEl =
+    root.querySelector<HTMLParagraphElement>("#collection-total")!;
+  root
+    .querySelector<HTMLButtonElement>(".collection-jump")!
+    .addEventListener("click", () => {
+      resultsEl.focus({ preventScroll: true });
+      resultsEl.scrollIntoView({ block: "start" });
+    });
+  const number = (value: number) =>
+    value >= 1e10 ? value.toExponential(3) : fmtNum(value, 2);
 
-  function readItemsFromDom(): CollectionItemState[] {
-    return Array.from(rowsEl.querySelectorAll<HTMLDivElement>(".item-row")).map(
-      (row) => ({
-        name:
-          row.querySelector<HTMLInputElement>(".item-name")!.value || "Item",
-        rate: row.querySelector<HTMLInputElement>(".item-rate")!.value,
-      }),
-    );
+  function renderResult(
+    result: CollectionPlan,
+    snapshot: CollectionPlanRequest,
+  ): void {
+    const mc = result.simulation;
+    const expected = !result.possible
+      ? "Not reachable"
+      : result.expectedAttempts === null
+        ? result.analytic
+          ? "Beyond numeric range"
+          : "Not estimated"
+        : number(result.expectedAttempts);
+    const chance = result.belowResolution
+      ? "&lt;0.01%"
+      : esc(fmtPercent(result.probability));
+    const interval = result.probabilityInterval;
+    const last = result.points.at(-1);
+    const agreement =
+      result.agreement === null
+        ? ""
+        : result.agreement
+          ? "The calculated mean is inside this simulation's interval."
+          : "The calculated mean is outside this simulation's interval. A 95% interval can miss; agreement is not guaranteed.";
+    resultsEl.innerHTML = `<section class="panel">
+      <h2 class="panel-title">Completing your collection</h2>
+      <p class="panel-subtitle">${result.analytic ? "Calculated from the drop table" : `Simulation estimate for ${snapshot.probabilities.length} items`}. ${snapshot.probabilities.length} distinct ${snapshot.probabilities.length === 1 ? "item" : "items"} needed.</p>
+      <div class="time-budget">
+        <div class="stat-tile-label">${result.analytic || !result.possible ? "Chance" : "Estimated chance"} within ${fmtInt(snapshot.n)} attempts</div>
+        <div class="time-budget-value" data-testid="collection-chance">${chance}</div>
+        <p>${interval ? `Approximate 95% interval: ${esc(fmtPercent(interval[0], 3))} to ${esc(fmtPercent(interval[1], 3))}.` : "Chance of having every listed item by this attempt budget."}</p>
+      </div>
+      <div class="stat-grid"><div class="stat-tile">
+        <div class="stat-tile-label">${result.analytic ? "Expected" : "Estimated mean"} attempts</div>
+        <div class="stat-tile-value" data-testid="collection-mean">${expected}</div>
+      </div></div>
+      ${!result.possible ? '<p class="note">At least one item has a 0% rate. The full set cannot be completed with these inputs.</p>' : '<p class="field-note">The mean is an average over repeated collections, not a deadline or a guarantee. Percentages are rounded.</p>'}
+      ${result.belowResolution ? '<p class="note">Completion is possible, but the chance is below displayed precision. Extremely small probabilities may also fall below numerical resolution.</p>' : ""}
+      ${!result.analytic ? `<p class="note">Exact calculations support up to ${MAX_EXACT_CDF_ITEMS} items. This larger set uses ${fmtInt(mc.trials)} seeded simulation runs; its headline numbers and chart are estimates.</p>` : ""}
+    </section>
+    ${
+      result.possible
+        ? `<section class="panel">
+      <h2 class="panel-title">When you could finish</h2>
+      <div class="chart-wrap">${renderDistributionChart(result.points, "attempts", [{ x: snapshot.n, label: "budget" }])}</div>
+      <p class="field-note">${result.analytic ? "Calculated distribution." : "Empirical distribution from the same simulation."} Shading shows completion probability in each plotted interval; the gold line joins cumulative chances. ${last ? `Through ${fmtInt(last.x)} attempts: ${result.analytic ? "" : "estimated "}${esc(fmtPercent(last.cdf))} of collections complete.` : ""}</p>
+      ${last?.x === MAX_COLLECTION_ATTEMPTS ? `<p class="note">The chart stops at ${fmtInt(MAX_COLLECTION_ATTEMPTS)} attempts. Outcomes beyond that limit are not shown.</p>` : ""}
+    </section>
+    <section class="panel">
+      <h2 class="panel-title">${result.analytic ? "Simulation cross-check" : "Simulation evidence"}</h2>
+      <p class="panel-subtitle">${result.analytic ? "A separate, seeded simulation checks the calculated mean." : "Seeded simulation of the same one-item-per-attempt model."}</p>
+      <div class="stat-grid">
+        <div class="stat-tile"><div class="stat-tile-label">Completed runs</div><div class="stat-tile-value" data-testid="collection-completed">${fmtInt(mc.sampleSize)} / ${fmtInt(mc.trials)}</div></div>
+        <div class="stat-tile"><div class="stat-tile-label">Simulated mean</div><div class="stat-tile-value" data-testid="collection-sim-mean">${mc.mean === null ? "Not estimated" : number(mc.mean)}</div></div>
+        <div class="stat-tile"><div class="stat-tile-label">Approx. 95% mean interval</div><div class="stat-tile-value" data-testid="collection-interval">${mc.ci95 === null ? "Unavailable" : `${number(mc.ci95[0])} to ${number(mc.ci95[1])}`}</div></div>
+      </div>
+      ${mc.censored ? `<p class="note">${fmtInt(mc.censored)} runs reached the ${fmtInt(mc.maxAttemptsPerRun)}-attempt limit without completing. The mean and its interval are withheld: averaging only completed runs would understate the wait.</p>` : '<p class="field-note">The interval uses a normal approximation for the mean across runs; it is not a range containing 95% of individual completion times.</p>'}
+      <p class="note" data-testid="collection-agreement">${agreement}</p>
+    </section>`
+        : ""
+    }`;
   }
 
-  function captureInputs(): void {
-    s.items = readItemsFromDom();
-    s.n = Math.max(0, Math.floor(Number(nInput.value) || 0));
-  }
-  ctx.registerCapture(captureInputs);
-
-  function recompute(): void {
-    captureInputs();
-
-    const probs: number[] = [];
-    let parseError = "";
-    for (const item of s.items) {
-      try {
-        probs.push(parseRate(item.rate));
-      } catch (err) {
-        parseError =
-          err instanceof RateParseError ? err.message : "Invalid rate.";
-        break;
+  async function calculate(): Promise<void> {
+    if (!request || ctx.signal.aborted) return;
+    const snapshot = request;
+    pending?.abort();
+    const controller = new AbortController();
+    pending = controller;
+    try {
+      const result = await runCollectionPlan(snapshot, controller.signal);
+      if (controller.signal.aborted || ctx.signal.aborted) return;
+      renderResult(result, snapshot);
+      statusEl.textContent = "Collection updated.";
+    } catch (error) {
+      if (controller.signal.aborted || ctx.signal.aborted) return;
+      resultsEl.innerHTML = `<section class="panel"><p class="note">${esc(error instanceof Error ? error.message : "Unable to calculate this collection.")}</p><button type="button" class="btn btn-ghost" id="collection-retry">Try again</button></section>`;
+      resultsEl
+        .querySelector<HTMLButtonElement>("#collection-retry")!
+        .addEventListener("click", prepare);
+      statusEl.textContent = "The collection could not be calculated.";
+    } finally {
+      if (pending === controller) {
+        pending = undefined;
+        resultsEl.setAttribute("aria-busy", "false");
       }
     }
-    if (parseError || probs.length === 0) {
-      resultsEl.innerHTML = `<section class="panel"><p class="note">${esc(parseError || "Add at least one item.")}</p></section>`;
-      return;
-    }
-    if (probs.length > MAX_EXACT_EXPECTATION_ITEMS) {
-      resultsEl.innerHTML = `<section class="panel"><p class="note">Exact math supports up to ${MAX_EXACT_EXPECTATION_ITEMS} items (inclusion-exclusion is O(2^m)). Remove some items, or treat this as a Monte-Carlo-only estimate in a future version.</p></section>`;
-      return;
-    }
-
-    const { expectedAttempts } = collectionExpectedAttempts(probs);
-    const canExactCdf = probs.length <= MAX_EXACT_CDF_ITEMS;
-    const cdfAtN = canExactCdf ? collectionCdf(probs, s.n) : NaN;
-
-    const mc = collectionMonteCarlo(probs, 20_000);
-    const mcMargin = (mc.ci95[1] - mc.ci95[0]) / 2;
-
-    const chartHtml = canExactCdf
-      ? renderDistributionChart(
-          collectionDistributionPoints(
-            probs,
-            Math.max(20, Math.ceil(expectedAttempts * 3 || 50)),
-            200,
-          ).map((pt) => ({
-            x: pt.n,
-            pmf: 0,
-            cdf: pt.cdf,
-          })),
-          "attempts",
-          [{ x: s.n, label: "n" }],
-        )
-      : `<p class="note">Exact CDF curve supports up to ${MAX_EXACT_CDF_ITEMS} items; showing Monte Carlo summary only for ${probs.length} items.</p>`;
-
-    resultsEl.innerHTML = `
-      <section class="panel">
-        <h2 class="panel-title">Collection stats</h2>
-        <p class="panel-subtitle">Exact via inclusion-exclusion over ${probs.length} item${probs.length === 1 ? "" : "s"} (${probs.length <= MAX_EXACT_CDF_ITEMS ? "2^" + probs.length.toString() + " subsets" : "expectation only"}).</p>
-        <div class="stat-grid">
-          <div class="stat-tile">
-            <div class="stat-tile-label">Expected attempts</div>
-            <div class="stat-tile-value">${fmtNum(expectedAttempts, 1)}</div>
-          </div>
-          <div class="stat-tile">
-            <div class="stat-tile-label">P(complete by ${fmtInt(s.n)})</div>
-            <div class="stat-tile-value">${canExactCdf ? fmtPercent(cdfAtN) : "—"}</div>
-          </div>
-        </div>
-      </section>
-      <section class="panel">
-        <h2 class="panel-title">Distribution</h2>
-        <div class="chart-wrap">${chartHtml}</div>
-      </section>
-      <section class="panel">
-        <h2 class="panel-title">Monte Carlo cross-check</h2>
-        <p class="panel-subtitle">Independent simulation, not used for the headline numbers above.</p>
-        <div class="stat-grid">
-          <div class="stat-tile">
-            <div class="stat-tile-label">Sample size</div>
-            <div class="stat-tile-value">${fmtInt(mc.sampleSize)}</div>
-          </div>
-          <div class="stat-tile">
-            <div class="stat-tile-label">Mean attempts</div>
-            <div class="stat-tile-value">${fmtNum(mc.mean, 1)}</div>
-          </div>
-          <div class="stat-tile">
-            <div class="stat-tile-label">95% CI</div>
-            <div class="stat-tile-value">±${fmtNum(mcMargin, 2)}</div>
-          </div>
-        </div>
-        <p class="note">Simulated mean ${fmtNum(mc.mean, 2)} vs. exact ${fmtNum(expectedAttempts, 2)} — difference of ${fmtNum(Math.abs(mc.mean - expectedAttempts), 2)}, within the confidence interval above.</p>
-      </section>
-    `;
-
-    ctx.onStateChange();
   }
+  const debouncedCalculate = debounce(
+    () => {
+      void calculate();
+    },
+    150,
+    ctx.signal,
+  );
 
-  const debouncedRecompute = debounce(recompute, 150, ctx.signal);
-
-  function wireRow(row: HTMLDivElement): void {
+  function prepare(): void {
+    pending?.abort();
+    pending = undefined;
+    debouncedCalculate.cancel();
+    request = undefined;
+    const rows = Array.from(
+      rowsEl.querySelectorAll<HTMLFieldSetElement>(".collection-item"),
+    );
+    s.items = rows.map((row) => ({
+      name: row.querySelector<HTMLInputElement>(".item-name")!.value,
+      rate: row.querySelector<HTMLInputElement>(".item-rate")!.value,
+    }));
+    s.n = nInput.valueAsNumber;
+    totalEl.textContent = "";
+    const markInvalid = (el: HTMLInputElement): void => {
+      el.setAttribute("aria-invalid", "true");
+      el.setAttribute("aria-describedby", "collection-error");
+    };
+    root.querySelectorAll<HTMLInputElement>("input").forEach((el) => {
+      el.removeAttribute("aria-invalid");
+      el.removeAttribute("aria-describedby");
+      if (!el.validity.valid) markInvalid(el);
+    });
+    try {
+      const probabilities = s.items.map((item, i) => {
+        try {
+          return parseRate(item.rate);
+        } catch (error) {
+          markInvalid(rows[i]!.querySelector<HTMLInputElement>(".item-rate")!);
+          throw error;
+        }
+      });
+      if (kahanSum(probabilities) > 1 + 4 * Number.EPSILON)
+        rows.forEach((row) =>
+          markInvalid(row.querySelector<HTMLInputElement>(".item-rate")!),
+        );
+      validateCollectionProbabilities(probabilities);
+      validateCollectionBudget(s.n);
+      if (!probabilities.length) throw new RangeError("Add at least one item.");
+      const total = Math.min(1, kahanSum(probabilities));
+      totalEl.textContent = `${fmtPercent(total)} listed items; ${fmtPercent(1 - total)} other outcomes per attempt.`;
+      request = { probabilities, n: s.n };
+      ctx.setShareEnabled(true);
+      ctx.onStateChange();
+      resultsEl.innerHTML =
+        '<section class="panel"><p class="note">Calculating your collection...</p></section>';
+      resultsEl.setAttribute("aria-busy", "true");
+      statusEl.textContent = "Updating collection...";
+      debouncedCalculate();
+    } catch (error) {
+      ctx.setShareEnabled(false);
+      resultsEl.setAttribute("aria-busy", "false");
+      resultsEl.innerHTML = `<section class="panel"><p class="note" id="collection-error">${esc(error instanceof Error ? error.message : "Check your inputs.")}</p></section>`;
+      statusEl.textContent =
+        "Check the inputs to calculate and share this collection.";
+    }
+  }
+  function updateRowControls(): void {
+    const rows = Array.from(
+      rowsEl.querySelectorAll<HTMLFieldSetElement>(".collection-item"),
+    );
+    rows.forEach((row, i) => {
+      row.querySelector("legend")!.textContent = `Item ${i + 1}`;
+      const remove = row.querySelector<HTMLButtonElement>(".item-remove")!;
+      remove.disabled = rows.length <= 1;
+      remove.setAttribute("aria-label", `Remove item ${i + 1}`);
+    });
+    addBtn.disabled = rows.length >= MAX_COLLECTION_ITEMS;
+  }
+  function wireRow(row: HTMLFieldSetElement): void {
     row
-      .querySelector<HTMLInputElement>(".item-name")!
-      .addEventListener("input", debouncedRecompute);
-    row
-      .querySelector<HTMLInputElement>(".item-rate")!
-      .addEventListener("input", debouncedRecompute);
+      .querySelectorAll("input")
+      .forEach((input) => input.addEventListener("input", prepare));
     row
       .querySelector<HTMLButtonElement>(".item-remove")!
       .addEventListener("click", () => {
         if (rowsEl.children.length <= 1) return;
+        const sibling = row.nextElementSibling ?? row.previousElementSibling;
         row.remove();
-        recompute();
+        updateRowControls();
+        sibling?.querySelector<HTMLInputElement>(".item-name")?.focus();
+        prepare();
       });
   }
-  rowsEl.querySelectorAll<HTMLDivElement>(".item-row").forEach(wireRow);
-
+  rowsEl
+    .querySelectorAll<HTMLFieldSetElement>(".collection-item")
+    .forEach(wireRow);
   addBtn.addEventListener("click", () => {
-    const row = document.createElement("div");
-    row.className = "item-row";
-    row.innerHTML = `
-      <input type="text" class="item-name" value="Item ${rowsEl.children.length + 1}" placeholder="Item name" />
-      <input type="text" class="item-rate" value="0.05" placeholder="rate" />
-      <button type="button" class="item-remove" aria-label="Remove item" title="Remove">✕</button>`;
-    rowsEl.appendChild(row);
+    if (rowsEl.children.length >= MAX_COLLECTION_ITEMS) return;
+    rowsEl.insertAdjacentHTML(
+      "beforeend",
+      itemHtml({ name: `Item ${rowsEl.children.length + 1}`, rate: "1%" }),
+    );
+    const row = rowsEl.lastElementChild as HTMLFieldSetElement;
     wireRow(row);
-    recompute();
+    updateRowControls();
+    row.querySelector<HTMLInputElement>(".item-name")!.focus();
+    prepare();
   });
-
-  nInput.addEventListener("input", debouncedRecompute);
-
-  recompute();
+  nInput.addEventListener("input", prepare);
+  ctx.signal.addEventListener(
+    "abort",
+    () => {
+      pending?.abort();
+    },
+    { once: true },
+  );
+  updateRowControls();
+  prepare();
 }

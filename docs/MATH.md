@@ -238,54 +238,98 @@ stateDiagram-v2
 
 ## 4. Collection mode
 
-Collection mode asks: given $m$ items with independent per-attempt
-probabilities $p_1, \dots, p_m$ (duplicates don't help), how many attempts
-until you have at least one of each?
+Each attempt produces **at most one listed item**. Attempts are independent,
+with fixed rates $p_1, \dots, p_m$, and $\sum_i p_i \le 1$. Item outcomes
+within an attempt are mutually exclusive, not independent rolls. The unused
+probability covers no drop and all unlisted items. Collect one of every item;
+remove already-owned items from the input without renormalizing the others.
+Duplicates and unlisted drops still consume an attempt. Pity, trading and
+multiple independent item rolls per attempt are outside this model.
 
-**Expected attempts**, via inclusion-exclusion over subsets of items. For a
-nonempty subset $S \subseteq \{1, \dots, m\}$, let $P(S) = \sum_{i \in S} p_i$
-be the probability that a single attempt produces _some_ item in $S$. Then:
+**Expected attempts.** Let $S$ be the set of still-missing items, with
+$P(S)=\sum_{i\in S}p_i$. Conditioning on the next attempt gives
 
-$$E[T] = \sum_{\emptyset \neq S \subseteq \{1,\dots,m\}} (-1)^{|S|+1} \frac{1}{P(S)}.$$
+$$E(S)=1+(1-P(S))E(S)+\sum_{i\in S}p_i E(S\setminus\{i\}).$$
 
-This is the natural generalization of the classic equal-probability coupon
-collector formula $E[T] = m \cdot H_m$ (harmonic number), and reduces to it
-exactly when all $p_i = 1/m$ — checked directly in `tests/collection.test.ts`.
+Rearranging yields a recurrence with nonnegative terms:
 
-**Completion CDF**, via inclusion-exclusion again, this time over _all_
-subsets including the empty one:
+$$E(\varnothing)=0,\qquad E(S)=\frac{1}{P(S)}+\sum_{i\in S}\frac{p_i}{P(S)}E(S\setminus\{i\}).$$
 
-$$P(T \le n) = \sum_{S \subseteq \{1,\dots,m\}} (-1)^{|S|} \bigl(1 - P(S)\bigr)^n.$$
+The implementation evaluates subsets in order and scales all means by the
+smallest positive rate to avoid intermediate overflow. It never subtracts
+nearly equal large values. This agrees with the classical $mH_m$ mean when
+$p_i=1/m$. A zero-rate item makes completion impossible; a positive rate
+whose mean overflows IEEE-754 is instead labeled beyond numeric range.
 
-$(1-P(S))^n$ is the probability that _none_ of the items in $S$ appeared in
-$n$ attempts; the alternating sum over all subsets converts "some item is
-still missing" into "every item has appeared" by inclusion-exclusion.
+**Completion CDF.** Inclusion-exclusion gives
 
-**Cost and caps.** Both formulas are exact but $O(2^m)$: `buildSubsetSums`
-precomputes $P(S)$ for every mask in $O(2^m)$ time via a standard
-subset-DP (`sums[mask] = sums[mask without lowest bit] + p[lowest bit
-index]`), and each formula then does one more $O(2^m)$ pass. That's fast for
-realistic set sizes (a 16-item banner is $2^{16} = 65{,}536$ subsets; on
-ordinary hardware that's a few milliseconds) but genuinely exponential, so
-`collectionExpectedAttempts` is capped at
-`MAX_EXACT_EXPECTATION_ITEMS = 24` items and `collectionCdf` at
-`MAX_EXACT_CDF_ITEMS = 18` (the CDF is evaluated once per chart point, so its
-cap is tighter). Beyond the cap, only the Monte Carlo estimate below is
-available.
+$$P(T\le n)=\sum_{S\subseteq\{1,\dots,m\}}(-1)^{|S|}(1-P(S))^n.$$
 
-**Numerical stability.** The inclusion-exclusion sums alternate in sign and
-can involve many terms of similar magnitude that nearly cancel, which is
-exactly the situation where naive left-to-right floating point summation
-accumulates error. Both sums are computed with `kahanSum` (Kahan summation)
-in `src/math/numeric.ts`.
+For small attempt counts a positive state recurrence avoids cancellation.
+Its total work per evaluator is limited to about two million state/item
+visits, with at most 256 forward steps. Outside that range, pair each subset
+of all but the rarest item with the same subset including that item. If its
+rate is $r$ and the other subset's total is $s$, its difference is evaluated as
 
-**Monte Carlo cross-check.** `collectionMonteCarlo` independently simulates
-the collection process (using a seeded `mulberry32` PRNG for
-reproducibility) and reports the sample mean, standard deviation, and a 95%
-confidence interval via the normal approximation
-$\bar{x} \pm 1.96 \cdot s/\sqrt{n}$. This is always shown in the UI alongside
-the exact result — not as a fallback, but as a visible, independent sanity
-check with its sample size and CI stated plainly.
+$$\exp(n\log1p(-s))\left[-\operatorname{expm1}\left(n\log1p\left(-\frac{r}{1-s}\right)\right)\right].$$
+
+This preserves contributions even when `1 - r` rounds to 1. A compensated
+sum combines the paired terms. The subset tables are built once per plan,
+not once per chart point. Structural cases have direct answers: $n<m$ or
+any zero-rate item gives zero; at $n=m$ the chance is $m!\prod_i p_i$.
+
+The formulas are exact methods evaluated in double precision. Alternating
+sums can still lose relative accuracy in tiny tails. The UI labels positive
+but unresolved chances below `1e-9` as below displayed precision, never as an
+impossible set. The numerical threshold is a display safeguard, not a
+rigorous error certificate. Values below the floating-point range can
+underflow, and values close to one can round to one. Forty independent
+120-digit Decimal fixtures check means and CDFs, including highly unequal
+rates, a `1e-20` rate and the 16-item boundary. Small fixtures additionally
+cross-check by enumerating all possible sequences of drop outcomes. The
+reference mean uses unpaired inclusion-exclusion instead of production's
+positive recurrence (`scripts/collection-oracle.py`).
+
+**Work limits.** Exact means and CDFs support up to 16 items. Mean work is
+$O(m2^m)$ and each later CDF evaluation is $O(2^m)$; chart rendering is bounded
+to 160 points. Sets of 17 through 32 items use clearly labeled simulation
+estimates for the mean, budget probability and chart. Budgets and chart
+horizons stop at one billion attempts. Analytical means are not truncated
+at that horizon. The library validates finite rates, total probability,
+whole attempt budgets, item counts and simulation limits before work starts.
+Totals exceeding one by at most four machine epsilons are treated as boundary
+rounding and scaled to one; larger excesses are rejected. Workers own their
+requests and terminate on edits, navigation or a 15-second timeout.
+
+**Simulation.** Each seeded run jumps directly to its next new item. With
+unseen probability $q$, the wait is geometric:
+
+$$W=\left\lfloor\frac{\log(1-U)}{\log(1-q)}\right\rfloor+1.$$
+
+A second uniform draw chooses the item among the unseen rates, conditional
+on that event. Recompute $q$ from the remaining items after removing the
+new one; this preserves very small rates after common items are collected.
+At most $m$ jumps are needed per run, independent of the number of attempts.
+A zero-rate set needs no random draws. The UI uses 20,000 runs with a fixed
+`mulberry32` seed; the library caps trials at 100,000. This finite PRNG and
+normal approximations are practical checks, not formal error guarantees.
+
+A run that has not completed by one billion attempts is **censored**, and
+its count stays visible. If any run is censored, the completion mean and
+its confidence interval are withheld: averaging only completed runs would
+bias the estimate downward. With no censoring and at least two runs, report
+$\bar{x}\pm1.96s/\sqrt{N}$, clipped at zero, as an approximate 95% interval
+for the **mean**, not for individual completion times. The cross-check says
+whether the calculated mean actually lies inside that interval; disagreement
+is possible and is shown honestly.
+
+For larger sets, the budget estimate uses the fraction of **all** trials
+that completed by the budget, including censored trials in the denominator.
+A Wilson 95% interval remains nonzero in width even when no runs succeed.
+This is valid only for budgets no larger than the simulation's censoring
+horizon. The empirical chart uses the same all-trial denominator. Shading
+shows the probability mass of each plotted interval; lines connect the
+cumulative probabilities at its endpoints.
 
 ## 5. Time to drop
 
@@ -384,11 +428,10 @@ A few practices recur throughout `src/math/`:
   cancellation.
 - **Kahan summation** for the collection mode's alternating
   inclusion-exclusion sums (Section 4).
-- **What "exact" means here.** Every closed form in this document is
-  evaluated to IEEE-754 double precision — not simulated, not truncated
-  (except the one disclosed case in Section 3) — and cross-checked in
-  `tests/oracle.test.ts` against `scipy.stats.binom` / `nbinom` / `geom`
-  fixtures (`scripts/oracle.py`), typically agreeing to 6-9 decimal digits
-  depending on magnitude. "Exact" is a claim about the _method_
-  (closed-form probability theory, not sampling), not a claim of infinite
-  precision arithmetic.
+- **What "exact" means here.** An analytical result comes from probability
+  formulas or a finite state recurrence, evaluated in IEEE-754 double
+  precision. It does not claim infinite precision. Simulation estimates,
+  numerical limits and any truncated horizons are disclosed in Sections
+  3-5. Simple-drop results are checked against SciPy fixtures in
+  `tests/oracle.test.ts`; schedules and collections have independent Decimal
+  fixtures in `tests/time-oracle.test.ts` and `tests/collection-oracle.test.ts`.

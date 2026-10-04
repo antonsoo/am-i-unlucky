@@ -4,5 +4,6 @@ node_modules
 # file byte-for-byte against a fresh SciPy run, so Prettier must not touch it.
 tests/oracle/fixtures.json
 tests/oracle/time-fixtures.json
+tests/oracle/collection-fixtures.json
 test-results/
 playwright-report/

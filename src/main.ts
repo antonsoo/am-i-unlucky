@@ -31,7 +31,7 @@ const MODE_INTRO: Record<Mode, { title: string; body: string }> = {
   },
   collection: {
     title: "Collection completion",
-    body: "How many attempts to collect every item in a set with unequal drop rates? Exact via inclusion-exclusion, cross-checked with Monte Carlo.",
+    body: "Plan a collection where each attempt drops at most one item. Check your chance of finishing within a budget, with calculated odds and visible simulation evidence.",
   },
   time: {
     title: "Time to drop",
@@ -111,7 +111,7 @@ function buildShell(): {
       </header>
       <main id="main-content"></main>
       <footer class="site-footer">
-        <p>Exact wherever feasible; Monte Carlo cross-checks shown where it isn't. See <a href="https://github.com/antonsoo/am-i-unlucky/blob/main/docs/MATH.md" target="_blank" rel="noopener">docs/MATH.md</a> for derivations. MIT licensed — <a href="https://github.com/antonsoo/am-i-unlucky" target="_blank" rel="noopener">source on GitHub</a>.</p>
+        <p>Calculated odds for supported models; simulation estimates are labeled. See <a href="https://github.com/antonsoo/am-i-unlucky/blob/main/docs/MATH.md" target="_blank" rel="noopener">docs/MATH.md</a> for derivations. MIT licensed — <a href="https://github.com/antonsoo/am-i-unlucky" target="_blank" rel="noopener">source on GitHub</a>.</p>
       </footer>
     </div>
     <div class="sr-live" role="status" aria-live="polite" id="live-region"></div>

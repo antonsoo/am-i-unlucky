@@ -5,6 +5,35 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.4.0] - 2026-10-03
+
+### Fixed
+
+- Collection mode now validates mutually exclusive item rates totaling at
+  most 100%. Its previous "independent rates" wording described a different
+  model, and impossible tables could produce misleading probabilities.
+- Rare completion probabilities survive subtraction rounding; expected
+  attempts use a positive subset recurrence instead of cancelling large
+  alternating terms. Tiny unresolved chances remain distinct from zero-rate
+  impossible sets.
+- Event-based simulation takes at most one jump per new item. Zero-rate or
+  rare collections no longer execute billions of steps on the UI thread.
+- Censored simulations report completed and incomplete runs and withhold
+  their mean and mean interval. Cross-check agreement is calculated, not
+  asserted unconditionally.
+
+### Added
+
+- Cancellable collection workers, recovery after startup/message/timeout
+  failures, immediate state capture, accessible item controls and input
+  correction. The shared worker lifecycle also serves Time mode.
+- Explicit simulation estimates for 17-32 items; analytical calculations are
+  bounded to 16 items, charts to 160 points, and budgets/simulation horizons
+  to one billion attempts. Analytical means remain untruncated.
+- Forty independent 120-digit Decimal collection references, regression
+  coverage for censoring and numerical limits, and production Chromium/
+  Firefox checks for races, failures, mobile layouts and accessibility.
+
 ## [0.3.0] - 2026-10-03
 
 ### Fixed

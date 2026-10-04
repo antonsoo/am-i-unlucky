@@ -48,3 +48,7 @@ jobs:
         run: |
           python3 scripts/time-oracle.py
           git diff --exit-code tests/oracle/time-fixtures.json
+      - name: Regenerate independent Decimal collection fixtures
+        run: |
+          python3 scripts/collection-oracle.py
+          git diff --exit-code tests/oracle/collection-fixtures.json

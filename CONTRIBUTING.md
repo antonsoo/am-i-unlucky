@@ -3,7 +3,7 @@
 ## Setup
 
 ```bash
-npm install
+npm ci             # Node 24, matching CI
 ```
 
 ## Common tasks
@@ -15,11 +15,13 @@ npm run lint        # eslint, strict + type-checked
 npm run typecheck   # tsc --noEmit, strict mode
 npm run build       # tsc --noEmit && vite build
 npm run fmt:write   # prettier --write
+npx playwright install chromium firefox
+npm run test:browser # production preview; run build first
 ```
 
 Please keep `npm run lint`, `npm run typecheck`, and `npm test` green before
 opening a PR — that's exactly what `.github/workflows/ci.yml` runs, plus a
-production build.
+production build and browser workflows, including accessibility checks.
 
 ## Regenerating the SciPy oracle fixtures
 
@@ -35,6 +37,20 @@ uv run --with scipy python3 scripts/oracle.py
 
 The `oracle-fixtures` job in CI also regenerates and diffs this file, so a
 stale commit fails that check.
+
+Time and Collection also have independent Decimal reference generators
+using only Python's standard library:
+
+```bash
+python3 scripts/time-oracle.py
+python3 scripts/collection-oracle.py
+git diff --exit-code tests/oracle/
+```
+
+The time reference advances individual attempts and bounds its remaining
+expectation. The collection reference uses 120-digit inclusion-exclusion
+and enumerates small outcome sequences. Generated fixtures are excluded
+from Prettier so regeneration remains byte-for-byte reproducible.
 
 ## Adding new math
 
