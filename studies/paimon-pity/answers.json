@@ -1,0 +1,267 @@
+{
+ "settings": {
+  "archetype, 50/50 (released 0.4.0 preset)": {
+   "featuredRate": 0.5,
+   "measured_table": false
+  },
+  "archetype hazard, 55%": {
+   "featuredRate": 0.55,
+   "measured_table": false
+  },
+  "logged hazard, 50/50": {
+   "featuredRate": 0.5,
+   "measured_table": true
+  },
+  "logged hazard, 55% (new preset)": {
+   "featuredRate": 0.55,
+   "measured_table": true
+  }
+ },
+ "answers": [
+  {
+   "copies": 1,
+   "start": "fresh pity, 50/50 pending",
+   "history_pulls": 150,
+   "results": {
+    "archetype, 50/50 (released 0.4.0 preset)": {
+     "mean": 93.44599805944642,
+     "sd": 43.09139858425514,
+     "p50": 80,
+     "p90": 155,
+     "p99": 161,
+     "within": {
+      "90": 0.5939383494228887,
+      "120": 0.7049892989044209,
+      "180": 0.9999999999999998
+     },
+     "luck_percentile_of_history": 20.85319484549223,
+     "tail_mass": 2.220446049250313e-16
+    },
+    "archetype hazard, 55%": {
+     "mean": 90.3311314574649,
+     "sd": 42.63346021723509,
+     "p50": 79,
+     "p90": 155,
+     "p99": 161,
+     "within": {
+      "90": 0.6345445144806,
+      "120": 0.7344903690139788,
+      "180": 1
+     },
+     "luck_percentile_of_history": 18.767875360942988,
+     "tail_mass": 0
+    },
+    "logged hazard, 50/50": {
+     "mean": 91.70823545682092,
+     "sd": 43.185956755154784,
+     "p50": 80,
+     "p90": 155,
+     "p99": 161,
+     "within": {
+      "90": 0.6034768164596356,
+      "120": 0.7190031580876904,
+      "180": 0.9999999999999994
+     },
+     "luck_percentile_of_history": 19.39204400263923,
+     "tail_mass": 5.551115123125783e-16
+    },
+    "logged hazard, 55% (new preset)": {
+     "mean": 88.65129427492685,
+     "sd": 42.71608643987026,
+     "p50": 79,
+     "p90": 155,
+     "p99": 161,
+     "within": {
+      "90": 0.6431291348136724,
+      "120": 0.7471028422789217,
+      "180": 1
+     },
+     "luck_percentile_of_history": 17.45283960237528,
+     "tail_mass": 0
+    }
+   }
+  },
+  {
+   "copies": 1,
+   "start": "fresh pity, on guarantee",
+   "history_pulls": 60,
+   "results": {
+    "archetype, 50/50 (released 0.4.0 preset)": {
+     "mean": 62.297332039630966,
+     "sd": 24.312263532809077,
+     "p50": 76,
+     "p90": 80,
+     "p99": 83,
+     "within": {
+      "90": 1
+     },
+     "luck_percentile_of_history": 70.1126979941527,
+     "tail_mass": 0
+    },
+    "archetype hazard, 55%": {
+     "mean": 62.297332039630966,
+     "sd": 24.312263532809077,
+     "p50": 76,
+     "p90": 80,
+     "p99": 83,
+     "within": {
+      "90": 1
+     },
+     "luck_percentile_of_history": 70.1126979941527,
+     "tail_mass": 0
+    },
+    "logged hazard, 50/50": {
+     "mean": 61.13882363788059,
+     "sd": 24.906999309459614,
+     "p50": 76,
+     "p90": 80,
+     "p99": 83,
+     "within": {
+      "90": 0.9999999999999999
+     },
+     "luck_percentile_of_history": 67.98580920863874,
+     "tail_mass": 1.1102230246251565e-16
+    },
+    "logged hazard, 55% (new preset)": {
+     "mean": 61.13882363788059,
+     "sd": 24.906999309459614,
+     "p50": 76,
+     "p90": 80,
+     "p99": 83,
+     "within": {
+      "90": 0.9999999999999999
+     },
+     "luck_percentile_of_history": 67.98580920863874,
+     "tail_mass": 1.1102230246251565e-16
+    }
+   }
+  },
+  {
+   "copies": 2,
+   "start": "fresh pity, 50/50 pending",
+   "history_pulls": 300,
+   "results": {
+    "archetype, 50/50 (released 0.4.0 preset)": {
+     "mean": 186.8919961188929,
+     "sd": 60.940440299478404,
+     "p50": 183,
+     "p90": 265,
+     "p99": 314,
+     "within": {
+      "180": 0.48668454906959063,
+      "270": 0.9091937560929777,
+      "360": 1
+     },
+     "luck_percentile_of_history": 5.080316250986705,
+     "tail_mass": 0
+    },
+    "archetype hazard, 55%": {
+     "mean": 180.66226291492998,
+     "sd": 60.29281765010766,
+     "p50": 174,
+     "p90": 253,
+     "p99": 313,
+     "within": {
+      "180": 0.5324999914826372,
+      "270": 0.9264469424353124,
+      "360": 1
+     },
+     "luck_percentile_of_history": 4.115056163299191,
+     "tail_mass": 0
+    },
+    "logged hazard, 50/50": {
+     "mean": 183.41647091364183,
+     "sd": 61.07416574719787,
+     "p50": 179,
+     "p90": 260,
+     "p99": 314,
+     "within": {
+      "180": 0.5073609150828491,
+      "270": 0.917700926432818,
+      "360": 1
+     },
+     "luck_percentile_of_history": 4.433067591801998,
+     "tail_mass": 0
+    },
+    "logged hazard, 55% (new preset)": {
+     "mean": 177.30258854985354,
+     "sd": 60.409668774766004,
+     "p50": 170,
+     "p90": 249,
+     "p99": 313,
+     "within": {
+      "180": 0.5521575201077734,
+      "270": 0.9333377504105816,
+      "360": 0.9999999999999999
+     },
+     "luck_percentile_of_history": 3.590784749359699,
+     "tail_mass": 1.1102230246251565e-16
+    }
+   }
+  },
+  {
+   "copies": 7,
+   "start": "fresh pity, 50/50 pending",
+   "history_pulls": 700,
+   "results": {
+    "archetype, 50/50 (released 0.4.0 preset)": {
+     "mean": 654.1219864161259,
+     "sd": 114.00912429989982,
+     "p50": 654,
+     "p90": 801,
+     "p99": 917,
+     "within": {
+      "600": 0.3216604524310667,
+      "800": 0.8990523113218626
+     },
+     "luck_percentile_of_history": 34.71703947056376,
+     "tail_mass": 6.661338147750939e-16
+    },
+    "archetype hazard, 55%": {
+     "mean": 632.3179202022556,
+     "sd": 112.79753326496984,
+     "p50": 631,
+     "p90": 778,
+     "p99": 895,
+     "within": {
+      "600": 0.3927141027950112,
+      "800": 0.9305175779242247
+     },
+     "luck_percentile_of_history": 27.681117847045712,
+     "tail_mass": 0
+    },
+    "logged hazard, 50/50": {
+     "mean": 641.9576481977457,
+     "sd": 114.25930170452938,
+     "p50": 642,
+     "p90": 789,
+     "p99": 906,
+     "within": {
+      "600": 0.3609967012000474,
+      "800": 0.916105028062639
+     },
+     "luck_percentile_of_history": 30.919392075219143,
+     "tail_mass": 0
+    },
+    "logged hazard, 55% (new preset)": {
+     "mean": 620.5590599244877,
+     "sd": 113.01614170183507,
+     "p50": 620,
+     "p90": 767,
+     "p99": 884,
+     "within": {
+      "600": 0.4333791865809255,
+      "800": 0.9428270122614475
+     },
+     "luck_percentile_of_history": 24.38252296014073,
+     "tail_mass": 0
+    }
+   }
+  }
+ ],
+ "total_variation_one_copy": {
+  "archetype vs archetype+55%": 0.04325388340105516,
+  "archetype vs logged hazard (both 50/50)": 0.024715524708761576,
+  "archetype vs new preset": 0.05020355796263392
+ }
+}

@@ -9,6 +9,10 @@ Players constantly ask "is 900 runs for a 1/512 drop unlucky?" or "how many pull
 
 ![Simple drop mode, light theme](./docs/assets/hero-light.png)
 
+## Checked against 27 million logged pulls
+
+The bundled pity preset was an archetype nobody had checked. [`studies/paimon-pity`](./studies/paimon-pity/README.md) compares it with the five-star tallies that paimon.moe publishes for Genshin Impact's character banners (26.9 million five-stars, 98 banners, retrieved 2026-10-08). The soft-pity curve was right: the logged chance on pulls 74 to 83 is within a point of the preset's ramp. The 50/50 was out of date: 50% is the rule up to version 4.8, and the publisher states 55% from 5.0, which moves "one copy within 90 pulls" from 59.4% to 63.5%. The logged curve falls below the ramp above pull 85, where 0.25% of five-stars sit. The source checkout (unreleased) adds a preset built from the logs, labelled with its source, date and sample size, next to the old archetype; both still go through the same exact chain.
+
 ## Quickstart
 
 ```bash
@@ -25,7 +29,7 @@ Open the printed `localhost` URL. That's the whole setup — no build step, no a
 - **Pity system** — base rate, soft-pity ramp, hard pity, and an optional 50/50-with-guarantee mechanic. Computed via an exact dynamic-programming pass over the pity Markov chain (not a simulation): expected pulls, percentiles, `P(success within budget)`, and "how lucky was my history" for a pull count you actually used.
 - **Collection** — complete a set where each attempt drops at most one listed item. Stable calculated means and completion odds for up to 16 items; labeled simulation estimates through 32. Censored runs and confidence intervals stay visible.
 - **Time to drop** — combine daily and weekly attempt batches, count every successful copy, and see the chance of finishing within a day budget, the expected time, and 50/90/99% milestones.
-- **Presets with honest labels** — a generic soft-pity gacha archetype, two shiny-hunt presets that cite Pokémon's actual documented encounter rates (1/4096, and 3/4096 with the Shiny Charm), and generic "MMO rare drop" / "loot box" archetypes. Every preset is fully editable; the UI says where each number comes from.
+- **Presets with honest labels** — a generic soft-pity gacha archetype, a per-pull table measured from community-logged Genshin Impact pulls (source checkout, unreleased; source, date and sample size on its label), two shiny-hunt presets that cite Pokémon's actual documented encounter rates (1/4096, and 3/4096 with the Shiny Charm), and generic "MMO rare drop" / "loot box" archetypes. Every preset is fully editable; the UI says where each number comes from.
 - **Shareable URLs** — the full input state lives in the query string, so a link reproduces exactly what you saw.
 - **Luck card export** — a rarity-colored PNG ("common" through "legendary", by how far your percentile sits from the median in either direction) you can save and share.
 - **Light + dark**, keyboard accessible, responsive to 320px, respects `prefers-reduced-motion`, zero tracking. Calculations run locally; time-mode workers load from the same origin and need their asset cached or a working connection.

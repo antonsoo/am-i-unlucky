@@ -1,0 +1,1324 @@
+{
+ "banners": [
+  {
+   "id": 300001,
+   "name": "Ballad in Goblets",
+   "shortName": "Venti",
+   "start": "2020-09-28 00:00:00",
+   "end": "2020-10-18 18:00:00",
+   "version": "1.0",
+   "featured": [
+    "venti"
+   ]
+  },
+  {
+   "id": 300002,
+   "name": "Sparkling Steps",
+   "shortName": "Klee",
+   "start": "2020-10-20 18:00:00",
+   "end": "2020-11-10 16:00:00",
+   "version": "1.0",
+   "featured": [
+    "klee"
+   ]
+  },
+  {
+   "id": 300003,
+   "name": "Farewell of Snezhnaya",
+   "shortName": "Tartaglia",
+   "start": "2020-11-11 06:00:00",
+   "end": "2020-12-01 16:00:00",
+   "version": "1.1",
+   "featured": [
+    "tartaglia"
+   ]
+  },
+  {
+   "id": 300004,
+   "name": "Gentry of Hermitage",
+   "shortName": "Zhongli",
+   "start": "2020-12-01 18:00:00",
+   "end": "2020-12-22 15:00:00",
+   "version": "1.1",
+   "featured": [
+    "zhongli"
+   ]
+  },
+  {
+   "id": 300005,
+   "name": "Secretum Secretorum",
+   "shortName": "Albedo",
+   "start": "2020-12-23 06:00:00",
+   "end": "2021-01-12 16:00:00",
+   "version": "1.2",
+   "featured": [
+    "albedo"
+   ]
+  },
+  {
+   "id": 300006,
+   "name": "Adrift in the Harbor",
+   "shortName": "Ganyu",
+   "start": "2021-01-12 18:00:00",
+   "end": "2021-02-02 15:00:00",
+   "version": "1.2",
+   "featured": [
+    "ganyu"
+   ]
+  },
+  {
+   "id": 300007,
+   "name": "Invitation to Mundane Life",
+   "shortName": "Xiao",
+   "start": "2021-02-03 06:00:00",
+   "end": "2021-02-17 16:00:00",
+   "version": "1.3",
+   "featured": [
+    "xiao"
+   ]
+  },
+  {
+   "id": 300008,
+   "name": "Dance of Lanterns",
+   "shortName": "Keqing",
+   "start": "2021-02-17 18:00:00",
+   "end": "2021-03-02 16:00:00",
+   "version": "1.3",
+   "featured": [
+    "keqing"
+   ]
+  },
+  {
+   "id": 300009,
+   "name": "Moment of Bloom",
+   "shortName": "Hu Tao",
+   "start": "2021-03-02 18:00:00",
+   "end": "2021-03-16 15:00:00",
+   "version": "1.3",
+   "featured": [
+    "hu_tao"
+   ]
+  },
+  {
+   "id": 300010,
+   "name": "Ballad in Goblets",
+   "shortName": "Venti",
+   "start": "2021-03-17 06:00:00",
+   "end": "2021-04-06 16:00:00",
+   "version": "1.4",
+   "featured": [
+    "venti"
+   ]
+  },
+  {
+   "id": 300011,
+   "name": "Farewell of Snezhnaya",
+   "shortName": "Tartaglia",
+   "start": "2021-04-06 18:00:00",
+   "end": "2021-04-27 15:00:00",
+   "version": "1.4",
+   "featured": [
+    "tartaglia"
+   ]
+  },
+  {
+   "id": 300012,
+   "name": "Gentry of Hermitage",
+   "shortName": "Zhongli",
+   "start": "2021-04-28 06:00:00",
+   "end": "2021-05-18 17:59:59",
+   "version": "1.5",
+   "featured": [
+    "zhongli"
+   ]
+  },
+  {
+   "id": 300013,
+   "name": "Born of Ocean Swell",
+   "shortName": "Eula",
+   "start": "2021-05-18 18:00:00",
+   "end": "2021-06-08 15:00:00",
+   "version": "1.5",
+   "featured": [
+    "eula"
+   ]
+  },
+  {
+   "id": 300014,
+   "name": "Sparkling Steps",
+   "shortName": "Klee",
+   "start": "2021-06-09 06:00:00",
+   "end": "2021-06-29 17:59:59",
+   "version": "1.6",
+   "featured": [
+    "klee"
+   ]
+  },
+  {
+   "id": 300015,
+   "name": "Leaves in the Wind",
+   "shortName": "Kazuha",
+   "start": "2021-06-29 18:00:00",
+   "end": "2021-07-20 14:59:59",
+   "version": "1.6",
+   "featured": [
+    "kaedehara_kazuha"
+   ]
+  },
+  {
+   "id": 300016,
+   "name": "The Herons Court",
+   "shortName": "Ayaka",
+   "start": "2021-07-21 06:00:00",
+   "end": "2021-08-10 17:59:59",
+   "version": "2.0",
+   "featured": [
+    "kamisato_ayaka"
+   ]
+  },
+  {
+   "id": 300017,
+   "name": "Tapestry of Golden Flames",
+   "shortName": "Yoimiya",
+   "start": "2021-08-10 18:00:00",
+   "end": "2021-08-31 14:59:59",
+   "version": "2.0",
+   "featured": [
+    "yoimiya"
+   ]
+  },
+  {
+   "id": 300018,
+   "name": "Reign of Serenity",
+   "shortName": "Raiden",
+   "start": "2021-09-01 06:00:00",
+   "end": "2021-09-21 17:59:59",
+   "version": "2.1",
+   "featured": [
+    "raiden_shogun"
+   ]
+  },
+  {
+   "id": 300019,
+   "name": "Drifting Luminescence",
+   "shortName": "Kokomi",
+   "start": "2021-09-21 18:00:00",
+   "end": "2021-10-12 14:59:59",
+   "version": "2.1",
+   "featured": [
+    "sangonomiya_kokomi"
+   ]
+  },
+  {
+   "id": 300020,
+   "name": "Farewell of Snezhnaya",
+   "shortName": "Tartaglia",
+   "start": "2021-10-13 06:00:00",
+   "end": "2021-11-02 17:59:59",
+   "version": "2.2",
+   "featured": [
+    "tartaglia"
+   ]
+  },
+  {
+   "id": 300021,
+   "name": "Moment of Bloom",
+   "shortName": "Hu Tao",
+   "start": "2021-11-02 18:00:00",
+   "end": "2021-11-23 14:59:59",
+   "version": "2.2",
+   "featured": [
+    "hu_tao"
+   ]
+  },
+  {
+   "id": 300022,
+   "name": "Secretum Secretorum",
+   "shortName": "Albedo",
+   "start": "2021-11-24 06:00:00",
+   "end": "2021-12-14 17:59:59",
+   "version": "2.3",
+   "featured": [
+    "albedo",
+    "eula"
+   ]
+  },
+  {
+   "id": 300023,
+   "name": null,
+   "shortName": "Itto",
+   "start": "2021-12-14 18:00:00",
+   "end": "2022-01-04 17:59:59",
+   "version": "2.3",
+   "featured": [
+    "arataki_itto"
+   ]
+  },
+  {
+   "id": 300024,
+   "name": "The Transcendent One Returns",
+   "shortName": "Shenhe",
+   "start": "2022-01-05 06:00:00",
+   "end": "2022-01-25 17:59:59",
+   "version": "2.4",
+   "featured": [
+    "shenhe",
+    "xiao"
+   ]
+  },
+  {
+   "id": 300025,
+   "name": "Gentry of Hermitage",
+   "shortName": "Zhongli",
+   "start": "2022-01-25 18:00:00",
+   "end": "2022-02-15 14:59:59",
+   "version": "2.4",
+   "featured": [
+    "zhongli",
+    "ganyu"
+   ]
+  },
+  {
+   "id": 300026,
+   "name": "Everbloom Violet",
+   "shortName": "Yae",
+   "start": "2022-02-16 06:00:00",
+   "end": "2022-03-08 17:59:59",
+   "version": "2.5",
+   "featured": [
+    "yae_miko"
+   ]
+  },
+  {
+   "id": 300027,
+   "name": "Reign of Serenity",
+   "shortName": "Raiden",
+   "start": "2022-03-08 18:00:00",
+   "end": "2022-03-29 14:59:59",
+   "version": "2.5",
+   "featured": [
+    "raiden_shogun",
+    "sangonomiya_kokomi"
+   ]
+  },
+  {
+   "id": 300028,
+   "name": "Azure Excursion",
+   "shortName": "Ayato",
+   "start": "2022-03-30 06:00:00",
+   "end": "2022-04-19 17:59:59",
+   "version": "2.6",
+   "featured": [
+    "kamisato_ayato",
+    "venti"
+   ]
+  },
+  {
+   "id": 300029,
+   "name": "The Herons Court",
+   "shortName": "Ayaka",
+   "start": "2022-04-19 18:00:00",
+   "end": "2022-05-31 05:59:59",
+   "version": "2.6",
+   "featured": [
+    "kamisato_ayaka"
+   ]
+  },
+  {
+   "id": 300030,
+   "name": "Discerner of Enigmas",
+   "shortName": "Yelan",
+   "start": "2022-05-31 09:00:00",
+   "end": "2022-06-21 17:59:59",
+   "version": "2.7",
+   "featured": [
+    "yelan",
+    "xiao"
+   ]
+  },
+  {
+   "id": 300031,
+   "name": null,
+   "shortName": "Itto",
+   "start": "2022-06-21 18:00:00",
+   "end": "2022-07-12 14:59:59",
+   "version": "2.7",
+   "featured": [
+    "arataki_itto"
+   ]
+  },
+  {
+   "id": 300032,
+   "name": "Leaves in the Wind",
+   "shortName": "Kazuha",
+   "start": "2022-07-13 06:00:00",
+   "end": "2022-08-02 17:59:59",
+   "version": "2.8",
+   "featured": [
+    "kaedehara_kazuha",
+    "klee"
+   ]
+  },
+  {
+   "id": 300033,
+   "name": "Tapestry of Golden Flames",
+   "shortName": "Yoimiya",
+   "start": "2022-08-02 18:00:00",
+   "end": "2022-08-23 14:59:59",
+   "version": "2.8",
+   "featured": [
+    "yoimiya"
+   ]
+  },
+  {
+   "id": 300034,
+   "name": "Viridescent Vigil",
+   "shortName": "Tighnari",
+   "start": "2022-08-24 06:00:00",
+   "end": "2022-09-09 17:59:59",
+   "version": "3.0",
+   "featured": [
+    "tighnari",
+    "zhongli"
+   ]
+  },
+  {
+   "id": 300035,
+   "name": "Adrift in the Harbor",
+   "shortName": "Ganyu",
+   "start": "2022-09-09 18:00:00",
+   "end": "2022-09-27 14:59:59",
+   "version": "3.0",
+   "featured": [
+    "ganyu",
+    "sangonomiya_kokomi"
+   ]
+  },
+  {
+   "id": 300036,
+   "name": "Twilight Arbiter",
+   "shortName": "Cyno",
+   "start": "2022-09-28 06:00:00",
+   "end": "2022-10-14 17:59:59",
+   "version": "3.1",
+   "featured": [
+    "cyno",
+    "venti"
+   ]
+  },
+  {
+   "id": 300037,
+   "name": "Twirling Lotus",
+   "shortName": "Nilou",
+   "start": "2022-10-14 18:00:00",
+   "end": "2022-11-01 14:59:59",
+   "version": "3.1",
+   "featured": [
+    "nilou",
+    "albedo"
+   ]
+  },
+  {
+   "id": 300038,
+   "name": null,
+   "shortName": "Nahida",
+   "start": "2022-11-02 06:00:00",
+   "end": "2022-11-18 17:59:59",
+   "version": "3.2",
+   "featured": [
+    "nahida",
+    "yoimiya"
+   ]
+  },
+  {
+   "id": 300039,
+   "name": "Everbloom Violet",
+   "shortName": "Yae Miko",
+   "start": "2022-11-18 18:00:00",
+   "end": "2022-12-06 14:59:59",
+   "version": "3.2",
+   "featured": [
+    "yae_miko",
+    "tartaglia"
+   ]
+  },
+  {
+   "id": 300040,
+   "name": "From Ashes Reborn",
+   "shortName": "Wanderer",
+   "start": "2022-12-07 06:00:00",
+   "end": "2022-12-27 17:59:59",
+   "version": "3.3",
+   "featured": [
+    "wanderer",
+    "arataki_itto"
+   ]
+  },
+  {
+   "id": 300041,
+   "name": "Reign of Serenity",
+   "shortName": "Raiden",
+   "start": "2022-12-27 18:00:00",
+   "end": "2023-01-17 14:59:59",
+   "version": "3.3",
+   "featured": [
+    "raiden_shogun",
+    "kamisato_ayato"
+   ]
+  },
+  {
+   "id": 300042,
+   "name": "Caution in Confidence",
+   "shortName": "Alhaitham",
+   "start": "2023-01-18 06:00:00",
+   "end": "2023-02-07 17:59:59",
+   "version": "3.4",
+   "featured": [
+    "alhaitham",
+    "xiao"
+   ]
+  },
+  {
+   "id": 300043,
+   "name": "Moment of Bloom",
+   "shortName": "Hu Tao",
+   "start": "2023-02-07 18:00:00",
+   "end": "2023-02-28 14:59:59",
+   "version": "3.4",
+   "featured": [
+    "hu_tao",
+    "yelan"
+   ]
+  },
+  {
+   "id": 300044,
+   "name": "Auric Blaze",
+   "shortName": "Dehya",
+   "start": "2023-03-01 06:00:00",
+   "end": "2023-03-21 17:59:59",
+   "version": "3.5",
+   "featured": [
+    "dehya",
+    "cyno"
+   ]
+  },
+  {
+   "id": 300045,
+   "name": "The Transcendent One Returns",
+   "shortName": "Shenhe",
+   "start": "2023-03-21 18:00:00",
+   "end": "2023-04-11 14:59:59",
+   "version": "3.5",
+   "featured": [
+    "shenhe",
+    "kamisato_ayaka"
+   ]
+  },
+  {
+   "id": 300046,
+   "name": null,
+   "shortName": "Nahida",
+   "start": "2023-04-12 06:00:00",
+   "end": "2023-05-02 17:59:59",
+   "version": "3.6",
+   "featured": [
+    "nahida",
+    "nilou"
+   ]
+  },
+  {
+   "id": 300047,
+   "name": "Immaculate Pulse",
+   "shortName": "Baizhu",
+   "start": "2023-05-02 18:00:00",
+   "end": "2023-05-23 14:59:59",
+   "version": "3.6",
+   "featured": [
+    "baizhu",
+    "ganyu"
+   ]
+  },
+  {
+   "id": 300048,
+   "name": "Tapestry of Golden Flames",
+   "shortName": "Yoimiya",
+   "start": "2023-05-24 06:00:00",
+   "end": "2023-06-13 17:59:59",
+   "version": "3.7",
+   "featured": [
+    "yoimiya",
+    "yae_miko"
+   ]
+  },
+  {
+   "id": 300049,
+   "name": "Caution in Confidence",
+   "shortName": "Alhaitham",
+   "start": "2023-06-13 18:00:00",
+   "end": "2023-07-04 14:59:59",
+   "version": "3.7",
+   "featured": [
+    "alhaitham",
+    "kaedehara_kazuha"
+   ]
+  },
+  {
+   "id": 300050,
+   "name": "Born of Ocean Swell",
+   "shortName": "Eula",
+   "start": "2023-07-05 06:00:00",
+   "end": "2023-07-25 17:59:59",
+   "version": "3.8",
+   "featured": [
+    "eula",
+    "klee"
+   ]
+  },
+  {
+   "id": 300051,
+   "name": "Drifting Luminescence",
+   "shortName": "Kokomi",
+   "start": "2023-07-25 18:00:00",
+   "end": "2023-08-15 17:59:59",
+   "version": "3.8",
+   "featured": [
+    "sangonomiya_kokomi",
+    "wanderer"
+   ]
+  },
+  {
+   "id": 300052,
+   "name": "Conjuring Chiaroscuro",
+   "shortName": "Lyney",
+   "start": "2023-08-16 06:00:00",
+   "end": "2023-09-05 17:59:59",
+   "version": "4.0",
+   "featured": [
+    "lyney",
+    "yelan"
+   ]
+  },
+  {
+   "id": 300053,
+   "name": "Gentry of Hermitage",
+   "shortName": "Zhongli",
+   "start": "2023-09-05 18:00:00",
+   "end": "2023-09-26 14:59:59",
+   "version": "4.0",
+   "featured": [
+    "tartaglia",
+    "zhongli"
+   ]
+  },
+  {
+   "id": 300054,
+   "name": "Decree of the Deeps",
+   "shortName": "Neuvillette",
+   "start": "2023-09-27 06:00:00",
+   "end": "2023-10-17 17:59:59",
+   "version": "4.1",
+   "featured": [
+    "neuvillette",
+    "hu_tao"
+   ]
+  },
+  {
+   "id": 300055,
+   "name": "Tempestuous Destiny",
+   "shortName": "Wriothesley",
+   "start": "2023-10-17 18:00:00",
+   "end": "2023-11-07 14:59:59",
+   "version": "4.1",
+   "featured": [
+    "wriothesley",
+    "venti"
+   ]
+  },
+  {
+   "id": 300056,
+   "name": "Chanson of Many Waters",
+   "shortName": "Furina",
+   "start": "2023-11-08 06:00:00",
+   "end": "2023-11-28 17:59:59",
+   "version": "4.2",
+   "featured": [
+    "furina",
+    "baizhu"
+   ]
+  },
+  {
+   "id": 300057,
+   "name": "Twilight Arbiter",
+   "shortName": "Cyno",
+   "start": "2023-11-28 18:00:00",
+   "end": "2023-12-19 14:59:59",
+   "version": "4.2",
+   "featured": [
+    "cyno",
+    "kamisato_ayato"
+   ]
+  },
+  {
+   "id": 300058,
+   "name": "In the Name of the Rosula",
+   "shortName": "Navia",
+   "start": "2023-12-20 06:00:00",
+   "end": "2024-01-09 17:59:59",
+   "version": "4.3",
+   "featured": [
+    "navia",
+    "kamisato_ayaka"
+   ]
+  },
+  {
+   "id": 300059,
+   "name": "Reign of Serenity",
+   "shortName": "Raiden",
+   "start": "2024-01-09 18:00:00",
+   "end": "2024-01-30 14:59:00",
+   "version": "4.3",
+   "featured": [
+    "raiden_shogun",
+    "yoimiya"
+   ]
+  },
+  {
+   "id": 300060,
+   "name": "The Crane Soars Skyward",
+   "shortName": "Xianyun",
+   "start": "2024-01-31 06:00:00",
+   "end": "2024-02-20 17:59:00",
+   "version": "4.4",
+   "featured": [
+    "xianyun",
+    "nahida"
+   ]
+  },
+  {
+   "id": 300061,
+   "name": "Invitation to Mundane Life",
+   "shortName": "Xiao",
+   "start": "2024-02-20 18:00:00",
+   "end": "2024-03-12 14:59:00",
+   "version": "4.4",
+   "featured": [
+    "xiao",
+    "yae_miko"
+   ]
+  },
+  {
+   "id": 300062,
+   "name": "Of Silken Clouds Woven",
+   "shortName": "Chiori",
+   "start": "2024-03-13 06:00:00",
+   "end": "2024-04-02 17:59:00",
+   "version": "4.5",
+   "featured": [
+    "chiori",
+    "arataki_itto"
+   ]
+  },
+  {
+   "id": 300063,
+   "name": "Decree of the Deeps",
+   "shortName": "Neuvillette",
+   "start": "2024-04-02 18:00:00",
+   "end": "2024-04-23 14:59:00",
+   "version": "4.5",
+   "featured": [
+    "neuvillette",
+    "kaedehara_kazuha"
+   ]
+  },
+  {
+   "id": 300064,
+   "name": null,
+   "shortName": "Arlecchino",
+   "start": "2024-04-24 06:00:00",
+   "end": "2024-05-14 17:59:00",
+   "version": "4.6",
+   "featured": [
+    "arlecchino",
+    "lyney"
+   ]
+  },
+  {
+   "id": 300065,
+   "name": "From Ashes Reborn",
+   "shortName": "Wanderer",
+   "start": "2024-05-14 18:00:00",
+   "end": "2024-06-04 14:59:00",
+   "version": "4.6",
+   "featured": [
+    "wanderer",
+    "baizhu"
+   ]
+  },
+  {
+   "id": 300066,
+   "name": "Illuminating Lightning",
+   "shortName": "Clorinde",
+   "start": "2024-06-05 06:00:00",
+   "end": "2024-06-25 17:59:00",
+   "version": "4.7",
+   "featured": [
+    "clorinde",
+    "alhaitham"
+   ]
+  },
+  {
+   "id": 300067,
+   "name": "Romaritime Meluserenity",
+   "shortName": "Sigewinne",
+   "start": "2024-06-25 18:00:00",
+   "end": "2024-07-16 14:59:00",
+   "version": "4.7",
+   "featured": [
+    "sigewinne",
+    "furina"
+   ]
+  },
+  {
+   "id": 300068,
+   "name": "In the Name of the Rosula",
+   "shortName": "Navia",
+   "start": "2024-07-17 06:00:00",
+   "end": "2024-08-06 17:59:00",
+   "version": "4.8",
+   "featured": [
+    "navia",
+    "nilou"
+   ]
+  },
+  {
+   "id": 300069,
+   "name": "Ambrosial Essence",
+   "shortName": "Emilie",
+   "start": "2024-08-06 18:00:00",
+   "end": "2024-08-27 14:59:00",
+   "version": "4.8",
+   "featured": [
+    "emilie",
+    "yelan"
+   ]
+  },
+  {
+   "id": 300070,
+   "name": "Sharktacular Surfari",
+   "shortName": "Mualani",
+   "start": "2024-08-28 06:00:00",
+   "end": "2024-09-17 17:59:00",
+   "version": "5.0",
+   "featured": [
+    "mualani",
+    "kaedehara_kazuha"
+   ]
+  },
+  {
+   "id": 300071,
+   "name": "Seeker of Flame-Wrought Secrets",
+   "shortName": "Kinich",
+   "start": "2024-09-17 18:00:00",
+   "end": "2024-10-08 14:59:00",
+   "version": "5.0",
+   "featured": [
+    "kinich",
+    "raiden_shogun"
+   ]
+  },
+  {
+   "id": 300072,
+   "name": null,
+   "shortName": "Xilonen",
+   "start": "2024-10-09 06:00:00",
+   "end": "2024-10-29 17:59:00",
+   "version": "5.1",
+   "featured": [
+    "xilonen",
+    "chiori"
+   ]
+  },
+  {
+   "id": 300073,
+   "name": null,
+   "shortName": "Nahida",
+   "start": "2024-10-29 18:00:00",
+   "end": "2024-11-19 14:59:00",
+   "version": "5.1",
+   "featured": [
+    "nahida",
+    "hu_tao"
+   ]
+  },
+  {
+   "id": 300074,
+   "name": null,
+   "shortName": "Chasca",
+   "start": "2024-11-20 06:00:00",
+   "end": "2024-12-10 17:59:00",
+   "version": "5.2",
+   "featured": [
+    "chasca",
+    "lyney"
+   ]
+  },
+  {
+   "id": 300075,
+   "name": "Decree of the Deeps",
+   "shortName": "Neuvillette",
+   "start": "2024-12-10 18:00:00",
+   "end": "2024-12-31 14:59:00",
+   "version": "5.2",
+   "featured": [
+    "neuvillette",
+    "zhongli"
+   ]
+  },
+  {
+   "id": 300076,
+   "name": "Ancient Flame Ablaze",
+   "shortName": "Mavuika",
+   "start": "2025-01-01 06:00:00",
+   "end": "2025-01-21 17:59:00",
+   "version": "5.3",
+   "featured": [
+    "mavuika",
+    "citlali"
+   ]
+  },
+  {
+   "id": 300077,
+   "name": null,
+   "shortName": "Arlecchino",
+   "start": "2025-01-21 18:00:00",
+   "end": "2025-02-11 14:59:00",
+   "version": "5.3",
+   "featured": [
+    "arlecchino",
+    "clorinde"
+   ]
+  },
+  {
+   "id": 300078,
+   "name": null,
+   "shortName": "Mizuki",
+   "start": "2025-02-12 06:00:00",
+   "end": "2025-03-04 17:59:00",
+   "version": "5.4",
+   "featured": [
+    "yumemizuki_mizuki",
+    "sigewinne"
+   ]
+  },
+  {
+   "id": 300079,
+   "name": "Tempestuous Destiny",
+   "shortName": "Wriothesley",
+   "start": "2025-03-04 18:00:00",
+   "end": "2025-03-25 14:59:00",
+   "version": "5.4",
+   "featured": [
+    "wriothesley",
+    "furina"
+   ]
+  },
+  {
+   "id": 300080,
+   "name": "Cornucopia of Contention",
+   "shortName": "Varesa",
+   "start": "2025-03-26 06:00:00",
+   "end": "2025-04-15 17:59:00",
+   "version": "5.5",
+   "featured": [
+    "varesa",
+    "xianyun"
+   ]
+  },
+  {
+   "id": 300081,
+   "name": null,
+   "shortName": "Xilonen",
+   "start": "2025-04-15 18:00:00",
+   "end": "2025-05-06 14:59:00",
+   "version": "5.5",
+   "featured": [
+    "xilonen",
+    "venti"
+   ]
+  },
+  {
+   "id": 300082,
+   "name": "La Chanson Cerise",
+   "shortName": "Escoffier",
+   "start": "2025-05-07 06:00:00",
+   "end": "2025-05-27 17:59:00",
+   "version": "5.6",
+   "featured": [
+    "escoffier",
+    "navia"
+   ]
+  },
+  {
+   "id": 300083,
+   "name": "Seeker of Flame-Wrought Secrets",
+   "shortName": "Kinich",
+   "start": "2025-05-27 18:00:00",
+   "end": "2025-06-17 14:59:00",
+   "version": "5.6",
+   "featured": [
+    "kinich",
+    "raiden_shogun"
+   ]
+  },
+  {
+   "id": 300084,
+   "name": null,
+   "shortName": "Skirk",
+   "start": "2025-06-18 06:00:00",
+   "end": "2025-07-08 17:59:00",
+   "version": "5.7",
+   "featured": [
+    "skirk",
+    "shenhe"
+   ]
+  },
+  {
+   "id": 300085,
+   "name": "Ancient Flame Ablaze",
+   "shortName": "Mavuika",
+   "start": "2025-07-08 18:00:00",
+   "end": "2025-07-29 14:59:00",
+   "version": "5.7",
+   "featured": [
+    "mavuika",
+    "emilie"
+   ]
+  },
+  {
+   "id": 300086,
+   "name": "Astral Actuation",
+   "shortName": "Ineffa",
+   "start": "2025-07-30 06:00:00",
+   "end": "2025-08-19 17:59:00",
+   "version": "5.8",
+   "featured": [
+    "ineffa",
+    "citlali"
+   ]
+  },
+  {
+   "id": 300087,
+   "name": "Sharktacular Surfari",
+   "shortName": "Mualani",
+   "start": "2025-08-19 18:00:00",
+   "end": "2025-09-09 14:59:00",
+   "version": "5.8",
+   "featured": [
+    "mualani",
+    "chasca"
+   ]
+  },
+  {
+   "id": 300088,
+   "name": "Moonsong of the Groves",
+   "shortName": "Lauma",
+   "start": "2025-09-10 06:00:00",
+   "end": "2025-09-30 17:59:00",
+   "version": "6.0",
+   "featured": [
+    "lauma",
+    "nahida"
+   ]
+  },
+  {
+   "id": 300089,
+   "name": "The Lone Light Knocks at Night",
+   "shortName": "Flins",
+   "start": "2025-09-30 18:00:00",
+   "end": "2025-10-21 17:59:00",
+   "version": "6.0",
+   "featured": [
+    "flins",
+    "yelan"
+   ]
+  },
+  {
+   "id": 300090,
+   "name": "Temptation of the Crimson Sands",
+   "shortName": "Nefer",
+   "start": "2025-10-22 06:00:00",
+   "end": "2025-11-11 17:59:00",
+   "version": "6.1",
+   "featured": [
+    "nefer",
+    "furina"
+   ]
+  },
+  {
+   "id": 300091,
+   "name": null,
+   "shortName": "Arlecchino",
+   "start": "2025-11-11 18:00:00",
+   "end": "2025-12-02 14:59:00",
+   "version": "6.1",
+   "featured": [
+    "arlecchino",
+    "zhongli"
+   ]
+  },
+  {
+   "id": 300092,
+   "name": "Rubedo, of White Stone Born",
+   "shortName": "Durin",
+   "start": "2025-12-03 06:00:00",
+   "end": "2025-12-23 17:59:00",
+   "version": "6.2",
+   "featured": [
+    "durin",
+    "venti"
+   ]
+  },
+  {
+   "id": 300093,
+   "name": "Cornucopia of Contention",
+   "shortName": "Varesa",
+   "start": "2025-12-23 18:00:00",
+   "end": "2026-01-13 14:59:00",
+   "version": "6.2",
+   "featured": [
+    "varesa",
+    "xilonen"
+   ]
+  },
+  {
+   "id": 300094,
+   "name": "Somnias a Luna",
+   "shortName": "Columbina",
+   "start": "2026-01-14 06:00:00",
+   "end": "2026-02-03 17:59:00",
+   "version": "6.3",
+   "featured": [
+    "columbina",
+    "ineffa"
+   ]
+  },
+  {
+   "id": 300095,
+   "name": "Harmonious Abundance",
+   "shortName": "Zibai",
+   "start": "2026-02-03 18:00:00",
+   "end": "2026-02-24 14:59:00",
+   "version": "6.3",
+   "featured": [
+    "zibai",
+    "neuvillette"
+   ]
+  },
+  {
+   "id": 300096,
+   "name": null,
+   "shortName": "Varka",
+   "start": "2026-02-25 06:00:00",
+   "end": "2026-03-17 17:59:00",
+   "version": "6.4",
+   "featured": [
+    "varka",
+    "flins"
+   ]
+  },
+  {
+   "id": 300097,
+   "name": null,
+   "shortName": "Skirk",
+   "start": "2026-03-17 18:00:00",
+   "end": "2026-04-07 14:59:00",
+   "version": "6.4",
+   "featured": [
+    "skirk",
+    "escoffier"
+   ]
+  },
+  {
+   "id": 300098,
+   "name": "Ya-hoho! Compendium",
+   "shortName": "Linnea",
+   "start": "2026-04-08 06:00:00",
+   "end": "2026-04-28 17:59:00",
+   "version": "6.5",
+   "featured": [
+    "linnea",
+    "chasca"
+   ]
+  },
+  {
+   "id": 300099,
+   "name": "Moonsong of the Groves",
+   "shortName": "Lauma",
+   "start": "2026-04-28 18:00:00",
+   "end": "2026-05-19 14:59:00",
+   "version": "6.5",
+   "featured": [
+    "lauma",
+    "nefer"
+   ]
+  },
+  {
+   "id": 300100,
+   "name": null,
+   "shortName": "Nicole",
+   "start": "2026-05-20 06:00:00",
+   "end": "2026-06-09 17:59:00",
+   "version": "6.6",
+   "featured": [
+    "nicole",
+    "durin"
+   ]
+  },
+  {
+   "id": 300101,
+   "name": "Frostedge Nocturne",
+   "shortName": "Lohen",
+   "start": "2026-06-09 18:00:00",
+   "end": "2026-06-30 14:59:00",
+   "version": "6.6",
+   "featured": [
+    "lohen",
+    "mavuika"
+   ]
+  },
+  {
+   "id": 300102,
+   "name": "To the Looking-Glass the Mademoiselle Said",
+   "shortName": "Sandrone",
+   "start": "2026-07-01 06:00:00",
+   "end": "2026-07-21 17:59:00",
+   "version": "6.7",
+   "featured": [
+    "sandrone",
+    "citlali"
+   ]
+  },
+  {
+   "id": 300103,
+   "name": "Somnias a Luna",
+   "shortName": "Columbina",
+   "start": "2026-07-21 18:00:00",
+   "end": "2026-08-11 14:59:00",
+   "version": "6.7",
+   "featured": [
+    "columbina",
+    "raiden_shogun"
+   ]
+  },
+  {
+   "id": 300104,
+   "name": null,
+   "shortName": "Odette",
+   "start": "2026-08-12 06:00:00",
+   "end": "2026-09-01 17:59:00",
+   "version": "7.0",
+   "featured": [
+    "odette",
+    "arlecchino"
+   ]
+  },
+  {
+   "id": 300105,
+   "name": "The Lone Light Knocks at Night",
+   "shortName": "Flins",
+   "start": "2026-09-01 18:00:00",
+   "end": "2026-09-22 14:59:00",
+   "version": "7.0",
+   "featured": [
+    "flins",
+    "ineffa"
+   ]
+  },
+  {
+   "id": 300106,
+   "name": "When Warm Winds Cavort",
+   "shortName": "Vesna",
+   "start": "2026-09-23 06:00:00",
+   "end": "2026-10-13 17:59:59",
+   "version": "7.1",
+   "featured": [
+    "vesna",
+    "vodyanitsa"
+   ]
+  }
+ ],
+ "five_star_characters": [
+  "albedo",
+  "alhaitham",
+  "aloy",
+  "arataki_itto",
+  "arlecchino",
+  "baizhu",
+  "chasca",
+  "chiori",
+  "citlali",
+  "clorinde",
+  "columbina",
+  "cyno",
+  "dehya",
+  "diluc",
+  "durin",
+  "emilie",
+  "escoffier",
+  "eula",
+  "flins",
+  "furina",
+  "ganyu",
+  "hu_tao",
+  "ineffa",
+  "jean",
+  "kaedehara_kazuha",
+  "kamisato_ayaka",
+  "kamisato_ayato",
+  "keqing",
+  "kinich",
+  "klee",
+  "lauma",
+  "linnea",
+  "lohen",
+  "lyney",
+  "mavuika",
+  "mona",
+  "mualani",
+  "nahida",
+  "navia",
+  "nefer",
+  "neuvillette",
+  "nicole",
+  "nilou",
+  "odette",
+  "qiqi",
+  "raiden_shogun",
+  "sandrone",
+  "sangonomiya_kokomi",
+  "shenhe",
+  "sigewinne",
+  "skirk",
+  "tartaglia",
+  "tighnari",
+  "traveler_dendro",
+  "traveler_hydro",
+  "traveler_pyro",
+  "varesa",
+  "varka",
+  "venti",
+  "vesna",
+  "vodyanitsa",
+  "wanderer",
+  "wriothesley",
+  "xianyun",
+  "xiao",
+  "xilonen",
+  "yae_miko",
+  "yelan",
+  "yoimiya",
+  "yumemizuki_mizuki",
+  "zhongli",
+  "zibai"
+ ]
+}

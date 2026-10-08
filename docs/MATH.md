@@ -171,6 +171,13 @@ $$
 (capped at 1), where $c+1$ is the 1-indexed pull number within the current
 streak.
 
+A config may instead carry a measured table `rates`, with `rates[n - 1]` the
+chance on pull $n$ of a streak. It replaces the base-plus-ramp expression for
+every pull before hard pity; the hard pity still returns 1 and nothing else in
+the chain changes, so the walk below is as exact for a measured table as for the
+formula. The study in `studies/paimon-pity` builds one from logged pulls, using
+the streaks that ended at pull $n$ or later as the number that reached pull $n$.
+
 **Transition on a pull from state $(c, g, j)$:**
 
 - **Item-tier hit**, probability $\text{rate}(c)$:

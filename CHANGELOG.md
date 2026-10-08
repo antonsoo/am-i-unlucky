@@ -5,6 +5,26 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Added
+
+- A pity preset measured from logged pulls: "Genshin Impact character banner,
+  as logged (Oct 2026)", from 7,657,036 five-stars on paimon.moe's public
+  tallies (versions 5.0 to 7.1, retrieved 2026-10-08), with the publisher's
+  stated 55% featured chance. It is community data and its label says so.
+  `PityConfig` takes an optional per-pull `rates` table that replaces the base
+  rate and ramp; the chain stays exact. Share links keep it as `table=<id>`.
+- `studies/paimon-pity`: the soft-pity archetype against those tallies, the
+  estimator tested on simulated pulls with a known hazard, and the 50/50 by
+  game version.
+
+### Changed
+
+- The soft-pity gacha preset is described as a generic archetype whose 50/50 is
+  the rule used until version 4.8; its numbers are unchanged. The logged pulls
+  agree with its ramp to within a point up to pull 83.
+
 ## [0.4.0] - 2026-10-03
 
 ### Fixed

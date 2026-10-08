@@ -1,0 +1,878 @@
+{
+ "retrieved": "2026-10-08T10:14:46+00:00",
+ "references": {
+  "hoyoverse_capturing_radiance_qa": {
+   "page": "https://genshin.hoyoverse.com/en/news/detail/125274",
+   "fetched": "https://sg-public-api-static.hoyoverse.com/content_v2_user/app/a1b1f9d3315447cc/getContent?iAppId=32&iInfoId=125274&sLangKey=en-us",
+   "note": "the JSON the official page itself loads; the page is client-rendered",
+   "status": 200,
+   "bytes": 5648,
+   "sha256": "c0fa9109d1ead6e583ef59f17f0cdd20d45b1519c1aa4602a022670daedb7a72",
+   "published": "2024-08-16 13:40:00",
+   "title": "\"Capturing Radiance\" Mechanic: You Ask, I Answer!"
+  },
+  "fandom_wish_page_wikitext": {
+   "page": "https://genshin-impact.fandom.com/wiki/Wish",
+   "fetched": "https://genshin-impact.fandom.com/api.php?action=parse&page=Wish&prop=wikitext&format=json",
+   "note": "community wiki (CC BY-SA); quotes the 0.6% base and 1.6% consolidated rates, says soft pity is unofficial and measured",
+   "status": 200,
+   "bytes": 10384,
+   "sha256": "e5c31bfe5f6b604c40036a82809fe654d1ee018e3636f40270adfebd6601b92c"
+  }
+ },
+ "code": {
+  "paimon-moe (front end, MIT)": {
+   "url": "https://github.com/MadeBaruna/paimon-moe",
+   "HEAD_when_retrieved": "0a88d5391005a4331a1413966528dd1762ce2614"
+  },
+  "paimon-moe-api (server, read for how the tallies are built)": {
+   "url": "https://github.com/MadeBaruna/paimon-moe-api",
+   "HEAD_when_retrieved": "7080596db9782f306015cc0a04660a35eb872aa6"
+  },
+  "privacy policy (states the submissions are opt-in and aggregated)": {
+   "url": "https://paimon.moe/privacy-policy"
+  }
+ },
+ "tallies": {
+  "200001": {
+   "url": "https://api.paimon.moe/wish?banner=200001",
+   "status": 200,
+   "bytes": 166780,
+   "retrieved": "2026-10-08T09:48:02+00:00",
+   "sha256": "bd1d3eda98ac7f1b050da674ff5748039f8ca1854b4b02ba29d44593f071c334",
+   "tally_time": "2026-09-28T18:41:58+00:00"
+  },
+  "300001": {
+   "url": "https://api.paimon.moe/wish?banner=300001",
+   "status": 400,
+   "bytes": 78,
+   "retrieved": "2026-10-08T09:48:05+00:00"
+  },
+  "300002": {
+   "url": "https://api.paimon.moe/wish?banner=300002",
+   "status": 400,
+   "bytes": 78,
+   "retrieved": "2026-10-08T09:48:08+00:00"
+  },
+  "300003": {
+   "url": "https://api.paimon.moe/wish?banner=300003",
+   "status": 400,
+   "bytes": 78,
+   "retrieved": "2026-10-08T09:48:11+00:00"
+  },
+  "300004": {
+   "url": "https://api.paimon.moe/wish?banner=300004",
+   "status": 400,
+   "bytes": 78,
+   "retrieved": "2026-10-08T09:48:13+00:00"
+  },
+  "300005": {
+   "url": "https://api.paimon.moe/wish?banner=300005",
+   "status": 400,
+   "bytes": 78,
+   "retrieved": "2026-10-08T09:48:16+00:00"
+  },
+  "300006": {
+   "url": "https://api.paimon.moe/wish?banner=300006",
+   "status": 400,
+   "bytes": 78,
+   "retrieved": "2026-10-08T09:48:19+00:00"
+  },
+  "300007": {
+   "url": "https://api.paimon.moe/wish?banner=300007",
+   "status": 400,
+   "bytes": 78,
+   "retrieved": "2026-10-08T09:48:22+00:00"
+  },
+  "300008": {
+   "url": "https://api.paimon.moe/wish?banner=300008",
+   "status": 400,
+   "bytes": 78,
+   "retrieved": "2026-10-08T09:48:24+00:00"
+  },
+  "300009": {
+   "url": "https://api.paimon.moe/wish?banner=300009",
+   "status": 200,
+   "bytes": 1647,
+   "retrieved": "2026-10-08T09:48:27+00:00",
+   "sha256": "05c05f5dfc7601406bff6131f049e8b965417070b2aa7a5f3109eaf2ac307797",
+   "tally_time": "2026-09-28T18:41:44+00:00"
+  },
+  "300010": {
+   "url": "https://api.paimon.moe/wish?banner=300010",
+   "status": 200,
+   "bytes": 1483,
+   "retrieved": "2026-10-08T09:48:30+00:00",
+   "sha256": "3e5f5d193ac6c1962aefc88498bfb515004412ea310f362982c449e87d70e8db",
+   "tally_time": "2026-09-28T18:41:30+00:00"
+  },
+  "300011": {
+   "url": "https://api.paimon.moe/wish?banner=300011",
+   "status": 200,
+   "bytes": 3093,
+   "retrieved": "2026-10-08T09:48:33+00:00",
+   "sha256": "fc8339f8771d61c6f2605a27235bc37d1c1ee68719c1e98bed56ab69f4c594a4",
+   "tally_time": "2026-09-28T18:41:15+00:00"
+  },
+  "300012": {
+   "url": "https://api.paimon.moe/wish?banner=300012",
+   "status": 200,
+   "bytes": 3674,
+   "retrieved": "2026-10-08T09:48:36+00:00",
+   "sha256": "cb7faf50053312323c2f4a983187bf90891c6b6f0b2b5b1b430b5f21862e9b3c",
+   "tally_time": "2026-09-28T18:40:55+00:00"
+  },
+  "300013": {
+   "url": "https://api.paimon.moe/wish?banner=300013",
+   "status": 200,
+   "bytes": 3753,
+   "retrieved": "2026-10-08T09:48:39+00:00",
+   "sha256": "7a796a0967681595045760218f4c32c1c012d61f8164841377623e9553679bec",
+   "tally_time": "2026-09-28T18:40:33+00:00"
+  },
+  "300014": {
+   "url": "https://api.paimon.moe/wish?banner=300014",
+   "status": 200,
+   "bytes": 3681,
+   "retrieved": "2026-10-08T09:48:42+00:00",
+   "sha256": "7bcd7a173d6f251588cc8c2c3489e10a11db4b1093b0ccbaa7d94eec972cef97",
+   "tally_time": "2026-09-28T18:40:10+00:00"
+  },
+  "300015": {
+   "url": "https://api.paimon.moe/wish?banner=300015",
+   "status": 200,
+   "bytes": 3945,
+   "retrieved": "2026-10-08T09:48:44+00:00",
+   "sha256": "9efbcc7e79fae52e09a88f317ab64905b650d80653fc3a91b2e56e6e9b49cd58",
+   "tally_time": "2026-09-28T18:39:45+00:00"
+  },
+  "300016": {
+   "url": "https://api.paimon.moe/wish?banner=300016",
+   "status": 200,
+   "bytes": 3887,
+   "retrieved": "2026-10-08T09:48:47+00:00",
+   "sha256": "fc05697e776f7201408586366a5f0f1765bc250451e976ab7a9b39a11a2bec94",
+   "tally_time": "2026-09-28T18:39:14+00:00"
+  },
+  "300017": {
+   "url": "https://api.paimon.moe/wish?banner=300017",
+   "status": 200,
+   "bytes": 7049,
+   "retrieved": "2026-10-08T09:48:50+00:00",
+   "sha256": "5db6cd639a3e4c3c4303c1d866b458f7de745c2bc78bfe480e285519dde90734",
+   "tally_time": "2026-09-28T18:38:46+00:00"
+  },
+  "300018": {
+   "url": "https://api.paimon.moe/wish?banner=300018",
+   "status": 200,
+   "bytes": 7354,
+   "retrieved": "2026-10-08T09:48:53+00:00",
+   "sha256": "e39b4adcb89199eae3ca25654d236ef3f0482f5df12707e8e2e2e61f7882d3eb",
+   "tally_time": "2026-09-28T18:37:11+00:00"
+  },
+  "300019": {
+   "url": "https://api.paimon.moe/wish?banner=300019",
+   "status": 200,
+   "bytes": 6871,
+   "retrieved": "2026-10-08T09:48:55+00:00",
+   "sha256": "963da9777e6c6b36c70c8a9493dd085053a4b65739efb65f1ac17423477d57ea",
+   "tally_time": "2026-09-28T18:36:24+00:00"
+  },
+  "300020": {
+   "url": "https://api.paimon.moe/wish?banner=300020",
+   "status": 200,
+   "bytes": 7250,
+   "retrieved": "2026-10-08T09:48:58+00:00",
+   "sha256": "ab27bf6ae81cb948ba4e143641797f6553fed4ef1ce0a23b9e17a125f8acbfe9",
+   "tally_time": "2026-09-28T18:35:41+00:00"
+  },
+  "300021": {
+   "url": "https://api.paimon.moe/wish?banner=300021",
+   "status": 200,
+   "bytes": 7692,
+   "retrieved": "2026-10-08T09:49:01+00:00",
+   "sha256": "fb2a0af9f42c46584c71b1896e5f56fb6b3767705444c355904136a553d200db",
+   "tally_time": "2026-09-28T18:34:03+00:00"
+  },
+  "300022": {
+   "url": "https://api.paimon.moe/wish?banner=300022",
+   "status": 200,
+   "bytes": 7785,
+   "retrieved": "2026-10-08T09:49:04+00:00",
+   "sha256": "445d714a3611b75db8b08b79b2254c8d442bb57715152e152f24803df2ae71ba",
+   "tally_time": "2026-09-28T18:32:32+00:00"
+  },
+  "300023": {
+   "url": "https://api.paimon.moe/wish?banner=300023",
+   "status": 200,
+   "bytes": 7699,
+   "retrieved": "2026-10-08T09:49:07+00:00",
+   "sha256": "27608ca360aeec41411071ab39717ade51071bdf1e1c6722c1ea039dfdb46231",
+   "tally_time": "2026-09-28T18:31:42+00:00"
+  },
+  "300024": {
+   "url": "https://api.paimon.moe/wish?banner=300024",
+   "status": 200,
+   "bytes": 7871,
+   "retrieved": "2026-10-08T09:49:09+00:00",
+   "sha256": "b7cc6fd2dc1d01e9cea471940ab963e5aeef184418cc9f29ff37aec5ef2ac938",
+   "tally_time": "2026-09-28T18:30:16+00:00"
+  },
+  "300025": {
+   "url": "https://api.paimon.moe/wish?banner=300025",
+   "status": 200,
+   "bytes": 8156,
+   "retrieved": "2026-10-08T09:49:12+00:00",
+   "sha256": "2bd7f068a95457640540ff634baca2a5deac7497fc247f0f45ba24fe20897223",
+   "tally_time": "2026-09-28T18:28:38+00:00"
+  },
+  "300026": {
+   "url": "https://api.paimon.moe/wish?banner=300026",
+   "status": 200,
+   "bytes": 7858,
+   "retrieved": "2026-10-08T09:49:15+00:00",
+   "sha256": "e08d0bd6ca0d765af5f11f9b7ad89954644238f2b636dd7a6b2c9430370e2ea6",
+   "tally_time": "2026-09-28T18:27:08+00:00"
+  },
+  "300027": {
+   "url": "https://api.paimon.moe/wish?banner=300027",
+   "status": 200,
+   "bytes": 8059,
+   "retrieved": "2026-10-08T09:49:18+00:00",
+   "sha256": "aab216cac22ed52322133719043719bf6d020ff4ec9265401504344c986b2def",
+   "tally_time": "2026-09-28T18:26:16+00:00"
+  },
+  "300028": {
+   "url": "https://api.paimon.moe/wish?banner=300028",
+   "status": 200,
+   "bytes": 8114,
+   "retrieved": "2026-10-08T09:49:21+00:00",
+   "sha256": "5832b2c272d132dd803203c515e54bd7031c54733b3d71ed59282c041382d717",
+   "tally_time": "2026-09-28T18:24:10+00:00"
+  },
+  "300029": {
+   "url": "https://api.paimon.moe/wish?banner=300029",
+   "status": 200,
+   "bytes": 9612,
+   "retrieved": "2026-10-08T09:49:23+00:00",
+   "sha256": "418e8700db1fdcf45b39fe19e0ef0f76029122d1701f50af824d5586135af52b",
+   "tally_time": "2026-09-28T18:23:16+00:00"
+  },
+  "300030": {
+   "url": "https://api.paimon.moe/wish?banner=300030",
+   "status": 200,
+   "bytes": 8352,
+   "retrieved": "2026-10-08T09:49:26+00:00",
+   "sha256": "b2a098950704a271a35e8e351b85904672c8c446d0d757ad7f633f12a880f83b",
+   "tally_time": "2026-09-28T18:22:08+00:00"
+  },
+  "300031": {
+   "url": "https://api.paimon.moe/wish?banner=300031",
+   "status": 200,
+   "bytes": 8023,
+   "retrieved": "2026-10-08T09:49:29+00:00",
+   "sha256": "5869eca5036cd17087e6b8ac6f83856ac4be9e2bf4ed6bb0eacc02d1823439fe",
+   "tally_time": "2026-09-28T18:21:33+00:00"
+  },
+  "300032": {
+   "url": "https://api.paimon.moe/wish?banner=300032",
+   "status": 200,
+   "bytes": 8532,
+   "retrieved": "2026-10-08T09:49:32+00:00",
+   "sha256": "2e0ada12e5a2574b130c36044fb017b3a7655e1155cc56f70accf2f1d8716ceb",
+   "tally_time": "2026-09-28T18:18:20+00:00"
+  },
+  "300033": {
+   "url": "https://api.paimon.moe/wish?banner=300033",
+   "status": 200,
+   "bytes": 8105,
+   "retrieved": "2026-10-08T09:49:35+00:00",
+   "sha256": "253a999536fc9ed7cf6c865f1ffc648b0119b35377bf360136c5216381740a27",
+   "tally_time": "2026-09-28T18:17:39+00:00"
+  },
+  "300034": {
+   "url": "https://api.paimon.moe/wish?banner=300034",
+   "status": 200,
+   "bytes": 7951,
+   "retrieved": "2026-10-08T09:49:37+00:00",
+   "sha256": "61c0baea59037982536b1c2fe14b6f87161922dbff768f281bc5aebe4d34a2a0",
+   "tally_time": "2026-09-28T18:17:00+00:00"
+  },
+  "300035": {
+   "url": "https://api.paimon.moe/wish?banner=300035",
+   "status": 200,
+   "bytes": 8233,
+   "retrieved": "2026-10-08T09:49:40+00:00",
+   "sha256": "1c72afd2ed155f3b8b2a24f41fca324410be3ec2d0153ffde6cef336d4f9de3a",
+   "tally_time": "2026-09-28T18:16:25+00:00"
+  },
+  "300036": {
+   "url": "https://api.paimon.moe/wish?banner=300036",
+   "status": 200,
+   "bytes": 8169,
+   "retrieved": "2026-10-08T09:49:43+00:00",
+   "sha256": "ea49b79325a378d5558e40dc71912ab729bfdde1986f49ec8b12a29c637100b1",
+   "tally_time": "2026-09-28T18:15:47+00:00"
+  },
+  "300037": {
+   "url": "https://api.paimon.moe/wish?banner=300037",
+   "status": 200,
+   "bytes": 8319,
+   "retrieved": "2026-10-08T09:49:46+00:00",
+   "sha256": "260500e0310291cb1a0af99441a35709a91191c20c8e7b92e34f4518109997a0",
+   "tally_time": "2026-09-28T18:15:09+00:00"
+  },
+  "300038": {
+   "url": "https://api.paimon.moe/wish?banner=300038",
+   "status": 200,
+   "bytes": 8462,
+   "retrieved": "2026-10-08T09:49:49+00:00",
+   "sha256": "32b3069f63cb87716ff62393f5512f1b7c0953a9e95aec9ce641e9ea0b14cae2",
+   "tally_time": "2026-09-28T18:14:20+00:00"
+  },
+  "300039": {
+   "url": "https://api.paimon.moe/wish?banner=300039",
+   "status": 200,
+   "bytes": 8428,
+   "retrieved": "2026-10-08T09:49:52+00:00",
+   "sha256": "6012a23f2a7f97850aca1a7c0b0135730476775e0de7a2260df206b28c921cd7",
+   "tally_time": "2026-09-28T18:13:44+00:00"
+  },
+  "300040": {
+   "url": "https://api.paimon.moe/wish?banner=300040",
+   "status": 200,
+   "bytes": 8784,
+   "retrieved": "2026-10-08T09:49:54+00:00",
+   "sha256": "94c18c5c408936be327dbfd3b799335ac0c769371a6d6f0a905658c534a5b86b",
+   "tally_time": "2026-09-28T18:12:57+00:00"
+  },
+  "300041": {
+   "url": "https://api.paimon.moe/wish?banner=300041",
+   "status": 200,
+   "bytes": 8816,
+   "retrieved": "2026-10-08T09:49:57+00:00",
+   "sha256": "fad9cdab7645fb8374b80bece45d6abbce8fcb39180135273f65e310561eef80",
+   "tally_time": "2026-09-28T18:12:09+00:00"
+  },
+  "300042": {
+   "url": "https://api.paimon.moe/wish?banner=300042",
+   "status": 200,
+   "bytes": 8644,
+   "retrieved": "2026-10-08T09:50:00+00:00",
+   "sha256": "b65d93ca2dbf4eb83f5887af54bb819ea681e43d7b0fa021de7358617ec1b04c",
+   "tally_time": "2026-09-28T18:11:27+00:00"
+  },
+  "300043": {
+   "url": "https://api.paimon.moe/wish?banner=300043",
+   "status": 200,
+   "bytes": 9053,
+   "retrieved": "2026-10-08T09:50:03+00:00",
+   "sha256": "9a121a4ec1be56bd58090df581cb050c7016f2293be4d53bc5c55b676c91a643",
+   "tally_time": "2026-09-28T18:10:33+00:00"
+  },
+  "300044": {
+   "url": "https://api.paimon.moe/wish?banner=300044",
+   "status": 200,
+   "bytes": 8380,
+   "retrieved": "2026-10-08T09:50:06+00:00",
+   "sha256": "927bde664250c592ab386d44c7cd754214343ea6a5e7d46b09f08d985d3231e3",
+   "tally_time": "2026-09-28T18:09:59+00:00"
+  },
+  "300045": {
+   "url": "https://api.paimon.moe/wish?banner=300045",
+   "status": 200,
+   "bytes": 8982,
+   "retrieved": "2026-10-08T09:50:08+00:00",
+   "sha256": "169577356a7550ad466ec7e707ee44d7a5eaa45e27b7acc1114524aecf0e2be8",
+   "tally_time": "2026-09-28T18:09:21+00:00"
+  },
+  "300046": {
+   "url": "https://api.paimon.moe/wish?banner=300046",
+   "status": 200,
+   "bytes": 8838,
+   "retrieved": "2026-10-08T09:50:11+00:00",
+   "sha256": "5bf6ed83d97e3063310c6ba59b507963b49a8bc6202895b20c3135465ca4fe76",
+   "tally_time": "2026-09-28T18:08:47+00:00"
+  },
+  "300047": {
+   "url": "https://api.paimon.moe/wish?banner=300047",
+   "status": 200,
+   "bytes": 8900,
+   "retrieved": "2026-10-08T09:50:14+00:00",
+   "sha256": "8832668f7a9818adadb1e43f25a26232ef07312a9378c0fe89d5dc7ac966d4ec",
+   "tally_time": "2026-09-28T18:08:21+00:00"
+  },
+  "300048": {
+   "url": "https://api.paimon.moe/wish?banner=300048",
+   "status": 200,
+   "bytes": 8784,
+   "retrieved": "2026-10-08T09:50:17+00:00",
+   "sha256": "511cc3a1370c103c41850d93b401d92db8fe5ff778788336dec1574fa892566f",
+   "tally_time": "2026-09-28T18:07:51+00:00"
+  },
+  "300049": {
+   "url": "https://api.paimon.moe/wish?banner=300049",
+   "status": 200,
+   "bytes": 9054,
+   "retrieved": "2026-10-08T09:50:20+00:00",
+   "sha256": "4943a219150bfc1d093e2d0633046d89779e9b6820f0286e1a385b860cb699ed",
+   "tally_time": "2026-09-28T18:07:15+00:00"
+  },
+  "300050": {
+   "url": "https://api.paimon.moe/wish?banner=300050",
+   "status": 200,
+   "bytes": 8753,
+   "retrieved": "2026-10-08T09:50:22+00:00",
+   "sha256": "6bc5df09b2f867687f11ce1d62792aadee248ba1b2bbc29f262e8d16757b6cd0",
+   "tally_time": "2026-09-28T18:06:42+00:00"
+  },
+  "300051": {
+   "url": "https://api.paimon.moe/wish?banner=300051",
+   "status": 200,
+   "bytes": 9153,
+   "retrieved": "2026-10-08T09:50:25+00:00",
+   "sha256": "fb40c8ce5f14476bf81c3c7e091fe5a5ddc7d1a2064dc0ab35e80159c1c988f8",
+   "tally_time": "2026-09-28T18:06:08+00:00"
+  },
+  "300052": {
+   "url": "https://api.paimon.moe/wish?banner=300052",
+   "status": 200,
+   "bytes": 9175,
+   "retrieved": "2026-10-08T09:50:28+00:00",
+   "sha256": "b3013975e5bc953111247c3528935ebc8806a2249c72eaf6281f54bd62ff5b7c",
+   "tally_time": "2026-09-28T18:05:25+00:00"
+  },
+  "300053": {
+   "url": "https://api.paimon.moe/wish?banner=300053",
+   "status": 200,
+   "bytes": 9019,
+   "retrieved": "2026-10-08T09:50:31+00:00",
+   "sha256": "48a917261cbb07c1371378bc835a763f2a4d91f2484b44c3120a7407ff85f98b",
+   "tally_time": "2026-09-28T18:04:53+00:00"
+  },
+  "300054": {
+   "url": "https://api.paimon.moe/wish?banner=300054",
+   "status": 200,
+   "bytes": 9414,
+   "retrieved": "2026-10-08T09:50:34+00:00",
+   "sha256": "ee71f2ab4dfaf27966662903401093e6c4c18c63f929b8652475bc9b72aa85bf",
+   "tally_time": "2026-09-28T18:03:57+00:00"
+  },
+  "300055": {
+   "url": "https://api.paimon.moe/wish?banner=300055",
+   "status": 200,
+   "bytes": 9895,
+   "retrieved": "2026-10-08T09:50:37+00:00",
+   "sha256": "e7593274e3e58600ee3918e7e0a03c221bee318cf9df54c48323fd921a3a5b46",
+   "tally_time": "2026-09-28T18:03:19+00:00"
+  },
+  "300056": {
+   "url": "https://api.paimon.moe/wish?banner=300056",
+   "status": 200,
+   "bytes": 9472,
+   "retrieved": "2026-10-08T09:50:40+00:00",
+   "sha256": "a22e03f22ff75c7e580a6b7701effb082d667657b961fe2898966baf18b1516a",
+   "tally_time": "2026-09-28T17:59:41+00:00"
+  },
+  "300057": {
+   "url": "https://api.paimon.moe/wish?banner=300057",
+   "status": 200,
+   "bytes": 8855,
+   "retrieved": "2026-10-08T09:50:42+00:00",
+   "sha256": "716daed3d1c5a99a17ac680eea579a92bba01a94bf35e96dd90e1984c0c86d10",
+   "tally_time": "2026-09-28T17:59:08+00:00"
+  },
+  "300058": {
+   "url": "https://api.paimon.moe/wish?banner=300058",
+   "status": 200,
+   "bytes": 9100,
+   "retrieved": "2026-10-08T09:50:45+00:00",
+   "sha256": "b374abd3345468f0598285eab03fc5eae7cb2d5699375c83d0892912dbd2f52a",
+   "tally_time": "2026-09-28T17:58:30+00:00"
+  },
+  "300059": {
+   "url": "https://api.paimon.moe/wish?banner=300059",
+   "status": 200,
+   "bytes": 9201,
+   "retrieved": "2026-10-08T09:50:48+00:00",
+   "sha256": "aec67519ac01e18ba2af0bb485e6f012fc28a0780656378839bbf7d64d6a89b8",
+   "tally_time": "2026-09-28T17:57:56+00:00"
+  },
+  "300060": {
+   "url": "https://api.paimon.moe/wish?banner=300060",
+   "status": 200,
+   "bytes": 9348,
+   "retrieved": "2026-10-08T09:50:51+00:00",
+   "sha256": "39f205fcedaa40395f7bfd4fcd60f80cb01320135af804a9e639c8fe7c87fd2f",
+   "tally_time": "2026-09-28T17:57:16+00:00"
+  },
+  "300061": {
+   "url": "https://api.paimon.moe/wish?banner=300061",
+   "status": 200,
+   "bytes": 9066,
+   "retrieved": "2026-10-08T09:50:54+00:00",
+   "sha256": "ae702a99f9429c8510c31f68dae84ded6957fabf8f40c1ac11187925ade896a5",
+   "tally_time": "2026-09-28T17:56:48+00:00"
+  },
+  "300062": {
+   "url": "https://api.paimon.moe/wish?banner=300062",
+   "status": 200,
+   "bytes": 9022,
+   "retrieved": "2026-10-08T09:50:56+00:00",
+   "sha256": "f30e745eb38234a2613e4d91a0379c4c969c34839baa86ae2cf8d81c2eba335e",
+   "tally_time": "2026-09-28T17:56:22+00:00"
+  },
+  "300063": {
+   "url": "https://api.paimon.moe/wish?banner=300063",
+   "status": 200,
+   "bytes": 9303,
+   "retrieved": "2026-10-08T09:50:59+00:00",
+   "sha256": "577aea33ea2faaa9abca7c79d4f9f0095d4ac86387fbf1a687aebe093eff50fa",
+   "tally_time": "2026-09-28T17:55:46+00:00"
+  },
+  "300064": {
+   "url": "https://api.paimon.moe/wish?banner=300064",
+   "status": 200,
+   "bytes": 9568,
+   "retrieved": "2026-10-08T09:51:02+00:00",
+   "sha256": "228932b815442cd7174f15f0e92f1b1f5659d95e52c34bd3f993c6d4a06dc21c",
+   "tally_time": "2026-09-28T17:54:54+00:00"
+  },
+  "300065": {
+   "url": "https://api.paimon.moe/wish?banner=300065",
+   "status": 200,
+   "bytes": 9084,
+   "retrieved": "2026-10-08T09:51:05+00:00",
+   "sha256": "19a8db0b91be11d3313192f116906f2ae1fc17f8c114a64f32b66d10eba47832",
+   "tally_time": "2026-09-28T17:54:28+00:00"
+  },
+  "300066": {
+   "url": "https://api.paimon.moe/wish?banner=300066",
+   "status": 200,
+   "bytes": 9323,
+   "retrieved": "2026-10-08T09:51:08+00:00",
+   "sha256": "e16f4064bf60a5f36fd2f8b8e21c325799a98d1135ca1f7647c144c533b07ad4",
+   "tally_time": "2026-09-28T17:53:50+00:00"
+  },
+  "300067": {
+   "url": "https://api.paimon.moe/wish?banner=300067",
+   "status": 200,
+   "bytes": 9486,
+   "retrieved": "2026-10-08T09:51:10+00:00",
+   "sha256": "d435120f0bed907b2fb9ba63167b108ec11bd0f6e1753680d05ba4192ab63326",
+   "tally_time": "2026-09-28T17:53:16+00:00"
+  },
+  "300068": {
+   "url": "https://api.paimon.moe/wish?banner=300068",
+   "status": 200,
+   "bytes": 9137,
+   "retrieved": "2026-10-08T09:51:13+00:00",
+   "sha256": "ec71a1d054723af406fa11466455f4a7ecb53b50ccda9c040aed36dfcf46259e",
+   "tally_time": "2026-09-28T17:52:43+00:00"
+  },
+  "300069": {
+   "url": "https://api.paimon.moe/wish?banner=300069",
+   "status": 200,
+   "bytes": 9260,
+   "retrieved": "2026-10-08T09:51:16+00:00",
+   "sha256": "b664d6359ed5da655f030060496ae1366b4ea35b04e82ea1dad9cae99d22dc55",
+   "tally_time": "2026-09-28T17:52:13+00:00"
+  },
+  "300070": {
+   "url": "https://api.paimon.moe/wish?banner=300070",
+   "status": 200,
+   "bytes": 9529,
+   "retrieved": "2026-10-08T09:51:19+00:00",
+   "sha256": "e411b218175cb6e85c3a05f8175dbbe9cd20ae6836ecf55b27dd71ce15827783",
+   "tally_time": "2026-09-28T17:51:30+00:00"
+  },
+  "300071": {
+   "url": "https://api.paimon.moe/wish?banner=300071",
+   "status": 200,
+   "bytes": 9560,
+   "retrieved": "2026-10-08T09:51:22+00:00",
+   "sha256": "0e441304c6aaa82c27c29203ac184167e1a0a754b0f466973888d486e26dbdd4",
+   "tally_time": "2026-09-28T17:50:50+00:00"
+  },
+  "300072": {
+   "url": "https://api.paimon.moe/wish?banner=300072",
+   "status": 200,
+   "bytes": 9596,
+   "retrieved": "2026-10-08T09:51:25+00:00",
+   "sha256": "8770fa6f32879286419736de442d77c0d2edbf47d5ffc9b0051016e11dc5040e",
+   "tally_time": "2026-09-28T17:50:11+00:00"
+  },
+  "300073": {
+   "url": "https://api.paimon.moe/wish?banner=300073",
+   "status": 200,
+   "bytes": 9329,
+   "retrieved": "2026-10-08T09:51:27+00:00",
+   "sha256": "aacdbc446c794e8413bd6289598e11854aae06e849ba0f81374186b7bd8bd297",
+   "tally_time": "2026-09-28T17:49:30+00:00"
+  },
+  "300074": {
+   "url": "https://api.paimon.moe/wish?banner=300074",
+   "status": 200,
+   "bytes": 9362,
+   "retrieved": "2026-10-08T09:51:30+00:00",
+   "sha256": "f20258610b95ac407737e26c5916b2c2eb774fd9b49beaade202a400b17a63e0",
+   "tally_time": "2026-09-28T17:48:54+00:00"
+  },
+  "300075": {
+   "url": "https://api.paimon.moe/wish?banner=300075",
+   "status": 200,
+   "bytes": 9448,
+   "retrieved": "2026-10-08T09:51:33+00:00",
+   "sha256": "232352fa0c63bb619a51707dccd69e1237da66c5d08cc950f972ebd8a4ed4ab5",
+   "tally_time": "2026-09-28T17:48:13+00:00"
+  },
+  "300076": {
+   "url": "https://api.paimon.moe/wish?banner=300076",
+   "status": 200,
+   "bytes": 9881,
+   "retrieved": "2026-10-08T09:51:36+00:00",
+   "sha256": "24ed8de882b29b030631d08fc74a28a65850417478f2604eda6170cd5161b991",
+   "tally_time": "2026-09-28T17:41:48+00:00"
+  },
+  "300077": {
+   "url": "https://api.paimon.moe/wish?banner=300077",
+   "status": 200,
+   "bytes": 9731,
+   "retrieved": "2026-10-08T09:51:39+00:00",
+   "sha256": "04e3c2d5842fa90b0049b6bfc1710c24a067a3d9bcee9a22bb3b844bab5366bc",
+   "tally_time": "2026-09-28T17:40:55+00:00"
+  },
+  "300078": {
+   "url": "https://api.paimon.moe/wish?banner=300078",
+   "status": 200,
+   "bytes": 9197,
+   "retrieved": "2026-10-08T09:51:42+00:00",
+   "sha256": "0aadc35f1ecbd42351acb48bf280e4d84947d6710cda25a838836494c0c790e2",
+   "tally_time": "2026-09-28T17:40:24+00:00"
+  },
+  "300079": {
+   "url": "https://api.paimon.moe/wish?banner=300079",
+   "status": 200,
+   "bytes": 9821,
+   "retrieved": "2026-10-08T09:51:44+00:00",
+   "sha256": "282ffb4fa3af6b34403e36144b00f48eb2421c54712a1ee29af52e8bf232c272",
+   "tally_time": "2026-09-28T17:39:31+00:00"
+  },
+  "300080": {
+   "url": "https://api.paimon.moe/wish?banner=300080",
+   "status": 200,
+   "bytes": 9585,
+   "retrieved": "2026-10-08T09:51:47+00:00",
+   "sha256": "118bd1b215e2588083b87c631e27cce0c71cda292627971f9ad102278923ca36",
+   "tally_time": "2026-09-28T17:38:51+00:00"
+  },
+  "300081": {
+   "url": "https://api.paimon.moe/wish?banner=300081",
+   "status": 200,
+   "bytes": 9537,
+   "retrieved": "2026-10-08T09:51:50+00:00",
+   "sha256": "34421f3fe39388b98670cf68713608999bcf76fb7003c5a4f854ad7be827271b",
+   "tally_time": "2026-09-28T17:38:25+00:00"
+  },
+  "300082": {
+   "url": "https://api.paimon.moe/wish?banner=300082",
+   "status": 200,
+   "bytes": 9684,
+   "retrieved": "2026-10-08T09:51:53+00:00",
+   "sha256": "578ffb6b31dc6f64ebce9706030695d76f58ed3f01d6c0c90ec128c207957def",
+   "tally_time": "2026-09-28T17:37:51+00:00"
+  },
+  "300083": {
+   "url": "https://api.paimon.moe/wish?banner=300083",
+   "status": 200,
+   "bytes": 9274,
+   "retrieved": "2026-10-08T09:51:55+00:00",
+   "sha256": "997c0bdb1193f646e12457f157da84f585bc518b51f171e773babea05afbf8b1",
+   "tally_time": "2026-09-28T17:37:30+00:00"
+  },
+  "300084": {
+   "url": "https://api.paimon.moe/wish?banner=300084",
+   "status": 200,
+   "bytes": 9979,
+   "retrieved": "2026-10-08T09:51:58+00:00",
+   "sha256": "a5fe706d2ee9951c43e02a8ff11ac8715937045ef7f11870d51cac46bcd371be",
+   "tally_time": "2026-09-28T17:36:47+00:00"
+  },
+  "300085": {
+   "url": "https://api.paimon.moe/wish?banner=300085",
+   "status": 200,
+   "bytes": 9545,
+   "retrieved": "2026-10-08T09:52:01+00:00",
+   "sha256": "688b67563d4430195af019ea1ff6bb9510b22165d4e3e519643adffa1d5ce898",
+   "tally_time": "2026-09-28T17:36:15+00:00"
+  },
+  "300086": {
+   "url": "https://api.paimon.moe/wish?banner=300086",
+   "status": 200,
+   "bytes": 9712,
+   "retrieved": "2026-10-08T09:52:04+00:00",
+   "sha256": "f6b5e617e82411297cbe8426821698e9f90725782aeccaf15013559cab1eaddf",
+   "tally_time": "2026-09-28T17:35:37+00:00"
+  },
+  "300087": {
+   "url": "https://api.paimon.moe/wish?banner=300087",
+   "status": 200,
+   "bytes": 9539,
+   "retrieved": "2026-10-08T09:52:07+00:00",
+   "sha256": "bfcf9083bcbcc4fff770e4ccd09ab3b0e22515a97f482fff9a08a79fe4a6f9f4",
+   "tally_time": "2026-09-28T17:35:03+00:00"
+  },
+  "300088": {
+   "url": "https://api.paimon.moe/wish?banner=300088",
+   "status": 200,
+   "bytes": 9783,
+   "retrieved": "2026-10-08T09:52:09+00:00",
+   "sha256": "940cf356a6f244593cfe297c0db4499e57213618a10673a17ee62d4efe9e9cc5",
+   "tally_time": "2026-09-28T17:34:25+00:00"
+  },
+  "300089": {
+   "url": "https://api.paimon.moe/wish?banner=300089",
+   "status": 200,
+   "bytes": 10147,
+   "retrieved": "2026-10-08T09:52:12+00:00",
+   "sha256": "2009dc0fa06496808a638f52b3430031b0bdfa9480fca5f0718281cc2d26e032",
+   "tally_time": "2026-09-28T17:33:40+00:00"
+  },
+  "300090": {
+   "url": "https://api.paimon.moe/wish?banner=300090",
+   "status": 200,
+   "bytes": 10063,
+   "retrieved": "2026-10-08T09:52:15+00:00",
+   "sha256": "9f11027f77fa29724744e70b76eabd51a16ee5957410f79bc9fd6bd6fe39da8a",
+   "tally_time": "2026-09-28T17:33:00+00:00"
+  },
+  "300091": {
+   "url": "https://api.paimon.moe/wish?banner=300091",
+   "status": 200,
+   "bytes": 9625,
+   "retrieved": "2026-10-08T09:52:18+00:00",
+   "sha256": "799d101c49c8984f0ed7cb738bb202c5bb8fbba078b27157a8c1ad95cab5b731",
+   "tally_time": "2026-09-28T17:32:35+00:00"
+  },
+  "300092": {
+   "url": "https://api.paimon.moe/wish?banner=300092",
+   "status": 200,
+   "bytes": 9893,
+   "retrieved": "2026-10-08T09:52:21+00:00",
+   "sha256": "b9811b3f7d9258739722b6c2660d3ac04b3dc902da9197ee940f98591bbd5f25",
+   "tally_time": "2026-09-28T17:31:58+00:00"
+  },
+  "300093": {
+   "url": "https://api.paimon.moe/wish?banner=300093",
+   "status": 200,
+   "bytes": 9732,
+   "retrieved": "2026-10-08T09:52:24+00:00",
+   "sha256": "a981983e382c92c668e1587028c0c6276984f1e75d971dcd423021e45dd74a2f",
+   "tally_time": "2026-09-28T17:31:27+00:00"
+  },
+  "300094": {
+   "url": "https://api.paimon.moe/wish?banner=300094",
+   "status": 200,
+   "bytes": 10365,
+   "retrieved": "2026-10-08T09:52:26+00:00",
+   "sha256": "5fa306af108b8f6173f169770606603de441210fb612154f23f6c663c303f3c9",
+   "tally_time": "2026-09-28T17:25:41+00:00"
+  },
+  "300095": {
+   "url": "https://api.paimon.moe/wish?banner=300095",
+   "status": 200,
+   "bytes": 10195,
+   "retrieved": "2026-10-08T09:52:29+00:00",
+   "sha256": "a1d460bf2336dcdb9e1e77b321df9077e1360831bb1748489c808a40c4318235",
+   "tally_time": "2026-09-28T17:24:59+00:00"
+  },
+  "300096": {
+   "url": "https://api.paimon.moe/wish?banner=300096",
+   "status": 200,
+   "bytes": 10013,
+   "retrieved": "2026-10-08T09:52:32+00:00",
+   "sha256": "65785ee250e5ac55a770825ace457d7a3c3c088e1e975e5f7f0d1ba25bec653f",
+   "tally_time": "2026-09-28T17:24:17+00:00"
+  },
+  "300097": {
+   "url": "https://api.paimon.moe/wish?banner=300097",
+   "status": 200,
+   "bytes": 10026,
+   "retrieved": "2026-10-08T09:52:35+00:00",
+   "sha256": "b558f43e4d7a6b47e121ac90a1bd209e45ad4c8a27a462ffee31e1f1340bbb36",
+   "tally_time": "2026-09-28T17:23:42+00:00"
+  },
+  "300098": {
+   "url": "https://api.paimon.moe/wish?banner=300098",
+   "status": 200,
+   "bytes": 10099,
+   "retrieved": "2026-10-08T09:52:38+00:00",
+   "sha256": "ff9e6b24a938f63671b34b2784773fe99ee7dae9807ca3f253410891148964f2",
+   "tally_time": "2026-09-28T17:23:05+00:00"
+  },
+  "300099": {
+   "url": "https://api.paimon.moe/wish?banner=300099",
+   "status": 200,
+   "bytes": 9923,
+   "retrieved": "2026-10-08T09:52:41+00:00",
+   "sha256": "c4940f66652b919d2795c42de5d45fc5ebf33096200f5ec13b96cf0d5567536a",
+   "tally_time": "2026-09-28T17:22:33+00:00"
+  },
+  "300100": {
+   "url": "https://api.paimon.moe/wish?banner=300100",
+   "status": 200,
+   "bytes": 10212,
+   "retrieved": "2026-10-08T09:52:43+00:00",
+   "sha256": "299e0f0e5c630887b9d7fd4112a34c654ce8c880bf51e024b718b078e6e4759e",
+   "tally_time": "2026-09-28T17:21:46+00:00"
+  },
+  "300101": {
+   "url": "https://api.paimon.moe/wish?banner=300101",
+   "status": 200,
+   "bytes": 10006,
+   "retrieved": "2026-10-08T09:52:46+00:00",
+   "sha256": "80877271ca8bcdebd619d0eedc5bbebee0aa15a805c60dd3a800300095912b46",
+   "tally_time": "2026-09-28T17:21:06+00:00"
+  },
+  "300102": {
+   "url": "https://api.paimon.moe/wish?banner=300102",
+   "status": 200,
+   "bytes": 10189,
+   "retrieved": "2026-10-08T09:52:49+00:00",
+   "sha256": "de32850d593d0b29b3dabe42d1e8946e0b39cb7c2bb74347f1a5cdf5755e8763",
+   "tally_time": "2026-09-28T17:20:06+00:00"
+  },
+  "300103": {
+   "url": "https://api.paimon.moe/wish?banner=300103",
+   "status": 200,
+   "bytes": 9777,
+   "retrieved": "2026-10-08T09:52:52+00:00",
+   "sha256": "4db4049ca27f1db0e64baa0e0f46393994eb5695c7a76b89cc15ed1057f94b34",
+   "tally_time": "2026-09-28T17:19:22+00:00"
+  },
+  "300104": {
+   "url": "https://api.paimon.moe/wish?banner=300104",
+   "status": 200,
+   "bytes": 10151,
+   "retrieved": "2026-10-08T09:52:55+00:00",
+   "sha256": "ab9df9eed0ac800059a002f4dbcf2472bc2a1d3c881a206cfbb86ef122f16184",
+   "tally_time": "2026-09-28T17:17:57+00:00"
+  },
+  "300105": {
+   "url": "https://api.paimon.moe/wish?banner=300105",
+   "status": 200,
+   "bytes": 9753,
+   "retrieved": "2026-10-08T09:52:57+00:00",
+   "sha256": "9a911d6a124d4369547a59bfea8aacdc30688d2dd5006173fc900994cd980b35",
+   "tally_time": "2026-10-08T08:00:27+00:00"
+  },
+  "300106": {
+   "url": "https://api.paimon.moe/wish?banner=300106",
+   "status": 200,
+   "bytes": 9596,
+   "retrieved": "2026-10-08T09:53:00+00:00",
+   "sha256": "cbaa69569ee671167d65162284cd415dba159f17e0622bfa30f75aabec3ddeb6",
+   "tally_time": "2026-10-08T08:00:00+00:00"
+  }
+ }
+}
