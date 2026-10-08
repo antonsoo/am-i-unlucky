@@ -8,8 +8,8 @@ import json, sys
 R = json.load(open(sys.argv[1]))
 P = R["pooled"]["5.0+"]
 S = R["sources"]
-h = [round(x, 6) for x in P["hazard"]]
-h[-1] = 1.0
+LAST_MEASURED = 84  # above this the logged counts hold a few hundred records more than the ramp predicts (results.json, tail_check)
+h = [round(x, 6) for x in P["hazard"][:LAST_MEASURED]] + [round(min(1.0, 0.006 + (n - 73) * 0.06), 6) for n in range(LAST_MEASURED + 1, 90)] + [1.0]
 lines = ",\n  ".join(", ".join(f"{x:.6f}" for x in h[i:i + 6]) for i in range(0, len(h), 6))
 open(sys.argv[2], "w").write(f'''/**
  * Chance of a five-star on pull n (index n - 1), from community-logged pulls.
@@ -18,10 +18,13 @@ open(sys.argv[2], "w").write(f'''/**
  *
  * Source: paimon.moe's public "Global Wish Stats" tallies for Genshin Impact
  * character event banners of versions 5.0 to 7.1,
- * {S["banners_5_0_plus"]} banners started {S["banner_start_dates_5_0_plus"][0]} to {S["banner_start_dates_5_0_plus"][1]},
+ * {S["banners_5_0_plus"]} banner phases started {S["banner_start_dates_5_0_plus"][0]} to {S["banner_start_dates_5_0_plus"][1]},
  * retrieved {S["retrieved_between"][0][:10]}: {P["five_stars"]:,} logged five-stars out of
  * {S["tallied_pulls_5_0_plus"]:,} tallied pulls. Community data, not the publisher's odds.
  * Estimator: five-stars logged at pull n over five-stars logged at pull n or later.
+ * Pulls 1 to 84 are the logged values. Pulls 85 to 89 are the archetype's ramp
+ * (0.6% + 6 points a pull from 74), because the logged tail holds a few hundred
+ * more long streaks than the ramp predicts and is not monotone; see the study.
  */
 export const LOGGED_CHARACTER_BANNER_RATES: readonly number[] = [
   {lines},

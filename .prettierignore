@@ -10,3 +10,4 @@ playwright-report/
 # Study data and the JSON its Python scripts write; the cache is downloaded text
 studies/*/cache/
 studies/*/*.json
+src/logged-rates.ts

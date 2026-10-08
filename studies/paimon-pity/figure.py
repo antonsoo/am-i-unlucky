@@ -102,9 +102,9 @@ body.append(p3.text(36, p3.py(0.05), "pulls 1 to 83: within about one point", MU
 body.append(p3.text(88.5, p3.py(-0.46), "from 85 the logs fall short", MUTE, "end"))
 share = R["preset_vs_logged"]["5.0+"]["share_of_five_stars_logged_at_pulls_85_to_89"] * 100
 for i, line in enumerate((
-    f'Bands are 95% Wilson intervals. 5.0 and later: {post["five_stars"]:,} logged five-stars, {src["banners_5_0_plus"]} banners. Before 5.0: {pre["five_stars"]:,}, {src["banners_pre_5_0"]} banners.',
+    f'Bands are 95% Wilson intervals. 5.0 and later: {post["five_stars"]:,} logged five-stars, {src["banners_5_0_plus"]} banner phases. Before 5.0: {pre["five_stars"]:,}, {src["banners_pre_5_0"]} banner phases.',
     f'Source: paimon.moe public tallies, retrieved {src["retrieved_between"][0][:10]}. Community data, not the publisher\'s odds.',
-    f'Pulls 85 to 89 hold {share:.2f}% of the five-stars logged in 5.0 and later.')):
+    f'Pulls 85 to 89 hold {share:.2f}% of the five-stars logged in 5.0 and later. The preset uses the logged values to pull 84 and the ramp above.')):
     body.append(f'<text x="70" y="{598 + 16 * i}" style="{FONT};font-size:11px" fill="{MUTE}">{line}</text>')
 open(f"{root}/hazard.svg", "w").write(svg(920, 650, body, "Logged five-star hazard against the archetype",
     "Hazard by pull number for logged character banners before and after version 5.0, with the archetype preset drawn dashed."))
@@ -129,6 +129,6 @@ for lvl, lab in ((0.5, "50%: the rule before 5.0"), (0.55, "55%: the publisher's
     body.append(f'<text x="{q.x + 6}" y="{q.py(lvl) + (-5 if lvl > 0.5 else 14):.1f}" style="{FONT};font-size:11px" fill="{INK}">{lab}</text>')
 body.append(f'<text x="70" y="338" style="{FONT};font-size:11px" fill="{MUTE}">Labelled by the tracker: a roll is guaranteed if the previous five-star was off-banner, so the first roll of an imported</text>')
 body.append(f'<text x="70" y="354" style="{FONT};font-size:11px" fill="{MUTE}">history counts as a 50/50 even when it was not. This lifts every point by an estimated two points.</text>')
-body.append(f'<text x="70" y="370" style="{FONT};font-size:11px" fill="{MUTE}">Source: paimon.moe public tallies, {len(vers)} versions, {src["banners_pre_5_0"] + src["banners_5_0_plus"]} banners, retrieved {src["retrieved_between"][0][:10]}. Community data.</text>')
+body.append(f'<text x="70" y="370" style="{FONT};font-size:11px" fill="{MUTE}">Source: paimon.moe public tallies, {len(vers)} versions, {src["banners_pre_5_0"] + src["banners_5_0_plus"]} banner phases, retrieved {src["retrieved_between"][0][:10]}. Community data.</text>')
 open(f"{root}/fifty.svg", "w").write(svg(920, 386, body, "Featured share by version", "Win rate of the 50/50 roll by game version."))
 print("wrote hazard.svg fifty.svg")

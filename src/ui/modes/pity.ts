@@ -202,6 +202,10 @@ export function mountPityMode(
       return;
     }
     const summary = summarizePity(dist);
+    const tablePreset = activeTable();
+    const tableLabel = tablePreset?.measured
+      ? `${tablePreset.label} (community data, not the publisher's odds)`
+      : "";
     const withinBudget = summary.probabilityWithinBudget(budget);
     const historyPercentile = pityLuckPercentile(dist, actualPulls);
 
@@ -224,7 +228,7 @@ export function mountPityMode(
     resultsEl.innerHTML = `
       <section class="panel">
         <h2 class="panel-title">How lucky was my history?</h2>
-        <p class="panel-subtitle">Computed from the exact pull-by-pull distribution, not a simulation.</p>
+        <p class="panel-subtitle">Computed from the exact pull-by-pull distribution, not a simulation.${tableLabel ? ` Exact for the table in use; the table itself is measured and carries sampling error and bias: ${esc(tableLabel)}.` : ""}</p>
         ${luckHtml}
         <div class="stat-grid">
           <div class="stat-tile">
@@ -275,8 +279,8 @@ export function mountPityMode(
       ctx.openLuckCard({
         headline: `Took ${fmtInt(actualPulls)} pulls for ${target} cop${target === 1 ? "y" : "ies"} under pity.`,
         percentile: historyPercentile,
-        modeLabel: "Pity system",
-        detail: `Expected ${fmtNum(summary.expectedPulls, 0)} pulls. P(success within ${fmtInt(budget)}) = ${fmtPercent(withinBudget)}.`,
+        modeLabel: tableLabel ? "Pity system, community data" : "Pity system",
+        detail: `Expected ${fmtNum(summary.expectedPulls, 0)} pulls. P(success within ${fmtInt(budget)}) = ${fmtPercent(withinBudget)}.${tableLabel ? ` Rates: ${tableLabel}.` : ""}`,
       });
     });
 

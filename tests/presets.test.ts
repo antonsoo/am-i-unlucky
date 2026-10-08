@@ -51,6 +51,16 @@ describe("logged Genshin Impact character-banner preset", () => {
     );
   });
 
+  it("rises monotonically through soft pity and takes the archetype's ramp above pull 84", () => {
+    const rates = logged.rates!;
+    for (let n = 74; n <= 90; n++) {
+      expect(rates[n - 1]!).toBeGreaterThanOrEqual(rates[n - 2]!);
+    }
+    for (let n = 85; n <= 89; n++) {
+      expect(rates[n - 1]!).toBeCloseTo(itemTierRate(n - 1, archetype), 6);
+    }
+  });
+
   it("matches an independent renewal-theory calculation for one copy", () => {
     // Pulls to the first featured copy from a fresh counter: a five-star arrives after L1 pulls;
     // featured with probability w, otherwise a second, guaranteed, five-star follows after L2.

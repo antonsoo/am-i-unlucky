@@ -19,7 +19,12 @@ REFS = {
     "fandom_wish_page_wikitext": {
         "page": "https://genshin-impact.fandom.com/wiki/Wish",
         "fetched": "https://genshin-impact.fandom.com/api.php?action=parse&page=Wish&prop=wikitext&format=json",
-        "note": "community wiki (CC BY-SA); quotes the 0.6% base and 1.6% consolidated rates, says soft pity is unofficial and measured",
+        "note": "community wiki (CC BY-SA); says 1.6% is the consolidated rate, that 'pity', 'banner' and 'soft pity' are unofficial terms, and that soft pity was found by player testing",
+    },
+    "fandom_character_event_wish_wikitext": {
+        "page": "https://genshin-impact.fandom.com/wiki/Character_Event_Wish",
+        "fetched": "https://genshin-impact.fandom.com/api.php?action=parse&page=Character_Event_Wish&prop=wikitext&format=json",
+        "note": "community wiki (CC BY-SA); its Rates table lists base 0.6% and an average rate with pity of 1.6% under '(Official)' and 1.6052% under '(Community Estimation)', citing a bilibili estimate from 9.45M wishes; the per-pull table (0.6% to pull 73, +6 points a pull from 74 to 89, 100% at 90) is cited to that estimate",
     },
 }
 out = {"retrieved": datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds"), "references": {}}

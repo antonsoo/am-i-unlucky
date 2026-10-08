@@ -69,6 +69,7 @@ R["sources"] = {
     "banner_start_dates": [meta[ids_all[0]]["start"][:10], meta[ids_all[-1]]["start"][:10]],
     "tallied_pulls_all": sum(d["total"]["all"] for d in data.values()),
     "tallied_user_banner_records": sum(d["total"]["users"] for d in data.values()),
+    "five_stars_per_user_banner_record": sum(d["total"]["legendary"] for d in data.values()) / sum(d["total"]["users"] for d in data.values()),
     "banners_pre_5_0": len(ids_pre), "banners_5_0_plus": len(ids_post),
     "tallied_pulls_5_0_plus": sum(data[i]["total"]["all"] for i in ids_post),
     "tallied_user_banner_records_5_0_plus": sum(data[i]["total"]["users"] for i in ids_post),
@@ -95,6 +96,20 @@ for era in ("all", "pre-5.0", "5.0+"):
         "share_of_five_stars_logged_at_pulls_85_to_89": sum(R["pooled"][era]["successes"][84:89]) / R["pooled"][era]["five_stars"],
     }
 R["preset_vs_logged"] = cmp_
+
+# Tail check: starting from the streaks that reached pull 74, how many would the archetype's ramp leave at each later pull?
+def tail_check(era):
+    S = R["pooled"][era]["survivors"]
+    exp, out = float(S[73]), {}
+    for n in range(74, HARD + 1):
+        exp *= 1 - PRE[n - 2] if n > 74 else 1
+        out[str(n)] = {"expected_reaching": exp, "observed_reaching": S[n - 1]}
+    return out
+
+
+R["tail_check"] = {era: tail_check(era) for era in ("5.0+", "pre-5.0")}
+R["community_estimate_wiki"] = {"consolidated_rate": 0.016052, "mean_pulls": 1 / 0.016052, "hazard_at_89": 0.006 + 16 * 0.06,
+                                "source": "wiki Character_Event_Wish table, citing a bilibili estimate from 9.45M wishes"}
 
 # split-half: odd vs even banners of the 5.0+ era (the table the preset would use)
 odd = summarize(pool(ids_post[0::2]))

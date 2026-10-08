@@ -1,5 +1,5 @@
 {
- "retrieved": "2026-10-08T10:14:46+00:00",
+ "retrieved": "2026-10-08T11:20:05+00:00",
  "references": {
   "hoyoverse_capturing_radiance_qa": {
    "page": "https://genshin.hoyoverse.com/en/news/detail/125274",
@@ -14,10 +14,18 @@
   "fandom_wish_page_wikitext": {
    "page": "https://genshin-impact.fandom.com/wiki/Wish",
    "fetched": "https://genshin-impact.fandom.com/api.php?action=parse&page=Wish&prop=wikitext&format=json",
-   "note": "community wiki (CC BY-SA); quotes the 0.6% base and 1.6% consolidated rates, says soft pity is unofficial and measured",
+   "note": "community wiki (CC BY-SA); says 1.6% is the consolidated rate, that 'pity', 'banner' and 'soft pity' are unofficial terms, and that soft pity was found by player testing",
    "status": 200,
    "bytes": 10384,
    "sha256": "e5c31bfe5f6b604c40036a82809fe654d1ee018e3636f40270adfebd6601b92c"
+  },
+  "fandom_character_event_wish_wikitext": {
+   "page": "https://genshin-impact.fandom.com/wiki/Character_Event_Wish",
+   "fetched": "https://genshin-impact.fandom.com/api.php?action=parse&page=Character_Event_Wish&prop=wikitext&format=json",
+   "note": "community wiki (CC BY-SA); its Rates table lists base 0.6% and an average rate with pity of 1.6% under '(Official)' and 1.6052% under '(Community Estimation)', citing a bilibili estimate from 9.45M wishes; the per-pull table (0.6% to pull 73, +6 points a pull from 74 to 89, 100% at 90) is cited to that estimate",
+   "status": 200,
+   "bytes": 12539,
+   "sha256": "9ff7989b2a398ddb7698e165e2e18634c541d11b12b5a5c116fcb5f8b2ae48b4"
   }
  },
  "code": {

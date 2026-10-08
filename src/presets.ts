@@ -84,7 +84,7 @@ export const PITY_PRESETS: PityPreset[] = [
     mode: "pity",
     label: "Genshin Impact character banner, as logged (Oct 2026)",
     description:
-      "Per-pull five-star chance measured from 7,657,036 five-stars that players logged on paimon.moe (opt-in submissions) over 37 character banners, versions 5.0 to 7.1, retrieved 2026-10-08. Community data, not the publisher's odds. It averages 61.1 pulls per five-star, 2% under the 62.5 the community wiki gives for the 1.6% rate, and from pull 85 its curve falls below the archetype's. The 55% featured chance is the publisher's stated consolidated figure for version 5.0 onward; banners logged from 5.5 on read 57 to 60%, which this does not use.",
+      "Per-pull five-star chance for pulls 1 to 84 measured from 7,657,036 five-stars that players logged on paimon.moe (opt-in submissions) over 37 banner phases, versions 5.0 to 7.1, retrieved 2026-10-08. Community data, not the publisher's odds. Above pull 84 the logs hold more long streaks than the ramp allows and are not monotone, so the table uses the archetype's ramp there. It averages 61.1 pulls per five-star; a community estimate from 9.45 million wishes, quoted on the Genshin wiki, gives 62.3. The 55% featured chance is the figure in the publisher's February 2025 post, read as the win rate on a roll with no guarantee; that reading is the wiki's, not the post's wording, and banners logged from 5.5 on read 57 to 60%.",
     config: {
       baseRate: 0.006,
       softPityStart: 74,

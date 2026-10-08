@@ -31,6 +31,7 @@
   ],
   "tallied_pulls_all": 1677260131,
   "tallied_user_banner_records": 33761252,
+  "five_stars_per_user_banner_record": 0.7973466149892783,
   "banners_pre_5_0": 61,
   "banners_5_0_plus": 37,
   "tallied_pulls_5_0_plus": 475138852,
@@ -2315,6 +2316,154 @@
    ],
    "share_of_five_stars_logged_at_pulls_85_to_89": 0.002512460435082191
   }
+ },
+ "tail_check": {
+  "5.0+": {
+   "74": {
+    "expected_reaching": 4753701.0,
+    "observed_reaching": 4753701
+   },
+   "75": {
+    "expected_reaching": 4439956.734,
+    "observed_reaching": 4439259
+   },
+   "76": {
+    "expected_reaching": 3880522.1855160003,
+    "observed_reaching": 3879258
+   },
+   "77": {
+    "expected_reaching": 3158745.0590100246,
+    "observed_reaching": 3157528
+   },
+   "78": {
+    "expected_reaching": 2381693.774493559,
+    "observed_reaching": 2383657
+   },
+   "79": {
+    "expected_reaching": 1652895.4794985296,
+    "observed_reaching": 1655794
+   },
+   "80": {
+    "expected_reaching": 1047935.7340020677,
+    "observed_reaching": 1051436
+   },
+   "81": {
+    "expected_reaching": 601515.111317187,
+    "observed_reaching": 604307
+   },
+   "82": {
+    "expected_reaching": 309178.7672170341,
+    "observed_reaching": 311775
+   },
+   "83": {
+    "expected_reaching": 140367.16031653347,
+    "observed_reaching": 142320
+   },
+   "84": {
+    "expected_reaching": 55304.66116471419,
+    "observed_reaching": 56380
+   },
+   "85": {
+    "expected_reaching": 18471.756829014543,
+    "observed_reaching": 19273
+   },
+   "86": {
+    "expected_reaching": 5061.261371149985,
+    "observed_reaching": 5430
+   },
+   "87": {
+    "expected_reaching": 1083.1099334260966,
+    "observed_reaching": 1330
+   },
+   "88": {
+    "expected_reaching": 166.7989297476189,
+    "observed_reaching": 321
+   },
+   "89": {
+    "expected_reaching": 15.679099396276191,
+    "observed_reaching": 95
+   },
+   "90": {
+    "expected_reaching": 0.533089379473391,
+    "observed_reaching": 35
+   }
+  },
+  "pre-5.0": {
+   "74": {
+    "expected_reaching": 11402170.0,
+    "observed_reaching": 11402170
+   },
+   "75": {
+    "expected_reaching": 10649626.78,
+    "observed_reaching": 10631327
+   },
+   "76": {
+    "expected_reaching": 9307773.80572,
+    "observed_reaching": 9280792
+   },
+   "77": {
+    "expected_reaching": 7576527.87785608,
+    "observed_reaching": 7547294
+   },
+   "78": {
+    "expected_reaching": 5712702.019903485,
+    "observed_reaching": 5687903
+   },
+   "79": {
+    "expected_reaching": 3964615.201813018,
+    "observed_reaching": 3948133
+   },
+   "80": {
+    "expected_reaching": 2513566.0379494536,
+    "observed_reaching": 2505998
+   },
+   "81": {
+    "expected_reaching": 1442786.9057829864,
+    "observed_reaching": 1442786
+   },
+   "82": {
+    "expected_reaching": 741592.469572455,
+    "observed_reaching": 743377
+   },
+   "83": {
+    "expected_reaching": 336682.9811858946,
+    "observed_reaching": 339766
+   },
+   "84": {
+    "expected_reaching": 132653.09458724246,
+    "observed_reaching": 136384
+   },
+   "85": {
+    "expected_reaching": 44306.13359213899,
+    "observed_reaching": 47571
+   },
+   "86": {
+    "expected_reaching": 12139.880604246084,
+    "observed_reaching": 14878
+   },
+   "87": {
+    "expected_reaching": 2597.9344493086614,
+    "observed_reaching": 4671
+   },
+   "88": {
+    "expected_reaching": 400.08190519353394,
+    "observed_reaching": 1888
+   },
+   "89": {
+    "expected_reaching": 37.60769908819223,
+    "observed_reaching": 987
+   },
+   "90": {
+    "expected_reaching": 1.278661768998537,
+    "observed_reaching": 473
+   }
+  }
+ },
+ "community_estimate_wiki": {
+  "consolidated_rate": 0.016052,
+  "mean_pulls": 62.2975330176925,
+  "hazard_at_89": 0.966,
+  "source": "wiki Character_Event_Wish table, citing a bilibili estimate from 9.45M wishes"
  },
  "split_half_5_0_plus": {
   "max_abs_diff_1_to_84": 0.005379846345070827,
