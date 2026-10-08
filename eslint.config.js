@@ -43,6 +43,7 @@ export default tseslint.config(
       "*.config.ts",
       "*.config.mjs",
       "tests/browser/*.mjs",
+      "studies/**/*.mjs",
       "vite.csp.ts",
     ],
     languageOptions: {
@@ -51,6 +52,12 @@ export default tseslint.config(
       },
     },
     ...tseslint.configs.disableTypeChecked,
+  },
+  {
+    files: ["studies/**/*.mjs"],
+    languageOptions: {
+      globals: { process: "readonly", console: "readonly" },
+    },
   },
   {
     files: ["tests/browser/*.mjs"],

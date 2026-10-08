@@ -26,6 +26,12 @@ export interface PityConfig {
   featuredRate: number;
   /** Whether losing a featured roll guarantees the next item-tier hit is featured. */
   hasGuarantee: boolean;
+  /**
+   * Measured per-pull hit probabilities, `rates[n - 1]` being the chance on pull n of a streak.
+   * When set they replace the base rate and ramp for pulls before `hardPity`; the chain, the
+   * guarantee and the hard pity are unchanged, so the result is still exact for that table.
+   */
+  rates?: readonly number[];
 }
 
 export interface PityUserState {
@@ -62,6 +68,8 @@ const STOP_BELOW = 1e-15;
 export function itemTierRate(pity: number, config: PityConfig): number {
   const pullNumber = pity + 1;
   if (pullNumber >= config.hardPity) return 1;
+  const measured = config.rates?.[pullNumber - 1];
+  if (measured !== undefined) return clampProbability(measured);
   if (pullNumber < config.softPityStart) return config.baseRate;
   const stepsIn = pullNumber - config.softPityStart + 1;
   return Math.min(1, config.baseRate + stepsIn * config.softPityIncrement);

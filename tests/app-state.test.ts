@@ -26,6 +26,24 @@ describe("app-state URL round trip", () => {
     expect(decoded.pity).toEqual(state.pity);
   });
 
+  it("keeps a measured-table preset in the link, and ignores an id this build does not ship", () => {
+    const state = defaultState();
+    state.mode = "pity";
+    state.pity = {
+      ...state.pity,
+      table: "genshin-logged-2026-10",
+      featuredRate: 0.55,
+    };
+    const decoded = decodeState(`?${encodeState(state)}`);
+    expect(decoded.pity.table).toBe("genshin-logged-2026-10");
+    expect(decoded.pity).toEqual(state.pity);
+
+    const forged = decodeState("?mode=pity&table=nope");
+    expect(forged.pity.table).toBeUndefined();
+    const archetype = decodeState("?mode=pity&table=soft-pity-gacha");
+    expect(archetype.pity.table).toBeUndefined();
+  });
+
   it("round-trips collection items via JSON", () => {
     const state = defaultState();
     state.mode = "collection";

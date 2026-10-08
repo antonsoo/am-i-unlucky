@@ -1,5 +1,6 @@
 /** Application state and its (de)serialization to a shareable URL query string. */
 import type { PityConfig, PityUserState } from "../math/pity.js";
+import { PITY_PRESETS } from "../presets.js";
 
 export type Mode = "simple" | "pity" | "collection" | "time";
 
@@ -11,7 +12,9 @@ export interface SimpleState {
   got: boolean;
 }
 
-export interface PityState extends PityConfig, PityUserState {
+export interface PityState extends Omit<PityConfig, "rates">, PityUserState {
+  /** Id of a preset whose measured per-pull table replaces the base rate and ramp; cleared by any edit of the curve. */
+  table?: string;
   target: number;
   budget: number;
   actualPulls: number;
@@ -101,6 +104,7 @@ export function encodeState(state: AppState): string {
       params.set("soft", String(p.softPityStart));
       params.set("inc", String(p.softPityIncrement));
       params.set("hard", String(p.hardPity));
+      if (p.table !== undefined) params.set("table", p.table);
       params.set("feat", String(p.featuredRate));
       params.set("guar", p.hasGuarantee ? "1" : "0");
       params.set("pity0", String(p.pity));
@@ -202,7 +206,7 @@ export function decodeState(search: string): AppState {
           got: (params.get("got") ?? "1") === "1",
         };
         break;
-      case "pity":
+      case "pity": {
         base.pity = {
           baseRate: num(params, "base", base.pity.baseRate),
           softPityStart: num(params, "soft", base.pity.softPityStart),
@@ -219,7 +223,16 @@ export function decodeState(search: string): AppState {
           budget: num(params, "budget", base.pity.budget),
           actualPulls: num(params, "actual", base.pity.actualPulls),
         };
+        // Only a table this build ships is honoured; anything else falls back to the parametric curve.
+        const table = params.get("table");
+        if (
+          table !== null &&
+          PITY_PRESETS.some((p) => p.id === table && p.config.rates)
+        ) {
+          base.pity.table = table;
+        }
         break;
+      }
       case "collection": {
         const rawItems = params.get("items");
         const items = rawItems

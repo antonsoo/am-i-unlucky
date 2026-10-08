@@ -4,6 +4,7 @@ import {
   pityLuckPercentile,
   summarizePity,
 } from "../../math/pity.js";
+import type { PityConfig } from "../../math/pity.js";
 import type { AppState } from "../app-state.js";
 import { debounce } from "../debounce.js";
 import { esc, fmtInt, fmtNum, fmtPercent } from "../format.js";
@@ -18,6 +19,11 @@ export function mountPityMode(
   ctx: ModeContext,
 ): void {
   const s = state.pity;
+  let tableId = s.table;
+  const activeTable = () =>
+    tableId === undefined
+      ? undefined
+      : PITY_PRESETS.find((p) => p.id === tableId && p.config.rates);
 
   root.innerHTML = `
     <div class="workspace">
@@ -94,6 +100,7 @@ export function mountPityMode(
               </button>`,
             ).join("")}
           </div>
+          <p class="note" id="pity-table-note" role="status"></p>
         </section>
       </div>
       <div id="pity-results"></div>
@@ -114,6 +121,16 @@ export function mountPityMode(
     actual: root.querySelector<HTMLInputElement>("#pity-actual")!,
   };
   const resultsEl = root.querySelector<HTMLDivElement>("#pity-results")!;
+  const tableNote = root.querySelector<HTMLElement>("#pity-table-note")!;
+
+  function showTableNote(): void {
+    const table = activeTable();
+    tableNote.textContent = table?.measured
+      ? `Using measured per-pull rates (${table.measured.source}, retrieved ${table.measured.retrieved}). The base rate, soft pity and ramp fields are not used while they apply; editing any of them or the hard pity switches back to the curve those fields describe.`
+      : "";
+    tableNote.hidden = table === undefined;
+  }
+  showTableNote();
 
   function parsePct(raw: string, fallback: number): number {
     const trimmed = raw.trim();
@@ -127,7 +144,8 @@ export function mountPityMode(
 
   function readInputs() {
     const hardPity = Math.max(1, Math.floor(Number(els.hard.value) || 1));
-    const config = {
+    const table = activeTable();
+    const config: PityConfig = {
       baseRate: Math.min(1, Math.max(0, parsePct(els.base.value, s.baseRate))),
       hardPity,
       softPityStart: Math.min(
@@ -143,6 +161,7 @@ export function mountPityMode(
         Math.max(0, parsePct(els.feat.value, s.featuredRate)),
       ),
       hasGuarantee: els.guar.checked,
+      ...(table?.config.rates ? { rates: table.config.rates } : {}),
     };
     const pity0 = Math.min(
       hardPity - 1,
@@ -152,7 +171,11 @@ export function mountPityMode(
     const budget = Math.max(0, Math.floor(Number(els.budget.value) || 0));
     const actualPulls = Math.max(0, Math.floor(Number(els.actual.value) || 0));
 
-    Object.assign(s, config, {
+    const { rates: _rates, ...stored } = config;
+    void _rates;
+    if (tableId === undefined) delete s.table;
+    else s.table = tableId;
+    Object.assign(s, stored, {
       pity: pity0,
       guaranteed: els.g0.checked,
       target,
@@ -261,6 +284,13 @@ export function mountPityMode(
   }
 
   const debouncedRecompute = debounce(recompute, 150, ctx.signal);
+  for (const el of [els.base, els.hard, els.soft, els.inc]) {
+    el.addEventListener("input", () => {
+      if (tableId === undefined) return;
+      tableId = undefined;
+      showTableNote();
+    });
+  }
   Object.values(els).forEach((el) => {
     el.addEventListener(
       el.type === "checkbox" ? "change" : "input",
@@ -278,6 +308,8 @@ export function mountPityMode(
       els.inc.value = fmtPct(preset.config.softPityIncrement);
       els.feat.value = fmtPct(preset.config.featuredRate);
       els.guar.checked = preset.config.hasGuarantee;
+      tableId = preset.config.rates ? preset.id : undefined;
+      showTableNote();
       recompute();
     });
   });
