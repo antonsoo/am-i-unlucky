@@ -196,10 +196,10 @@ mass that would move from $j = \text{target}-1$ to $j = \text{target}$ is
 instead **absorbed** into `pmf[t]` — the probability that exactly $t$ pulls
 were needed to reach the target. Because the state space (pity counter
 $\times$ guarantee flag $\times$ copies-still-needed) is small — at most
-`hardPity * 2 * target` — this DP is fast: computing the exact distribution
-for 10 copies at `hardPity = 90` visits a horizon of 1,801 pulls and runs
-in tens of milliseconds on ordinary hardware, fast enough to recompute on
-every keystroke in the UI.
+`hardPity * 2 * target` — it can be bounded before allocating. The product
+of hard pity and copies is limited to 4,000. Large unbounded cases can still
+require substantial work. The browser runs this in a cancellable worker with
+a 15-second deadline; changing inputs or modes terminates the old calculation.
 
 **Why the DP horizon is exact when the guarantee mechanic is on.** Every
 item-tier hit resolves within at most `hardPity` pulls, because hard pity
@@ -214,23 +214,61 @@ to exactly this bound (plus a one-pull margin) when `hasGuarantee` is true,
 and the test suite checks that `pmf` sums to 1 to within `1e-9` and that
 `tailMass < 1e-9` in that case.
 
-**When the guarantee mechanic is off**, an item-tier hit is only featured
-with independent probability `featuredRate` and there is no forced win to
-bound the wait — in principle you could miss forever, so the distribution
-has genuinely unbounded support. `pityDistribution` then uses a large
-heuristic horizon (capped at 200,000 pulls) and honestly reports
-`exact: false` along with the `tailMass` left uncovered, rather than
-pretending the truncated result is exact.
+**When the guarantee mechanic is off** and `0 < featuredRate < 1`, the
+number of tier hits needed has unbounded support. The plotted distribution
+uses a finite horizon (at most 200,000 pulls), and can stop when live state
+mass falls below `1e-15`. `exact: false` records that boundary. `tailMass` is
+summed directly from the remaining states, not obtained by subtracting the
+CDF from one. If `featuredRate = 1`, the support is finite even without a
+guarantee, so the complete bound is calculated. At rate zero without a
+guarantee, completion is impossible.
 
-**Derived quantities** (`summarizePity`, `pityLuckPercentile`,
-`pityDistributionPoints` in `src/math/pity.ts`) all fall out of the `pmf`
-array: the mean and standard deviation are direct sums, the 50/90/99%
-pull counts are the smallest $t$ with cumulative probability past that
-threshold, `P(success within budget)` is the CDF at the budget, and "how
-lucky was my history" for an actual pull count $m$ is
-$100 \times P(T > m-1)$ — the same "share of players who needed at least as
-many pulls as you" framing as simple mode's luck percentile, applied to the
-DP's distribution instead of a closed form.
+**Full moments without a truncated tail (source checkout).** Let $X_c$ be
+the pulls to the next tier hit starting at pity $c$. Work backwards from hard
+pity, where $E[X_{H-1}]=1$ and $\operatorname{Var}(X_{H-1})=0$. With tier-hit
+probability $r_c$, the recurrences are
+
+$$m_c=1+(1-r_c)m_{c+1},\qquad
+v_c=(1-r_c)v_{c+1}+r_c(1-r_c)m_{c+1}^2.$$
+
+Let $m=m_0$, $v=v_0$, $f$ be the featured rate, $k$ the target and $c$ the
+initial pity. Without a guarantee, the number of tier hits is negative
+binomial. The first tier's time starts at $c$; all later ones start at zero:
+
+$$E[T]=m_c+(k/f-1)m,\qquad
+\operatorname{Var}(T)=v_c+(k/f-1)v+k(1-f)m^2/f^2.$$
+
+With a guarantee, let $a=0$ if initially guaranteed and $a=1-f$ otherwise,
+and $b=a+(k-1)(2-f)$. Each fresh copy needs one tier hit with probability $f$
+or two with probability $1-f$:
+
+$$E[T]=m_c+bm,\qquad
+\operatorname{Var}(T)=v_c+bv+\bigl[a(1-a)+(k-1)f(1-f)\bigr]m^2.$$
+
+These moments include the entire distribution even when the plot cannot.
+They assume independent featured rolls and identical reset cycles, as does
+the chain itself. The calculations use floating-point arithmetic; "full"
+describes the modeled support, not arbitrary numerical precision.
+[`scripts/pity-oracle.py`](../scripts/pity-oracle.py) independently constructs
+84 transition matrices and solves both moment equations with exact rational
+Gaussian elimination. The resulting fixtures also retain 32 CDF values per
+case. The oracle does not use these renewal formulas.
+
+**Milestones and observed history.** A 50/90/99% milestone is the first
+calculated pull whose CDF reaches that threshold. If it is not reached,
+the API returns `null` and the UI says `>horizon`, rather than inventing the
+horizon as the answer. This means "beyond the calculated interval", not
+"impossible". A genuinely impossible milestone is `Infinity`. Budget
+probabilities beyond an unbounded calculation return `null`; the UI says
+"Not calculated". A finite completed distribution still answers later budgets.
+
+For a completed history at $t$, the luck percentile uses $100P(T>t)$,
+matching simple mode: ties are excluded. Earlier pity code used $P(T\ge t)$.
+No luck card is available for an uncalculated or unsupported completion time,
+zero pulls, an impossible drop, or a deterministic completion. Percentiles
+are conditional on the selected starting pity and guarantee, and should not
+be interpreted as population measurements. The PMF and CDF charts retain
+their original probability scale; the missing tail is never renormalized.
 
 ```mermaid
 stateDiagram-v2

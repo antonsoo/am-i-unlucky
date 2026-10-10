@@ -154,10 +154,13 @@ describe("summarizePity", () => {
       1,
     );
     const summary = summarizePity(dist);
-    expect(summary.pullsFor.p50).toBeLessThanOrEqual(summary.pullsFor.p90);
-    expect(summary.pullsFor.p90).toBeLessThanOrEqual(summary.pullsFor.p99);
+    expect(summary.pullsFor.p50).not.toBeNull();
+    expect(summary.pullsFor.p90).not.toBeNull();
+    expect(summary.pullsFor.p99).not.toBeNull();
+    expect(summary.pullsFor.p50).toBeLessThanOrEqual(summary.pullsFor.p90!);
+    expect(summary.pullsFor.p90).toBeLessThanOrEqual(summary.pullsFor.p99!);
     expect(
-      summary.probabilityWithinBudget(summary.pullsFor.p90),
+      summary.probabilityWithinBudget(summary.pullsFor.p90!),
     ).toBeGreaterThanOrEqual(0.9 - 1e-9);
   });
 });
@@ -171,7 +174,8 @@ describe("pityLuckPercentile", () => {
     );
     const luckyPercentile = pityLuckPercentile(dist, 1);
     const unluckyPercentile = pityLuckPercentile(dist, 89);
-    expect(luckyPercentile).toBeGreaterThan(unluckyPercentile);
+    expect(unluckyPercentile).not.toBeNull();
+    expect(luckyPercentile).toBeGreaterThan(unluckyPercentile!);
   });
 });
 

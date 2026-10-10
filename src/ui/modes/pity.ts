@@ -1,9 +1,5 @@
-import {
-  pityDistribution,
-  pityDistributionPoints,
-  pityLuckPercentile,
-  summarizePity,
-} from "../../math/pity.js";
+import { runPityPlan } from "../pity-engine.js";
+import { validatePityRequest, type PityPlan } from "../pity-plan.js";
 import type { PityConfig } from "../../math/pity.js";
 import type { AppState } from "../app-state.js";
 import { debounce } from "../debounce.js";
@@ -20,13 +16,15 @@ export function mountPityMode(
 ): void {
   const s = state.pity;
   let tableId = s.table;
+  let pending: AbortController | undefined;
+  ctx.signal.addEventListener("abort", () => pending?.abort(), { once: true });
   const activeTable = () =>
     tableId === undefined
       ? undefined
       : PITY_PRESETS.find((p) => p.id === tableId && p.config.rates);
 
   root.innerHTML = `
-    <div class="workspace">
+    <div class="workspace pity-workspace">
       <div>
         <section class="panel">
           <h2 class="panel-title">Pity configuration</h2>
@@ -103,7 +101,7 @@ export function mountPityMode(
           <p class="note" id="pity-table-note" role="status"></p>
         </section>
       </div>
-      <div id="pity-results"></div>
+      <div><p id="pity-status" class="field-note" role="status" aria-live="polite"></p><div id="pity-results" aria-busy="false"></div></div>
     </div>
   `;
 
@@ -121,6 +119,7 @@ export function mountPityMode(
     actual: root.querySelector<HTMLInputElement>("#pity-actual")!,
   };
   const resultsEl = root.querySelector<HTMLDivElement>("#pity-results")!;
+  const statusEl = root.querySelector<HTMLElement>("#pity-status")!;
   const tableNote = root.querySelector<HTMLElement>("#pity-table-note")!;
 
   function showTableNote(): void {
@@ -132,44 +131,33 @@ export function mountPityMode(
   }
   showTableNote();
 
-  function parsePct(raw: string, fallback: number): number {
+  function number(raw: string): number {
+    return raw.trim() === "" ? NaN : Number(raw);
+  }
+  function parsePct(raw: string): number {
     const trimmed = raw.trim();
-    if (trimmed.endsWith("%")) {
-      const v = Number(trimmed.slice(0, -1)) / 100;
-      return Number.isFinite(v) ? v : fallback;
-    }
-    const v = Number(trimmed);
-    return Number.isFinite(v) ? v : fallback;
+    return trimmed.endsWith("%")
+      ? number(trimmed.slice(0, -1)) / 100
+      : number(trimmed);
   }
 
   function readInputs() {
-    const hardPity = Math.max(1, Math.floor(Number(els.hard.value) || 1));
+    const hardPity = number(els.hard.value);
     const table = activeTable();
     const config: PityConfig = {
-      baseRate: Math.min(1, Math.max(0, parsePct(els.base.value, s.baseRate))),
+      baseRate: parsePct(els.base.value),
       hardPity,
-      softPityStart: Math.min(
-        hardPity,
-        Math.max(1, Math.floor(Number(els.soft.value) || 1)),
-      ),
-      softPityIncrement: Math.max(
-        0,
-        parsePct(els.inc.value, s.softPityIncrement),
-      ),
-      featuredRate: Math.min(
-        1,
-        Math.max(0, parsePct(els.feat.value, s.featuredRate)),
-      ),
+      softPityStart: number(els.soft.value),
+      softPityIncrement: parsePct(els.inc.value),
+      featuredRate: parsePct(els.feat.value),
       hasGuarantee: els.guar.checked,
       ...(table?.config.rates ? { rates: table.config.rates } : {}),
     };
-    const pity0 = Math.min(
-      hardPity - 1,
-      Math.max(0, Math.floor(Number(els.pity0.value) || 0)),
-    );
-    const target = Math.max(1, Math.floor(Number(els.target.value) || 1));
-    const budget = Math.max(0, Math.floor(Number(els.budget.value) || 0));
-    const actualPulls = Math.max(0, Math.floor(Number(els.actual.value) || 0));
+    const pity0 = number(els.pity0.value);
+    const target = number(els.target.value);
+    const budget = number(els.budget.value);
+    const actualPulls =
+      els.actual.value.trim() === "" ? 0 : number(els.actual.value);
 
     const { rates: _rates, ...stored } = config;
     void _rates;
@@ -184,84 +172,144 @@ export function mountPityMode(
     });
     return { config, pity0, target, budget, actualPulls };
   }
-  ctx.registerCapture(() => {
-    readInputs();
-  });
-
-  function recompute(): void {
+  function updateShareAvailability(): void {
     const { config, pity0, target, budget, actualPulls } = readInputs();
-    let dist;
     try {
-      dist = pityDistribution(
+      validatePityRequest({
         config,
-        { pity: pity0, guaranteed: els.g0.checked },
+        initial: { pity: pity0, guaranteed: els.g0.checked },
         target,
+        budget,
+        actualPulls,
+      });
+      ctx.setShareEnabled(true);
+    } catch {
+      ctx.setShareEnabled(false);
+    }
+  }
+  ctx.registerCapture(updateShareAvailability);
+
+  async function recompute(): Promise<void> {
+    pending?.abort();
+    const controller = new AbortController();
+    pending = controller;
+    updateShareAvailability();
+    resultsEl.replaceChildren();
+    resultsEl.setAttribute("aria-busy", "true");
+    statusEl.textContent = "Calculating pity odds...";
+    const { config, pity0, target, budget, actualPulls } = readInputs();
+    let plan: PityPlan;
+    try {
+      plan = await runPityPlan(
+        {
+          config,
+          initial: { pity: pity0, guaranteed: els.g0.checked },
+          target,
+          budget,
+          actualPulls,
+        },
+        controller.signal,
       );
     } catch (err) {
-      resultsEl.innerHTML = `<section class="panel"><p class="note">${esc(err instanceof Error ? err.message : "Invalid configuration.")}</p></section>`;
+      if (controller.signal.aborted) return;
+      resultsEl.innerHTML = `<section class="panel"><p class="note" role="alert">${esc(err instanceof Error ? err.message : "Invalid configuration.")}</p></section>`;
+      const retry = document.createElement("button");
+      retry.type = "button";
+      retry.className = "btn btn-ghost";
+      retry.textContent = "Try again";
+      retry.addEventListener("click", () => {
+        void recompute();
+      });
+      resultsEl.firstElementChild?.append(retry);
+      resultsEl.setAttribute("aria-busy", "false");
+      statusEl.textContent =
+        "Calculation unavailable. Check the inputs and try again.";
       return;
     }
-    const summary = summarizePity(dist);
+    if (controller.signal.aborted) return;
+    const { withinBudget, historyPercentile, points } = plan;
+    const canRateHistory = historyPercentile !== null && plan.stdDevPulls !== 0;
+    const milestone = (value: number | null) =>
+      value === null
+        ? `>${fmtInt(plan.horizon)}`
+        : value === Infinity
+          ? "Impossible"
+          : fmtInt(value);
+    const budgetText =
+      withinBudget === null ? "Not calculated" : fmtPercent(withinBudget);
     const tablePreset = activeTable();
     const tableLabel = tablePreset?.measured
       ? `${tablePreset.label} (community data, not the publisher's odds)`
       : "";
-    const withinBudget = summary.probabilityWithinBudget(budget);
-    const historyPercentile = pityLuckPercentile(dist, actualPulls);
-
-    const points = pityDistributionPoints(dist, 220);
     const chartHtml = renderDistributionChart(
       points.map((pt) => ({ x: pt.pulls, pmf: pt.pmf, cdf: pt.cdf })),
       "pulls",
       [
-        { x: summary.pullsFor.p50, label: "50%" },
-        { x: summary.pullsFor.p90, label: "90%" },
-        { x: summary.pullsFor.p99, label: "99%" },
-      ],
+        { x: plan.pullsFor.p50, label: "50%" },
+        { x: plan.pullsFor.p90, label: "90%" },
+        { x: plan.pullsFor.p99, label: "99%" },
+      ].flatMap((marker) =>
+        marker.x === null ? [] : [{ ...marker, x: marker.x }],
+      ),
     );
 
-    const luckHtml = renderLuckMeter(
-      historyPercentile,
-      `based on ${fmtInt(actualPulls)} pulls chasing ${target} cop${target === 1 ? "y" : "ies"}`,
-    );
+    const luckHtml =
+      plan.stdDevPulls === 0
+        ? `<p class="note">Completion is fixed at ${fmtInt(plan.expectedPulls)} pulls; there is no luck variation under these settings.</p>`
+        : historyPercentile === null
+          ? `<p class="note">${
+              plan.impossible
+                ? "The featured item cannot drop with a 0% featured rate and no guarantee."
+                : actualPulls === 0
+                  ? "Enter the additional pulls you used to assess a completed history."
+                  : actualPulls > plan.horizon && !plan.exact
+                    ? `History beyond ${fmtInt(plan.horizon)} pulls has not been calculated.`
+                    : "That completion time has no recorded probability under these settings; check your history and starting pity."
+            }</p>`
+          : renderLuckMeter(
+              historyPercentile,
+              `based on ${fmtInt(actualPulls)} pulls chasing ${target} cop${target === 1 ? "y" : "ies"}`,
+            );
 
     resultsEl.innerHTML = `
       <section class="panel">
         <h2 class="panel-title">How lucky was my history?</h2>
-        <p class="panel-subtitle">Computed from the exact pull-by-pull distribution, not a simulation.${tableLabel ? ` Exact for the table in use; the table itself is measured and carries sampling error and bias: ${esc(tableLabel)}.` : ""}</p>
+        <p class="panel-subtitle">For additional pulls from the starting pity counter above. The percentile is the share of players taking strictly more pulls; ties are excluded.${tableLabel ? ` Exact for the table in use; the table itself is measured and carries sampling error and bias: ${esc(tableLabel)}.` : ""}</p>
         ${luckHtml}
         <div class="stat-grid">
           <div class="stat-tile">
             <div class="stat-tile-label">Expected pulls</div>
-            <div class="stat-tile-value">${fmtNum(summary.expectedPulls, 1)}</div>
+            <div class="stat-tile-value">${fmtNum(plan.expectedPulls, 1)}</div>
           </div>
           <div class="stat-tile">
             <div class="stat-tile-label">Std. deviation</div>
-            <div class="stat-tile-value">${fmtNum(summary.stdDevPulls, 1)}</div>
+            <div class="stat-tile-value">${fmtNum(plan.stdDevPulls, 1)}</div>
           </div>
           <div class="stat-tile">
             <div class="stat-tile-label">P(success within ${fmtInt(budget)})</div>
-            <div class="stat-tile-value">${fmtPercent(withinBudget)}</div>
+            <div class="stat-tile-value">${budgetText}</div>
           </div>
           <div class="stat-tile">
             <div class="stat-tile-label">50% by</div>
-            <div class="stat-tile-value">${fmtInt(summary.pullsFor.p50)}</div>
+            <div class="stat-tile-value">${milestone(plan.pullsFor.p50)}</div>
           </div>
           <div class="stat-tile">
             <div class="stat-tile-label">90% by</div>
-            <div class="stat-tile-value">${fmtInt(summary.pullsFor.p90)}</div>
+            <div class="stat-tile-value">${milestone(plan.pullsFor.p90)}</div>
           </div>
           <div class="stat-tile">
             <div class="stat-tile-label">99% by</div>
-            <div class="stat-tile-value">${fmtInt(summary.pullsFor.p99)}</div>
+            <div class="stat-tile-value">${milestone(plan.pullsFor.p99)}</div>
           </div>
         </div>
-        <button type="button" class="btn btn-primary" id="pity-export" style="margin-top:16px;">Export luck card</button>
+        <p class="field-note">Mean and standard deviation use the full probability model, including the unplotted tail.</p>
+        ${!plan.exact && !plan.impossible ? `<p class="note">The distribution is calculated through ${fmtInt(plan.horizon)} pulls; ${fmtPercent(plan.tailMass, 4)} remains after that. A milestone shown as &gt;${fmtInt(plan.horizon)} has not been reached in that calculation. Later budget and history probabilities are not calculated.</p>` : ""}
+        <button type="button" class="btn btn-primary" id="pity-export" ${!canRateHistory ? "disabled" : ""} style="margin-top:16px;">Export luck card</button>
       </section>
       <section class="panel">
         <h2 class="panel-title">Distribution</h2>
         <p class="panel-subtitle">
-          ${dist.exact ? "Exact — computed via dynamic programming over the pity Markov chain; the shown horizon is a true upper bound." : `Not exactly bounded without the guarantee mechanic, so this truncates at a generous horizon (undistributed tail mass: ${fmtPercent(dist.tailMass, 4)}).`}
+          ${plan.impossible ? "No successful outcome under these settings." : plan.exact ? "Complete finite distribution under these settings." : `Partial distribution through ${fmtInt(plan.horizon)} pulls. Its remaining probability is not redistributed into the plot.`}
         </p>
         <div class="chart-wrap">${chartHtml}</div>
       </section>
@@ -276,18 +324,40 @@ export function mountPityMode(
     const exportBtn =
       resultsEl.querySelector<HTMLButtonElement>("#pity-export");
     exportBtn?.addEventListener("click", () => {
+      if (
+        !canRateHistory ||
+        historyPercentile === null ||
+        controller.signal.aborted
+      )
+        return;
       ctx.openLuckCard({
         headline: `Took ${fmtInt(actualPulls)} pulls for ${target} cop${target === 1 ? "y" : "ies"} under pity.`,
         percentile: historyPercentile,
         modeLabel: tableLabel ? "Pity system, community data" : "Pity system",
-        detail: `Expected ${fmtNum(summary.expectedPulls, 0)} pulls. P(success within ${fmtInt(budget)}) = ${fmtPercent(withinBudget)}.${tableLabel ? ` Rates: ${tableLabel}.` : ""}`,
+        detail: `Expected ${fmtNum(plan.expectedPulls, 0)} pulls. P(success within ${fmtInt(budget)}) = ${budgetText}.${tableLabel ? ` Rates: ${tableLabel}.` : ""}`,
       });
     });
 
+    resultsEl.setAttribute("aria-busy", "false");
+    statusEl.textContent = "Estimate updated.";
+    ctx.setShareEnabled(true);
     ctx.onStateChange();
   }
 
-  const debouncedRecompute = debounce(recompute, 150, ctx.signal);
+  const debouncedRecompute = debounce(
+    () => {
+      void recompute();
+    },
+    150,
+    ctx.signal,
+  );
+  const inputChanged = () => {
+    pending?.abort();
+    updateShareAvailability();
+    resultsEl.replaceChildren();
+    statusEl.textContent = "Waiting for input...";
+    debouncedRecompute();
+  };
   for (const el of [els.base, els.hard, els.soft, els.inc]) {
     el.addEventListener("input", () => {
       if (tableId === undefined) return;
@@ -298,7 +368,7 @@ export function mountPityMode(
   Object.values(els).forEach((el) => {
     el.addEventListener(
       el.type === "checkbox" ? "change" : "input",
-      debouncedRecompute,
+      inputChanged,
     );
   });
 
@@ -314,11 +384,11 @@ export function mountPityMode(
       els.guar.checked = preset.config.hasGuarantee;
       tableId = preset.config.rates ? preset.id : undefined;
       showTableNote();
-      recompute();
+      void recompute();
     });
   });
 
-  recompute();
+  void recompute();
 }
 
 function fmtPct(p: number): string {

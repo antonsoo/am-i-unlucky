@@ -7,6 +7,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- Pity-mode moments now include the full distribution through renewal calculations.
+  Rare featured chances no longer look like short waits because an uncomputed tail
+  was omitted. Unreached milestones and probabilities beyond the computed horizon
+  remain uncalculated, distinct from impossible outcomes. The tail is summed from
+  live states, and bounded chains retain their entire support.
+- Pity history percentiles now exclude ties, matching simple mode. Unsupported
+  histories and deterministic completions do not produce a luck card. Inputs are
+  validated without clamping, rounding or replacing invalid values.
+- Pity calculations use cancellable workers; replaced results, failed workers,
+  retries and large calculations are exercised in Chromium and Firefox.
+
+
 ### Added
 
 - A pity preset measured from logged pulls: "Genshin Impact character banner,

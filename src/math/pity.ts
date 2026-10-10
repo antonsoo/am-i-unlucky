@@ -44,11 +44,15 @@ export interface PityUserState {
 export interface PityDistribution {
   /** pmf[t] = P(exactly t additional pulls needed to reach the target). */
   pmf: Float64Array;
-  /** True when the DP horizon is a mathematically exact upper bound (hasGuarantee = true). */
+  /** True when the complete finite support was calculated. */
   exact: boolean;
   /** Probability mass beyond the computed horizon (0 when exact). */
   tailMass: number;
   horizon: number;
+  /** Full-distribution moments, calculated independently of the plotted horizon. */
+  expectedPulls: number;
+  stdDevPulls: number;
+  impossible: boolean;
 }
 
 const ABSOLUTE_HORIZON_CAP = 200_000;
@@ -61,8 +65,103 @@ const ABSOLUTE_HORIZON_CAP = 200_000;
  */
 export const MAX_PITY_STATES = 8_000;
 
-/** Unabsorbed probability below which the remaining pulls cannot change any reported figure. */
+/** Stop an unbounded plot here, retaining its residual mass and unknown later values. */
 const STOP_BELOW = 1e-15;
+
+/** Renewal moments. A tier hit resets pity; its featured roll is independent of
+ * the time spent reaching it. No probability tail is discarded from these moments.
+ */
+function moments(config: PityConfig, initial: PityUserState, target: number) {
+  let mean = 0;
+  let variance = 0;
+  let initialMean = 0;
+  let initialVariance = 0;
+  for (let pity = config.hardPity - 1; pity >= 0; pity--) {
+    const rate = itemTierRate(pity, config);
+    variance = (1 - rate) * variance + rate * (1 - rate) * mean * mean;
+    mean = 1 + (1 - rate) * mean;
+    if (pity === initial.pity) {
+      initialMean = mean;
+      initialVariance = variance;
+    }
+  }
+  const f = config.featuredRate;
+  if (!config.hasGuarantee) {
+    if (f === 0) return { expectedPulls: Infinity, stdDevPulls: NaN };
+    const extraHits = (target - f) / f;
+    return {
+      expectedPulls: initialMean + extraHits * mean,
+      // Hypot avoids overflowing a squared standard deviation for very rare rates.
+      stdDevPulls: Math.hypot(
+        Math.sqrt(initialVariance),
+        variance === 0 ? 0 : Math.sqrt(extraHits) * Math.sqrt(variance),
+        (Math.sqrt(target * (1 - f)) * mean) / f,
+      ),
+    };
+  }
+  const firstMiss = initial.guaranteed ? 0 : 1 - f;
+  const extraHits = firstMiss + (target - 1) * (2 - f);
+  return {
+    expectedPulls: initialMean + extraHits * mean,
+    stdDevPulls: Math.sqrt(
+      initialVariance +
+        extraHits * variance +
+        (firstMiss * (1 - firstMiss) + (target - 1) * f * (1 - f)) *
+          mean *
+          mean,
+    ),
+  };
+}
+
+export function validatePityInput(
+  config: PityConfig,
+  initial: PityUserState,
+  target: number,
+): void {
+  if (!Number.isSafeInteger(target) || target < 1)
+    throw new RangeError("Copies wanted must be a positive whole number.");
+  if (!Number.isSafeInteger(config.hardPity) || config.hardPity < 1)
+    throw new RangeError("Hard pity must be a positive whole number.");
+  if (
+    !Number.isSafeInteger(initial.pity) ||
+    initial.pity < 0 ||
+    initial.pity >= config.hardPity
+  ) {
+    throw new RangeError(
+      "Current pity must be a whole number from zero through hard pity minus one.",
+    );
+  }
+  if (!Number.isSafeInteger(config.softPityStart) || config.softPityStart < 1) {
+    throw new RangeError(
+      "Soft pity must start at a positive whole pull number.",
+    );
+  }
+  for (const [name, value] of [
+    ["Base rate", config.baseRate],
+    ["Featured rate", config.featuredRate],
+  ] as const) {
+    if (!Number.isFinite(value) || value < 0 || value > 1)
+      throw new RangeError(`${name} must be from 0% through 100%.`);
+  }
+  if (
+    !Number.isFinite(config.softPityIncrement) ||
+    config.softPityIncrement < 0
+  )
+    throw new RangeError("Ramp per pull must be finite and non-negative.");
+  if (
+    config.rates?.some((rate) => !Number.isFinite(rate) || rate < 0 || rate > 1)
+  ) {
+    throw new RangeError(
+      "Measured rates must be finite probabilities from zero through one.",
+    );
+  }
+  if (target * config.hardPity * 2 > MAX_PITY_STATES) {
+    throw new RangeError(
+      `That is ${target} copies at a hard pity of ${config.hardPity}: more states than this tracks exactly ` +
+        `(the product can be at most ${MAX_PITY_STATES / 2}). Lower one of them.`,
+    );
+  }
+}
 
 /** Per-pull item-tier hit probability, given pulls-since-last-hit. */
 export function itemTierRate(pity: number, config: PityConfig): number {
@@ -97,15 +196,10 @@ export function pityDistribution(
   initial: PityUserState,
   target: number,
 ): PityDistribution {
-  if (target < 1 || !Number.isInteger(target)) {
-    throw new RangeError("target must be a positive integer");
-  }
-  if (config.hardPity < 1) throw new RangeError("hardPity must be >= 1");
-  if (initial.pity < 0 || initial.pity >= config.hardPity) {
-    throw new RangeError("initial pity must be in [0, hardPity)");
-  }
+  validatePityInput(config, initial, target);
 
-  const horizon = config.hasGuarantee
+  const bounded = config.hasGuarantee || config.featuredRate === 1;
+  const horizon = bounded
     ? target * 2 * config.hardPity + 1
     : Math.min(
         ABSOLUTE_HORIZON_CAP,
@@ -114,12 +208,17 @@ export function pityDistribution(
 
   const hardPity = config.hardPity;
   const size = target * hardPity * 2;
-  if (size > MAX_PITY_STATES) {
-    throw new RangeError(
-      `That is ${target} copies at a hard pity of ${hardPity}: more states than this tracks exactly ` +
-        `(the product can be at most ${MAX_PITY_STATES / 2}). Lower one of them.`,
-    );
-  }
+  const fullMoments = moments(config, initial, target);
+  const impossible = !config.hasGuarantee && config.featuredRate === 0;
+  if (impossible)
+    return {
+      pmf: new Float64Array(1),
+      exact: false,
+      tailMass: 1,
+      horizon: 0,
+      impossible,
+      ...fullMoments,
+    };
   let state = new Float64Array(size);
   let next = new Float64Array(size);
   state[
@@ -186,10 +285,9 @@ export function pityDistribution(
     pmf[t] = absorbed;
     [state, next] = [next, state];
 
-    // Every so often, add up the probability not yet absorbed (from the states themselves:
-    // one minus the running total would carry its rounding error). Once it is below
-    // anything a double can add to 1, the rest of the horizon would only add zeros.
-    if (t % 32 === 0) {
+    // Sum the live states directly: subtracting the CDF from one loses tiny tails.
+    // Only an unbounded plot may stop early; its later probabilities stay unknown.
+    if (!bounded && t % 32 === 0) {
       let remaining = 0;
       for (let i = 0; i < size; i++) remaining += state[i]!;
       if (remaining < STOP_BELOW) {
@@ -199,22 +297,26 @@ export function pityDistribution(
     }
   }
 
-  let total = 0;
-  for (let t = 0; t <= lastPull; t++) total += pmf[t]!;
+  let remaining = 0;
+  for (const mass of state) remaining += mass;
 
   return {
     pmf: lastPull < horizon ? pmf.slice(0, lastPull + 1) : pmf,
-    exact: config.hasGuarantee,
-    tailMass: Math.max(0, 1 - total),
+    exact: bounded,
+    tailMass: clampProbability(remaining),
     horizon: lastPull,
+    impossible,
+    ...fullMoments,
   };
 }
 
 export interface PitySummary {
   expectedPulls: number;
   stdDevPulls: number;
-  pullsFor: { p50: number; p90: number; p99: number };
-  probabilityWithinBudget: (budget: number) => number;
+  /** null: not reached within the calculated horizon; Infinity: impossible. */
+  pullsFor: { p50: number | null; p90: number | null; p99: number | null };
+  /** null beyond an unbounded distribution's computed horizon. */
+  probabilityWithinBudget: (budget: number) => number | null;
 }
 
 function cumulative(pmf: Float64Array): Float64Array {
@@ -229,28 +331,31 @@ function cumulative(pmf: Float64Array): Float64Array {
 
 export function summarizePity(dist: PityDistribution): PitySummary {
   const { pmf } = dist;
-  let mean = 0;
-  for (let t = 0; t < pmf.length; t++) mean += t * pmf[t]!;
-  let variance = 0;
-  for (let t = 0; t < pmf.length; t++) variance += pmf[t]! * (t - mean) ** 2;
 
   const cdf = cumulative(pmf);
-  const findQuantile = (target: number): number => {
+  const findQuantile = (target: number): number | null => {
+    if (dist.impossible) return Infinity;
     for (let t = 0; t < cdf.length; t++) {
       if (cdf[t]! >= target) return t;
     }
-    return cdf.length - 1;
+    return null;
   };
 
   return {
-    expectedPulls: mean,
-    stdDevPulls: Math.sqrt(Math.max(0, variance)),
+    expectedPulls: dist.expectedPulls,
+    stdDevPulls: dist.stdDevPulls,
     pullsFor: {
       p50: findQuantile(0.5),
       p90: findQuantile(0.9),
       p99: findQuantile(0.99),
     },
     probabilityWithinBudget: (budget: number) => {
+      if (!Number.isSafeInteger(budget) || budget < 0)
+        throw new RangeError(
+          "Pull budget must be a non-negative whole number.",
+        );
+      if (dist.impossible) return 0;
+      if (budget > dist.horizon && !dist.exact) return null;
       const t = Math.min(Math.max(0, Math.floor(budget)), cdf.length - 1);
       return clampProbability(cdf[t]!);
     },
@@ -261,11 +366,14 @@ export function summarizePity(dist: PityDistribution): PitySummary {
 export function pityLuckPercentile(
   dist: PityDistribution,
   actualPulls: number,
-): number {
+): number | null {
+  if (!Number.isSafeInteger(actualPulls) || actualPulls < 1 || dist.impossible)
+    return null;
+  if (actualPulls > dist.horizon || dist.pmf[actualPulls] === 0) return null;
   const cdf = cumulative(dist.pmf);
   const t = Math.min(Math.max(0, Math.floor(actualPulls)), cdf.length - 1);
-  const survivalAtLeast = 1 - (t > 0 ? cdf[t - 1]! : 0);
-  return 100 * clampProbability(survivalAtLeast);
+  // Match simple mode: the share taking strictly more pulls, excluding ties.
+  return 100 * clampProbability(1 - cdf[t]!);
 }
 
 /** Downsampled {pulls, pmf, cdf} points for charting. */
@@ -283,6 +391,13 @@ export function pityDistributionPoints(
   const points: { pulls: number; pmf: number; cdf: number }[] = [];
   for (let t = 0; t <= effectiveEnd; t += step) {
     points.push({ pulls: t, pmf: dist.pmf[t]!, cdf: cdf[t]! });
+  }
+  if (points[points.length - 1]?.pulls !== effectiveEnd) {
+    points.push({
+      pulls: effectiveEnd,
+      pmf: dist.pmf[effectiveEnd]!,
+      cdf: cdf[effectiveEnd]!,
+    });
   }
   return points;
 }
