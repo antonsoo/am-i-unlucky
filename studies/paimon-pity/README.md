@@ -92,6 +92,12 @@ Through pull 86 the two agree within 7%. The excess is small in absolute terms (
 
 ### What the tool answers
 
+The retained `answers.json` predates the [pity-tail correction](../pity-tails/README.md),
+with source at `9f505f7`. Its history-percentile fields include ties; current
+source excludes ties, consistently with simple mode. The bounded-model means,
+milestones and budget probabilities in the tables below are unaffected. Keep
+that convention in mind when replaying the script against newer source.
+
 The same chain, four settings (`answers.mjs`, `answers.json`). Fresh pity counter, 50/50 pending, one copy:
 
 |                                                                              | Archetype, 50/50 (released 0.4.0 preset) | Archetype hazard, 55% | Logged hazard, 50/50 | Logged hazard, 55% (new preset) |

@@ -1,0 +1,371 @@
+{
+  "runtime": "v26.7.0",
+  "sourceHashes": {
+    "math/pity.ts": "5d5f6cc6e800a36e1e2d2a661fb9f805c2e483320a9f938370c899d8c348d0b2",
+    "math/numeric.ts": "8c08de45f37b01175103abb42f241457f0f00c5d9d7e149235ee92efba45a751"
+  },
+  "scenarios": 9,
+  "disagreements": 8,
+  "results": [
+    {
+      "name": "rare-geometric",
+      "config": {
+        "baseRate": 1,
+        "softPityStart": 1,
+        "softPityIncrement": 0,
+        "hardPity": 1,
+        "featuredRate": 0.0001,
+        "hasGuarantee": false
+      },
+      "target": 1,
+      "budget": 100000,
+      "history": 100000,
+      "expected": {
+        "mean": 10000,
+        "sd": 9999.499987499375,
+        "p50": null,
+        "p90": null,
+        "p99": null,
+        "withinBudget": null,
+        "historyPercentile": null
+      },
+      "actual": {
+        "mean": 902.267565628826,
+        "sd": 1253.2701553193074,
+        "p50": 5000,
+        "p90": 5000,
+        "p99": 5000,
+        "withinBudget": 0.3934845043752562,
+        "historyPercentile": 60.65761532400678,
+        "horizon": 5000,
+        "tailMass": 0.6065154956247438,
+        "exact": false
+      },
+      "elapsedMs": 4.028531999999984,
+      "disagreements": [
+        "mean",
+        "sd",
+        "p50",
+        "p90",
+        "p99",
+        "withinBudget",
+        "historyPercentile"
+      ]
+    },
+    {
+      "name": "rare-multiple-copies",
+      "config": {
+        "baseRate": 1,
+        "softPityStart": 1,
+        "softPityIncrement": 0,
+        "hardPity": 1,
+        "featuredRate": 0.000001,
+        "hasGuarantee": false
+      },
+      "target": 3,
+      "budget": 100000,
+      "history": 100000,
+      "expected": {
+        "mean": 3000000,
+        "sd": 1732049.941543257,
+        "p50": null,
+        "p90": null,
+        "p99": null,
+        "withinBudget": null,
+        "historyPercentile": null
+      },
+      "actual": {
+        "mean": 0.00007778220825773454,
+        "sd": 0.557784567361702,
+        "p50": 5000,
+        "p90": 5000,
+        "p99": 5000,
+        "withinBudget": 2.074295943721519e-8,
+        "historyPercentile": 99.99999792694709,
+        "horizon": 5000,
+        "tailMass": 0.9999999792570405,
+        "exact": false
+      },
+      "elapsedMs": 4.9248040000000515,
+      "disagreements": [
+        "mean",
+        "sd",
+        "p50",
+        "p90",
+        "p99",
+        "withinBudget",
+        "historyPercentile"
+      ]
+    },
+    {
+      "name": "known-prefix",
+      "config": {
+        "baseRate": 1,
+        "softPityStart": 1,
+        "softPityIncrement": 0,
+        "hardPity": 1,
+        "featuredRate": 0.0001,
+        "hasGuarantee": false
+      },
+      "target": 1,
+      "budget": 5000,
+      "history": 100,
+      "expected": {
+        "mean": 10000,
+        "withinBudget": 0.3934845043752552,
+        "historyPercentile": 99.00493386913708
+      },
+      "actual": {
+        "mean": 902.267565628826,
+        "sd": 1253.2701553193074,
+        "p50": 5000,
+        "p90": 5000,
+        "p99": 5000,
+        "withinBudget": 0.3934845043752562,
+        "historyPercentile": 99.01483535267235,
+        "horizon": 5000,
+        "tailMass": 0.6065154956247438,
+        "exact": false
+      },
+      "elapsedMs": 0.520134999999982,
+      "disagreements": [
+        "mean",
+        "historyPercentile"
+      ]
+    },
+    {
+      "name": "impossible",
+      "config": {
+        "baseRate": 1,
+        "softPityStart": 1,
+        "softPityIncrement": 0,
+        "hardPity": 1,
+        "featuredRate": 0,
+        "hasGuarantee": false
+      },
+      "target": 1,
+      "budget": 100000,
+      "history": 100,
+      "expected": {
+        "mean": "Infinity",
+        "sd": "NaN",
+        "p50": "Infinity",
+        "p90": "Infinity",
+        "p99": "Infinity",
+        "withinBudget": 0,
+        "historyPercentile": null
+      },
+      "actual": {
+        "mean": 0,
+        "sd": 0,
+        "p50": 5000,
+        "p90": 5000,
+        "p99": 5000,
+        "withinBudget": 0,
+        "historyPercentile": 100,
+        "horizon": 5000,
+        "tailMass": 1,
+        "exact": false
+      },
+      "elapsedMs": 0.9181189999999901,
+      "disagreements": [
+        "mean",
+        "sd",
+        "p50",
+        "p90",
+        "p99",
+        "historyPercentile"
+      ]
+    },
+    {
+      "name": "forced-guarantee",
+      "config": {
+        "baseRate": 1,
+        "softPityStart": 1,
+        "softPityIncrement": 0,
+        "hardPity": 1,
+        "featuredRate": 0,
+        "hasGuarantee": true
+      },
+      "target": 2,
+      "budget": 4,
+      "history": 3,
+      "expected": {
+        "mean": 4,
+        "sd": 0,
+        "p50": 4,
+        "p90": 4,
+        "p99": 4,
+        "withinBudget": 1,
+        "historyPercentile": null
+      },
+      "actual": {
+        "mean": 4,
+        "sd": 0,
+        "p50": 4,
+        "p90": 4,
+        "p99": 4,
+        "withinBudget": 1,
+        "historyPercentile": 100,
+        "horizon": 5,
+        "tailMass": 0,
+        "exact": true
+      },
+      "elapsedMs": 0.09345999999999322,
+      "disagreements": [
+        "historyPercentile"
+      ]
+    },
+    {
+      "name": "half-featured",
+      "config": {
+        "baseRate": 1,
+        "softPityStart": 1,
+        "softPityIncrement": 0,
+        "hardPity": 1,
+        "featuredRate": 0.5,
+        "hasGuarantee": false
+      },
+      "target": 1,
+      "budget": 2,
+      "history": 2,
+      "expected": {
+        "mean": 2,
+        "sd": 1.4142135623730951,
+        "p50": 1,
+        "p90": 4,
+        "p99": 7,
+        "withinBudget": 0.75,
+        "historyPercentile": 25
+      },
+      "actual": {
+        "mean": 1.9999999999999998,
+        "sd": 1.414213562373095,
+        "p50": 1,
+        "p90": 4,
+        "p99": 7,
+        "withinBudget": 0.75,
+        "historyPercentile": 50,
+        "horizon": 64,
+        "tailMass": 0,
+        "exact": false
+      },
+      "elapsedMs": 0.08154799999999796,
+      "disagreements": [
+        "historyPercentile"
+      ]
+    },
+    {
+      "name": "bounded-pure-tier",
+      "config": {
+        "baseRate": 0.5,
+        "softPityStart": 1,
+        "softPityIncrement": 0,
+        "hardPity": 90,
+        "featuredRate": 1,
+        "hasGuarantee": false
+      },
+      "target": 1,
+      "budget": 1000,
+      "history": 1,
+      "expected": {
+        "mean": 2,
+        "sd": 1.4142135623730951,
+        "withinBudget": 1,
+        "historyPercentile": 50,
+        "exact": true
+      },
+      "actual": {
+        "mean": 1.9999999999999998,
+        "sd": 1.414213562373095,
+        "p50": 1,
+        "p90": 4,
+        "p99": 7,
+        "withinBudget": 1,
+        "historyPercentile": 100,
+        "horizon": 64,
+        "tailMass": 0,
+        "exact": false
+      },
+      "elapsedMs": 1.55304000000001,
+      "disagreements": [
+        "historyPercentile",
+        "exact"
+      ]
+    },
+    {
+      "name": "fractional-pity",
+      "config": {
+        "baseRate": 1,
+        "softPityStart": 1,
+        "softPityIncrement": 0,
+        "hardPity": 1,
+        "featuredRate": 0.0001,
+        "hasGuarantee": false
+      },
+      "initial": {
+        "pity": 0.5,
+        "guaranteed": false
+      },
+      "target": 1,
+      "budget": 1,
+      "history": 1,
+      "expected": {
+        "error": true
+      },
+      "actual": {
+        "mean": 902.267565628826,
+        "sd": 1253.2701553193074,
+        "p50": 5000,
+        "p90": 5000,
+        "p99": 5000,
+        "withinBudget": 0.0001,
+        "historyPercentile": 100,
+        "horizon": 5000,
+        "tailMass": 0.6065154956247438,
+        "exact": false
+      },
+      "elapsedMs": 2.568850999999995,
+      "disagreements": [
+        "error"
+      ]
+    },
+    {
+      "name": "bounded-control",
+      "config": {
+        "baseRate": 1,
+        "softPityStart": 1,
+        "softPityIncrement": 0,
+        "hardPity": 1,
+        "featuredRate": 0.5,
+        "hasGuarantee": true
+      },
+      "target": 3,
+      "budget": 4,
+      "history": 4,
+      "expected": {
+        "mean": 4.5,
+        "sd": 0.8660254037844386,
+        "p50": 4,
+        "p90": 6,
+        "p99": 6,
+        "withinBudget": 0.5,
+        "exact": true
+      },
+      "actual": {
+        "mean": 4.5,
+        "sd": 0.8660254037844386,
+        "p50": 4,
+        "p90": 6,
+        "p99": 6,
+        "withinBudget": 0.5,
+        "historyPercentile": 87.5,
+        "horizon": 7,
+        "tailMass": 0,
+        "exact": true
+      },
+      "elapsedMs": 0.044957000000010794,
+      "disagreements": []
+    }
+  ]
+}

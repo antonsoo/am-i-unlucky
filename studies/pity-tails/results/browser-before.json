@@ -1,0 +1,82 @@
+{
+  "engine": "153.0.8010.12",
+  "query": "?mode=pity&base=1&soft=1&inc=0&hard=1&feat=0.0001&guar=0&pity0=0&g0=0&target=1&budget=100000&actual=100000",
+  "captures": [
+    {
+      "width": 1440,
+      "overflow": false,
+      "errors": [],
+      "text": "How lucky was my history?\n\nComputed from the exact pull-by-pull distribution, not a simulation.\n\nLucky\n\nYou beat 60.7% of players.\n\nUNLUCKY\nAVERAGE\nLUCKY\nCOMMON\n60.7th percentile — based on 100,000 pulls chasing 1 copy\nEXPECTED PULLS\n902.3\nSTD. DEVIATION\n1,253.3\nP(SUCCESS WITHIN 100,000)\n39.35%\n50% BY\n5,000\n90% BY\n5,000\n99% BY\n5,000\nExport luck card\nDistribution\n\nNot exactly bounded without the guarantee mechanic, so this truncates at a generous horizon (undistributed tail mass: 60.6515%).\n\n0\n1,248\n2,496\n3,743\n4,991\npulls\nWhy can't I just use E[attempts] = 1/rate here?",
+      "tiles": [
+        {
+          "label": "Expected pulls",
+          "value": "902.3"
+        },
+        {
+          "label": "Std. deviation",
+          "value": "1,253.3"
+        },
+        {
+          "label": "P(success within 100,000)",
+          "value": "39.35%"
+        },
+        {
+          "label": "50% by",
+          "value": "5,000"
+        },
+        {
+          "label": "90% by",
+          "value": "5,000"
+        },
+        {
+          "label": "99% by",
+          "value": "5,000"
+        }
+      ],
+      "exportDisabled": false,
+      "exportedCardText": [
+        "AM I UNLUCKY?",
+        "PITY SYSTEM",
+        "EPIC",
+        "99%",
+        "Took 100 pulls for 1 copy under pity.",
+        "epic good luck",
+        "Expected 902 pulls. P(success within 5,000) = 39.35%.",
+        "am-i-unlucky — exact drop-rate & pity math"
+      ]
+    },
+    {
+      "width": 375,
+      "overflow": false,
+      "errors": [],
+      "text": "How lucky was my history?\n\nComputed from the exact pull-by-pull distribution, not a simulation.\n\nLucky\n\nYou beat 60.7% of players.\n\nUNLUCKY\nAVERAGE\nLUCKY\nCOMMON\n60.7th percentile — based on 100,000 pulls chasing 1 copy\nEXPECTED PULLS\n902.3\nSTD. DEVIATION\n1,253.3\nP(SUCCESS WITHIN 100,000)\n39.35%\n50% BY\n5,000\n90% BY\n5,000\n99% BY\n5,000\nExport luck card\nDistribution\n\nNot exactly bounded without the guarantee mechanic, so this truncates at a generous horizon (undistributed tail mass: 60.6515%).\n\n0\n1,248\n2,496\n3,743\n4,991\npulls\nWhy can't I just use E[attempts] = 1/rate here?",
+      "tiles": [
+        {
+          "label": "Expected pulls",
+          "value": "902.3"
+        },
+        {
+          "label": "Std. deviation",
+          "value": "1,253.3"
+        },
+        {
+          "label": "P(success within 100,000)",
+          "value": "39.35%"
+        },
+        {
+          "label": "50% by",
+          "value": "5,000"
+        },
+        {
+          "label": "90% by",
+          "value": "5,000"
+        },
+        {
+          "label": "99% by",
+          "value": "5,000"
+        }
+      ],
+      "exportDisabled": false
+    }
+  ]
+}

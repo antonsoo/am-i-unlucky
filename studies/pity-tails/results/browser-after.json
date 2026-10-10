@@ -1,0 +1,82 @@
+{
+  "engine": "153.0.8010.12",
+  "query": "?mode=pity&base=1&soft=1&inc=0&hard=1&feat=0.0001&guar=0&pity0=0&g0=0&target=1&budget=100000&actual=100000",
+  "captures": [
+    {
+      "width": 1440,
+      "overflow": false,
+      "errors": [],
+      "text": "How lucky was my history?\n\nFor additional pulls from the starting pity counter above. The percentile is the share of players taking strictly more pulls; ties are excluded.\n\nHistory beyond 5,000 pulls has not been calculated.\n\nEXPECTED PULLS\n10,000\nSTD. DEVIATION\n9,999.5\nP(SUCCESS WITHIN 100,000)\nNot calculated\n50% BY\n>5,000\n90% BY\n>5,000\n99% BY\n>5,000\n\nMean and standard deviation use the full probability model, including the unplotted tail.\n\nThe distribution is calculated through 5,000 pulls; 60.6515% remains after that. A milestone shown as >5,000 has not been reached in that calculation. Later budget and history probabilities are not calculated.\n\nExport luck card\nDistribution\n\nPartial distribution through 5,000 pulls. Its remaining probability is not redistributed into the plot.\n\n0\n1,250\n2,500\n3,750\n5,000\npulls\nWhy can't I just use E[attempts] = 1/rate here?",
+      "tiles": [
+        {
+          "label": "Expected pulls",
+          "value": "10,000"
+        },
+        {
+          "label": "Std. deviation",
+          "value": "9,999.5"
+        },
+        {
+          "label": "P(success within 100,000)",
+          "value": "Not calculated"
+        },
+        {
+          "label": "50% by",
+          "value": ">5,000"
+        },
+        {
+          "label": "90% by",
+          "value": ">5,000"
+        },
+        {
+          "label": "99% by",
+          "value": ">5,000"
+        }
+      ],
+      "exportDisabled": true,
+      "exportedCardText": [
+        "AM I UNLUCKY?",
+        "PITY SYSTEM",
+        "EPIC",
+        "99%",
+        "Took 100 pulls for 1 copy under pity.",
+        "epic good luck",
+        "Expected 10,000 pulls. P(success within 5,000) = 39.35%.",
+        "am-i-unlucky — exact drop-rate & pity math"
+      ]
+    },
+    {
+      "width": 375,
+      "overflow": false,
+      "errors": [],
+      "text": "How lucky was my history?\n\nFor additional pulls from the starting pity counter above. The percentile is the share of players taking strictly more pulls; ties are excluded.\n\nHistory beyond 5,000 pulls has not been calculated.\n\nEXPECTED PULLS\n10,000\nSTD. DEVIATION\n9,999.5\nP(SUCCESS WITHIN 100,000)\nNot calculated\n50% BY\n>5,000\n90% BY\n>5,000\n99% BY\n>5,000\n\nMean and standard deviation use the full probability model, including the unplotted tail.\n\nThe distribution is calculated through 5,000 pulls; 60.6515% remains after that. A milestone shown as >5,000 has not been reached in that calculation. Later budget and history probabilities are not calculated.\n\nExport luck card\nDistribution\n\nPartial distribution through 5,000 pulls. Its remaining probability is not redistributed into the plot.\n\n0\n1,250\n2,500\n3,750\n5,000\npulls\nWhy can't I just use E[attempts] = 1/rate here?",
+      "tiles": [
+        {
+          "label": "Expected pulls",
+          "value": "10,000"
+        },
+        {
+          "label": "Std. deviation",
+          "value": "9,999.5"
+        },
+        {
+          "label": "P(success within 100,000)",
+          "value": "Not calculated"
+        },
+        {
+          "label": "50% by",
+          "value": ">5,000"
+        },
+        {
+          "label": "90% by",
+          "value": ">5,000"
+        },
+        {
+          "label": "99% by",
+          "value": ">5,000"
+        }
+      ],
+      "exportDisabled": true
+    }
+  ]
+}
