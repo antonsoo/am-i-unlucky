@@ -21,6 +21,12 @@ workflows. Recompiling both implementations with the documented TypeScript
 commands and regenerating the oracle/replay records reproduced the retained
 files byte for byte. The receipt also hashes the complete static build.
 
+The correction is published in the [live demo](https://antonsoo.github.io/am-i-unlucky/).
+The [publication receipt](publication.json) checks served HTML, CSS and every
+JavaScript worker against that build. Hosted Chromium and Firefox repeat the
+offline recovery workflow and produce the same records as the local browser
+checks. No registry package or tag was released.
+
 | Case                                 | Baseline                  | Corrected                        |
 | ------------------------------------ | ------------------------- | -------------------------------- |
 | Median, one copy at `p=1e-17`        | Process/browser timeout   | Explicit calculation-limit error |

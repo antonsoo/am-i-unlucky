@@ -1,0 +1,139 @@
+{
+  "checkedAt": "2026-10-11T07:05:23.021972+00:00",
+  "pagesRevision": "b8a5df1b2dd38919bb49c6dd881bbc621f173b54",
+  "servedFiles": [
+    {
+      "path": "assets/collection-worker-BbphLwwp.js",
+      "url": "https://antonsoo.github.io/am-i-unlucky/assets/collection-worker-BbphLwwp.js",
+      "bytes": 4770,
+      "sha256": "a3ef2c7e8c187c19581a13166005669a9bdbb30c5f2417319812f22512017155",
+      "matchesBuild": true
+    },
+    {
+      "path": "assets/index-B_eBJFXq.css",
+      "url": "https://antonsoo.github.io/am-i-unlucky/assets/index-B_eBJFXq.css",
+      "bytes": 27028,
+      "sha256": "ef1a6e44ec94dc2bb6f36587125a34fd74c67cf0924fae55e0ec4a4ad4420ded",
+      "matchesBuild": true
+    },
+    {
+      "path": "assets/index-Bt8SN-lH.js",
+      "url": "https://antonsoo.github.io/am-i-unlucky/assets/index-Bt8SN-lH.js",
+      "bytes": 70661,
+      "sha256": "4f560308c71c2d4fc06123cd234233b934fcd55c02bea5b9bdba972414ff5606",
+      "matchesBuild": true
+    },
+    {
+      "path": "assets/pity-worker-D65o80cA.js",
+      "url": "https://antonsoo.github.io/am-i-unlucky/assets/pity-worker-D65o80cA.js",
+      "bytes": 4906,
+      "sha256": "6e57fb9114188edbd050983e30b83c8fc47ea44b932c4198c58f0c009c50af72",
+      "matchesBuild": true
+    },
+    {
+      "path": "assets/time-worker-BhVeHNSb.js",
+      "url": "https://antonsoo.github.io/am-i-unlucky/assets/time-worker-BhVeHNSb.js",
+      "bytes": 5665,
+      "sha256": "4a928262c3049ab60780e5cea22569e1307165718b169b5b0675e6ed3c35b234",
+      "matchesBuild": true
+    },
+    {
+      "path": "index.html",
+      "url": "https://antonsoo.github.io/am-i-unlucky/index.html",
+      "bytes": 2364,
+      "sha256": "46ed423ab27644170fe867f307d991a0e08639933a3f65829f081554b2b361b6",
+      "matchesBuild": true
+    }
+  ],
+  "sourceRevision": "19bc6869389e88aa400436cd65c4b65361f8576f",
+  "buildSourceRevision": "70bc16e4bab011964869a29f2dae6a8f84379b33",
+  "remoteBranches": [
+    "b8a5df1b2dd38919bb49c6dd881bbc621f173b54\trefs/heads/gh-pages",
+    "19bc6869389e88aa400436cd65c4b65361f8576f\trefs/heads/main"
+  ],
+  "hostedBrowserChecks": {
+    "chromium": {
+      "exactlyMatchesLocal": true,
+      "sha256": "8eeb529328058606fa24caeeaa223704f6885eaf9296cef89164b0432839570e",
+      "result": {
+        "browser": "chromium",
+        "offlineAfterLoad": true,
+        "rejectedRate": "1/100000000000000000",
+        "limitText": "This confidence level needs more than 1,000,000,000,000,000 attempts, the calculation limit. Increase the rate or reduce the number of copies.",
+        "restoredStats": [
+          "82.79%",
+          "512",
+          "355",
+          "1,178",
+          "2,356",
+          "511.5"
+        ],
+        "rejectedUnsafeAttempts": true,
+        "rareRate": "1/1000000000000",
+        "rareStats": [
+          "<0.01%",
+          "1,000,000,000,000",
+          "693,147,180,560",
+          "2,302,585,092,993",
+          "4,605,170,185,986",
+          "999,999,999,999.5"
+        ],
+        "diagnostics": {
+          "errors": [],
+          "external": []
+        },
+        "cspViolations": []
+      }
+    },
+    "firefox": {
+      "exactlyMatchesLocal": true,
+      "sha256": "da82b04e9158e0c78d1d375525455e078f30b452256b08b54207983241f2f001",
+      "result": {
+        "browser": "firefox",
+        "offlineAfterLoad": true,
+        "rejectedRate": "1/100000000000000000",
+        "limitText": "This confidence level needs more than 1,000,000,000,000,000 attempts, the calculation limit. Increase the rate or reduce the number of copies.",
+        "restoredStats": [
+          "82.79%",
+          "512",
+          "355",
+          "1,178",
+          "2,356",
+          "511.5"
+        ],
+        "rejectedUnsafeAttempts": true,
+        "rareRate": "1/1000000000000",
+        "rareStats": [
+          "<0.01%",
+          "1,000,000,000,000",
+          "693,147,180,560",
+          "2,302,585,092,993",
+          "4,605,170,185,986",
+          "999,999,999,999.5"
+        ],
+        "diagnostics": {
+          "errors": [],
+          "external": []
+        },
+        "cspViolations": []
+      }
+    }
+  },
+  "pinnedSourceFiles": [
+    {
+      "path": "src/math/simple.ts",
+      "url": "https://raw.githubusercontent.com/antonsoo/am-i-unlucky/19bc6869389e88aa400436cd65c4b65361f8576f/src/math/simple.ts",
+      "bytes": 8193,
+      "sha256": "f4fef078240cb132aa262d411824edf8d543f1a97eaa8e5fab31a1f712a38bce",
+      "matchesLocal": true
+    },
+    {
+      "path": "studies/simple-search/checks.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/am-i-unlucky/19bc6869389e88aa400436cd65c4b65361f8576f/studies/simple-search/checks.json",
+      "bytes": 8797,
+      "sha256": "d99cfe8e61f4ad0d472f19d2c57d90749c8fcbad5993bdf1fdd4413215240d65",
+      "matchesLocal": true
+    }
+  ],
+  "scope": "Source and static demo published. No registry package or tag released."
+}
