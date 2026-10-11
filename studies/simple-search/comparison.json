@@ -1,0 +1,479 @@
+{
+  "node": "v26.7.0",
+  "baselineTimeoutIsIsolatedInChild": true,
+  "oracle": "90-digit Decimal inversion of P(T <= n) = 1 - (1-p)^n, with p and target taken as their exact binary64 values. k=1 only. This is independent of the binomial PMF and recurrence used by the app.",
+  "scope": "Single-copy milestones only; integer comparisons admit binary64 CDF rounding near large milestones. Other copy counts retain the existing SciPy probability oracle.",
+  "cases": [
+    {
+      "p": 0.001953125,
+      "target": 0.5,
+      "attempts": "355",
+      "withinSearchLimit": true,
+      "before": {
+        "value": 355
+      },
+      "after": {
+        "value": 355
+      },
+      "absoluteAttemptError": 0
+    },
+    {
+      "p": 0.001953125,
+      "target": 0.9,
+      "attempts": "1178",
+      "withinSearchLimit": true,
+      "before": {
+        "value": 1178
+      },
+      "after": {
+        "value": 1178
+      },
+      "absoluteAttemptError": 0
+    },
+    {
+      "p": 0.001953125,
+      "target": 0.99,
+      "attempts": "2356",
+      "withinSearchLimit": true,
+      "before": {
+        "value": 2356
+      },
+      "after": {
+        "value": 2356
+      },
+      "absoluteAttemptError": 0
+    },
+    {
+      "p": 0.001953125,
+      "target": 0.999,
+      "attempts": "3534",
+      "withinSearchLimit": true,
+      "before": {
+        "value": 3534
+      },
+      "after": {
+        "value": 3534
+      },
+      "absoluteAttemptError": 0
+    },
+    {
+      "p": 0.000001,
+      "target": 0.5,
+      "attempts": "693147",
+      "withinSearchLimit": true,
+      "before": {
+        "value": 693147
+      },
+      "after": {
+        "value": 693147
+      },
+      "absoluteAttemptError": 0
+    },
+    {
+      "p": 0.000001,
+      "target": 0.9,
+      "attempts": "2302584",
+      "withinSearchLimit": true,
+      "before": {
+        "value": 2302584
+      },
+      "after": {
+        "value": 2302584
+      },
+      "absoluteAttemptError": 0
+    },
+    {
+      "p": 0.000001,
+      "target": 0.99,
+      "attempts": "4605168",
+      "withinSearchLimit": true,
+      "before": {
+        "value": 4605168
+      },
+      "after": {
+        "value": 4605168
+      },
+      "absoluteAttemptError": 0
+    },
+    {
+      "p": 0.000001,
+      "target": 0.999,
+      "attempts": "6907752",
+      "withinSearchLimit": true,
+      "before": {
+        "value": 6907752
+      },
+      "after": {
+        "value": 6907752
+      },
+      "absoluteAttemptError": 0
+    },
+    {
+      "p": 1e-12,
+      "target": 0.5,
+      "attempts": "693147180560",
+      "withinSearchLimit": true,
+      "before": {
+        "value": 693147180560
+      },
+      "after": {
+        "value": 693147180560
+      },
+      "absoluteAttemptError": 0
+    },
+    {
+      "p": 1e-12,
+      "target": 0.9,
+      "attempts": "2302585092993",
+      "withinSearchLimit": true,
+      "before": {
+        "value": 2302585092993
+      },
+      "after": {
+        "value": 2302585092993
+      },
+      "absoluteAttemptError": 0
+    },
+    {
+      "p": 1e-12,
+      "target": 0.99,
+      "attempts": "4605170185986",
+      "withinSearchLimit": true,
+      "before": {
+        "value": 4605170185986
+      },
+      "after": {
+        "value": 4605170185986
+      },
+      "absoluteAttemptError": 0
+    },
+    {
+      "p": 1e-12,
+      "target": 0.999,
+      "attempts": "6907755278979",
+      "withinSearchLimit": true,
+      "before": {
+        "value": 6907755278979
+      },
+      "after": {
+        "value": 6907755278979
+      },
+      "absoluteAttemptError": 0
+    },
+    {
+      "p": 1e-14,
+      "target": 0.5,
+      "attempts": "69314718055995",
+      "withinSearchLimit": true,
+      "before": {
+        "value": 69314718055995
+      },
+      "after": {
+        "value": 69314718055995
+      },
+      "absoluteAttemptError": 0
+    },
+    {
+      "p": 1e-14,
+      "target": 0.9,
+      "attempts": "230258509299404",
+      "withinSearchLimit": true,
+      "before": {
+        "value": 230258509299404
+      },
+      "after": {
+        "value": 230258509299404
+      },
+      "absoluteAttemptError": 0
+    },
+    {
+      "p": 1e-14,
+      "target": 0.99,
+      "attempts": "460517018598807",
+      "withinSearchLimit": true,
+      "before": {
+        "value": 460517018598807
+      },
+      "after": {
+        "value": 460517018598807
+      },
+      "absoluteAttemptError": 0
+    },
+    {
+      "p": 1e-14,
+      "target": 0.999,
+      "attempts": "690775527898211",
+      "withinSearchLimit": true,
+      "before": {
+        "value": 690775527898205
+      },
+      "after": {
+        "value": 690775527898205
+      },
+      "absoluteAttemptError": 6
+    },
+    {
+      "p": 3e-15,
+      "target": 0.5,
+      "attempts": "231049060186649",
+      "withinSearchLimit": true,
+      "before": {
+        "value": 231049060186649
+      },
+      "after": {
+        "value": 231049060186649
+      },
+      "absoluteAttemptError": 0
+    },
+    {
+      "p": 3e-15,
+      "target": 0.9,
+      "attempts": "767528364331348",
+      "withinSearchLimit": true,
+      "before": {
+        "value": "Infinity"
+      },
+      "after": {
+        "value": 767528364331348
+      },
+      "absoluteAttemptError": 0
+    },
+    {
+      "p": 3e-15,
+      "target": 0.99,
+      "attempts": "1535056728662695",
+      "withinSearchLimit": false,
+      "before": {
+        "value": "Infinity"
+      },
+      "after": {
+        "error": "RangeError",
+        "message": "This confidence level needs more than 1,000,000,000,000,000 attempts, the calculation limit. Increase the rate or reduce the number of copies."
+      }
+    },
+    {
+      "p": 3e-15,
+      "target": 0.999,
+      "attempts": "2302585092994043",
+      "withinSearchLimit": false,
+      "before": {
+        "value": "Infinity"
+      },
+      "after": {
+        "error": "RangeError",
+        "message": "This confidence level needs more than 1,000,000,000,000,000 attempts, the calculation limit. Increase the rate or reduce the number of copies."
+      }
+    },
+    {
+      "p": 1e-15,
+      "target": 0.5,
+      "attempts": "693147180559945",
+      "withinSearchLimit": true,
+      "before": {
+        "value": 693147180559945
+      },
+      "after": {
+        "value": 693147180559945
+      },
+      "absoluteAttemptError": 0
+    },
+    {
+      "p": 1e-15,
+      "target": 0.9,
+      "attempts": "2302585092994045",
+      "withinSearchLimit": false,
+      "before": {
+        "value": "Infinity"
+      },
+      "after": {
+        "error": "RangeError",
+        "message": "This confidence level needs more than 1,000,000,000,000,000 attempts, the calculation limit. Increase the rate or reduce the number of copies."
+      }
+    },
+    {
+      "p": 1e-15,
+      "target": 0.99,
+      "attempts": "4605170185988088",
+      "withinSearchLimit": false,
+      "before": {
+        "value": "Infinity"
+      },
+      "after": {
+        "error": "RangeError",
+        "message": "This confidence level needs more than 1,000,000,000,000,000 attempts, the calculation limit. Increase the rate or reduce the number of copies."
+      }
+    },
+    {
+      "p": 1e-15,
+      "target": 0.999,
+      "attempts": "6907755278982133",
+      "withinSearchLimit": false,
+      "before": {
+        "value": "Infinity"
+      },
+      "after": {
+        "error": "RangeError",
+        "message": "This confidence level needs more than 1,000,000,000,000,000 attempts, the calculation limit. Increase the rate or reduce the number of copies."
+      }
+    },
+    {
+      "p": 1e-17,
+      "target": 0.5,
+      "attempts": "69314718055994526",
+      "withinSearchLimit": false,
+      "before": {
+        "timeoutMs": 3000
+      },
+      "after": {
+        "error": "RangeError",
+        "message": "This confidence level needs more than 1,000,000,000,000,000 attempts, the calculation limit. Increase the rate or reduce the number of copies."
+      }
+    },
+    {
+      "p": 1e-17,
+      "target": 0.9,
+      "attempts": "230258509299404573",
+      "withinSearchLimit": false,
+      "before": {
+        "value": "Infinity"
+      },
+      "after": {
+        "error": "RangeError",
+        "message": "This confidence level needs more than 1,000,000,000,000,000 attempts, the calculation limit. Increase the rate or reduce the number of copies."
+      }
+    },
+    {
+      "p": 1e-17,
+      "target": 0.99,
+      "attempts": "460517018598809013",
+      "withinSearchLimit": false,
+      "before": {
+        "value": "Infinity"
+      },
+      "after": {
+        "error": "RangeError",
+        "message": "This confidence level needs more than 1,000,000,000,000,000 attempts, the calculation limit. Increase the rate or reduce the number of copies."
+      }
+    },
+    {
+      "p": 1e-17,
+      "target": 0.999,
+      "attempts": "690775527898213564",
+      "withinSearchLimit": false,
+      "before": {
+        "value": "Infinity"
+      },
+      "after": {
+        "error": "RangeError",
+        "message": "This confidence level needs more than 1,000,000,000,000,000 attempts, the calculation limit. Increase the rate or reduce the number of copies."
+      }
+    }
+  ],
+  "controls": [
+    {
+      "input": {
+        "p": 0.001953125,
+        "n": 900,
+        "k": 1
+      },
+      "result": {
+        "value": {
+          "probabilityAtLeastK": 0.8278744888378552,
+          "luckPercentile": 17.21255111621448,
+          "expectedAttempts": 512,
+          "stdDevAttempts": 511.499755620665,
+          "attemptsFor": {
+            "p50": 355,
+            "p90": 1178,
+            "p99": 2356
+          }
+        }
+      },
+      "unchanged": true
+    },
+    {
+      "input": {
+        "p": 0.02,
+        "n": 200,
+        "k": 3
+      },
+      "result": {
+        "value": {
+          "probabilityAtLeastK": 0.7648518642272936,
+          "luckPercentile": 23.514813577270644,
+          "expectedAttempts": 150,
+          "stdDevAttempts": 85.73214099741122,
+          "attemptsFor": {
+            "p50": 134,
+            "p90": 265,
+            "p99": 418
+          }
+        }
+      },
+      "unchanged": true
+    },
+    {
+      "input": {
+        "p": 1e-12,
+        "n": 1000000000000,
+        "k": 1
+      },
+      "result": {
+        "value": {
+          "probabilityAtLeastK": 0.6321205588287416,
+          "luckPercentile": 36.78794411712584,
+          "expectedAttempts": 1000000000000,
+          "stdDevAttempts": 999999999999.5,
+          "attemptsFor": {
+            "p50": 693147180560,
+            "p90": 2302585092993,
+            "p99": 4605170185986
+          }
+        }
+      },
+      "unchanged": true
+    },
+    {
+      "input": {
+        "p": 0,
+        "n": 900,
+        "k": 1
+      },
+      "result": {
+        "value": {
+          "probabilityAtLeastK": 0,
+          "luckPercentile": 100,
+          "expectedAttempts": "Infinity",
+          "stdDevAttempts": "Infinity",
+          "attemptsFor": {
+            "p50": "Infinity",
+            "p90": "Infinity",
+            "p99": "Infinity"
+          }
+        }
+      },
+      "unchanged": true
+    },
+    {
+      "input": {
+        "p": 1,
+        "n": 10,
+        "k": 3
+      },
+      "result": {
+        "value": {
+          "probabilityAtLeastK": 1,
+          "luckPercentile": 0,
+          "expectedAttempts": 3,
+          "stdDevAttempts": 0,
+          "attemptsFor": {
+            "p50": 3,
+            "p90": 3,
+            "p99": 3
+          }
+        }
+      },
+      "unchanged": true
+    }
+  ]
+}

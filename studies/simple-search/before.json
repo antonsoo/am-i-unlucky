@@ -1,0 +1,33 @@
+[
+  {
+    "input": {
+      "p": 1e-17,
+      "n": 900,
+      "k": 1
+    },
+    "timeoutSeconds": 3,
+    "timeout": true
+  },
+  {
+    "input": {
+      "p": 0.001953125,
+      "n": 900,
+      "k": 1
+    },
+    "exitCode": 0,
+    "stdout": "{\"probabilityAtLeastK\":0.8278744888378552,\"luckPercentile\":17.21255111621448,\"expectedAttempts\":512,\"stdDevAttempts\":511.499755620665,\"attemptsFor\":{\"p50\":355,\"p90\":1178,\"p99\":2356}}\n",
+    "stderr": "",
+    "timeout": false
+  },
+  {
+    "input": {
+      "p": 1e-15,
+      "n": 1000000000000000.0,
+      "k": 1
+    },
+    "exitCode": 0,
+    "stdout": "{\"probabilityAtLeastK\":0.6321205588285579,\"luckPercentile\":36.787944117144214,\"expectedAttempts\":999999999999999.9,\"stdDevAttempts\":999999999999999.5,\"attemptsFor\":{\"p50\":693147180559945,\"p90\":null,\"p99\":null}}\n",
+    "stderr": "",
+    "timeout": false
+  }
+]

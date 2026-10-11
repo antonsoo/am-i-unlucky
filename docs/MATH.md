@@ -35,7 +35,8 @@ least $k$:
 $$P(T_k \le n) = P(X \ge k), \quad X \sim \text{Binomial}(n, p).$$
 
 `binomialSurvival(n, p, k)` in `src/math/simple.ts` computes $P(X \ge k)$ as a
-sum of binomial probabilities, in two steps that keep it exact at any size.
+sum of binomial probabilities, in two steps that retain precision within the
+validated numerical range.
 
 _An accurate single term._ Writing $P(X = k)$ as
 $\exp\bigl(\log\binom{n}{k} + k\log p + (n-k)\log(1-p)\bigr)$ subtracts
@@ -128,8 +129,22 @@ has a closed form via inverting the geometric CDF,
 $n = \lceil \ln(1-\text{target}) / \ln(1-p) \rceil$ (checked directly against
 this formula in `tests/simple.test.ts`); for general $k$ there's no simple
 inversion, so the function grows an upper bound geometrically from the mean
-$k/p$ and then binary-searches it using the same exact `binomialSurvival` —
-still exact, just not closed-form in $n$.
+$k/p$ and then binary-searches it using `binomialSurvival`.
+
+Every search bound, including the initial mean, is capped at $10^{15}$ attempts.
+The search evaluates that cap before rejecting a milestone: doubling can cross
+it while the desired answer is still inside the last interval. A finite
+milestone beyond the cap raises a calculation-limit error. Infinity is reserved
+for a zero success rate or 100% confidence in a non-deterministic distribution.
+The app shows the error instead of partially populated simple-mode results.
+The chart's 99.9% extent has the same bound. Count inputs must be safe integers;
+otherwise adding one to a search midpoint may not advance it.
+
+These are binary64 numerical calculations, not arbitrary-precision integer
+quantiles. A [90-digit Decimal cross-check](../studies/simple-search/README.md)
+matches 18 of 19 supported single-copy milestones exactly. The remaining case
+differs by six attempts at about $6.9\times10^{14}$; the same rounding difference
+is present in the baseline. Nine later milestones are explicitly rejected.
 
 ## 2. Why naive formulas fail under pity
 
@@ -228,7 +243,7 @@ the pulls to the next tier hit starting at pity $c$. Work backwards from hard
 pity, where $E[X_{H-1}]=1$ and $\operatorname{Var}(X_{H-1})=0$. With tier-hit
 probability $r_c$, the recurrences are
 
-$$m_c=1+(1-r_c)m_{c+1},\qquad
+$$ m_c=1+(1-r_c)m_{c+1},\qquad
 v_c=(1-r_c)v_{c+1}+r_c(1-r_c)m_{c+1}^2.$$
 
 Let $m=m_0$, $v=v_0$, $f$ be the featured rate, $k$ the target and $c$ the
@@ -480,3 +495,4 @@ A few practices recur throughout `src/math/`:
   3-5. Simple-drop results are checked against SciPy fixtures in
   `tests/oracle.test.ts`; schedules and collections have independent Decimal
   fixtures in `tests/time-oracle.test.ts` and `tests/collection-oracle.test.ts`.
+$$

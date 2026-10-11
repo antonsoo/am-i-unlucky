@@ -1,0 +1,22 @@
+[
+  {
+    "browser": "chromium",
+    "input": {
+      "rate": "1/100000000000000000",
+      "n": 900,
+      "k": 1
+    },
+    "navigationOutcome": "TimeoutError",
+    "timeoutMs": 5000
+  },
+  {
+    "browser": "firefox",
+    "input": {
+      "rate": "1/100000000000000000",
+      "n": 900,
+      "k": 1
+    },
+    "navigationOutcome": "TimeoutError",
+    "timeoutMs": 5000
+  }
+]

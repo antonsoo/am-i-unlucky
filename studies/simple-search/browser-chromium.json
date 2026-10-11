@@ -1,0 +1,29 @@
+{
+  "browser": "chromium",
+  "offlineAfterLoad": true,
+  "rejectedRate": "1/100000000000000000",
+  "limitText": "This confidence level needs more than 1,000,000,000,000,000 attempts, the calculation limit. Increase the rate or reduce the number of copies.",
+  "restoredStats": [
+    "82.79%",
+    "512",
+    "355",
+    "1,178",
+    "2,356",
+    "511.5"
+  ],
+  "rejectedUnsafeAttempts": true,
+  "rareRate": "1/1000000000000",
+  "rareStats": [
+    "<0.01%",
+    "1,000,000,000,000",
+    "693,147,180,560",
+    "2,302,585,092,993",
+    "4,605,170,185,986",
+    "999,999,999,999.5"
+  ],
+  "diagnostics": {
+    "errors": [],
+    "external": []
+  },
+  "cspViolations": []
+}

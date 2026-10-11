@@ -9,6 +9,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- Simple-drop confidence searches now bound the initial interval as well as
+  expansions. Very small rates no longer freeze the browser when integer
+  midpoints stop advancing. Searches check the last interval before reporting
+  the calculation limit; unsupported finite milestones no longer become infinity.
+  Unsafe counts and non-finite API inputs are rejected before numerical work.
 - Pity-mode moments now include the full distribution through renewal calculations.
   Rare featured chances no longer look like short waits because an uncomputed tail
   was omitted. Unreached milestones and probabilities beyond the computed horizon

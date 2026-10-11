@@ -1,0 +1,173 @@
+{
+  "method": "90-digit Decimal inversion of P(T <= n) = 1 - (1-p)^n, with p and target taken as their exact binary64 values. k=1 only. This is independent of the binomial PMF and recurrence used by the app.",
+  "cases": [
+    {
+      "p": 0.001953125,
+      "target": 0.5,
+      "attempts": "355",
+      "withinSearchLimit": true
+    },
+    {
+      "p": 0.001953125,
+      "target": 0.9,
+      "attempts": "1178",
+      "withinSearchLimit": true
+    },
+    {
+      "p": 0.001953125,
+      "target": 0.99,
+      "attempts": "2356",
+      "withinSearchLimit": true
+    },
+    {
+      "p": 0.001953125,
+      "target": 0.999,
+      "attempts": "3534",
+      "withinSearchLimit": true
+    },
+    {
+      "p": 1e-06,
+      "target": 0.5,
+      "attempts": "693147",
+      "withinSearchLimit": true
+    },
+    {
+      "p": 1e-06,
+      "target": 0.9,
+      "attempts": "2302584",
+      "withinSearchLimit": true
+    },
+    {
+      "p": 1e-06,
+      "target": 0.99,
+      "attempts": "4605168",
+      "withinSearchLimit": true
+    },
+    {
+      "p": 1e-06,
+      "target": 0.999,
+      "attempts": "6907752",
+      "withinSearchLimit": true
+    },
+    {
+      "p": 1e-12,
+      "target": 0.5,
+      "attempts": "693147180560",
+      "withinSearchLimit": true
+    },
+    {
+      "p": 1e-12,
+      "target": 0.9,
+      "attempts": "2302585092993",
+      "withinSearchLimit": true
+    },
+    {
+      "p": 1e-12,
+      "target": 0.99,
+      "attempts": "4605170185986",
+      "withinSearchLimit": true
+    },
+    {
+      "p": 1e-12,
+      "target": 0.999,
+      "attempts": "6907755278979",
+      "withinSearchLimit": true
+    },
+    {
+      "p": 1e-14,
+      "target": 0.5,
+      "attempts": "69314718055995",
+      "withinSearchLimit": true
+    },
+    {
+      "p": 1e-14,
+      "target": 0.9,
+      "attempts": "230258509299404",
+      "withinSearchLimit": true
+    },
+    {
+      "p": 1e-14,
+      "target": 0.99,
+      "attempts": "460517018598807",
+      "withinSearchLimit": true
+    },
+    {
+      "p": 1e-14,
+      "target": 0.999,
+      "attempts": "690775527898211",
+      "withinSearchLimit": true
+    },
+    {
+      "p": 3e-15,
+      "target": 0.5,
+      "attempts": "231049060186649",
+      "withinSearchLimit": true
+    },
+    {
+      "p": 3e-15,
+      "target": 0.9,
+      "attempts": "767528364331348",
+      "withinSearchLimit": true
+    },
+    {
+      "p": 3e-15,
+      "target": 0.99,
+      "attempts": "1535056728662695",
+      "withinSearchLimit": false
+    },
+    {
+      "p": 3e-15,
+      "target": 0.999,
+      "attempts": "2302585092994043",
+      "withinSearchLimit": false
+    },
+    {
+      "p": 1e-15,
+      "target": 0.5,
+      "attempts": "693147180559945",
+      "withinSearchLimit": true
+    },
+    {
+      "p": 1e-15,
+      "target": 0.9,
+      "attempts": "2302585092994045",
+      "withinSearchLimit": false
+    },
+    {
+      "p": 1e-15,
+      "target": 0.99,
+      "attempts": "4605170185988088",
+      "withinSearchLimit": false
+    },
+    {
+      "p": 1e-15,
+      "target": 0.999,
+      "attempts": "6907755278982133",
+      "withinSearchLimit": false
+    },
+    {
+      "p": 1e-17,
+      "target": 0.5,
+      "attempts": "69314718055994526",
+      "withinSearchLimit": false
+    },
+    {
+      "p": 1e-17,
+      "target": 0.9,
+      "attempts": "230258509299404573",
+      "withinSearchLimit": false
+    },
+    {
+      "p": 1e-17,
+      "target": 0.99,
+      "attempts": "460517018598809013",
+      "withinSearchLimit": false
+    },
+    {
+      "p": 1e-17,
+      "target": 0.999,
+      "attempts": "690775527898213564",
+      "withinSearchLimit": false
+    }
+  ]
+}
