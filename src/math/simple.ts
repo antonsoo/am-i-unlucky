@@ -3,9 +3,8 @@
  *
  * The number of attempts needed to see the k-th success is a negative
  * binomial random variable; k = 1 is the geometric distribution. All tail
- * probabilities route through the regularized incomplete beta function
- * (see numeric.ts) rather than summing binomial terms, so they stay exact
- * and fast for n in the millions.
+ * probabilities sum binomial tails from a stable probability mass function
+ * (see numeric.ts), subject to explicit variance and integer-search limits.
  */
 import { binomialPmf, clampProbability } from "./numeric.js";
 
@@ -38,6 +37,19 @@ export interface SimpleDropResult {
  * makes; beyond it the function says so instead of taking seconds per call.
  */
 export const MAX_BINOMIAL_VARIANCE = 1e10;
+
+/** Largest attempt count searched for a confidence milestone or plot extent. */
+export const MAX_CONFIDENCE_ATTEMPTS = 1e15;
+
+function validateProbability(p: number): void {
+  if (!Number.isFinite(p) || p < 0 || p > 1)
+    throw new RangeError("p must be a finite probability in [0, 1]");
+}
+
+function validateCopies(k: number): void {
+  if (!Number.isSafeInteger(k) || k < 1)
+    throw new RangeError("Copies must be a positive safe integer.");
+}
 
 /**
  * The sum of pmf(j) from j = `from` to the end of the support in the given
@@ -75,8 +87,12 @@ function tailSum(
  * away from the mean (and one minus that, if it is the lower one).
  */
 export function binomialSurvival(n: number, p: number, k: number): number {
+  validateProbability(p);
+  if (!Number.isSafeInteger(n) || n < 0)
+    throw new RangeError("Attempts must be a non-negative safe integer.");
+  if (!Number.isSafeInteger(k))
+    throw new RangeError("Copies must be a safe integer.");
   if (k <= 0) return 1;
-  if (n < 0) throw new RangeError("n must be >= 0");
   if (k > n) return 0;
   if (p <= 0) return 0;
   if (p >= 1) return 1;
@@ -133,17 +149,28 @@ export function attemptsForConfidence(
   p: number,
   target: number,
 ): number {
+  validateCopies(k);
+  validateProbability(p);
+  if (!Number.isFinite(target) || target < 0 || target > 1)
+    throw new RangeError("Confidence must be a finite probability in [0, 1].");
   if (target <= 0) return k;
+  if (p >= 1) return k;
   if (target >= 1) return Infinity;
   if (p <= 0) return Infinity;
-  if (p >= 1) return k;
 
-  // Grow an upper bound geometrically from the mean, then binary search.
-  const mean = k / p;
-  let hi = Math.max(k, Math.ceil(mean));
+  // Clamp the initial bound as well as every expansion. Above the exact-integer
+  // range, mid + 1 can equal mid and binary search never makes progress.
+  const beyondLimit = () =>
+    new RangeError(
+      "This confidence level needs more than 1,000,000,000,000,000 attempts, the calculation limit. Increase the rate or reduce the number of copies.",
+    );
+  if (k > MAX_CONFIDENCE_ATTEMPTS) throw beyondLimit();
+  let hi = Math.min(MAX_CONFIDENCE_ATTEMPTS, Math.max(k, Math.ceil(k / p)));
   while (negativeBinomialCdf(k, p, hi) < target) {
-    hi *= 2;
-    if (!Number.isFinite(hi) || hi > 1e15) return Infinity;
+    if (hi === MAX_CONFIDENCE_ATTEMPTS) throw beyondLimit();
+    // Reaching the cap must still search that final interval: doubling can
+    // overshoot even when the requested milestone is below the limit.
+    hi = Math.min(MAX_CONFIDENCE_ATTEMPTS, hi * 2);
   }
   let lo = k;
   while (lo < hi) {
@@ -164,11 +191,7 @@ export function luckPercentile(n: number, p: number, k: number): number {
 
 export function simpleDrop(input: SimpleDropInput): SimpleDropResult {
   const { p, n, k } = input;
-  if (p < 0 || p > 1) throw new RangeError("p must be in [0, 1]");
-  if (n < 0 || !Number.isInteger(n))
-    throw new RangeError("n must be a non-negative integer");
-  if (k < 1 || !Number.isInteger(k))
-    throw new RangeError("k must be a positive integer");
+  validateCopies(k);
 
   const probabilityAtLeastK = binomialSurvival(n, p, k);
   const expectedAttempts = p > 0 ? k / p : Infinity;
@@ -193,16 +216,19 @@ export function negativeBinomialDistribution(
   p: number,
   maxPoints = 200,
 ): { n: number; pmf: number; cdf: number }[] {
+  validateCopies(k);
+  validateProbability(p);
+  if (!Number.isSafeInteger(maxPoints) || maxPoints < 1)
+    throw new RangeError(
+      "The chart point budget must be a positive safe integer.",
+    );
   if (p <= 0) return [];
   const upperBound = attemptsForConfidence(k, p, 0.999);
-  const cappedUpper = Number.isFinite(upperBound)
-    ? upperBound
-    : Math.ceil((k / p) * 5);
-  const span = Math.max(1, cappedUpper - k + 1);
+  const span = Math.max(1, upperBound - k + 1);
   const step = Math.max(1, Math.ceil(span / maxPoints));
 
   const points: { n: number; pmf: number; cdf: number }[] = [];
-  for (let n = k; n <= cappedUpper; n += step) {
+  for (let n = k; n <= upperBound; n += step) {
     points.push({
       n,
       pmf: negativeBinomialPmf(k, p, n),

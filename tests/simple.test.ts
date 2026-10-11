@@ -7,6 +7,7 @@ import {
   geometricPmf,
   luckPercentile,
   negativeBinomialCdf,
+  negativeBinomialDistribution,
   negativeBinomialPmf,
   simpleDrop,
 } from "../src/math/simple.js";
@@ -118,6 +119,42 @@ describe("attemptsForConfidence", () => {
     expect(n).toBeGreaterThan(600_000);
     expect(n).toBeLessThan(800_000);
   });
+  it("searches the last interval even when doubling would cross the limit", () => {
+    const p = 3e-15;
+    const n = attemptsForConfidence(1, p, 0.9);
+    const expected = Math.ceil(Math.log1p(-0.9) / Math.log1p(-p));
+    expect(Math.abs(n - expected)).toBeLessThanOrEqual(1);
+    expect(n).toBeLessThan(1e15);
+  });
+  it("reports unsupported finite milestones instead of infinity or a stalled search", () => {
+    for (const p of [1e-15, 1e-17, Number.MIN_VALUE]) {
+      expect(() => attemptsForConfidence(1, p, 0.99)).toThrow(
+        /more than 1,000,000,000,000,000 attempts/,
+      );
+      expect(() => simpleDrop({ p, n: 900, k: 1 })).toThrow(
+        /calculation limit/,
+      );
+      expect(() => negativeBinomialDistribution(1, p)).toThrow(
+        /calculation limit/,
+      );
+    }
+  });
+  it("keeps impossible and deterministic confidence boundaries distinct", () => {
+    expect(attemptsForConfidence(3, 0, 0.9)).toBe(Infinity);
+    expect(attemptsForConfidence(3, 0.2, 1)).toBe(Infinity);
+    expect(attemptsForConfidence(3, 1, 1)).toBe(3);
+    expect(attemptsForConfidence(3, 0.2, 0)).toBe(3);
+  });
+  it("rejects invalid search values before calling numerical routines", () => {
+    for (const p of [NaN, Infinity, -1, 2])
+      expect(() => attemptsForConfidence(1, p, 0.9)).toThrow(RangeError);
+    for (const k of [NaN, Infinity, 0, 1.5, 1e17])
+      expect(() => attemptsForConfidence(k, 0.5, 0.9)).toThrow(RangeError);
+    for (const confidence of [NaN, Infinity, -1, 2])
+      expect(() => attemptsForConfidence(1, 0.5, confidence)).toThrow(
+        RangeError,
+      );
+  });
 });
 
 describe("luckPercentile", () => {
@@ -144,5 +181,10 @@ describe("simpleDrop integration", () => {
     expect(() => simpleDrop({ p: -0.1, n: 10, k: 1 })).toThrow();
     expect(() => simpleDrop({ p: 0.5, n: 10, k: 0 })).toThrow();
     expect(() => simpleDrop({ p: 0.5, n: -1, k: 1 })).toThrow();
+    expect(() => simpleDrop({ p: NaN, n: 10, k: 1 })).toThrow();
+    expect(() => simpleDrop({ p: 0.5, n: 1e17, k: 1 })).toThrow(/safe integer/);
+    expect(() => simpleDrop({ p: 0.5, n: 10, k: 1e17 })).toThrow(
+      /safe integer/,
+    );
   });
 });
