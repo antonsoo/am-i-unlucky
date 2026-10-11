@@ -1,0 +1,8 @@
+{
+  "checkedAt": "2026-10-11T01:20:40.028Z",
+  "url": "https://antonsoo.github.io/am-i-unlucky/?mode=pity&base=1&soft=1&inc=0&hard=1&feat=0.0001&guar=0&pity0=0&g0=0&target=1&budget=100000&actual=100000",
+  "results": "How lucky was my history?\n\nFor additional pulls from the starting pity counter above. The percentile is the share of players taking strictly more pulls; ties are excluded.\n\nHistory beyond 5,000 pulls has not been calculated.\n\nEXPECTED PULLS\n10,000\nSTD. DEVIATION\n9,999.5\nP(SUCCESS WITHIN 100,000)\nNot calculated\n50% BY\n>5,000\n90% BY\n>5,000\n99% BY\n>5,000\n\nMean and standard deviation use the full probability model, including the unplotted tail.\n\nThe distribution is calculated through 5,000 pulls; 60.6515% remains after that. A milestone shown as >5,000 has not been reached in that calculation. Later budget and history probabilities are not calculated.\n\nExport luck card\nDistribution\n\nPartial distribution through 5,000 pulls. Its remaining probability is not redistributed into the plot.\n\n0\n1,250\n2,500\n3,750\n5,000\npulls\nWhy can't I just use E[attempts] = 1/rate here?",
+  "assets": [
+    "https://antonsoo.github.io/am-i-unlucky/assets/index-DQbSC7gM.js"
+  ]
+}

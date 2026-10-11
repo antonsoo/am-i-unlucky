@@ -11,7 +11,7 @@ Players constantly ask "is 900 runs for a 1/512 drop unlucky?" or "how many pull
 
 ## A small chance must not look like a short wait
 
-The source checkout fixes a truncated-tail error in pity mode. With a
+Pity mode fixes a truncated-tail error. With a
 1-in-10,000 featured chance and no guarantee, the previous calculator showed
 **902.3 expected pulls** and put every milestone at 5,000. The full mean is
 **10,000 pulls**. The mean and standard deviation now include the entire model;
@@ -19,7 +19,9 @@ uncalculated milestones, budget chances and history rankings remain explicit.
 Large calculations run in cancellable workers.
 
 [Before/after browser captures, independent rational oracle and limits](studies/pity-tails/README.md).
-This is a source change; the hosted demo must be checked separately.
+The live demo now includes this correction. [Served-file hashes and hosted
+browser checks](studies/publication/README.md) verify the deployed behavior;
+no registry package was published with that deployment.
 
 ## Checked against 27 million logged pulls
 

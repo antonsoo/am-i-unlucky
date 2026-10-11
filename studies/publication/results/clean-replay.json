@@ -1,0 +1,328 @@
+{
+  "runtime": "v26.7.0",
+  "sourceHashes": {
+    "math/pity.ts": "074638d9e7ca066cd79a9a0e24f5507a5a7fed6fccc409a48e957a31a51d4e9e",
+    "math/numeric.ts": "8c08de45f37b01175103abb42f241457f0f00c5d9d7e149235ee92efba45a751"
+  },
+  "scenarios": 9,
+  "disagreements": 0,
+  "results": [
+    {
+      "name": "rare-geometric",
+      "config": {
+        "baseRate": 1,
+        "softPityStart": 1,
+        "softPityIncrement": 0,
+        "hardPity": 1,
+        "featuredRate": 0.0001,
+        "hasGuarantee": false
+      },
+      "target": 1,
+      "budget": 100000,
+      "history": 100000,
+      "expected": {
+        "mean": 10000,
+        "sd": 9999.499987499375,
+        "p50": null,
+        "p90": null,
+        "p99": null,
+        "withinBudget": null,
+        "historyPercentile": null
+      },
+      "actual": {
+        "mean": 10000,
+        "sd": 9999.499987499375,
+        "p50": null,
+        "p90": null,
+        "p99": null,
+        "withinBudget": null,
+        "historyPercentile": null,
+        "horizon": 5000,
+        "tailMass": 0.6065154956247444,
+        "exact": false
+      },
+      "elapsedMs": 3.8054690000000164,
+      "disagreements": []
+    },
+    {
+      "name": "rare-multiple-copies",
+      "config": {
+        "baseRate": 1,
+        "softPityStart": 1,
+        "softPityIncrement": 0,
+        "hardPity": 1,
+        "featuredRate": 0.000001,
+        "hasGuarantee": false
+      },
+      "target": 3,
+      "budget": 100000,
+      "history": 100000,
+      "expected": {
+        "mean": 3000000,
+        "sd": 1732049.941543257,
+        "p50": null,
+        "p90": null,
+        "p99": null,
+        "withinBudget": null,
+        "historyPercentile": null
+      },
+      "actual": {
+        "mean": 3000000,
+        "sd": 1732049.941543257,
+        "p50": null,
+        "p90": null,
+        "p99": null,
+        "withinBudget": null,
+        "historyPercentile": null,
+        "horizon": 5000,
+        "tailMass": 0.9999999792570409,
+        "exact": false
+      },
+      "elapsedMs": 7.661188999999979,
+      "disagreements": []
+    },
+    {
+      "name": "known-prefix",
+      "config": {
+        "baseRate": 1,
+        "softPityStart": 1,
+        "softPityIncrement": 0,
+        "hardPity": 1,
+        "featuredRate": 0.0001,
+        "hasGuarantee": false
+      },
+      "target": 1,
+      "budget": 5000,
+      "history": 100,
+      "expected": {
+        "mean": 10000,
+        "withinBudget": 0.3934845043752552,
+        "historyPercentile": 99.00493386913708
+      },
+      "actual": {
+        "mean": 10000,
+        "sd": 9999.499987499375,
+        "p50": null,
+        "p90": null,
+        "p99": null,
+        "withinBudget": 0.3934845043752562,
+        "historyPercentile": 99.00493386913708,
+        "horizon": 5000,
+        "tailMass": 0.6065154956247444,
+        "exact": false
+      },
+      "elapsedMs": 0.9026519999999891,
+      "disagreements": []
+    },
+    {
+      "name": "impossible",
+      "config": {
+        "baseRate": 1,
+        "softPityStart": 1,
+        "softPityIncrement": 0,
+        "hardPity": 1,
+        "featuredRate": 0,
+        "hasGuarantee": false
+      },
+      "target": 1,
+      "budget": 100000,
+      "history": 100,
+      "expected": {
+        "mean": "Infinity",
+        "sd": "NaN",
+        "p50": "Infinity",
+        "p90": "Infinity",
+        "p99": "Infinity",
+        "withinBudget": 0,
+        "historyPercentile": null
+      },
+      "actual": {
+        "mean": "Infinity",
+        "sd": "NaN",
+        "p50": "Infinity",
+        "p90": "Infinity",
+        "p99": "Infinity",
+        "withinBudget": 0,
+        "historyPercentile": null,
+        "horizon": 0,
+        "tailMass": 1,
+        "exact": false
+      },
+      "elapsedMs": 0.028531999999984237,
+      "disagreements": []
+    },
+    {
+      "name": "forced-guarantee",
+      "config": {
+        "baseRate": 1,
+        "softPityStart": 1,
+        "softPityIncrement": 0,
+        "hardPity": 1,
+        "featuredRate": 0,
+        "hasGuarantee": true
+      },
+      "target": 2,
+      "budget": 4,
+      "history": 3,
+      "expected": {
+        "mean": 4,
+        "sd": 0,
+        "p50": 4,
+        "p90": 4,
+        "p99": 4,
+        "withinBudget": 1,
+        "historyPercentile": null
+      },
+      "actual": {
+        "mean": 4,
+        "sd": 0,
+        "p50": 4,
+        "p90": 4,
+        "p99": 4,
+        "withinBudget": 1,
+        "historyPercentile": null,
+        "horizon": 5,
+        "tailMass": 0,
+        "exact": true
+      },
+      "elapsedMs": 0.08356099999997468,
+      "disagreements": []
+    },
+    {
+      "name": "half-featured",
+      "config": {
+        "baseRate": 1,
+        "softPityStart": 1,
+        "softPityIncrement": 0,
+        "hardPity": 1,
+        "featuredRate": 0.5,
+        "hasGuarantee": false
+      },
+      "target": 1,
+      "budget": 2,
+      "history": 2,
+      "expected": {
+        "mean": 2,
+        "sd": 1.4142135623730951,
+        "p50": 1,
+        "p90": 4,
+        "p99": 7,
+        "withinBudget": 0.75,
+        "historyPercentile": 25
+      },
+      "actual": {
+        "mean": 2,
+        "sd": 1.4142135623730951,
+        "p50": 1,
+        "p90": 4,
+        "p99": 7,
+        "withinBudget": 0.75,
+        "historyPercentile": 25,
+        "horizon": 64,
+        "tailMass": 5.421010862427522e-20,
+        "exact": false
+      },
+      "elapsedMs": 0.12765799999999672,
+      "disagreements": []
+    },
+    {
+      "name": "bounded-pure-tier",
+      "config": {
+        "baseRate": 0.5,
+        "softPityStart": 1,
+        "softPityIncrement": 0,
+        "hardPity": 90,
+        "featuredRate": 1,
+        "hasGuarantee": false
+      },
+      "target": 1,
+      "budget": 1000,
+      "history": 1,
+      "expected": {
+        "mean": 2,
+        "sd": 1.4142135623730951,
+        "withinBudget": 1,
+        "historyPercentile": 50,
+        "exact": true
+      },
+      "actual": {
+        "mean": 2,
+        "sd": 1.4142135623730951,
+        "p50": 1,
+        "p90": 4,
+        "p99": 7,
+        "withinBudget": 1,
+        "historyPercentile": 50,
+        "horizon": 181,
+        "tailMass": 0,
+        "exact": true
+      },
+      "elapsedMs": 2.609361999999976,
+      "disagreements": []
+    },
+    {
+      "name": "fractional-pity",
+      "config": {
+        "baseRate": 1,
+        "softPityStart": 1,
+        "softPityIncrement": 0,
+        "hardPity": 1,
+        "featuredRate": 0.0001,
+        "hasGuarantee": false
+      },
+      "initial": {
+        "pity": 0.5,
+        "guaranteed": false
+      },
+      "target": 1,
+      "budget": 1,
+      "history": 1,
+      "expected": {
+        "error": true
+      },
+      "actual": {
+        "error": true,
+        "message": "Current pity must be a whole number from zero through hard pity minus one."
+      },
+      "elapsedMs": 0.04455799999999499,
+      "disagreements": []
+    },
+    {
+      "name": "bounded-control",
+      "config": {
+        "baseRate": 1,
+        "softPityStart": 1,
+        "softPityIncrement": 0,
+        "hardPity": 1,
+        "featuredRate": 0.5,
+        "hasGuarantee": true
+      },
+      "target": 3,
+      "budget": 4,
+      "history": 4,
+      "expected": {
+        "mean": 4.5,
+        "sd": 0.8660254037844386,
+        "p50": 4,
+        "p90": 6,
+        "p99": 6,
+        "withinBudget": 0.5,
+        "exact": true
+      },
+      "actual": {
+        "mean": 4.5,
+        "sd": 0.8660254037844386,
+        "p50": 4,
+        "p90": 6,
+        "p99": 6,
+        "withinBudget": 0.5,
+        "historyPercentile": 50,
+        "horizon": 7,
+        "tailMass": 0,
+        "exact": true
+      },
+      "elapsedMs": 0.07522599999998647,
+      "disagreements": []
+    }
+  ]
+}

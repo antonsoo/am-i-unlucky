@@ -1,0 +1,252 @@
+{
+  "checked_at_utc": "2026-10-11T01:19:41.731608+00:00",
+  "source_revision": "97455f9",
+  "pages_revision": "fd36656",
+  "files": [
+    {
+      "path": "favicon.svg",
+      "url": "https://antonsoo.github.io/am-i-unlucky/favicon.svg",
+      "expected_sha256": "923f1b1e9fbd6624acda8401f848104865d91e4a478c22b9a791f94921803075",
+      "served_sha256": "923f1b1e9fbd6624acda8401f848104865d91e4a478c22b9a791f94921803075",
+      "matches": true
+    },
+    {
+      "path": "index.html",
+      "url": "https://antonsoo.github.io/am-i-unlucky/index.html",
+      "expected_sha256": "8733f235c78983ea9fe4825c11a2ff63ea11856eff84c3aecfc41a153d741d79",
+      "served_sha256": "8733f235c78983ea9fe4825c11a2ff63ea11856eff84c3aecfc41a153d741d79",
+      "matches": true
+    },
+    {
+      "path": "assets/collection-worker-BbphLwwp.js",
+      "url": "https://antonsoo.github.io/am-i-unlucky/assets/collection-worker-BbphLwwp.js",
+      "expected_sha256": "a3ef2c7e8c187c19581a13166005669a9bdbb30c5f2417319812f22512017155",
+      "served_sha256": "a3ef2c7e8c187c19581a13166005669a9bdbb30c5f2417319812f22512017155",
+      "matches": true
+    },
+    {
+      "path": "assets/index-DQbSC7gM.js.map",
+      "url": "https://antonsoo.github.io/am-i-unlucky/assets/index-DQbSC7gM.js.map",
+      "expected_sha256": "a599bf4223e05324636cd29f4c1ead169dde2c91bce751d76791489c58c73337",
+      "served_sha256": "a599bf4223e05324636cd29f4c1ead169dde2c91bce751d76791489c58c73337",
+      "matches": true
+    },
+    {
+      "path": "assets/ibm-plex-mono-600-latin-BgSNZQsw.woff2",
+      "url": "https://antonsoo.github.io/am-i-unlucky/assets/ibm-plex-mono-600-latin-BgSNZQsw.woff2",
+      "expected_sha256": "0d1f0b8d0722224e32e9f28261bdc86c79115be73444ae5eceb73976a1bcdf83",
+      "served_sha256": "0d1f0b8d0722224e32e9f28261bdc86c79115be73444ae5eceb73976a1bcdf83",
+      "matches": true
+    },
+    {
+      "path": "assets/ibm-plex-mono-500-cyrillic-Bq9vWWag.woff2",
+      "url": "https://antonsoo.github.io/am-i-unlucky/assets/ibm-plex-mono-500-cyrillic-Bq9vWWag.woff2",
+      "expected_sha256": "1d89462e86cb8e87e7e9d6f6635605bd7c3081baca6caaecee84916bf7b60edc",
+      "served_sha256": "1d89462e86cb8e87e7e9d6f6635605bd7c3081baca6caaecee84916bf7b60edc",
+      "matches": true
+    },
+    {
+      "path": "assets/ibm-plex-mono-500-vietnamese-DZ4AoWbu.woff2",
+      "url": "https://antonsoo.github.io/am-i-unlucky/assets/ibm-plex-mono-500-vietnamese-DZ4AoWbu.woff2",
+      "expected_sha256": "781633d95de88040fb77141d1e65d928c87c0144691fbc74da5a64d137a7e910",
+      "served_sha256": "781633d95de88040fb77141d1e65d928c87c0144691fbc74da5a64d137a7e910",
+      "matches": true
+    },
+    {
+      "path": "assets/bricolage-grotesque-latin-ext-IcJDqblK.woff2",
+      "url": "https://antonsoo.github.io/am-i-unlucky/assets/bricolage-grotesque-latin-ext-IcJDqblK.woff2",
+      "expected_sha256": "776f6dcaf03636cd69a5802c94808cc8896c0a66c8e9ce0fe147231b6ee01957",
+      "served_sha256": "776f6dcaf03636cd69a5802c94808cc8896c0a66c8e9ce0fe147231b6ee01957",
+      "matches": true
+    },
+    {
+      "path": "assets/bricolage-grotesque-vietnamese-D9N6E8K1.woff2",
+      "url": "https://antonsoo.github.io/am-i-unlucky/assets/bricolage-grotesque-vietnamese-D9N6E8K1.woff2",
+      "expected_sha256": "b50a9d90a5264f20d1e45be0b948fe947ddb3644557f1e85ef5d3bd06427c944",
+      "served_sha256": "b50a9d90a5264f20d1e45be0b948fe947ddb3644557f1e85ef5d3bd06427c944",
+      "matches": true
+    },
+    {
+      "path": "assets/time-worker-Bh4ozt13.js.map",
+      "url": "https://antonsoo.github.io/am-i-unlucky/assets/time-worker-Bh4ozt13.js.map",
+      "expected_sha256": "b7474f9a3a88adb7cd831d79a9549ce5e8c5056166718fd1858069b91bb15250",
+      "served_sha256": "b7474f9a3a88adb7cd831d79a9549ce5e8c5056166718fd1858069b91bb15250",
+      "matches": true
+    },
+    {
+      "path": "assets/time-worker-Bh4ozt13.js",
+      "url": "https://antonsoo.github.io/am-i-unlucky/assets/time-worker-Bh4ozt13.js",
+      "expected_sha256": "5e06f1304bb46930ba5904659a6b58bfa2ea61e154ab0c88b5676249d36bcb0f",
+      "served_sha256": "5e06f1304bb46930ba5904659a6b58bfa2ea61e154ab0c88b5676249d36bcb0f",
+      "matches": true
+    },
+    {
+      "path": "assets/ibm-plex-sans-cyrillic-ext-d45eAU9y.woff2",
+      "url": "https://antonsoo.github.io/am-i-unlucky/assets/ibm-plex-sans-cyrillic-ext-d45eAU9y.woff2",
+      "expected_sha256": "7d0037a170882a49e65a45c38ef195237bb07b1cc791d078379f0ac0d7ae1935",
+      "served_sha256": "7d0037a170882a49e65a45c38ef195237bb07b1cc791d078379f0ac0d7ae1935",
+      "matches": true
+    },
+    {
+      "path": "assets/index-B_eBJFXq.css",
+      "url": "https://antonsoo.github.io/am-i-unlucky/assets/index-B_eBJFXq.css",
+      "expected_sha256": "ef1a6e44ec94dc2bb6f36587125a34fd74c67cf0924fae55e0ec4a4ad4420ded",
+      "served_sha256": "ef1a6e44ec94dc2bb6f36587125a34fd74c67cf0924fae55e0ec4a4ad4420ded",
+      "matches": true
+    },
+    {
+      "path": "assets/collection-worker-BbphLwwp.js.map",
+      "url": "https://antonsoo.github.io/am-i-unlucky/assets/collection-worker-BbphLwwp.js.map",
+      "expected_sha256": "ac74004b15aa281bc5837786d573eb8e29134994d1ab402011d81cf34dc38f88",
+      "served_sha256": "ac74004b15aa281bc5837786d573eb8e29134994d1ab402011d81cf34dc38f88",
+      "matches": true
+    },
+    {
+      "path": "assets/ibm-plex-sans-greek-CmyJS8uq.woff2",
+      "url": "https://antonsoo.github.io/am-i-unlucky/assets/ibm-plex-sans-greek-CmyJS8uq.woff2",
+      "expected_sha256": "f598dd0700f155e2facfaa8ecfacace397d4c2c153e9ce37ab7ad310e8505bc2",
+      "served_sha256": "f598dd0700f155e2facfaa8ecfacace397d4c2c153e9ce37ab7ad310e8505bc2",
+      "matches": true
+    },
+    {
+      "path": "assets/pity-worker-D65o80cA.js",
+      "url": "https://antonsoo.github.io/am-i-unlucky/assets/pity-worker-D65o80cA.js",
+      "expected_sha256": "6e57fb9114188edbd050983e30b83c8fc47ea44b932c4198c58f0c009c50af72",
+      "served_sha256": "6e57fb9114188edbd050983e30b83c8fc47ea44b932c4198c58f0c009c50af72",
+      "matches": true
+    },
+    {
+      "path": "assets/ibm-plex-mono-400-latin-DMJ8VG8y.woff2",
+      "url": "https://antonsoo.github.io/am-i-unlucky/assets/ibm-plex-mono-400-latin-DMJ8VG8y.woff2",
+      "expected_sha256": "08949f728dc52d528e69b1667d15c89a5686a4ee9a296ff90983985f99c380f7",
+      "served_sha256": "08949f728dc52d528e69b1667d15c89a5686a4ee9a296ff90983985f99c380f7",
+      "matches": true
+    },
+    {
+      "path": "assets/index-DQbSC7gM.js",
+      "url": "https://antonsoo.github.io/am-i-unlucky/assets/index-DQbSC7gM.js",
+      "expected_sha256": "020e273f7248e56b125fbea4c182b852ddbf17307a8c229df712e2e59d5a54b9",
+      "served_sha256": "020e273f7248e56b125fbea4c182b852ddbf17307a8c229df712e2e59d5a54b9",
+      "matches": true
+    },
+    {
+      "path": "assets/ibm-plex-sans-vietnamese-Dg1JeJN0.woff2",
+      "url": "https://antonsoo.github.io/am-i-unlucky/assets/ibm-plex-sans-vietnamese-Dg1JeJN0.woff2",
+      "expected_sha256": "73e7f7b1c980416ae0c2461268b14c7cfcce0668e683dc43fbb11a82a227b9f2",
+      "served_sha256": "73e7f7b1c980416ae0c2461268b14c7cfcce0668e683dc43fbb11a82a227b9f2",
+      "matches": true
+    },
+    {
+      "path": "assets/ibm-plex-mono-600-latin-ext-D38SheWl.woff2",
+      "url": "https://antonsoo.github.io/am-i-unlucky/assets/ibm-plex-mono-600-latin-ext-D38SheWl.woff2",
+      "expected_sha256": "32057cf50dd14bdb21a2c93766c4a2c43e4abe688ea3922df3203cac7751a98b",
+      "served_sha256": "32057cf50dd14bdb21a2c93766c4a2c43e4abe688ea3922df3203cac7751a98b",
+      "matches": true
+    },
+    {
+      "path": "assets/ibm-plex-sans-cyrillic-BAAhND-U.woff2",
+      "url": "https://antonsoo.github.io/am-i-unlucky/assets/ibm-plex-sans-cyrillic-BAAhND-U.woff2",
+      "expected_sha256": "9409ee21811f0f5272b7e1d828fe8838005b0573481ef906e7e55b63f6610ab0",
+      "served_sha256": "9409ee21811f0f5272b7e1d828fe8838005b0573481ef906e7e55b63f6610ab0",
+      "matches": true
+    },
+    {
+      "path": "assets/ibm-plex-mono-600-cyrillic-CTOM6hUh.woff2",
+      "url": "https://antonsoo.github.io/am-i-unlucky/assets/ibm-plex-mono-600-cyrillic-CTOM6hUh.woff2",
+      "expected_sha256": "2b05a8695c7f9f4abd7178b279646a3b005a8ce57546bef6fd145f25d131e0aa",
+      "served_sha256": "2b05a8695c7f9f4abd7178b279646a3b005a8ce57546bef6fd145f25d131e0aa",
+      "matches": true
+    },
+    {
+      "path": "assets/ibm-plex-mono-400-latin-ext-BmRBH3aV.woff2",
+      "url": "https://antonsoo.github.io/am-i-unlucky/assets/ibm-plex-mono-400-latin-ext-BmRBH3aV.woff2",
+      "expected_sha256": "6bc0f226a5b7884a8170e3f62c63d7675609d4631bdc5931b5cdab81821f00eb",
+      "served_sha256": "6bc0f226a5b7884a8170e3f62c63d7675609d4631bdc5931b5cdab81821f00eb",
+      "matches": true
+    },
+    {
+      "path": "assets/ibm-plex-mono-500-latin-ext-CAhNIIs5.woff2",
+      "url": "https://antonsoo.github.io/am-i-unlucky/assets/ibm-plex-mono-500-latin-ext-CAhNIIs5.woff2",
+      "expected_sha256": "6bb06407c97584b0867a959e05e8874693bfeb8c317de190811c51598f2d99ea",
+      "served_sha256": "6bb06407c97584b0867a959e05e8874693bfeb8c317de190811c51598f2d99ea",
+      "matches": true
+    },
+    {
+      "path": "assets/pity-worker-D65o80cA.js.map",
+      "url": "https://antonsoo.github.io/am-i-unlucky/assets/pity-worker-D65o80cA.js.map",
+      "expected_sha256": "38459c0e9bdf10197c4b8af95b3fbdc45d275ab22d04c7054ab55c8b525cc7b5",
+      "served_sha256": "38459c0e9bdf10197c4b8af95b3fbdc45d275ab22d04c7054ab55c8b525cc7b5",
+      "matches": true
+    },
+    {
+      "path": "assets/ibm-plex-mono-400-vietnamese-BulugwFq.woff2",
+      "url": "https://antonsoo.github.io/am-i-unlucky/assets/ibm-plex-mono-400-vietnamese-BulugwFq.woff2",
+      "expected_sha256": "62632b6375305e70ddcafdd895218e6ae41a184fcd280a69c739460604ca00a9",
+      "served_sha256": "62632b6375305e70ddcafdd895218e6ae41a184fcd280a69c739460604ca00a9",
+      "matches": true
+    },
+    {
+      "path": "assets/bricolage-grotesque-latin-Cre6nC2_.woff2",
+      "url": "https://antonsoo.github.io/am-i-unlucky/assets/bricolage-grotesque-latin-Cre6nC2_.woff2",
+      "expected_sha256": "a79fdb52d4a5c76552452f69202add96e287401fff03d3e8c0e38b4dcb5a99cd",
+      "served_sha256": "a79fdb52d4a5c76552452f69202add96e287401fff03d3e8c0e38b4dcb5a99cd",
+      "matches": true
+    },
+    {
+      "path": "assets/ibm-plex-mono-500-latin-DSY6xOcd.woff2",
+      "url": "https://antonsoo.github.io/am-i-unlucky/assets/ibm-plex-mono-500-latin-DSY6xOcd.woff2",
+      "expected_sha256": "01d285447409c8a588692162439a038b8cbd7871309ee20267b0d2d91c6e8e22",
+      "served_sha256": "01d285447409c8a588692162439a038b8cbd7871309ee20267b0d2d91c6e8e22",
+      "matches": true
+    },
+    {
+      "path": "assets/ibm-plex-mono-600-vietnamese-D2EvbN8M.woff2",
+      "url": "https://antonsoo.github.io/am-i-unlucky/assets/ibm-plex-mono-600-vietnamese-D2EvbN8M.woff2",
+      "expected_sha256": "51b74d53e106ba8a26dd33464b231a562069be2a234b923c115beb622e6f6bc6",
+      "served_sha256": "51b74d53e106ba8a26dd33464b231a562069be2a234b923c115beb622e6f6bc6",
+      "matches": true
+    },
+    {
+      "path": "assets/ibm-plex-mono-400-cyrillic-ext-xuaO2J-f.woff2",
+      "url": "https://antonsoo.github.io/am-i-unlucky/assets/ibm-plex-mono-400-cyrillic-ext-xuaO2J-f.woff2",
+      "expected_sha256": "f8c22ec1804bd6966b70f43ac7c327025645b4c09597117fca2a5a6c750106fe",
+      "served_sha256": "f8c22ec1804bd6966b70f43ac7c327025645b4c09597117fca2a5a6c750106fe",
+      "matches": true
+    },
+    {
+      "path": "assets/ibm-plex-sans-latin-IvpUvPa2.woff2",
+      "url": "https://antonsoo.github.io/am-i-unlucky/assets/ibm-plex-sans-latin-IvpUvPa2.woff2",
+      "expected_sha256": "e2291e842cf5af167122a22881a740c7f2dda7716f1e8cd76680264f4a859470",
+      "served_sha256": "e2291e842cf5af167122a22881a740c7f2dda7716f1e8cd76680264f4a859470",
+      "matches": true
+    },
+    {
+      "path": "assets/ibm-plex-mono-600-cyrillic-ext-V-xxqcpd.woff2",
+      "url": "https://antonsoo.github.io/am-i-unlucky/assets/ibm-plex-mono-600-cyrillic-ext-V-xxqcpd.woff2",
+      "expected_sha256": "83109cdd4f8665b475dfc11d61bd44da328bf7e6eab3d3953d39c49b1b9f6015",
+      "served_sha256": "83109cdd4f8665b475dfc11d61bd44da328bf7e6eab3d3953d39c49b1b9f6015",
+      "matches": true
+    },
+    {
+      "path": "assets/ibm-plex-mono-500-cyrillic-ext-BqneJy0T.woff2",
+      "url": "https://antonsoo.github.io/am-i-unlucky/assets/ibm-plex-mono-500-cyrillic-ext-BqneJy0T.woff2",
+      "expected_sha256": "3febe5c7f22e4b07b4552738673c3dbe8bced2dc5f48b866edf7ccd9552d109a",
+      "served_sha256": "3febe5c7f22e4b07b4552738673c3dbe8bced2dc5f48b866edf7ccd9552d109a",
+      "matches": true
+    },
+    {
+      "path": "assets/ibm-plex-mono-400-cyrillic-BSMlKf0J.woff2",
+      "url": "https://antonsoo.github.io/am-i-unlucky/assets/ibm-plex-mono-400-cyrillic-BSMlKf0J.woff2",
+      "expected_sha256": "7635422bd10ddbbcb0e0caa1154b928298f5c8319b8c00b30978d4395f4783ce",
+      "served_sha256": "7635422bd10ddbbcb0e0caa1154b928298f5c8319b8c00b30978d4395f4783ce",
+      "matches": true
+    },
+    {
+      "path": "assets/ibm-plex-sans-latin-ext-CIII54If.woff2",
+      "url": "https://antonsoo.github.io/am-i-unlucky/assets/ibm-plex-sans-latin-ext-CIII54If.woff2",
+      "expected_sha256": "d160e20920ae4d6556518d352d3af27a74e9b0de3d8fe17b1c1044fc75aa2f81",
+      "served_sha256": "d160e20920ae4d6556518d352d3af27a74e9b0de3d8fe17b1c1044fc75aa2f81",
+      "matches": true
+    }
+  ]
+}

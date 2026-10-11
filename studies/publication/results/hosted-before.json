@@ -1,0 +1,8 @@
+{
+  "checkedAt": "2026-10-11T01:14:39.963Z",
+  "url": "https://antonsoo.github.io/am-i-unlucky/?mode=pity&base=1&soft=1&inc=0&hard=1&feat=0.0001&guar=0&pity0=0&g0=0&target=1&budget=100000&actual=100000",
+  "results": "How lucky was my history?\n\nComputed from the exact pull-by-pull distribution, not a simulation.\n\nLucky\n\nYou beat 60.7% of players.\n\nUNLUCKY\nAVERAGE\nLUCKY\nCOMMON\n60.7th percentile — based on 100,000 pulls chasing 1 copy\nEXPECTED PULLS\n902.3\nSTD. DEVIATION\n1,253.3\nP(SUCCESS WITHIN 100,000)\n39.35%\n50% BY\n5,000\n90% BY\n5,000\n99% BY\n5,000\nExport luck card\nDistribution\n\nNot exactly bounded without the guarantee mechanic, so this truncates at a generous horizon (undistributed tail mass: 60.6515%).\n\n0\n1,248\n2,496\n3,743\n4,991\npulls\nWhy can't I just use E[attempts] = 1/rate here?",
+  "assets": [
+    "https://antonsoo.github.io/am-i-unlucky/assets/index-CgWft33o.js"
+  ]
+}
