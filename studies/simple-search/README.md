@@ -15,6 +15,12 @@ must be safe integers. The app's existing error display explains that a result
 exceeds the calculation limit; it stays responsive and accepts another rate.
 No product UI layout or worker architecture changed.
 
+The [clean-archive receipt](checks.json) records source `70bc16e`, a fresh
+dependency install, lint/type checks, 406 tests and 122 Chromium/Firefox
+workflows. Recompiling both implementations with the documented TypeScript
+commands and regenerating the oracle/replay records reproduced the retained
+files byte for byte. The receipt also hashes the complete static build.
+
 | Case                                 | Baseline                  | Corrected                        |
 | ------------------------------------ | ------------------------- | -------------------------------- |
 | Median, one copy at `p=1e-17`        | Process/browser timeout   | Explicit calculation-limit error |
