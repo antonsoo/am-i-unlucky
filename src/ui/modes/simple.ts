@@ -47,11 +47,13 @@ export function mountSimpleMode(
           <div class="field-row">
             <div class="field">
               <label class="field-label" for="simple-n">Attempts made</label>
-              <input type="number" id="simple-n" min="0" step="1" value="${s.n}" />
+              <input type="number" id="simple-n" min="0" step="1" value="${Number.isFinite(s.n) ? s.n : ""}" aria-describedby="simple-n-error" />
+              <div class="field-error" id="simple-n-error" aria-live="polite"></div>
             </div>
             <div class="field">
               <label class="field-label" for="simple-k">Copies needed</label>
-              <input type="number" id="simple-k" min="1" step="1" value="${s.k}" />
+              <input type="number" id="simple-k" min="1" step="1" value="${Number.isFinite(s.k) ? s.k : ""}" aria-describedby="simple-k-error" />
+              <div class="field-error" id="simple-k-error" aria-live="polite"></div>
             </div>
           </div>
           <div class="field">
@@ -86,25 +88,48 @@ export function mountSimpleMode(
 
   function captureInputs(): void {
     s.rate = rateInput.value;
-    s.n = Math.max(0, Math.floor(Number(nInput.value) || 0));
-    s.k = Math.max(1, Math.floor(Number(kInput.value) || 1));
+    s.n = nInput.valueAsNumber;
+    s.k = kInput.valueAsNumber;
     s.got = gotInput.checked;
   }
   ctx.registerCapture(captureInputs);
 
   /** Recomputes the results, or says why it can't for numbers beyond what the math covers. */
   function recompute(): void {
+    debouncedRecompute.cancel();
     try {
-      computeResults();
+      const p = readInputs();
+      if (p !== undefined) computeResults(p);
     } catch (err) {
       if (!(err instanceof RangeError)) throw err;
       resultsEl.innerHTML = `<section class="panel"><p class="note">${esc(err.message)}</p></section>`;
+    } finally {
+      resultsEl.setAttribute("aria-busy", "false");
     }
   }
 
-  function computeResults(): void {
+  /** Validate the draft before sharing; blank fields remain missing, not zero. */
+  function readInputs(): number | undefined {
     captureInputs();
-    let p: number;
+    const countErrors: string[] = [];
+    for (const [input, value, minimum, label] of [
+      [nInput, s.n, 0, "attempts"],
+      [kInput, s.k, 1, "copies"],
+    ] as const) {
+      const error = root.querySelector<HTMLElement>(`#${input.id}-error`)!;
+      const valid = Number.isSafeInteger(value) && value >= minimum;
+      const message =
+        value > Number.MAX_SAFE_INTEGER
+          ? `Use 9,007,199,254,740,991 or fewer ${label}.`
+          : `Enter a whole number of ${label} (${minimum} or more).`;
+      error.textContent = valid ? "" : message;
+      if (valid) input.removeAttribute("aria-invalid");
+      else {
+        input.setAttribute("aria-invalid", "true");
+        countErrors.push(message);
+      }
+    }
+    let p: number | undefined;
     try {
       p = parseRate(rateInput.value);
       errorEl.textContent = "";
@@ -115,9 +140,22 @@ export function mountSimpleMode(
       // Read with the field (aria-describedby) and announced politely: the field re-checks on
       // every keystroke, so an alert would interrupt each one.
       rateInput.setAttribute("aria-invalid", "true");
-      resultsEl.innerHTML = `<section class="panel"><p class="note">Fix the rate above to see results.</p></section>`;
+    }
+    if (p === undefined || countErrors.length > 0) {
+      ctx.setShareEnabled(false);
+      const messages = [
+        ...(p === undefined ? ["Fix the rate above to see results."] : []),
+        ...countErrors,
+      ];
+      resultsEl.innerHTML = `<section class="panel"><p class="note">${messages.map(esc).join(" ")}</p></section>`;
       return;
     }
+    ctx.setShareEnabled(true);
+    ctx.onStateChange();
+    return p;
+  }
+
+  function computeResults(p: number): void {
     const { n, k, got } = s;
     const attemptsText = `${fmtInt(n)} attempt${n === 1 ? "" : "s"}`;
     gotLabel.textContent =
@@ -234,14 +272,24 @@ export function mountSimpleMode(
         detail: `P(at least ${k} by ${fmtInt(n)}) = ${fmtPercent(result.probabilityAtLeastK)}. Expected ${fmtNum(result.expectedAttempts, 1)} attempts.`,
       });
     });
-
-    ctx.onStateChange();
   }
 
   const debouncedRecompute = debounce(recompute, 120, ctx.signal);
-  rateInput.addEventListener("input", debouncedRecompute);
-  nInput.addEventListener("input", debouncedRecompute);
-  kInput.addEventListener("input", debouncedRecompute);
+  function inputChanged(): void {
+    // Retire the preceding result synchronously: it no longer describes the
+    // visible fields, even during the short debounce before recalculation.
+    debouncedRecompute.cancel();
+    if (readInputs() === undefined) {
+      resultsEl.setAttribute("aria-busy", "false");
+      return;
+    }
+    resultsEl.setAttribute("aria-busy", "true");
+    resultsEl.innerHTML = `<section class="panel"><p class="note">Updating results...</p></section>`;
+    debouncedRecompute();
+  }
+  rateInput.addEventListener("input", inputChanged);
+  nInput.addEventListener("input", inputChanged);
+  kInput.addEventListener("input", inputChanged);
   gotInput.addEventListener("change", recompute);
 
   root.querySelectorAll<HTMLButtonElement>("[data-preset]").forEach((btn) => {
