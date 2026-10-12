@@ -22,7 +22,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   are unchanged. See `studies/tied-outcomes/` for rational checks and replays.
 - Prepare the card's font faces during page load and wait before drawing, so
   the first offline export does not request a previously unused font or capture
-  its fallback before the intended face arrives. Keep card mean precision in
+  its fallback before the intended face arrives. Share one variable Sans face
+  across text weights so newly visible bold notes also work without a repeat
+  font request. Keep card mean precision in
   agreement with the page. These changes are source-only, unreleased.
 
 - Simple-drop confidence searches now bound the initial interval as well as

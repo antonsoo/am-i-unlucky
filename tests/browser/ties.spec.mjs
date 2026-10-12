@@ -28,6 +28,15 @@ for (const width of [1440, 375])
     }) => {
       await page.setViewportSize({ width, height: 950 });
       await captureCardText(page);
+      // Separate CSS weight faces may request the same URL again. Exercise the
+      // first offline scroll/export without HTTP-cache reuse masking that work.
+      await page.route("**/*.woff2", async (route) => {
+        const response = await route.fetch();
+        await route.fulfill({
+          response,
+          headers: { ...response.headers(), "cache-control": "no-store" },
+        });
+      });
       await page.goto(`./?${new URLSearchParams(entry.query)}`);
       const results = page.locator(`#${entry.query.mode}-results`);
       await expect(results.locator(".luck-verdict-headline")).toHaveText(
@@ -46,6 +55,8 @@ for (const width of [1440, 375])
       page.on("request", (r) => {
         if (/^https?:/.test(r.url())) requests.push(r.url());
       });
+      if (entry.query.mode === "simple")
+        await results.locator("strong").last().scrollIntoViewIfNeeded();
       const exportButton = page.getByRole("button", {
         name: "Export luck card",
       });

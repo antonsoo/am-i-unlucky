@@ -103,6 +103,9 @@ unused font after the server stopped in all eight baseline cases. The source
 now prepares the card's specific faces during page load and waits before its
 first paint. It uses the same prepared faces for the page and card; a failed
 font download can still use the fallback rather than preventing export.
+The bundled Sans files are variable fonts; one CSS face now covers their four
+used weights. The previous separate declarations could request the same file
+again in Firefox when a bold note below the fold became visible after load.
 
 This work updates source only. It does not publish a registry package, release
 tag, or hosted deployment. The existing live demo is not evidence of this repair.
