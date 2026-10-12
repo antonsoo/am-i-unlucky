@@ -1,0 +1,2906 @@
+[
+  {
+    "browser": "chromium",
+    "version": "153.0.8010.12",
+    "width": 1440,
+    "offlineAfterLoad": true,
+    "invalid": [
+      {
+        "field": "n",
+        "value": "1.5",
+        "pending": {
+          "shareDisabled": false,
+          "card": true,
+          "stats": 6
+        },
+        "displayed": "1.5",
+        "ariaInvalid": null,
+        "shareEnabled": true,
+        "copied": "?mode=simple&rate=0.5&n=1&k=1&got=1",
+        "card": 1,
+        "stats": 6,
+        "text": "Your luck\n\nBased on the negative-binomial distribution for 1 success at 1 in 2 odds.\n\nAbout average\n\nSame-attempt finishes are ties, not faster or slower outcomes.\n\nFinished sooner\n0%\nSame attempt\n50%\nTook longer\n50%\nUNLUCKY\nAVERAGE\nLUCKY\nCOMMON\nbased on 1 attempt at 1 in 2 (50%) odds needing 1 copy\n\nThe outlined band includes ties. Rarity counts outcomes at least as extreme as yours, including same-attempt finishes.\n\nP(AT LEAST 1 BY 1)\n50%\nEXPECTED ATTEMPTS\n2\n50% BY\n1\n90% BY\n4\n99% BY\n7\nSTD. DEVIATION\n1.4\nExport luck card\nDistribution\n\nProbability mass (area) and cumulative probability (line) over attempts, with the 50/90/99% marks.\n\n50%\n90%\n99%\n1\n3\n6\n8\n10\nattempts\nWhat's \"bad luck protection\", and why doesn't simple mode have it?"
+      },
+      {
+        "field": "n",
+        "value": "-1",
+        "pending": {
+          "shareDisabled": false,
+          "card": true,
+          "stats": 6
+        },
+        "displayed": "-1",
+        "ariaInvalid": null,
+        "shareEnabled": true,
+        "copied": "?mode=simple&rate=0.5&n=0&k=1&got=1",
+        "card": 0,
+        "stats": 6,
+        "text": "Your luck\n\nBased on the negative-binomial distribution for 1 success at 1 in 2 odds.\n\nThat completion time is impossible under these settings. Check the attempts, copies and drop rate.\n\nP(AT LEAST 1 BY 0)\n0%\nEXPECTED ATTEMPTS\n2\n50% BY\n1\n90% BY\n4\n99% BY\n7\nSTD. DEVIATION\n1.4\nDistribution\n\nProbability mass (area) and cumulative probability (line) over attempts, with the 50/90/99% marks.\n\n50%\n90%\n99%\n1\n3\n6\n8\n10\nattempts\nWhat's \"bad luck protection\", and why doesn't simple mode have it?"
+      },
+      {
+        "field": "n",
+        "value": "",
+        "pending": {
+          "shareDisabled": false,
+          "card": true,
+          "stats": 6
+        },
+        "displayed": "",
+        "ariaInvalid": null,
+        "shareEnabled": true,
+        "copied": "?mode=simple&rate=0.5&n=0&k=1&got=1",
+        "card": 0,
+        "stats": 6,
+        "text": "Your luck\n\nBased on the negative-binomial distribution for 1 success at 1 in 2 odds.\n\nThat completion time is impossible under these settings. Check the attempts, copies and drop rate.\n\nP(AT LEAST 1 BY 0)\n0%\nEXPECTED ATTEMPTS\n2\n50% BY\n1\n90% BY\n4\n99% BY\n7\nSTD. DEVIATION\n1.4\nDistribution\n\nProbability mass (area) and cumulative probability (line) over attempts, with the 50/90/99% marks.\n\n50%\n90%\n99%\n1\n3\n6\n8\n10\nattempts\nWhat's \"bad luck protection\", and why doesn't simple mode have it?"
+      },
+      {
+        "field": "n",
+        "value": "9007199254740992",
+        "pending": {
+          "shareDisabled": false,
+          "card": true,
+          "stats": 6
+        },
+        "displayed": "9007199254740992",
+        "ariaInvalid": null,
+        "shareEnabled": true,
+        "copied": "?mode=simple&rate=0.5&n=9007199254740992&k=1&got=1",
+        "card": 0,
+        "stats": 0,
+        "text": "Attempts must be a non-negative safe integer."
+      },
+      {
+        "field": "k",
+        "value": "1.5",
+        "pending": {
+          "shareDisabled": false,
+          "card": true,
+          "stats": 6
+        },
+        "displayed": "1.5",
+        "ariaInvalid": null,
+        "shareEnabled": true,
+        "copied": "?mode=simple&rate=0.5&n=4&k=1&got=1",
+        "card": 1,
+        "stats": 6,
+        "text": "Your luck\n\nBased on the negative-binomial distribution for 1 success at 1 in 2 odds.\n\nUnlucky\n\n87.5% of players would have gotten it sooner.\n\nFinished sooner\n87.5%\nSame attempt\n6.3%\nTook longer\n6.3%\nUNLUCKY\nAVERAGE\nLUCKY\nUNCOMMON BAD LUCK\nbased on 4 attempts at 1 in 2 (50%) odds needing 1 copy\n\nThe outlined band includes ties. Rarity counts outcomes at least as extreme as yours, including same-attempt finishes.\n\nP(AT LEAST 1 BY 4)\n93.75%\nEXPECTED ATTEMPTS\n2\n50% BY\n1\n90% BY\n4\n99% BY\n7\nSTD. DEVIATION\n1.4\nExport luck card\nDistribution\n\nProbability mass (area) and cumulative probability (line) over attempts, with the 50/90/99% marks.\n\n50%\n90%\n99%\n1\n3\n6\n8\n10\nattempts\nWhat's \"bad luck protection\", and why doesn't simple mode have it?"
+      },
+      {
+        "field": "k",
+        "value": "0",
+        "pending": {
+          "shareDisabled": false,
+          "card": true,
+          "stats": 6
+        },
+        "displayed": "0",
+        "ariaInvalid": null,
+        "shareEnabled": true,
+        "copied": "?mode=simple&rate=0.5&n=4&k=1&got=1",
+        "card": 1,
+        "stats": 6,
+        "text": "Your luck\n\nBased on the negative-binomial distribution for 1 success at 1 in 2 odds.\n\nUnlucky\n\n87.5% of players would have gotten it sooner.\n\nFinished sooner\n87.5%\nSame attempt\n6.3%\nTook longer\n6.3%\nUNLUCKY\nAVERAGE\nLUCKY\nUNCOMMON BAD LUCK\nbased on 4 attempts at 1 in 2 (50%) odds needing 1 copy\n\nThe outlined band includes ties. Rarity counts outcomes at least as extreme as yours, including same-attempt finishes.\n\nP(AT LEAST 1 BY 4)\n93.75%\nEXPECTED ATTEMPTS\n2\n50% BY\n1\n90% BY\n4\n99% BY\n7\nSTD. DEVIATION\n1.4\nExport luck card\nDistribution\n\nProbability mass (area) and cumulative probability (line) over attempts, with the 50/90/99% marks.\n\n50%\n90%\n99%\n1\n3\n6\n8\n10\nattempts\nWhat's \"bad luck protection\", and why doesn't simple mode have it?"
+      },
+      {
+        "field": "k",
+        "value": "-1",
+        "pending": {
+          "shareDisabled": false,
+          "card": true,
+          "stats": 6
+        },
+        "displayed": "-1",
+        "ariaInvalid": null,
+        "shareEnabled": true,
+        "copied": "?mode=simple&rate=0.5&n=4&k=1&got=1",
+        "card": 1,
+        "stats": 6,
+        "text": "Your luck\n\nBased on the negative-binomial distribution for 1 success at 1 in 2 odds.\n\nUnlucky\n\n87.5% of players would have gotten it sooner.\n\nFinished sooner\n87.5%\nSame attempt\n6.3%\nTook longer\n6.3%\nUNLUCKY\nAVERAGE\nLUCKY\nUNCOMMON BAD LUCK\nbased on 4 attempts at 1 in 2 (50%) odds needing 1 copy\n\nThe outlined band includes ties. Rarity counts outcomes at least as extreme as yours, including same-attempt finishes.\n\nP(AT LEAST 1 BY 4)\n93.75%\nEXPECTED ATTEMPTS\n2\n50% BY\n1\n90% BY\n4\n99% BY\n7\nSTD. DEVIATION\n1.4\nExport luck card\nDistribution\n\nProbability mass (area) and cumulative probability (line) over attempts, with the 50/90/99% marks.\n\n50%\n90%\n99%\n1\n3\n6\n8\n10\nattempts\nWhat's \"bad luck protection\", and why doesn't simple mode have it?"
+      },
+      {
+        "field": "k",
+        "value": "",
+        "pending": {
+          "shareDisabled": false,
+          "card": true,
+          "stats": 6
+        },
+        "displayed": "",
+        "ariaInvalid": null,
+        "shareEnabled": true,
+        "copied": "?mode=simple&rate=0.5&n=4&k=1&got=1",
+        "card": 1,
+        "stats": 6,
+        "text": "Your luck\n\nBased on the negative-binomial distribution for 1 success at 1 in 2 odds.\n\nUnlucky\n\n87.5% of players would have gotten it sooner.\n\nFinished sooner\n87.5%\nSame attempt\n6.3%\nTook longer\n6.3%\nUNLUCKY\nAVERAGE\nLUCKY\nUNCOMMON BAD LUCK\nbased on 4 attempts at 1 in 2 (50%) odds needing 1 copy\n\nThe outlined band includes ties. Rarity counts outcomes at least as extreme as yours, including same-attempt finishes.\n\nP(AT LEAST 1 BY 4)\n93.75%\nEXPECTED ATTEMPTS\n2\n50% BY\n1\n90% BY\n4\n99% BY\n7\nSTD. DEVIATION\n1.4\nExport luck card\nDistribution\n\nProbability mass (area) and cumulative probability (line) over attempts, with the 50/90/99% marks.\n\n50%\n90%\n99%\n1\n3\n6\n8\n10\nattempts\nWhat's \"bad luck protection\", and why doesn't simple mode have it?"
+      },
+      {
+        "field": "k",
+        "value": "9007199254740992",
+        "pending": {
+          "shareDisabled": false,
+          "card": true,
+          "stats": 6
+        },
+        "displayed": "9007199254740992",
+        "ariaInvalid": null,
+        "shareEnabled": true,
+        "copied": "?mode=simple&rate=0.5&n=4&k=9007199254740992&got=1",
+        "card": 0,
+        "stats": 0,
+        "text": "Copies must be a positive safe integer."
+      },
+      {
+        "field": "rate",
+        "value": "",
+        "pending": {
+          "shareDisabled": false,
+          "card": true,
+          "stats": 6
+        },
+        "displayed": "",
+        "ariaInvalid": "true",
+        "shareEnabled": true,
+        "copied": "?mode=simple&rate=&n=4&k=1&got=1",
+        "card": 0,
+        "stats": 0,
+        "text": "Fix the rate above to see results."
+      },
+      {
+        "field": "rate",
+        "value": "nonsense",
+        "pending": {
+          "shareDisabled": false,
+          "card": true,
+          "stats": 6
+        },
+        "displayed": "nonsense",
+        "ariaInvalid": "true",
+        "shareEnabled": true,
+        "copied": "?mode=simple&rate=nonsense&n=4&k=1&got=1",
+        "card": 0,
+        "stats": 0,
+        "text": "Fix the rate above to see results."
+      },
+      {
+        "field": "rate",
+        "value": "120%",
+        "pending": {
+          "shareDisabled": false,
+          "card": true,
+          "stats": 6
+        },
+        "displayed": "120%",
+        "ariaInvalid": "true",
+        "shareEnabled": true,
+        "copied": "?mode=simple&rate=120%25&n=4&k=1&got=1",
+        "card": 0,
+        "stats": 0,
+        "text": "Fix the rate above to see results."
+      },
+      {
+        "field": "rate",
+        "value": "1/100000000000000000",
+        "pending": {
+          "shareDisabled": false,
+          "card": true,
+          "stats": 6
+        },
+        "displayed": "1/100000000000000000",
+        "ariaInvalid": null,
+        "shareEnabled": true,
+        "copied": "?mode=simple&rate=1%2F100000000000000000&n=4&k=1&got=1",
+        "card": 0,
+        "stats": 0,
+        "text": "This confidence level needs more than 1,000,000,000,000,000 attempts, the calculation limit. Increase the rate or reduce the number of copies."
+      }
+    ],
+    "valid": [
+      {
+        "input": {
+          "rate": "0.5",
+          "n": "4",
+          "k": "1",
+          "got": true
+        },
+        "copied": "?mode=simple&rate=0.5&n=4&k=1&got=1",
+        "text": "Your luck\n\nBased on the negative-binomial distribution for 1 success at 1 in 2 odds.\n\nUnlucky\n\n87.5% of players would have gotten it sooner.\n\nFinished sooner\n87.5%\nSame attempt\n6.3%\nTook longer\n6.3%\nUNLUCKY\nAVERAGE\nLUCKY\nUNCOMMON BAD LUCK\nbased on 4 attempts at 1 in 2 (50%) odds needing 1 copy\n\nThe outlined band includes ties. Rarity counts outcomes at least as extreme as yours, including same-attempt finishes.\n\nP(AT LEAST 1 BY 4)\n93.75%\nEXPECTED ATTEMPTS\n2\n50% BY\n1\n90% BY\n4\n99% BY\n7\nSTD. DEVIATION\n1.4\nExport luck card\nDistribution\n\nProbability mass (area) and cumulative probability (line) over attempts, with the 50/90/99% marks.\n\n50%\n90%\n99%\n1\n3\n6\n8\n10\nattempts\nWhat's \"bad luck protection\", and why doesn't simple mode have it?",
+        "chart": {
+          "bytes": 2217,
+          "sha256": "5093f972f85ea117eb1f118211f13df89ca0eebdfb3808d13a4ec66a58b2141e"
+        },
+        "cardText": [
+          "AM I UNLUCKY?",
+          "SIMPLE DROP",
+          "UNCOMMON",
+          "87.5%",
+          "FINISHED SOONER",
+          "6.3%",
+          "SAME ATTEMPT",
+          "6.3%",
+          "TOOK LONGER",
+          "UNLUCKY",
+          "Took 4 attempts at 1 in 2 odds for 1 copy.",
+          "uncommon bad luck",
+          "P(at least 1 by 4) = 93.75%. Expected 2 attempts.",
+          "am-i-unlucky — exact drop-rate & pity math"
+        ],
+        "png": {
+          "bytes": 1073784,
+          "sha256": "3dde067c7ae3cc46ca9863d8608c7c02977663c3c9447d41ae6cddb9beedb55d",
+          "chunks": [
+            {
+              "type": "IHDR",
+              "count": 1,
+              "bytes": 13,
+              "sha256": "547efe46ab9438e75467c4560cf6b782dd4ff5a2a8a9f8038797b25082faa94c"
+            },
+            {
+              "type": "IDAT",
+              "count": 263,
+              "bytes": 1070583,
+              "sha256": "b0aedec36b1974d79603edf506ce0d5ce716699054cfe080d05e5ae6a937fed6"
+            },
+            {
+              "type": "IEND",
+              "count": 1,
+              "bytes": 0,
+              "sha256": "cd372fb85148700fa88095e3492d3f9f5beb43e555e5ff26d95f5a6adc36f8e6"
+            }
+          ],
+          "width": 1080,
+          "height": 1350
+        }
+      },
+      {
+        "input": {
+          "rate": "0.5",
+          "n": "0",
+          "k": "1",
+          "got": false
+        },
+        "copied": "?mode=simple&rate=0.5&n=0&k=1&got=0",
+        "text": "Your luck\n\nBased on the negative-binomial distribution for 1 success at 1 in 2 odds.\n\nEnter at least 1 attempt to see your luck percentile.\n\nP(AT LEAST 1 BY 0)\n0%\nEXPECTED ATTEMPTS\n2\n50% BY\n1\n90% BY\n4\n99% BY\n7\nSTD. DEVIATION\n1.4\nDistribution\n\nProbability mass (area) and cumulative probability (line) over attempts, with the 50/90/99% marks.\n\n50%\n90%\n99%\n1\n3\n6\n8\n10\nattempts\nWhat's \"bad luck protection\", and why doesn't simple mode have it?",
+        "chart": {
+          "bytes": 2217,
+          "sha256": "5093f972f85ea117eb1f118211f13df89ca0eebdfb3808d13a4ec66a58b2141e"
+        }
+      },
+      {
+        "input": {
+          "rate": "0.5",
+          "n": "1",
+          "k": "1",
+          "got": true
+        },
+        "copied": "?mode=simple&rate=0.5&n=1&k=1&got=1",
+        "text": "Your luck\n\nBased on the negative-binomial distribution for 1 success at 1 in 2 odds.\n\nAbout average\n\nSame-attempt finishes are ties, not faster or slower outcomes.\n\nFinished sooner\n0%\nSame attempt\n50%\nTook longer\n50%\nUNLUCKY\nAVERAGE\nLUCKY\nCOMMON\nbased on 1 attempt at 1 in 2 (50%) odds needing 1 copy\n\nThe outlined band includes ties. Rarity counts outcomes at least as extreme as yours, including same-attempt finishes.\n\nP(AT LEAST 1 BY 1)\n50%\nEXPECTED ATTEMPTS\n2\n50% BY\n1\n90% BY\n4\n99% BY\n7\nSTD. DEVIATION\n1.4\nExport luck card\nDistribution\n\nProbability mass (area) and cumulative probability (line) over attempts, with the 50/90/99% marks.\n\n50%\n90%\n99%\n1\n3\n6\n8\n10\nattempts\nWhat's \"bad luck protection\", and why doesn't simple mode have it?",
+        "chart": {
+          "bytes": 2217,
+          "sha256": "5093f972f85ea117eb1f118211f13df89ca0eebdfb3808d13a4ec66a58b2141e"
+        },
+        "cardText": [
+          "AM I UNLUCKY?",
+          "SIMPLE DROP",
+          "COMMON",
+          "0%",
+          "FINISHED SOONER",
+          "50%",
+          "SAME ATTEMPT",
+          "50%",
+          "TOOK LONGER",
+          "ABOUT AVERAGE",
+          "Took 1 attempt at 1 in 2 odds for 1 copy.",
+          "common",
+          "P(at least 1 by 1) = 50%. Expected 2 attempts.",
+          "am-i-unlucky — exact drop-rate & pity math"
+        ],
+        "png": {
+          "bytes": 1445887,
+          "sha256": "b0f8673bfbc02d5d6d89218662c8f0b92da5c8f80b9da23a2f311e964f4046fa",
+          "chunks": [
+            {
+              "type": "IHDR",
+              "count": 1,
+              "bytes": 13,
+              "sha256": "547efe46ab9438e75467c4560cf6b782dd4ff5a2a8a9f8038797b25082faa94c"
+            },
+            {
+              "type": "IDAT",
+              "count": 353,
+              "bytes": 1441606,
+              "sha256": "c459924bee549171a374f10c624a1d000bc430ffa642a9380089a8aaf73deff2"
+            },
+            {
+              "type": "IEND",
+              "count": 1,
+              "bytes": 0,
+              "sha256": "cd372fb85148700fa88095e3492d3f9f5beb43e555e5ff26d95f5a6adc36f8e6"
+            }
+          ],
+          "width": 1080,
+          "height": 1350
+        }
+      },
+      {
+        "input": {
+          "rate": "0.5",
+          "n": "2",
+          "k": "1",
+          "got": true
+        },
+        "copied": "?mode=simple&rate=0.5&n=2&k=1&got=1",
+        "text": "Your luck\n\nBased on the negative-binomial distribution for 1 success at 1 in 2 odds.\n\nAbout average\n\nSame-attempt finishes are ties, not faster or slower outcomes.\n\nFinished sooner\n50%\nSame attempt\n25%\nTook longer\n25%\nUNLUCKY\nAVERAGE\nLUCKY\nCOMMON\nbased on 2 attempts at 1 in 2 (50%) odds needing 1 copy\n\nThe outlined band includes ties. Rarity counts outcomes at least as extreme as yours, including same-attempt finishes.\n\nP(AT LEAST 1 BY 2)\n75%\nEXPECTED ATTEMPTS\n2\n50% BY\n1\n90% BY\n4\n99% BY\n7\nSTD. DEVIATION\n1.4\nExport luck card\nDistribution\n\nProbability mass (area) and cumulative probability (line) over attempts, with the 50/90/99% marks.\n\n50%\n90%\n99%\n1\n3\n6\n8\n10\nattempts\nWhat's \"bad luck protection\", and why doesn't simple mode have it?",
+        "chart": {
+          "bytes": 2217,
+          "sha256": "5093f972f85ea117eb1f118211f13df89ca0eebdfb3808d13a4ec66a58b2141e"
+        },
+        "cardText": [
+          "AM I UNLUCKY?",
+          "SIMPLE DROP",
+          "COMMON",
+          "50%",
+          "FINISHED SOONER",
+          "25%",
+          "SAME ATTEMPT",
+          "25%",
+          "TOOK LONGER",
+          "ABOUT AVERAGE",
+          "Took 2 attempts at 1 in 2 odds for 1 copy.",
+          "common",
+          "P(at least 1 by 2) = 75%. Expected 2 attempts.",
+          "am-i-unlucky — exact drop-rate & pity math"
+        ],
+        "png": {
+          "bytes": 1446804,
+          "sha256": "8022d7578df292dcb9043ead47f5e36ad876ebf4176f054b8528ff8bc07bd5f7",
+          "chunks": [
+            {
+              "type": "IHDR",
+              "count": 1,
+              "bytes": 13,
+              "sha256": "547efe46ab9438e75467c4560cf6b782dd4ff5a2a8a9f8038797b25082faa94c"
+            },
+            {
+              "type": "IDAT",
+              "count": 354,
+              "bytes": 1442511,
+              "sha256": "d8c3605c279133d90d293b7228ff93d6d8e3cb304ff960132058a20aca648125"
+            },
+            {
+              "type": "IEND",
+              "count": 1,
+              "bytes": 0,
+              "sha256": "cd372fb85148700fa88095e3492d3f9f5beb43e555e5ff26d95f5a6adc36f8e6"
+            }
+          ],
+          "width": 1080,
+          "height": 1350
+        }
+      },
+      {
+        "input": {
+          "rate": "0.5",
+          "n": "3",
+          "k": "1",
+          "got": true
+        },
+        "copied": "?mode=simple&rate=0.5&n=3&k=1&got=1",
+        "text": "Your luck\n\nBased on the negative-binomial distribution for 1 success at 1 in 2 odds.\n\nUnlucky\n\n75% of players would have gotten it sooner.\n\nFinished sooner\n75%\nSame attempt\n12.5%\nTook longer\n12.5%\nUNLUCKY\nAVERAGE\nLUCKY\nUNCOMMON BAD LUCK\nbased on 3 attempts at 1 in 2 (50%) odds needing 1 copy\n\nThe outlined band includes ties. Rarity counts outcomes at least as extreme as yours, including same-attempt finishes.\n\nP(AT LEAST 1 BY 3)\n87.5%\nEXPECTED ATTEMPTS\n2\n50% BY\n1\n90% BY\n4\n99% BY\n7\nSTD. DEVIATION\n1.4\nExport luck card\nDistribution\n\nProbability mass (area) and cumulative probability (line) over attempts, with the 50/90/99% marks.\n\n50%\n90%\n99%\n1\n3\n6\n8\n10\nattempts\nWhat's \"bad luck protection\", and why doesn't simple mode have it?",
+        "chart": {
+          "bytes": 2217,
+          "sha256": "5093f972f85ea117eb1f118211f13df89ca0eebdfb3808d13a4ec66a58b2141e"
+        },
+        "cardText": [
+          "AM I UNLUCKY?",
+          "SIMPLE DROP",
+          "UNCOMMON",
+          "75%",
+          "FINISHED SOONER",
+          "12.5%",
+          "SAME ATTEMPT",
+          "12.5%",
+          "TOOK LONGER",
+          "UNLUCKY",
+          "Took 3 attempts at 1 in 2 odds for 1 copy.",
+          "uncommon bad luck",
+          "P(at least 1 by 3) = 87.5%. Expected 2 attempts.",
+          "am-i-unlucky — exact drop-rate & pity math"
+        ],
+        "png": {
+          "bytes": 1071472,
+          "sha256": "1775f94bfb227dc3d725e4056e14cfb47b9ca0e7ce44939f581942e6cb5749d2",
+          "chunks": [
+            {
+              "type": "IHDR",
+              "count": 1,
+              "bytes": 13,
+              "sha256": "547efe46ab9438e75467c4560cf6b782dd4ff5a2a8a9f8038797b25082faa94c"
+            },
+            {
+              "type": "IDAT",
+              "count": 262,
+              "bytes": 1068283,
+              "sha256": "b227228a9216f5c346117fb6d2b1e8fb3b364bfe26445cae41fef7bd3a011dd8"
+            },
+            {
+              "type": "IEND",
+              "count": 1,
+              "bytes": 0,
+              "sha256": "cd372fb85148700fa88095e3492d3f9f5beb43e555e5ff26d95f5a6adc36f8e6"
+            }
+          ],
+          "width": 1080,
+          "height": 1350
+        }
+      },
+      {
+        "input": {
+          "rate": "0.5",
+          "n": "4",
+          "k": "2",
+          "got": true
+        },
+        "copied": "?mode=simple&rate=0.5&n=4&k=2&got=1",
+        "text": "Your luck\n\nBased on the negative-binomial distribution for 2 successes at 1 in 2 odds.\n\nAbout average\n\nSame-attempt finishes are ties, not faster or slower outcomes.\n\nFinished sooner\n50%\nSame attempt\n18.8%\nTook longer\n31.3%\nUNLUCKY\nAVERAGE\nLUCKY\nCOMMON\nbased on 4 attempts at 1 in 2 (50%) odds needing 2 copies\n\nThe outlined band includes ties. Rarity counts outcomes at least as extreme as yours, including same-attempt finishes.\n\nP(AT LEAST 2 BY 4)\n68.75%\nEXPECTED ATTEMPTS\n4\n50% BY\n3\n90% BY\n7\n99% BY\n11\nSTD. DEVIATION\n2\nExport luck card\nDistribution\n\nProbability mass (area) and cumulative probability (line) over attempts, with the 50/90/99% marks.\n\n50%\n90%\n99%\n2\n5\n8\n11\n14\nattempts\nWhat's \"bad luck protection\", and why doesn't simple mode have it?",
+        "chart": {
+          "bytes": 2314,
+          "sha256": "c1470e17e0c3688f32f1fdc3377823ef279baa178ee01c0e4dd697ad54eec7df"
+        },
+        "cardText": [
+          "AM I UNLUCKY?",
+          "SIMPLE DROP",
+          "COMMON",
+          "50%",
+          "FINISHED SOONER",
+          "18.8%",
+          "SAME ATTEMPT",
+          "31.3%",
+          "TOOK LONGER",
+          "ABOUT AVERAGE",
+          "Took 4 attempts at 1 in 2 odds for 2 copies.",
+          "common",
+          "P(at least 2 by 4) = 68.75%. Expected 4 attempts.",
+          "am-i-unlucky — exact drop-rate & pity math"
+        ],
+        "png": {
+          "bytes": 1448241,
+          "sha256": "9bbe847d228a13281e60a77fc85524ef93d49bcbbb18b392efd6f765fe502c1d",
+          "chunks": [
+            {
+              "type": "IHDR",
+              "count": 1,
+              "bytes": 13,
+              "sha256": "547efe46ab9438e75467c4560cf6b782dd4ff5a2a8a9f8038797b25082faa94c"
+            },
+            {
+              "type": "IDAT",
+              "count": 354,
+              "bytes": 1443948,
+              "sha256": "586ad5be17eef6a9f041f2c16b5da10ed96e8d3f7b90690d45afc3737791667c"
+            },
+            {
+              "type": "IEND",
+              "count": 1,
+              "bytes": 0,
+              "sha256": "cd372fb85148700fa88095e3492d3f9f5beb43e555e5ff26d95f5a6adc36f8e6"
+            }
+          ],
+          "width": 1080,
+          "height": 1350
+        }
+      },
+      {
+        "input": {
+          "rate": "0.5",
+          "n": "4",
+          "k": "2",
+          "got": false
+        },
+        "copied": "?mode=simple&rate=0.5&n=4&k=2&got=0",
+        "text": "Your luck\n\nBased on the negative-binomial distribution for 2 successes at 1 in 2 odds.\n\nUnlucky\n\n68.7% of players would have it by now.\n\nFinished by now\n68.7%\nStill waiting too\n31.3%\nUNLUCKY\nAVERAGE\nLUCKY\nCOMMON\nstill waiting after 4 attempts at 1 in 2 (50%) odds, needing 2 copies\n\nThis compares the wait so far; it does not assume the drop arrives on the next attempt.\n\nP(AT LEAST 2 BY 4)\n68.75%\nEXPECTED ATTEMPTS\n4\n50% BY\n3\n90% BY\n7\n99% BY\n11\nSTD. DEVIATION\n2\nExport luck card\nDistribution\n\nProbability mass (area) and cumulative probability (line) over attempts, with the 50/90/99% marks.\n\n50%\n90%\n99%\n2\n5\n8\n11\n14\nattempts\nWhat's \"bad luck protection\", and why doesn't simple mode have it?",
+        "chart": {
+          "bytes": 2314,
+          "sha256": "c1470e17e0c3688f32f1fdc3377823ef279baa178ee01c0e4dd697ad54eec7df"
+        },
+        "cardText": [
+          "AM I UNLUCKY?",
+          "SIMPLE DROP",
+          "COMMON",
+          "68.7%",
+          "FINISHED BY NOW",
+          "31.3%",
+          "STILL WAITING TOO",
+          "UNLUCKY",
+          "4 attempts at 1 in 2 odds and still waiting for",
+          "copy 2.",
+          "common",
+          "P(at least 2 by 4) = 68.75%. Expected 4 attempts.",
+          "am-i-unlucky — exact drop-rate & pity math"
+        ],
+        "png": {
+          "bytes": 1448944,
+          "sha256": "4254a9822a2e7633b1f65992b840ab84ee4ab9a692cbe71bf842461b0b07b9c1",
+          "chunks": [
+            {
+              "type": "IHDR",
+              "count": 1,
+              "bytes": 13,
+              "sha256": "547efe46ab9438e75467c4560cf6b782dd4ff5a2a8a9f8038797b25082faa94c"
+            },
+            {
+              "type": "IDAT",
+              "count": 354,
+              "bytes": 1444651,
+              "sha256": "2994a3548b27009d15218f8fde85bf7ea62b2b84abf6b89837407a683e2ec62d"
+            },
+            {
+              "type": "IEND",
+              "count": 1,
+              "bytes": 0,
+              "sha256": "cd372fb85148700fa88095e3492d3f9f5beb43e555e5ff26d95f5a6adc36f8e6"
+            }
+          ],
+          "width": 1080,
+          "height": 1350
+        }
+      },
+      {
+        "input": {
+          "rate": "1/512",
+          "n": "900",
+          "k": "1",
+          "got": false
+        },
+        "copied": "?mode=simple&rate=1%2F512&n=900&k=1&got=0",
+        "text": "Your luck\n\nBased on the negative-binomial distribution for 1 success at 1 in 512 odds.\n\nUnlucky\n\n82.8% of players would have it by now.\n\nFinished by now\n82.8%\nStill waiting too\n17.2%\nUNLUCKY\nAVERAGE\nLUCKY\nUNCOMMON BAD LUCK\nstill waiting after 900 attempts at 1 in 512 (0.20%) odds, needing 1 copy\n\nThis compares the wait so far; it does not assume the drop arrives on the next attempt.\n\nP(AT LEAST 1 BY 900)\n82.79%\nEXPECTED ATTEMPTS\n512\n50% BY\n355\n90% BY\n1,178\n99% BY\n2,356\nSTD. DEVIATION\n511.5\nExport luck card\nDistribution\n\nProbability mass (area) and cumulative probability (line) over attempts, with the 50/90/99% marks.\n\n50%\n90%\n99%\n1\n881\n1,761\n2,640\n3,520\nattempts\nWhat's \"bad luck protection\", and why doesn't simple mode have it?",
+        "chart": {
+          "bytes": 8326,
+          "sha256": "52b0b60322eb25677310837e65a1c3b1a9a502dee8cd3936769f7a14c6d6b576"
+        },
+        "cardText": [
+          "AM I UNLUCKY?",
+          "SIMPLE DROP",
+          "UNCOMMON",
+          "82.8%",
+          "FINISHED BY NOW",
+          "17.2%",
+          "STILL WAITING TOO",
+          "UNLUCKY",
+          "900 attempts at 1 in 512 odds and still waiting",
+          "for it.",
+          "uncommon bad luck",
+          "P(at least 1 by 900) = 82.79%. Expected 512 attempts.",
+          "am-i-unlucky — exact drop-rate & pity math"
+        ],
+        "png": {
+          "bytes": 1074229,
+          "sha256": "520ee3810adf3d45b5fc51e9b5b423bd6ebe0b68ab849534dd5fa1ce6f52b02e",
+          "chunks": [
+            {
+              "type": "IHDR",
+              "count": 1,
+              "bytes": 13,
+              "sha256": "547efe46ab9438e75467c4560cf6b782dd4ff5a2a8a9f8038797b25082faa94c"
+            },
+            {
+              "type": "IDAT",
+              "count": 263,
+              "bytes": 1071028,
+              "sha256": "a83d67b18b9b4262c0f008a891fcada5f9f75b3cf2d8365df06c6776dbc13342"
+            },
+            {
+              "type": "IEND",
+              "count": 1,
+              "bytes": 0,
+              "sha256": "cd372fb85148700fa88095e3492d3f9f5beb43e555e5ff26d95f5a6adc36f8e6"
+            }
+          ],
+          "width": 1080,
+          "height": 1350
+        }
+      },
+      {
+        "input": {
+          "rate": "0",
+          "n": "4",
+          "k": "1",
+          "got": false
+        },
+        "copied": "?mode=simple&rate=0&n=4&k=1&got=0",
+        "text": "Your luck\n\nBased on the negative-binomial distribution for 1 success at never odds.\n\nA 0% rate never succeeds, no matter how many attempts you make — there's no meaningful luck percentile here.\n\nP(AT LEAST 1 BY 4)\n0%\nEXPECTED ATTEMPTS\n∞\n50% BY\n∞\n90% BY\n∞\n99% BY\n∞\nSTD. DEVIATION\n∞\nDistribution\n\nProbability mass (area) and cumulative probability (line) over attempts, with the 50/90/99% marks.\n\nNot enough data to chart yet.\n\nWhat's \"bad luck protection\", and why doesn't simple mode have it?",
+        "chart": null
+      },
+      {
+        "input": {
+          "rate": "1",
+          "n": "1",
+          "k": "1",
+          "got": true
+        },
+        "copied": "?mode=simple&rate=1&n=1&k=1&got=1",
+        "text": "Your luck\n\nBased on the negative-binomial distribution for 1 success at always odds.\n\nAt a 100% rate, copy 1 always arrives on attempt 1. Every player gets the same result, so there is no luck variation.\n\nP(AT LEAST 1 BY 1)\n100%\nEXPECTED ATTEMPTS\n1\n50% BY\n1\n90% BY\n1\n99% BY\n1\nSTD. DEVIATION\n0\nDistribution\n\nProbability mass (area) and cumulative probability (line) over attempts, with the 50/90/99% marks.\n\nNot enough data to chart yet.\n\nWhat's \"bad luck protection\", and why doesn't simple mode have it?",
+        "chart": null
+      },
+      {
+        "input": {
+          "rate": "0.5",
+          "n": "4e0",
+          "k": "2.0",
+          "got": true
+        },
+        "copied": "?mode=simple&rate=0.5&n=4&k=2&got=1",
+        "text": "Your luck\n\nBased on the negative-binomial distribution for 2 successes at 1 in 2 odds.\n\nAbout average\n\nSame-attempt finishes are ties, not faster or slower outcomes.\n\nFinished sooner\n50%\nSame attempt\n18.8%\nTook longer\n31.3%\nUNLUCKY\nAVERAGE\nLUCKY\nCOMMON\nbased on 4 attempts at 1 in 2 (50%) odds needing 2 copies\n\nThe outlined band includes ties. Rarity counts outcomes at least as extreme as yours, including same-attempt finishes.\n\nP(AT LEAST 2 BY 4)\n68.75%\nEXPECTED ATTEMPTS\n4\n50% BY\n3\n90% BY\n7\n99% BY\n11\nSTD. DEVIATION\n2\nExport luck card\nDistribution\n\nProbability mass (area) and cumulative probability (line) over attempts, with the 50/90/99% marks.\n\n50%\n90%\n99%\n2\n5\n8\n11\n14\nattempts\nWhat's \"bad luck protection\", and why doesn't simple mode have it?",
+        "chart": {
+          "bytes": 2314,
+          "sha256": "c1470e17e0c3688f32f1fdc3377823ef279baa178ee01c0e4dd697ad54eec7df"
+        },
+        "cardText": [
+          "AM I UNLUCKY?",
+          "SIMPLE DROP",
+          "COMMON",
+          "50%",
+          "FINISHED SOONER",
+          "18.8%",
+          "SAME ATTEMPT",
+          "31.3%",
+          "TOOK LONGER",
+          "ABOUT AVERAGE",
+          "Took 4 attempts at 1 in 2 odds for 2 copies.",
+          "common",
+          "P(at least 2 by 4) = 68.75%. Expected 4 attempts.",
+          "am-i-unlucky — exact drop-rate & pity math"
+        ],
+        "png": {
+          "bytes": 1448241,
+          "sha256": "9bbe847d228a13281e60a77fc85524ef93d49bcbbb18b392efd6f765fe502c1d",
+          "chunks": [
+            {
+              "type": "IHDR",
+              "count": 1,
+              "bytes": 13,
+              "sha256": "547efe46ab9438e75467c4560cf6b782dd4ff5a2a8a9f8038797b25082faa94c"
+            },
+            {
+              "type": "IDAT",
+              "count": 354,
+              "bytes": 1443948,
+              "sha256": "586ad5be17eef6a9f041f2c16b5da10ed96e8d3f7b90690d45afc3737791667c"
+            },
+            {
+              "type": "IEND",
+              "count": 1,
+              "bytes": 0,
+              "sha256": "cd372fb85148700fa88095e3492d3f9f5beb43e555e5ff26d95f5a6adc36f8e6"
+            }
+          ],
+          "width": 1080,
+          "height": 1350
+        }
+      }
+    ],
+    "errors": [],
+    "offlineRequests": []
+  },
+  {
+    "browser": "chromium",
+    "version": "153.0.8010.12",
+    "width": 375,
+    "offlineAfterLoad": true,
+    "invalid": [
+      {
+        "field": "n",
+        "value": "1.5",
+        "pending": {
+          "shareDisabled": false,
+          "card": true,
+          "stats": 6
+        },
+        "displayed": "1.5",
+        "ariaInvalid": null,
+        "shareEnabled": true,
+        "copied": "?mode=simple&rate=0.5&n=1&k=1&got=1",
+        "card": 1,
+        "stats": 6,
+        "text": "Your luck\n\nBased on the negative-binomial distribution for 1 success at 1 in 2 odds.\n\nAbout average\n\nSame-attempt finishes are ties, not faster or slower outcomes.\n\nFinished sooner\n0%\nSame attempt\n50%\nTook longer\n50%\nUNLUCKY\nAVERAGE\nLUCKY\nCOMMON\nbased on 1 attempt at 1 in 2 (50%) odds needing 1 copy\n\nThe outlined band includes ties. Rarity counts outcomes at least as extreme as yours, including same-attempt finishes.\n\nP(AT LEAST 1 BY 1)\n50%\nEXPECTED ATTEMPTS\n2\n50% BY\n1\n90% BY\n4\n99% BY\n7\nSTD. DEVIATION\n1.4\nExport luck card\nDistribution\n\nProbability mass (area) and cumulative probability (line) over attempts, with the 50/90/99% marks.\n\n50%\n90%\n99%\n1\n3\n6\n8\n10\nattempts\nWhat's \"bad luck protection\", and why doesn't simple mode have it?"
+      },
+      {
+        "field": "n",
+        "value": "-1",
+        "pending": {
+          "shareDisabled": false,
+          "card": true,
+          "stats": 6
+        },
+        "displayed": "-1",
+        "ariaInvalid": null,
+        "shareEnabled": true,
+        "copied": "?mode=simple&rate=0.5&n=0&k=1&got=1",
+        "card": 0,
+        "stats": 6,
+        "text": "Your luck\n\nBased on the negative-binomial distribution for 1 success at 1 in 2 odds.\n\nThat completion time is impossible under these settings. Check the attempts, copies and drop rate.\n\nP(AT LEAST 1 BY 0)\n0%\nEXPECTED ATTEMPTS\n2\n50% BY\n1\n90% BY\n4\n99% BY\n7\nSTD. DEVIATION\n1.4\nDistribution\n\nProbability mass (area) and cumulative probability (line) over attempts, with the 50/90/99% marks.\n\n50%\n90%\n99%\n1\n3\n6\n8\n10\nattempts\nWhat's \"bad luck protection\", and why doesn't simple mode have it?"
+      },
+      {
+        "field": "n",
+        "value": "",
+        "pending": {
+          "shareDisabled": false,
+          "card": true,
+          "stats": 6
+        },
+        "displayed": "",
+        "ariaInvalid": null,
+        "shareEnabled": true,
+        "copied": "?mode=simple&rate=0.5&n=0&k=1&got=1",
+        "card": 0,
+        "stats": 6,
+        "text": "Your luck\n\nBased on the negative-binomial distribution for 1 success at 1 in 2 odds.\n\nThat completion time is impossible under these settings. Check the attempts, copies and drop rate.\n\nP(AT LEAST 1 BY 0)\n0%\nEXPECTED ATTEMPTS\n2\n50% BY\n1\n90% BY\n4\n99% BY\n7\nSTD. DEVIATION\n1.4\nDistribution\n\nProbability mass (area) and cumulative probability (line) over attempts, with the 50/90/99% marks.\n\n50%\n90%\n99%\n1\n3\n6\n8\n10\nattempts\nWhat's \"bad luck protection\", and why doesn't simple mode have it?"
+      },
+      {
+        "field": "n",
+        "value": "9007199254740992",
+        "pending": {
+          "shareDisabled": false,
+          "card": true,
+          "stats": 6
+        },
+        "displayed": "9007199254740992",
+        "ariaInvalid": null,
+        "shareEnabled": true,
+        "copied": "?mode=simple&rate=0.5&n=9007199254740992&k=1&got=1",
+        "card": 0,
+        "stats": 0,
+        "text": "Attempts must be a non-negative safe integer."
+      },
+      {
+        "field": "k",
+        "value": "1.5",
+        "pending": {
+          "shareDisabled": false,
+          "card": true,
+          "stats": 6
+        },
+        "displayed": "1.5",
+        "ariaInvalid": null,
+        "shareEnabled": true,
+        "copied": "?mode=simple&rate=0.5&n=4&k=1&got=1",
+        "card": 1,
+        "stats": 6,
+        "text": "Your luck\n\nBased on the negative-binomial distribution for 1 success at 1 in 2 odds.\n\nUnlucky\n\n87.5% of players would have gotten it sooner.\n\nFinished sooner\n87.5%\nSame attempt\n6.3%\nTook longer\n6.3%\nUNLUCKY\nAVERAGE\nLUCKY\nUNCOMMON BAD LUCK\nbased on 4 attempts at 1 in 2 (50%) odds needing 1 copy\n\nThe outlined band includes ties. Rarity counts outcomes at least as extreme as yours, including same-attempt finishes.\n\nP(AT LEAST 1 BY 4)\n93.75%\nEXPECTED ATTEMPTS\n2\n50% BY\n1\n90% BY\n4\n99% BY\n7\nSTD. DEVIATION\n1.4\nExport luck card\nDistribution\n\nProbability mass (area) and cumulative probability (line) over attempts, with the 50/90/99% marks.\n\n50%\n90%\n99%\n1\n3\n6\n8\n10\nattempts\nWhat's \"bad luck protection\", and why doesn't simple mode have it?"
+      },
+      {
+        "field": "k",
+        "value": "0",
+        "pending": {
+          "shareDisabled": false,
+          "card": true,
+          "stats": 6
+        },
+        "displayed": "0",
+        "ariaInvalid": null,
+        "shareEnabled": true,
+        "copied": "?mode=simple&rate=0.5&n=4&k=1&got=1",
+        "card": 1,
+        "stats": 6,
+        "text": "Your luck\n\nBased on the negative-binomial distribution for 1 success at 1 in 2 odds.\n\nUnlucky\n\n87.5% of players would have gotten it sooner.\n\nFinished sooner\n87.5%\nSame attempt\n6.3%\nTook longer\n6.3%\nUNLUCKY\nAVERAGE\nLUCKY\nUNCOMMON BAD LUCK\nbased on 4 attempts at 1 in 2 (50%) odds needing 1 copy\n\nThe outlined band includes ties. Rarity counts outcomes at least as extreme as yours, including same-attempt finishes.\n\nP(AT LEAST 1 BY 4)\n93.75%\nEXPECTED ATTEMPTS\n2\n50% BY\n1\n90% BY\n4\n99% BY\n7\nSTD. DEVIATION\n1.4\nExport luck card\nDistribution\n\nProbability mass (area) and cumulative probability (line) over attempts, with the 50/90/99% marks.\n\n50%\n90%\n99%\n1\n3\n6\n8\n10\nattempts\nWhat's \"bad luck protection\", and why doesn't simple mode have it?"
+      },
+      {
+        "field": "k",
+        "value": "-1",
+        "pending": {
+          "shareDisabled": false,
+          "card": true,
+          "stats": 6
+        },
+        "displayed": "-1",
+        "ariaInvalid": null,
+        "shareEnabled": true,
+        "copied": "?mode=simple&rate=0.5&n=4&k=1&got=1",
+        "card": 1,
+        "stats": 6,
+        "text": "Your luck\n\nBased on the negative-binomial distribution for 1 success at 1 in 2 odds.\n\nUnlucky\n\n87.5% of players would have gotten it sooner.\n\nFinished sooner\n87.5%\nSame attempt\n6.3%\nTook longer\n6.3%\nUNLUCKY\nAVERAGE\nLUCKY\nUNCOMMON BAD LUCK\nbased on 4 attempts at 1 in 2 (50%) odds needing 1 copy\n\nThe outlined band includes ties. Rarity counts outcomes at least as extreme as yours, including same-attempt finishes.\n\nP(AT LEAST 1 BY 4)\n93.75%\nEXPECTED ATTEMPTS\n2\n50% BY\n1\n90% BY\n4\n99% BY\n7\nSTD. DEVIATION\n1.4\nExport luck card\nDistribution\n\nProbability mass (area) and cumulative probability (line) over attempts, with the 50/90/99% marks.\n\n50%\n90%\n99%\n1\n3\n6\n8\n10\nattempts\nWhat's \"bad luck protection\", and why doesn't simple mode have it?"
+      },
+      {
+        "field": "k",
+        "value": "",
+        "pending": {
+          "shareDisabled": false,
+          "card": true,
+          "stats": 6
+        },
+        "displayed": "",
+        "ariaInvalid": null,
+        "shareEnabled": true,
+        "copied": "?mode=simple&rate=0.5&n=4&k=1&got=1",
+        "card": 1,
+        "stats": 6,
+        "text": "Your luck\n\nBased on the negative-binomial distribution for 1 success at 1 in 2 odds.\n\nUnlucky\n\n87.5% of players would have gotten it sooner.\n\nFinished sooner\n87.5%\nSame attempt\n6.3%\nTook longer\n6.3%\nUNLUCKY\nAVERAGE\nLUCKY\nUNCOMMON BAD LUCK\nbased on 4 attempts at 1 in 2 (50%) odds needing 1 copy\n\nThe outlined band includes ties. Rarity counts outcomes at least as extreme as yours, including same-attempt finishes.\n\nP(AT LEAST 1 BY 4)\n93.75%\nEXPECTED ATTEMPTS\n2\n50% BY\n1\n90% BY\n4\n99% BY\n7\nSTD. DEVIATION\n1.4\nExport luck card\nDistribution\n\nProbability mass (area) and cumulative probability (line) over attempts, with the 50/90/99% marks.\n\n50%\n90%\n99%\n1\n3\n6\n8\n10\nattempts\nWhat's \"bad luck protection\", and why doesn't simple mode have it?"
+      },
+      {
+        "field": "k",
+        "value": "9007199254740992",
+        "pending": {
+          "shareDisabled": false,
+          "card": true,
+          "stats": 6
+        },
+        "displayed": "9007199254740992",
+        "ariaInvalid": null,
+        "shareEnabled": true,
+        "copied": "?mode=simple&rate=0.5&n=4&k=9007199254740992&got=1",
+        "card": 0,
+        "stats": 0,
+        "text": "Copies must be a positive safe integer."
+      },
+      {
+        "field": "rate",
+        "value": "",
+        "pending": {
+          "shareDisabled": false,
+          "card": true,
+          "stats": 6
+        },
+        "displayed": "",
+        "ariaInvalid": "true",
+        "shareEnabled": true,
+        "copied": "?mode=simple&rate=&n=4&k=1&got=1",
+        "card": 0,
+        "stats": 0,
+        "text": "Fix the rate above to see results."
+      },
+      {
+        "field": "rate",
+        "value": "nonsense",
+        "pending": {
+          "shareDisabled": false,
+          "card": true,
+          "stats": 6
+        },
+        "displayed": "nonsense",
+        "ariaInvalid": "true",
+        "shareEnabled": true,
+        "copied": "?mode=simple&rate=nonsense&n=4&k=1&got=1",
+        "card": 0,
+        "stats": 0,
+        "text": "Fix the rate above to see results."
+      },
+      {
+        "field": "rate",
+        "value": "120%",
+        "pending": {
+          "shareDisabled": false,
+          "card": true,
+          "stats": 6
+        },
+        "displayed": "120%",
+        "ariaInvalid": "true",
+        "shareEnabled": true,
+        "copied": "?mode=simple&rate=120%25&n=4&k=1&got=1",
+        "card": 0,
+        "stats": 0,
+        "text": "Fix the rate above to see results."
+      },
+      {
+        "field": "rate",
+        "value": "1/100000000000000000",
+        "pending": {
+          "shareDisabled": false,
+          "card": true,
+          "stats": 6
+        },
+        "displayed": "1/100000000000000000",
+        "ariaInvalid": null,
+        "shareEnabled": true,
+        "copied": "?mode=simple&rate=1%2F100000000000000000&n=4&k=1&got=1",
+        "card": 0,
+        "stats": 0,
+        "text": "This confidence level needs more than 1,000,000,000,000,000 attempts, the calculation limit. Increase the rate or reduce the number of copies."
+      }
+    ],
+    "valid": [
+      {
+        "input": {
+          "rate": "0.5",
+          "n": "4",
+          "k": "1",
+          "got": true
+        },
+        "copied": "?mode=simple&rate=0.5&n=4&k=1&got=1",
+        "text": "Your luck\n\nBased on the negative-binomial distribution for 1 success at 1 in 2 odds.\n\nUnlucky\n\n87.5% of players would have gotten it sooner.\n\nFinished sooner\n87.5%\nSame attempt\n6.3%\nTook longer\n6.3%\nUNLUCKY\nAVERAGE\nLUCKY\nUNCOMMON BAD LUCK\nbased on 4 attempts at 1 in 2 (50%) odds needing 1 copy\n\nThe outlined band includes ties. Rarity counts outcomes at least as extreme as yours, including same-attempt finishes.\n\nP(AT LEAST 1 BY 4)\n93.75%\nEXPECTED ATTEMPTS\n2\n50% BY\n1\n90% BY\n4\n99% BY\n7\nSTD. DEVIATION\n1.4\nExport luck card\nDistribution\n\nProbability mass (area) and cumulative probability (line) over attempts, with the 50/90/99% marks.\n\n50%\n90%\n99%\n1\n3\n6\n8\n10\nattempts\nWhat's \"bad luck protection\", and why doesn't simple mode have it?",
+        "chart": {
+          "bytes": 2217,
+          "sha256": "5093f972f85ea117eb1f118211f13df89ca0eebdfb3808d13a4ec66a58b2141e"
+        },
+        "cardText": [
+          "AM I UNLUCKY?",
+          "SIMPLE DROP",
+          "UNCOMMON",
+          "87.5%",
+          "FINISHED SOONER",
+          "6.3%",
+          "SAME ATTEMPT",
+          "6.3%",
+          "TOOK LONGER",
+          "UNLUCKY",
+          "Took 4 attempts at 1 in 2 odds for 1 copy.",
+          "uncommon bad luck",
+          "P(at least 1 by 4) = 93.75%. Expected 2 attempts.",
+          "am-i-unlucky — exact drop-rate & pity math"
+        ],
+        "png": {
+          "bytes": 1073784,
+          "sha256": "3dde067c7ae3cc46ca9863d8608c7c02977663c3c9447d41ae6cddb9beedb55d",
+          "chunks": [
+            {
+              "type": "IHDR",
+              "count": 1,
+              "bytes": 13,
+              "sha256": "547efe46ab9438e75467c4560cf6b782dd4ff5a2a8a9f8038797b25082faa94c"
+            },
+            {
+              "type": "IDAT",
+              "count": 263,
+              "bytes": 1070583,
+              "sha256": "b0aedec36b1974d79603edf506ce0d5ce716699054cfe080d05e5ae6a937fed6"
+            },
+            {
+              "type": "IEND",
+              "count": 1,
+              "bytes": 0,
+              "sha256": "cd372fb85148700fa88095e3492d3f9f5beb43e555e5ff26d95f5a6adc36f8e6"
+            }
+          ],
+          "width": 1080,
+          "height": 1350
+        }
+      },
+      {
+        "input": {
+          "rate": "0.5",
+          "n": "0",
+          "k": "1",
+          "got": false
+        },
+        "copied": "?mode=simple&rate=0.5&n=0&k=1&got=0",
+        "text": "Your luck\n\nBased on the negative-binomial distribution for 1 success at 1 in 2 odds.\n\nEnter at least 1 attempt to see your luck percentile.\n\nP(AT LEAST 1 BY 0)\n0%\nEXPECTED ATTEMPTS\n2\n50% BY\n1\n90% BY\n4\n99% BY\n7\nSTD. DEVIATION\n1.4\nDistribution\n\nProbability mass (area) and cumulative probability (line) over attempts, with the 50/90/99% marks.\n\n50%\n90%\n99%\n1\n3\n6\n8\n10\nattempts\nWhat's \"bad luck protection\", and why doesn't simple mode have it?",
+        "chart": {
+          "bytes": 2217,
+          "sha256": "5093f972f85ea117eb1f118211f13df89ca0eebdfb3808d13a4ec66a58b2141e"
+        }
+      },
+      {
+        "input": {
+          "rate": "0.5",
+          "n": "1",
+          "k": "1",
+          "got": true
+        },
+        "copied": "?mode=simple&rate=0.5&n=1&k=1&got=1",
+        "text": "Your luck\n\nBased on the negative-binomial distribution for 1 success at 1 in 2 odds.\n\nAbout average\n\nSame-attempt finishes are ties, not faster or slower outcomes.\n\nFinished sooner\n0%\nSame attempt\n50%\nTook longer\n50%\nUNLUCKY\nAVERAGE\nLUCKY\nCOMMON\nbased on 1 attempt at 1 in 2 (50%) odds needing 1 copy\n\nThe outlined band includes ties. Rarity counts outcomes at least as extreme as yours, including same-attempt finishes.\n\nP(AT LEAST 1 BY 1)\n50%\nEXPECTED ATTEMPTS\n2\n50% BY\n1\n90% BY\n4\n99% BY\n7\nSTD. DEVIATION\n1.4\nExport luck card\nDistribution\n\nProbability mass (area) and cumulative probability (line) over attempts, with the 50/90/99% marks.\n\n50%\n90%\n99%\n1\n3\n6\n8\n10\nattempts\nWhat's \"bad luck protection\", and why doesn't simple mode have it?",
+        "chart": {
+          "bytes": 2217,
+          "sha256": "5093f972f85ea117eb1f118211f13df89ca0eebdfb3808d13a4ec66a58b2141e"
+        },
+        "cardText": [
+          "AM I UNLUCKY?",
+          "SIMPLE DROP",
+          "COMMON",
+          "0%",
+          "FINISHED SOONER",
+          "50%",
+          "SAME ATTEMPT",
+          "50%",
+          "TOOK LONGER",
+          "ABOUT AVERAGE",
+          "Took 1 attempt at 1 in 2 odds for 1 copy.",
+          "common",
+          "P(at least 1 by 1) = 50%. Expected 2 attempts.",
+          "am-i-unlucky — exact drop-rate & pity math"
+        ],
+        "png": {
+          "bytes": 1445887,
+          "sha256": "b0f8673bfbc02d5d6d89218662c8f0b92da5c8f80b9da23a2f311e964f4046fa",
+          "chunks": [
+            {
+              "type": "IHDR",
+              "count": 1,
+              "bytes": 13,
+              "sha256": "547efe46ab9438e75467c4560cf6b782dd4ff5a2a8a9f8038797b25082faa94c"
+            },
+            {
+              "type": "IDAT",
+              "count": 353,
+              "bytes": 1441606,
+              "sha256": "c459924bee549171a374f10c624a1d000bc430ffa642a9380089a8aaf73deff2"
+            },
+            {
+              "type": "IEND",
+              "count": 1,
+              "bytes": 0,
+              "sha256": "cd372fb85148700fa88095e3492d3f9f5beb43e555e5ff26d95f5a6adc36f8e6"
+            }
+          ],
+          "width": 1080,
+          "height": 1350
+        }
+      },
+      {
+        "input": {
+          "rate": "0.5",
+          "n": "2",
+          "k": "1",
+          "got": true
+        },
+        "copied": "?mode=simple&rate=0.5&n=2&k=1&got=1",
+        "text": "Your luck\n\nBased on the negative-binomial distribution for 1 success at 1 in 2 odds.\n\nAbout average\n\nSame-attempt finishes are ties, not faster or slower outcomes.\n\nFinished sooner\n50%\nSame attempt\n25%\nTook longer\n25%\nUNLUCKY\nAVERAGE\nLUCKY\nCOMMON\nbased on 2 attempts at 1 in 2 (50%) odds needing 1 copy\n\nThe outlined band includes ties. Rarity counts outcomes at least as extreme as yours, including same-attempt finishes.\n\nP(AT LEAST 1 BY 2)\n75%\nEXPECTED ATTEMPTS\n2\n50% BY\n1\n90% BY\n4\n99% BY\n7\nSTD. DEVIATION\n1.4\nExport luck card\nDistribution\n\nProbability mass (area) and cumulative probability (line) over attempts, with the 50/90/99% marks.\n\n50%\n90%\n99%\n1\n3\n6\n8\n10\nattempts\nWhat's \"bad luck protection\", and why doesn't simple mode have it?",
+        "chart": {
+          "bytes": 2217,
+          "sha256": "5093f972f85ea117eb1f118211f13df89ca0eebdfb3808d13a4ec66a58b2141e"
+        },
+        "cardText": [
+          "AM I UNLUCKY?",
+          "SIMPLE DROP",
+          "COMMON",
+          "50%",
+          "FINISHED SOONER",
+          "25%",
+          "SAME ATTEMPT",
+          "25%",
+          "TOOK LONGER",
+          "ABOUT AVERAGE",
+          "Took 2 attempts at 1 in 2 odds for 1 copy.",
+          "common",
+          "P(at least 1 by 2) = 75%. Expected 2 attempts.",
+          "am-i-unlucky — exact drop-rate & pity math"
+        ],
+        "png": {
+          "bytes": 1446804,
+          "sha256": "8022d7578df292dcb9043ead47f5e36ad876ebf4176f054b8528ff8bc07bd5f7",
+          "chunks": [
+            {
+              "type": "IHDR",
+              "count": 1,
+              "bytes": 13,
+              "sha256": "547efe46ab9438e75467c4560cf6b782dd4ff5a2a8a9f8038797b25082faa94c"
+            },
+            {
+              "type": "IDAT",
+              "count": 354,
+              "bytes": 1442511,
+              "sha256": "d8c3605c279133d90d293b7228ff93d6d8e3cb304ff960132058a20aca648125"
+            },
+            {
+              "type": "IEND",
+              "count": 1,
+              "bytes": 0,
+              "sha256": "cd372fb85148700fa88095e3492d3f9f5beb43e555e5ff26d95f5a6adc36f8e6"
+            }
+          ],
+          "width": 1080,
+          "height": 1350
+        }
+      },
+      {
+        "input": {
+          "rate": "0.5",
+          "n": "3",
+          "k": "1",
+          "got": true
+        },
+        "copied": "?mode=simple&rate=0.5&n=3&k=1&got=1",
+        "text": "Your luck\n\nBased on the negative-binomial distribution for 1 success at 1 in 2 odds.\n\nUnlucky\n\n75% of players would have gotten it sooner.\n\nFinished sooner\n75%\nSame attempt\n12.5%\nTook longer\n12.5%\nUNLUCKY\nAVERAGE\nLUCKY\nUNCOMMON BAD LUCK\nbased on 3 attempts at 1 in 2 (50%) odds needing 1 copy\n\nThe outlined band includes ties. Rarity counts outcomes at least as extreme as yours, including same-attempt finishes.\n\nP(AT LEAST 1 BY 3)\n87.5%\nEXPECTED ATTEMPTS\n2\n50% BY\n1\n90% BY\n4\n99% BY\n7\nSTD. DEVIATION\n1.4\nExport luck card\nDistribution\n\nProbability mass (area) and cumulative probability (line) over attempts, with the 50/90/99% marks.\n\n50%\n90%\n99%\n1\n3\n6\n8\n10\nattempts\nWhat's \"bad luck protection\", and why doesn't simple mode have it?",
+        "chart": {
+          "bytes": 2217,
+          "sha256": "5093f972f85ea117eb1f118211f13df89ca0eebdfb3808d13a4ec66a58b2141e"
+        },
+        "cardText": [
+          "AM I UNLUCKY?",
+          "SIMPLE DROP",
+          "UNCOMMON",
+          "75%",
+          "FINISHED SOONER",
+          "12.5%",
+          "SAME ATTEMPT",
+          "12.5%",
+          "TOOK LONGER",
+          "UNLUCKY",
+          "Took 3 attempts at 1 in 2 odds for 1 copy.",
+          "uncommon bad luck",
+          "P(at least 1 by 3) = 87.5%. Expected 2 attempts.",
+          "am-i-unlucky — exact drop-rate & pity math"
+        ],
+        "png": {
+          "bytes": 1071472,
+          "sha256": "1775f94bfb227dc3d725e4056e14cfb47b9ca0e7ce44939f581942e6cb5749d2",
+          "chunks": [
+            {
+              "type": "IHDR",
+              "count": 1,
+              "bytes": 13,
+              "sha256": "547efe46ab9438e75467c4560cf6b782dd4ff5a2a8a9f8038797b25082faa94c"
+            },
+            {
+              "type": "IDAT",
+              "count": 262,
+              "bytes": 1068283,
+              "sha256": "b227228a9216f5c346117fb6d2b1e8fb3b364bfe26445cae41fef7bd3a011dd8"
+            },
+            {
+              "type": "IEND",
+              "count": 1,
+              "bytes": 0,
+              "sha256": "cd372fb85148700fa88095e3492d3f9f5beb43e555e5ff26d95f5a6adc36f8e6"
+            }
+          ],
+          "width": 1080,
+          "height": 1350
+        }
+      },
+      {
+        "input": {
+          "rate": "0.5",
+          "n": "4",
+          "k": "2",
+          "got": true
+        },
+        "copied": "?mode=simple&rate=0.5&n=4&k=2&got=1",
+        "text": "Your luck\n\nBased on the negative-binomial distribution for 2 successes at 1 in 2 odds.\n\nAbout average\n\nSame-attempt finishes are ties, not faster or slower outcomes.\n\nFinished sooner\n50%\nSame attempt\n18.8%\nTook longer\n31.3%\nUNLUCKY\nAVERAGE\nLUCKY\nCOMMON\nbased on 4 attempts at 1 in 2 (50%) odds needing 2 copies\n\nThe outlined band includes ties. Rarity counts outcomes at least as extreme as yours, including same-attempt finishes.\n\nP(AT LEAST 2 BY 4)\n68.75%\nEXPECTED ATTEMPTS\n4\n50% BY\n3\n90% BY\n7\n99% BY\n11\nSTD. DEVIATION\n2\nExport luck card\nDistribution\n\nProbability mass (area) and cumulative probability (line) over attempts, with the 50/90/99% marks.\n\n50%\n90%\n99%\n2\n5\n8\n11\n14\nattempts\nWhat's \"bad luck protection\", and why doesn't simple mode have it?",
+        "chart": {
+          "bytes": 2314,
+          "sha256": "c1470e17e0c3688f32f1fdc3377823ef279baa178ee01c0e4dd697ad54eec7df"
+        },
+        "cardText": [
+          "AM I UNLUCKY?",
+          "SIMPLE DROP",
+          "COMMON",
+          "50%",
+          "FINISHED SOONER",
+          "18.8%",
+          "SAME ATTEMPT",
+          "31.3%",
+          "TOOK LONGER",
+          "ABOUT AVERAGE",
+          "Took 4 attempts at 1 in 2 odds for 2 copies.",
+          "common",
+          "P(at least 2 by 4) = 68.75%. Expected 4 attempts.",
+          "am-i-unlucky — exact drop-rate & pity math"
+        ],
+        "png": {
+          "bytes": 1448241,
+          "sha256": "9bbe847d228a13281e60a77fc85524ef93d49bcbbb18b392efd6f765fe502c1d",
+          "chunks": [
+            {
+              "type": "IHDR",
+              "count": 1,
+              "bytes": 13,
+              "sha256": "547efe46ab9438e75467c4560cf6b782dd4ff5a2a8a9f8038797b25082faa94c"
+            },
+            {
+              "type": "IDAT",
+              "count": 354,
+              "bytes": 1443948,
+              "sha256": "586ad5be17eef6a9f041f2c16b5da10ed96e8d3f7b90690d45afc3737791667c"
+            },
+            {
+              "type": "IEND",
+              "count": 1,
+              "bytes": 0,
+              "sha256": "cd372fb85148700fa88095e3492d3f9f5beb43e555e5ff26d95f5a6adc36f8e6"
+            }
+          ],
+          "width": 1080,
+          "height": 1350
+        }
+      },
+      {
+        "input": {
+          "rate": "0.5",
+          "n": "4",
+          "k": "2",
+          "got": false
+        },
+        "copied": "?mode=simple&rate=0.5&n=4&k=2&got=0",
+        "text": "Your luck\n\nBased on the negative-binomial distribution for 2 successes at 1 in 2 odds.\n\nUnlucky\n\n68.7% of players would have it by now.\n\nFinished by now\n68.7%\nStill waiting too\n31.3%\nUNLUCKY\nAVERAGE\nLUCKY\nCOMMON\nstill waiting after 4 attempts at 1 in 2 (50%) odds, needing 2 copies\n\nThis compares the wait so far; it does not assume the drop arrives on the next attempt.\n\nP(AT LEAST 2 BY 4)\n68.75%\nEXPECTED ATTEMPTS\n4\n50% BY\n3\n90% BY\n7\n99% BY\n11\nSTD. DEVIATION\n2\nExport luck card\nDistribution\n\nProbability mass (area) and cumulative probability (line) over attempts, with the 50/90/99% marks.\n\n50%\n90%\n99%\n2\n5\n8\n11\n14\nattempts\nWhat's \"bad luck protection\", and why doesn't simple mode have it?",
+        "chart": {
+          "bytes": 2314,
+          "sha256": "c1470e17e0c3688f32f1fdc3377823ef279baa178ee01c0e4dd697ad54eec7df"
+        },
+        "cardText": [
+          "AM I UNLUCKY?",
+          "SIMPLE DROP",
+          "COMMON",
+          "68.7%",
+          "FINISHED BY NOW",
+          "31.3%",
+          "STILL WAITING TOO",
+          "UNLUCKY",
+          "4 attempts at 1 in 2 odds and still waiting for",
+          "copy 2.",
+          "common",
+          "P(at least 2 by 4) = 68.75%. Expected 4 attempts.",
+          "am-i-unlucky — exact drop-rate & pity math"
+        ],
+        "png": {
+          "bytes": 1448944,
+          "sha256": "4254a9822a2e7633b1f65992b840ab84ee4ab9a692cbe71bf842461b0b07b9c1",
+          "chunks": [
+            {
+              "type": "IHDR",
+              "count": 1,
+              "bytes": 13,
+              "sha256": "547efe46ab9438e75467c4560cf6b782dd4ff5a2a8a9f8038797b25082faa94c"
+            },
+            {
+              "type": "IDAT",
+              "count": 354,
+              "bytes": 1444651,
+              "sha256": "2994a3548b27009d15218f8fde85bf7ea62b2b84abf6b89837407a683e2ec62d"
+            },
+            {
+              "type": "IEND",
+              "count": 1,
+              "bytes": 0,
+              "sha256": "cd372fb85148700fa88095e3492d3f9f5beb43e555e5ff26d95f5a6adc36f8e6"
+            }
+          ],
+          "width": 1080,
+          "height": 1350
+        }
+      },
+      {
+        "input": {
+          "rate": "1/512",
+          "n": "900",
+          "k": "1",
+          "got": false
+        },
+        "copied": "?mode=simple&rate=1%2F512&n=900&k=1&got=0",
+        "text": "Your luck\n\nBased on the negative-binomial distribution for 1 success at 1 in 512 odds.\n\nUnlucky\n\n82.8% of players would have it by now.\n\nFinished by now\n82.8%\nStill waiting too\n17.2%\nUNLUCKY\nAVERAGE\nLUCKY\nUNCOMMON BAD LUCK\nstill waiting after 900 attempts at 1 in 512 (0.20%) odds, needing 1 copy\n\nThis compares the wait so far; it does not assume the drop arrives on the next attempt.\n\nP(AT LEAST 1 BY 900)\n82.79%\nEXPECTED ATTEMPTS\n512\n50% BY\n355\n90% BY\n1,178\n99% BY\n2,356\nSTD. DEVIATION\n511.5\nExport luck card\nDistribution\n\nProbability mass (area) and cumulative probability (line) over attempts, with the 50/90/99% marks.\n\n50%\n90%\n99%\n1\n881\n1,761\n2,640\n3,520\nattempts\nWhat's \"bad luck protection\", and why doesn't simple mode have it?",
+        "chart": {
+          "bytes": 8326,
+          "sha256": "52b0b60322eb25677310837e65a1c3b1a9a502dee8cd3936769f7a14c6d6b576"
+        },
+        "cardText": [
+          "AM I UNLUCKY?",
+          "SIMPLE DROP",
+          "UNCOMMON",
+          "82.8%",
+          "FINISHED BY NOW",
+          "17.2%",
+          "STILL WAITING TOO",
+          "UNLUCKY",
+          "900 attempts at 1 in 512 odds and still waiting",
+          "for it.",
+          "uncommon bad luck",
+          "P(at least 1 by 900) = 82.79%. Expected 512 attempts.",
+          "am-i-unlucky — exact drop-rate & pity math"
+        ],
+        "png": {
+          "bytes": 1074229,
+          "sha256": "520ee3810adf3d45b5fc51e9b5b423bd6ebe0b68ab849534dd5fa1ce6f52b02e",
+          "chunks": [
+            {
+              "type": "IHDR",
+              "count": 1,
+              "bytes": 13,
+              "sha256": "547efe46ab9438e75467c4560cf6b782dd4ff5a2a8a9f8038797b25082faa94c"
+            },
+            {
+              "type": "IDAT",
+              "count": 263,
+              "bytes": 1071028,
+              "sha256": "a83d67b18b9b4262c0f008a891fcada5f9f75b3cf2d8365df06c6776dbc13342"
+            },
+            {
+              "type": "IEND",
+              "count": 1,
+              "bytes": 0,
+              "sha256": "cd372fb85148700fa88095e3492d3f9f5beb43e555e5ff26d95f5a6adc36f8e6"
+            }
+          ],
+          "width": 1080,
+          "height": 1350
+        }
+      },
+      {
+        "input": {
+          "rate": "0",
+          "n": "4",
+          "k": "1",
+          "got": false
+        },
+        "copied": "?mode=simple&rate=0&n=4&k=1&got=0",
+        "text": "Your luck\n\nBased on the negative-binomial distribution for 1 success at never odds.\n\nA 0% rate never succeeds, no matter how many attempts you make — there's no meaningful luck percentile here.\n\nP(AT LEAST 1 BY 4)\n0%\nEXPECTED ATTEMPTS\n∞\n50% BY\n∞\n90% BY\n∞\n99% BY\n∞\nSTD. DEVIATION\n∞\nDistribution\n\nProbability mass (area) and cumulative probability (line) over attempts, with the 50/90/99% marks.\n\nNot enough data to chart yet.\n\nWhat's \"bad luck protection\", and why doesn't simple mode have it?",
+        "chart": null
+      },
+      {
+        "input": {
+          "rate": "1",
+          "n": "1",
+          "k": "1",
+          "got": true
+        },
+        "copied": "?mode=simple&rate=1&n=1&k=1&got=1",
+        "text": "Your luck\n\nBased on the negative-binomial distribution for 1 success at always odds.\n\nAt a 100% rate, copy 1 always arrives on attempt 1. Every player gets the same result, so there is no luck variation.\n\nP(AT LEAST 1 BY 1)\n100%\nEXPECTED ATTEMPTS\n1\n50% BY\n1\n90% BY\n1\n99% BY\n1\nSTD. DEVIATION\n0\nDistribution\n\nProbability mass (area) and cumulative probability (line) over attempts, with the 50/90/99% marks.\n\nNot enough data to chart yet.\n\nWhat's \"bad luck protection\", and why doesn't simple mode have it?",
+        "chart": null
+      },
+      {
+        "input": {
+          "rate": "0.5",
+          "n": "4e0",
+          "k": "2.0",
+          "got": true
+        },
+        "copied": "?mode=simple&rate=0.5&n=4&k=2&got=1",
+        "text": "Your luck\n\nBased on the negative-binomial distribution for 2 successes at 1 in 2 odds.\n\nAbout average\n\nSame-attempt finishes are ties, not faster or slower outcomes.\n\nFinished sooner\n50%\nSame attempt\n18.8%\nTook longer\n31.3%\nUNLUCKY\nAVERAGE\nLUCKY\nCOMMON\nbased on 4 attempts at 1 in 2 (50%) odds needing 2 copies\n\nThe outlined band includes ties. Rarity counts outcomes at least as extreme as yours, including same-attempt finishes.\n\nP(AT LEAST 2 BY 4)\n68.75%\nEXPECTED ATTEMPTS\n4\n50% BY\n3\n90% BY\n7\n99% BY\n11\nSTD. DEVIATION\n2\nExport luck card\nDistribution\n\nProbability mass (area) and cumulative probability (line) over attempts, with the 50/90/99% marks.\n\n50%\n90%\n99%\n2\n5\n8\n11\n14\nattempts\nWhat's \"bad luck protection\", and why doesn't simple mode have it?",
+        "chart": {
+          "bytes": 2314,
+          "sha256": "c1470e17e0c3688f32f1fdc3377823ef279baa178ee01c0e4dd697ad54eec7df"
+        },
+        "cardText": [
+          "AM I UNLUCKY?",
+          "SIMPLE DROP",
+          "COMMON",
+          "50%",
+          "FINISHED SOONER",
+          "18.8%",
+          "SAME ATTEMPT",
+          "31.3%",
+          "TOOK LONGER",
+          "ABOUT AVERAGE",
+          "Took 4 attempts at 1 in 2 odds for 2 copies.",
+          "common",
+          "P(at least 2 by 4) = 68.75%. Expected 4 attempts.",
+          "am-i-unlucky — exact drop-rate & pity math"
+        ],
+        "png": {
+          "bytes": 1448241,
+          "sha256": "9bbe847d228a13281e60a77fc85524ef93d49bcbbb18b392efd6f765fe502c1d",
+          "chunks": [
+            {
+              "type": "IHDR",
+              "count": 1,
+              "bytes": 13,
+              "sha256": "547efe46ab9438e75467c4560cf6b782dd4ff5a2a8a9f8038797b25082faa94c"
+            },
+            {
+              "type": "IDAT",
+              "count": 354,
+              "bytes": 1443948,
+              "sha256": "586ad5be17eef6a9f041f2c16b5da10ed96e8d3f7b90690d45afc3737791667c"
+            },
+            {
+              "type": "IEND",
+              "count": 1,
+              "bytes": 0,
+              "sha256": "cd372fb85148700fa88095e3492d3f9f5beb43e555e5ff26d95f5a6adc36f8e6"
+            }
+          ],
+          "width": 1080,
+          "height": 1350
+        }
+      }
+    ],
+    "errors": [],
+    "offlineRequests": []
+  },
+  {
+    "browser": "firefox",
+    "version": "155.0",
+    "width": 1440,
+    "offlineAfterLoad": true,
+    "invalid": [
+      {
+        "field": "n",
+        "value": "1.5",
+        "pending": {
+          "shareDisabled": false,
+          "card": true,
+          "stats": 6
+        },
+        "displayed": "1.5",
+        "ariaInvalid": null,
+        "shareEnabled": true,
+        "copied": "?mode=simple&rate=0.5&n=1&k=1&got=1",
+        "card": 1,
+        "stats": 6,
+        "text": "Your luck\n\nBased on the negative-binomial distribution for 1 success at 1 in 2 odds.\n\nAbout average\n\nSame-attempt finishes are ties, not faster or slower outcomes.\n\nFinished sooner\n0%\nSame attempt\n50%\nTook longer\n50%\nUNLUCKY\nAVERAGE\nLUCKY\nCOMMON\nbased on 1 attempt at 1 in 2 (50%) odds needing 1 copy\n\nThe outlined band includes ties. Rarity counts outcomes at least as extreme as yours, including same-attempt finishes.\n\nP(AT LEAST 1 BY 1)\n50%\nEXPECTED ATTEMPTS\n2\n50% BY\n1\n90% BY\n4\n99% BY\n7\nSTD. DEVIATION\n1.4\nExport luck card\nDistribution\n\nProbability mass (area) and cumulative probability (line) over attempts, with the 50/90/99% marks.\n\n50%90%99%136810attempts\nWhat's \"bad luck protection\", and why doesn't simple mode have it?"
+      },
+      {
+        "field": "n",
+        "value": "-1",
+        "pending": {
+          "shareDisabled": false,
+          "card": true,
+          "stats": 6
+        },
+        "displayed": "-1",
+        "ariaInvalid": null,
+        "shareEnabled": true,
+        "copied": "?mode=simple&rate=0.5&n=0&k=1&got=1",
+        "card": 0,
+        "stats": 6,
+        "text": "Your luck\n\nBased on the negative-binomial distribution for 1 success at 1 in 2 odds.\n\nThat completion time is impossible under these settings. Check the attempts, copies and drop rate.\n\nP(AT LEAST 1 BY 0)\n0%\nEXPECTED ATTEMPTS\n2\n50% BY\n1\n90% BY\n4\n99% BY\n7\nSTD. DEVIATION\n1.4\nDistribution\n\nProbability mass (area) and cumulative probability (line) over attempts, with the 50/90/99% marks.\n\n50%90%99%136810attempts\nWhat's \"bad luck protection\", and why doesn't simple mode have it?"
+      },
+      {
+        "field": "n",
+        "value": "",
+        "pending": {
+          "shareDisabled": false,
+          "card": true,
+          "stats": 6
+        },
+        "displayed": "",
+        "ariaInvalid": null,
+        "shareEnabled": true,
+        "copied": "?mode=simple&rate=0.5&n=0&k=1&got=1",
+        "card": 0,
+        "stats": 6,
+        "text": "Your luck\n\nBased on the negative-binomial distribution for 1 success at 1 in 2 odds.\n\nThat completion time is impossible under these settings. Check the attempts, copies and drop rate.\n\nP(AT LEAST 1 BY 0)\n0%\nEXPECTED ATTEMPTS\n2\n50% BY\n1\n90% BY\n4\n99% BY\n7\nSTD. DEVIATION\n1.4\nDistribution\n\nProbability mass (area) and cumulative probability (line) over attempts, with the 50/90/99% marks.\n\n50%90%99%136810attempts\nWhat's \"bad luck protection\", and why doesn't simple mode have it?"
+      },
+      {
+        "field": "n",
+        "value": "9007199254740992",
+        "pending": {
+          "shareDisabled": false,
+          "card": true,
+          "stats": 6
+        },
+        "displayed": "9007199254740992",
+        "ariaInvalid": null,
+        "shareEnabled": true,
+        "copied": "?mode=simple&rate=0.5&n=9007199254740992&k=1&got=1",
+        "card": 0,
+        "stats": 0,
+        "text": "Attempts must be a non-negative safe integer."
+      },
+      {
+        "field": "k",
+        "value": "1.5",
+        "pending": {
+          "shareDisabled": false,
+          "card": true,
+          "stats": 6
+        },
+        "displayed": "1.5",
+        "ariaInvalid": null,
+        "shareEnabled": true,
+        "copied": "?mode=simple&rate=0.5&n=4&k=1&got=1",
+        "card": 1,
+        "stats": 6,
+        "text": "Your luck\n\nBased on the negative-binomial distribution for 1 success at 1 in 2 odds.\n\nUnlucky\n\n87.5% of players would have gotten it sooner.\n\nFinished sooner\n87.5%\nSame attempt\n6.3%\nTook longer\n6.3%\nUNLUCKY\nAVERAGE\nLUCKY\nUNCOMMON BAD LUCK\nbased on 4 attempts at 1 in 2 (50%) odds needing 1 copy\n\nThe outlined band includes ties. Rarity counts outcomes at least as extreme as yours, including same-attempt finishes.\n\nP(AT LEAST 1 BY 4)\n93.75%\nEXPECTED ATTEMPTS\n2\n50% BY\n1\n90% BY\n4\n99% BY\n7\nSTD. DEVIATION\n1.4\nExport luck card\nDistribution\n\nProbability mass (area) and cumulative probability (line) over attempts, with the 50/90/99% marks.\n\n50%90%99%136810attempts\nWhat's \"bad luck protection\", and why doesn't simple mode have it?"
+      },
+      {
+        "field": "k",
+        "value": "0",
+        "pending": {
+          "shareDisabled": false,
+          "card": true,
+          "stats": 6
+        },
+        "displayed": "0",
+        "ariaInvalid": null,
+        "shareEnabled": true,
+        "copied": "?mode=simple&rate=0.5&n=4&k=1&got=1",
+        "card": 1,
+        "stats": 6,
+        "text": "Your luck\n\nBased on the negative-binomial distribution for 1 success at 1 in 2 odds.\n\nUnlucky\n\n87.5% of players would have gotten it sooner.\n\nFinished sooner\n87.5%\nSame attempt\n6.3%\nTook longer\n6.3%\nUNLUCKY\nAVERAGE\nLUCKY\nUNCOMMON BAD LUCK\nbased on 4 attempts at 1 in 2 (50%) odds needing 1 copy\n\nThe outlined band includes ties. Rarity counts outcomes at least as extreme as yours, including same-attempt finishes.\n\nP(AT LEAST 1 BY 4)\n93.75%\nEXPECTED ATTEMPTS\n2\n50% BY\n1\n90% BY\n4\n99% BY\n7\nSTD. DEVIATION\n1.4\nExport luck card\nDistribution\n\nProbability mass (area) and cumulative probability (line) over attempts, with the 50/90/99% marks.\n\n50%90%99%136810attempts\nWhat's \"bad luck protection\", and why doesn't simple mode have it?"
+      },
+      {
+        "field": "k",
+        "value": "-1",
+        "pending": {
+          "shareDisabled": false,
+          "card": true,
+          "stats": 6
+        },
+        "displayed": "-1",
+        "ariaInvalid": null,
+        "shareEnabled": true,
+        "copied": "?mode=simple&rate=0.5&n=4&k=1&got=1",
+        "card": 1,
+        "stats": 6,
+        "text": "Your luck\n\nBased on the negative-binomial distribution for 1 success at 1 in 2 odds.\n\nUnlucky\n\n87.5% of players would have gotten it sooner.\n\nFinished sooner\n87.5%\nSame attempt\n6.3%\nTook longer\n6.3%\nUNLUCKY\nAVERAGE\nLUCKY\nUNCOMMON BAD LUCK\nbased on 4 attempts at 1 in 2 (50%) odds needing 1 copy\n\nThe outlined band includes ties. Rarity counts outcomes at least as extreme as yours, including same-attempt finishes.\n\nP(AT LEAST 1 BY 4)\n93.75%\nEXPECTED ATTEMPTS\n2\n50% BY\n1\n90% BY\n4\n99% BY\n7\nSTD. DEVIATION\n1.4\nExport luck card\nDistribution\n\nProbability mass (area) and cumulative probability (line) over attempts, with the 50/90/99% marks.\n\n50%90%99%136810attempts\nWhat's \"bad luck protection\", and why doesn't simple mode have it?"
+      },
+      {
+        "field": "k",
+        "value": "",
+        "pending": {
+          "shareDisabled": false,
+          "card": true,
+          "stats": 6
+        },
+        "displayed": "",
+        "ariaInvalid": null,
+        "shareEnabled": true,
+        "copied": "?mode=simple&rate=0.5&n=4&k=1&got=1",
+        "card": 1,
+        "stats": 6,
+        "text": "Your luck\n\nBased on the negative-binomial distribution for 1 success at 1 in 2 odds.\n\nUnlucky\n\n87.5% of players would have gotten it sooner.\n\nFinished sooner\n87.5%\nSame attempt\n6.3%\nTook longer\n6.3%\nUNLUCKY\nAVERAGE\nLUCKY\nUNCOMMON BAD LUCK\nbased on 4 attempts at 1 in 2 (50%) odds needing 1 copy\n\nThe outlined band includes ties. Rarity counts outcomes at least as extreme as yours, including same-attempt finishes.\n\nP(AT LEAST 1 BY 4)\n93.75%\nEXPECTED ATTEMPTS\n2\n50% BY\n1\n90% BY\n4\n99% BY\n7\nSTD. DEVIATION\n1.4\nExport luck card\nDistribution\n\nProbability mass (area) and cumulative probability (line) over attempts, with the 50/90/99% marks.\n\n50%90%99%136810attempts\nWhat's \"bad luck protection\", and why doesn't simple mode have it?"
+      },
+      {
+        "field": "k",
+        "value": "9007199254740992",
+        "pending": {
+          "shareDisabled": false,
+          "card": true,
+          "stats": 6
+        },
+        "displayed": "9007199254740992",
+        "ariaInvalid": null,
+        "shareEnabled": true,
+        "copied": "?mode=simple&rate=0.5&n=4&k=9007199254740992&got=1",
+        "card": 0,
+        "stats": 0,
+        "text": "Copies must be a positive safe integer."
+      },
+      {
+        "field": "rate",
+        "value": "",
+        "pending": {
+          "shareDisabled": false,
+          "card": true,
+          "stats": 6
+        },
+        "displayed": "",
+        "ariaInvalid": "true",
+        "shareEnabled": true,
+        "copied": "?mode=simple&rate=&n=4&k=1&got=1",
+        "card": 0,
+        "stats": 0,
+        "text": "Fix the rate above to see results."
+      },
+      {
+        "field": "rate",
+        "value": "nonsense",
+        "pending": {
+          "shareDisabled": false,
+          "card": true,
+          "stats": 6
+        },
+        "displayed": "nonsense",
+        "ariaInvalid": "true",
+        "shareEnabled": true,
+        "copied": "?mode=simple&rate=nonsense&n=4&k=1&got=1",
+        "card": 0,
+        "stats": 0,
+        "text": "Fix the rate above to see results."
+      },
+      {
+        "field": "rate",
+        "value": "120%",
+        "pending": {
+          "shareDisabled": false,
+          "card": true,
+          "stats": 6
+        },
+        "displayed": "120%",
+        "ariaInvalid": "true",
+        "shareEnabled": true,
+        "copied": "?mode=simple&rate=120%25&n=4&k=1&got=1",
+        "card": 0,
+        "stats": 0,
+        "text": "Fix the rate above to see results."
+      },
+      {
+        "field": "rate",
+        "value": "1/100000000000000000",
+        "pending": {
+          "shareDisabled": false,
+          "card": true,
+          "stats": 6
+        },
+        "displayed": "1/100000000000000000",
+        "ariaInvalid": null,
+        "shareEnabled": true,
+        "copied": "?mode=simple&rate=1%2F100000000000000000&n=4&k=1&got=1",
+        "card": 0,
+        "stats": 0,
+        "text": "This confidence level needs more than 1,000,000,000,000,000 attempts, the calculation limit. Increase the rate or reduce the number of copies."
+      }
+    ],
+    "valid": [
+      {
+        "input": {
+          "rate": "0.5",
+          "n": "4",
+          "k": "1",
+          "got": true
+        },
+        "copied": "?mode=simple&rate=0.5&n=4&k=1&got=1",
+        "text": "Your luck\n\nBased on the negative-binomial distribution for 1 success at 1 in 2 odds.\n\nUnlucky\n\n87.5% of players would have gotten it sooner.\n\nFinished sooner\n87.5%\nSame attempt\n6.3%\nTook longer\n6.3%\nUNLUCKY\nAVERAGE\nLUCKY\nUNCOMMON BAD LUCK\nbased on 4 attempts at 1 in 2 (50%) odds needing 1 copy\n\nThe outlined band includes ties. Rarity counts outcomes at least as extreme as yours, including same-attempt finishes.\n\nP(AT LEAST 1 BY 4)\n93.75%\nEXPECTED ATTEMPTS\n2\n50% BY\n1\n90% BY\n4\n99% BY\n7\nSTD. DEVIATION\n1.4\nExport luck card\nDistribution\n\nProbability mass (area) and cumulative probability (line) over attempts, with the 50/90/99% marks.\n\n50%90%99%136810attempts\nWhat's \"bad luck protection\", and why doesn't simple mode have it?",
+        "chart": {
+          "bytes": 2217,
+          "sha256": "5093f972f85ea117eb1f118211f13df89ca0eebdfb3808d13a4ec66a58b2141e"
+        },
+        "cardText": [
+          "AM I UNLUCKY?",
+          "SIMPLE DROP",
+          "UNCOMMON",
+          "87.5%",
+          "FINISHED SOONER",
+          "6.3%",
+          "SAME ATTEMPT",
+          "6.3%",
+          "TOOK LONGER",
+          "UNLUCKY",
+          "Took 4 attempts at 1 in 2 odds for 1 copy.",
+          "uncommon bad luck",
+          "P(at least 1 by 4) = 93.75%. Expected 2 attempts.",
+          "am-i-unlucky — exact drop-rate & pity math"
+        ],
+        "png": {
+          "bytes": 224808,
+          "sha256": "018db0f1c7b14f0fac54e36a2906fd1c9f4541b14c78ec2db937d4f7ada1aaa8",
+          "chunks": [
+            {
+              "type": "IHDR",
+              "count": 1,
+              "bytes": 13,
+              "sha256": "547efe46ab9438e75467c4560cf6b782dd4ff5a2a8a9f8038797b25082faa94c"
+            },
+            {
+              "type": "IDAT",
+              "count": 28,
+              "bytes": 224399,
+              "sha256": "85693a18258573930aac7fa616065b2143f2ceb6ba8bc5626b27ae8960e002d7"
+            },
+            {
+              "type": "deBG",
+              "count": 1,
+              "bytes": 16,
+              "sha256": "2424cab7a95412ab11fd61a1b0638e26337f271bc9aee4f7eb149e1f464676b1"
+            },
+            {
+              "type": "IEND",
+              "count": 1,
+              "bytes": 0,
+              "sha256": "cd372fb85148700fa88095e3492d3f9f5beb43e555e5ff26d95f5a6adc36f8e6"
+            }
+          ],
+          "width": 1080,
+          "height": 1350
+        }
+      },
+      {
+        "input": {
+          "rate": "0.5",
+          "n": "0",
+          "k": "1",
+          "got": false
+        },
+        "copied": "?mode=simple&rate=0.5&n=0&k=1&got=0",
+        "text": "Your luck\n\nBased on the negative-binomial distribution for 1 success at 1 in 2 odds.\n\nEnter at least 1 attempt to see your luck percentile.\n\nP(AT LEAST 1 BY 0)\n0%\nEXPECTED ATTEMPTS\n2\n50% BY\n1\n90% BY\n4\n99% BY\n7\nSTD. DEVIATION\n1.4\nDistribution\n\nProbability mass (area) and cumulative probability (line) over attempts, with the 50/90/99% marks.\n\n50%90%99%136810attempts\nWhat's \"bad luck protection\", and why doesn't simple mode have it?",
+        "chart": {
+          "bytes": 2217,
+          "sha256": "5093f972f85ea117eb1f118211f13df89ca0eebdfb3808d13a4ec66a58b2141e"
+        }
+      },
+      {
+        "input": {
+          "rate": "0.5",
+          "n": "1",
+          "k": "1",
+          "got": true
+        },
+        "copied": "?mode=simple&rate=0.5&n=1&k=1&got=1",
+        "text": "Your luck\n\nBased on the negative-binomial distribution for 1 success at 1 in 2 odds.\n\nAbout average\n\nSame-attempt finishes are ties, not faster or slower outcomes.\n\nFinished sooner\n0%\nSame attempt\n50%\nTook longer\n50%\nUNLUCKY\nAVERAGE\nLUCKY\nCOMMON\nbased on 1 attempt at 1 in 2 (50%) odds needing 1 copy\n\nThe outlined band includes ties. Rarity counts outcomes at least as extreme as yours, including same-attempt finishes.\n\nP(AT LEAST 1 BY 1)\n50%\nEXPECTED ATTEMPTS\n2\n50% BY\n1\n90% BY\n4\n99% BY\n7\nSTD. DEVIATION\n1.4\nExport luck card\nDistribution\n\nProbability mass (area) and cumulative probability (line) over attempts, with the 50/90/99% marks.\n\n50%90%99%136810attempts\nWhat's \"bad luck protection\", and why doesn't simple mode have it?",
+        "chart": {
+          "bytes": 2217,
+          "sha256": "5093f972f85ea117eb1f118211f13df89ca0eebdfb3808d13a4ec66a58b2141e"
+        },
+        "cardText": [
+          "AM I UNLUCKY?",
+          "SIMPLE DROP",
+          "COMMON",
+          "0%",
+          "FINISHED SOONER",
+          "50%",
+          "SAME ATTEMPT",
+          "50%",
+          "TOOK LONGER",
+          "ABOUT AVERAGE",
+          "Took 1 attempt at 1 in 2 odds for 1 copy.",
+          "common",
+          "P(at least 1 by 1) = 50%. Expected 2 attempts.",
+          "am-i-unlucky — exact drop-rate & pity math"
+        ],
+        "png": {
+          "bytes": 348067,
+          "sha256": "7a1bad55bfe0e01da2f2d13e607053c210090563e876de337d2af36fd28d24c5",
+          "chunks": [
+            {
+              "type": "IHDR",
+              "count": 1,
+              "bytes": 13,
+              "sha256": "547efe46ab9438e75467c4560cf6b782dd4ff5a2a8a9f8038797b25082faa94c"
+            },
+            {
+              "type": "IDAT",
+              "count": 43,
+              "bytes": 347478,
+              "sha256": "126bea63b63650649d5027a8193345ae24ba1ce65df17c9390cd77d2279d30f4"
+            },
+            {
+              "type": "deBG",
+              "count": 1,
+              "bytes": 16,
+              "sha256": "770c0a8af1065af7ecb50c5250a09a76dca039af4b51ec7b1cc67ee71abe88e9"
+            },
+            {
+              "type": "IEND",
+              "count": 1,
+              "bytes": 0,
+              "sha256": "cd372fb85148700fa88095e3492d3f9f5beb43e555e5ff26d95f5a6adc36f8e6"
+            }
+          ],
+          "width": 1080,
+          "height": 1350
+        }
+      },
+      {
+        "input": {
+          "rate": "0.5",
+          "n": "2",
+          "k": "1",
+          "got": true
+        },
+        "copied": "?mode=simple&rate=0.5&n=2&k=1&got=1",
+        "text": "Your luck\n\nBased on the negative-binomial distribution for 1 success at 1 in 2 odds.\n\nAbout average\n\nSame-attempt finishes are ties, not faster or slower outcomes.\n\nFinished sooner\n50%\nSame attempt\n25%\nTook longer\n25%\nUNLUCKY\nAVERAGE\nLUCKY\nCOMMON\nbased on 2 attempts at 1 in 2 (50%) odds needing 1 copy\n\nThe outlined band includes ties. Rarity counts outcomes at least as extreme as yours, including same-attempt finishes.\n\nP(AT LEAST 1 BY 2)\n75%\nEXPECTED ATTEMPTS\n2\n50% BY\n1\n90% BY\n4\n99% BY\n7\nSTD. DEVIATION\n1.4\nExport luck card\nDistribution\n\nProbability mass (area) and cumulative probability (line) over attempts, with the 50/90/99% marks.\n\n50%90%99%136810attempts\nWhat's \"bad luck protection\", and why doesn't simple mode have it?",
+        "chart": {
+          "bytes": 2217,
+          "sha256": "5093f972f85ea117eb1f118211f13df89ca0eebdfb3808d13a4ec66a58b2141e"
+        },
+        "cardText": [
+          "AM I UNLUCKY?",
+          "SIMPLE DROP",
+          "COMMON",
+          "50%",
+          "FINISHED SOONER",
+          "25%",
+          "SAME ATTEMPT",
+          "25%",
+          "TOOK LONGER",
+          "ABOUT AVERAGE",
+          "Took 2 attempts at 1 in 2 odds for 1 copy.",
+          "common",
+          "P(at least 1 by 2) = 75%. Expected 2 attempts.",
+          "am-i-unlucky — exact drop-rate & pity math"
+        ],
+        "png": {
+          "bytes": 348970,
+          "sha256": "c56c05d6929c6d51944fc105e78bca03788be075265d3adaf2a79476ee05ad1d",
+          "chunks": [
+            {
+              "type": "IHDR",
+              "count": 1,
+              "bytes": 13,
+              "sha256": "547efe46ab9438e75467c4560cf6b782dd4ff5a2a8a9f8038797b25082faa94c"
+            },
+            {
+              "type": "IDAT",
+              "count": 43,
+              "bytes": 348381,
+              "sha256": "9944e8b1f666571de3b9cf627f126e7fb6bc32ec0269c7d78b681fa4d02e16b3"
+            },
+            {
+              "type": "deBG",
+              "count": 1,
+              "bytes": 16,
+              "sha256": "4dafb24bc0d8757437d4405cc82defc73a779c05db086de0efc2d3e2844329de"
+            },
+            {
+              "type": "IEND",
+              "count": 1,
+              "bytes": 0,
+              "sha256": "cd372fb85148700fa88095e3492d3f9f5beb43e555e5ff26d95f5a6adc36f8e6"
+            }
+          ],
+          "width": 1080,
+          "height": 1350
+        }
+      },
+      {
+        "input": {
+          "rate": "0.5",
+          "n": "3",
+          "k": "1",
+          "got": true
+        },
+        "copied": "?mode=simple&rate=0.5&n=3&k=1&got=1",
+        "text": "Your luck\n\nBased on the negative-binomial distribution for 1 success at 1 in 2 odds.\n\nUnlucky\n\n75% of players would have gotten it sooner.\n\nFinished sooner\n75%\nSame attempt\n12.5%\nTook longer\n12.5%\nUNLUCKY\nAVERAGE\nLUCKY\nCOMMON\nbased on 3 attempts at 1 in 2 (50%) odds needing 1 copy\n\nThe outlined band includes ties. Rarity counts outcomes at least as extreme as yours, including same-attempt finishes.\n\nP(AT LEAST 1 BY 3)\n87.5%\nEXPECTED ATTEMPTS\n2\n50% BY\n1\n90% BY\n4\n99% BY\n7\nSTD. DEVIATION\n1.4\nExport luck card\nDistribution\n\nProbability mass (area) and cumulative probability (line) over attempts, with the 50/90/99% marks.\n\n50%90%99%136810attempts\nWhat's \"bad luck protection\", and why doesn't simple mode have it?",
+        "chart": {
+          "bytes": 2217,
+          "sha256": "5093f972f85ea117eb1f118211f13df89ca0eebdfb3808d13a4ec66a58b2141e"
+        },
+        "cardText": [
+          "AM I UNLUCKY?",
+          "SIMPLE DROP",
+          "COMMON",
+          "75%",
+          "FINISHED SOONER",
+          "12.5%",
+          "SAME ATTEMPT",
+          "12.5%",
+          "TOOK LONGER",
+          "UNLUCKY",
+          "Took 3 attempts at 1 in 2 odds for 1 copy.",
+          "common",
+          "P(at least 1 by 3) = 87.5%. Expected 2 attempts.",
+          "am-i-unlucky — exact drop-rate & pity math"
+        ],
+        "png": {
+          "bytes": 347220,
+          "sha256": "596133d55e1c4d6326228778852adc6248b2cefe5a449e01274e4b427dc5cb2e",
+          "chunks": [
+            {
+              "type": "IHDR",
+              "count": 1,
+              "bytes": 13,
+              "sha256": "547efe46ab9438e75467c4560cf6b782dd4ff5a2a8a9f8038797b25082faa94c"
+            },
+            {
+              "type": "IDAT",
+              "count": 43,
+              "bytes": 346631,
+              "sha256": "7405a8943ec49c601a7c8c41a483ae2d46ae95f3615d670227c82454f986931e"
+            },
+            {
+              "type": "deBG",
+              "count": 1,
+              "bytes": 16,
+              "sha256": "cb8c8c0f1a1fd59a95ee64cdc68c1da41df31b772d3af80219e76ca2250368f0"
+            },
+            {
+              "type": "IEND",
+              "count": 1,
+              "bytes": 0,
+              "sha256": "cd372fb85148700fa88095e3492d3f9f5beb43e555e5ff26d95f5a6adc36f8e6"
+            }
+          ],
+          "width": 1080,
+          "height": 1350
+        }
+      },
+      {
+        "input": {
+          "rate": "0.5",
+          "n": "4",
+          "k": "2",
+          "got": true
+        },
+        "copied": "?mode=simple&rate=0.5&n=4&k=2&got=1",
+        "text": "Your luck\n\nBased on the negative-binomial distribution for 2 successes at 1 in 2 odds.\n\nAbout average\n\nSame-attempt finishes are ties, not faster or slower outcomes.\n\nFinished sooner\n50%\nSame attempt\n18.8%\nTook longer\n31.3%\nUNLUCKY\nAVERAGE\nLUCKY\nCOMMON\nbased on 4 attempts at 1 in 2 (50%) odds needing 2 copies\n\nThe outlined band includes ties. Rarity counts outcomes at least as extreme as yours, including same-attempt finishes.\n\nP(AT LEAST 2 BY 4)\n68.75%\nEXPECTED ATTEMPTS\n4\n50% BY\n3\n90% BY\n7\n99% BY\n11\nSTD. DEVIATION\n2\nExport luck card\nDistribution\n\nProbability mass (area) and cumulative probability (line) over attempts, with the 50/90/99% marks.\n\n50%90%99%2581114attempts\nWhat's \"bad luck protection\", and why doesn't simple mode have it?",
+        "chart": {
+          "bytes": 2314,
+          "sha256": "c1470e17e0c3688f32f1fdc3377823ef279baa178ee01c0e4dd697ad54eec7df"
+        },
+        "cardText": [
+          "AM I UNLUCKY?",
+          "SIMPLE DROP",
+          "COMMON",
+          "50%",
+          "FINISHED SOONER",
+          "18.8%",
+          "SAME ATTEMPT",
+          "31.3%",
+          "TOOK LONGER",
+          "ABOUT AVERAGE",
+          "Took 4 attempts at 1 in 2 odds for 2 copies.",
+          "common",
+          "P(at least 2 by 4) = 68.75%. Expected 4 attempts.",
+          "am-i-unlucky — exact drop-rate & pity math"
+        ],
+        "png": {
+          "bytes": 353127,
+          "sha256": "651d43e16f363469c9a96ab0afe69ca75be8b9092f142a085dc0d65cc1c48530",
+          "chunks": [
+            {
+              "type": "IHDR",
+              "count": 1,
+              "bytes": 13,
+              "sha256": "547efe46ab9438e75467c4560cf6b782dd4ff5a2a8a9f8038797b25082faa94c"
+            },
+            {
+              "type": "IDAT",
+              "count": 44,
+              "bytes": 352526,
+              "sha256": "f60aea8a8021bf1b1e92ab0047d7600b88df0a613b35193dc3ca183d39d13cf1"
+            },
+            {
+              "type": "deBG",
+              "count": 1,
+              "bytes": 16,
+              "sha256": "67ffd3324e434327d5603005b6362c4d4889c7d0dc95e699e8755f6a0f028cc1"
+            },
+            {
+              "type": "IEND",
+              "count": 1,
+              "bytes": 0,
+              "sha256": "cd372fb85148700fa88095e3492d3f9f5beb43e555e5ff26d95f5a6adc36f8e6"
+            }
+          ],
+          "width": 1080,
+          "height": 1350
+        }
+      },
+      {
+        "input": {
+          "rate": "0.5",
+          "n": "4",
+          "k": "2",
+          "got": false
+        },
+        "copied": "?mode=simple&rate=0.5&n=4&k=2&got=0",
+        "text": "Your luck\n\nBased on the negative-binomial distribution for 2 successes at 1 in 2 odds.\n\nUnlucky\n\n68.8% of players would have it by now.\n\nFinished by now\n68.8%\nStill waiting too\n31.3%\nUNLUCKY\nAVERAGE\nLUCKY\nCOMMON\nstill waiting after 4 attempts at 1 in 2 (50%) odds, needing 2 copies\n\nThis compares the wait so far; it does not assume the drop arrives on the next attempt.\n\nP(AT LEAST 2 BY 4)\n68.75%\nEXPECTED ATTEMPTS\n4\n50% BY\n3\n90% BY\n7\n99% BY\n11\nSTD. DEVIATION\n2\nExport luck card\nDistribution\n\nProbability mass (area) and cumulative probability (line) over attempts, with the 50/90/99% marks.\n\n50%90%99%2581114attempts\nWhat's \"bad luck protection\", and why doesn't simple mode have it?",
+        "chart": {
+          "bytes": 2314,
+          "sha256": "c1470e17e0c3688f32f1fdc3377823ef279baa178ee01c0e4dd697ad54eec7df"
+        },
+        "cardText": [
+          "AM I UNLUCKY?",
+          "SIMPLE DROP",
+          "COMMON",
+          "68.8%",
+          "FINISHED BY NOW",
+          "31.3%",
+          "STILL WAITING TOO",
+          "UNLUCKY",
+          "4 attempts at 1 in 2 odds and still waiting for",
+          "copy 2.",
+          "common",
+          "P(at least 2 by 4) = 68.75%. Expected 4 attempts.",
+          "am-i-unlucky — exact drop-rate & pity math"
+        ],
+        "png": {
+          "bytes": 350813,
+          "sha256": "544499715c0a46ef4aa9f215fa0d8f3f140c35d64b5a38710080cf714b480fc0",
+          "chunks": [
+            {
+              "type": "IHDR",
+              "count": 1,
+              "bytes": 13,
+              "sha256": "547efe46ab9438e75467c4560cf6b782dd4ff5a2a8a9f8038797b25082faa94c"
+            },
+            {
+              "type": "IDAT",
+              "count": 43,
+              "bytes": 350224,
+              "sha256": "3c7c8dfd26a68cd4f0f07a961033caa9daafc5fb0411803b82b4706cfc2871e8"
+            },
+            {
+              "type": "deBG",
+              "count": 1,
+              "bytes": 16,
+              "sha256": "a79cc7bb8187d4afb51bd54f90634ceddfef6d293120b5d20067c7a2d76d03be"
+            },
+            {
+              "type": "IEND",
+              "count": 1,
+              "bytes": 0,
+              "sha256": "cd372fb85148700fa88095e3492d3f9f5beb43e555e5ff26d95f5a6adc36f8e6"
+            }
+          ],
+          "width": 1080,
+          "height": 1350
+        }
+      },
+      {
+        "input": {
+          "rate": "1/512",
+          "n": "900",
+          "k": "1",
+          "got": false
+        },
+        "copied": "?mode=simple&rate=1%2F512&n=900&k=1&got=0",
+        "text": "Your luck\n\nBased on the negative-binomial distribution for 1 success at 1 in 512 odds.\n\nUnlucky\n\n82.8% of players would have it by now.\n\nFinished by now\n82.8%\nStill waiting too\n17.2%\nUNLUCKY\nAVERAGE\nLUCKY\nUNCOMMON BAD LUCK\nstill waiting after 900 attempts at 1 in 512 (0.20%) odds, needing 1 copy\n\nThis compares the wait so far; it does not assume the drop arrives on the next attempt.\n\nP(AT LEAST 1 BY 900)\n82.79%\nEXPECTED ATTEMPTS\n512\n50% BY\n355\n90% BY\n1,178\n99% BY\n2,356\nSTD. DEVIATION\n511.5\nExport luck card\nDistribution\n\nProbability mass (area) and cumulative probability (line) over attempts, with the 50/90/99% marks.\n\n50%90%99%18811,7612,6403,520attempts\nWhat's \"bad luck protection\", and why doesn't simple mode have it?",
+        "chart": {
+          "bytes": 8326,
+          "sha256": "52b0b60322eb25677310837e65a1c3b1a9a502dee8cd3936769f7a14c6d6b576"
+        },
+        "cardText": [
+          "AM I UNLUCKY?",
+          "SIMPLE DROP",
+          "UNCOMMON",
+          "82.8%",
+          "FINISHED BY NOW",
+          "17.2%",
+          "STILL WAITING TOO",
+          "UNLUCKY",
+          "900 attempts at 1 in 512 odds and still waiting",
+          "for it.",
+          "uncommon bad luck",
+          "P(at least 1 by 900) = 82.79%. Expected 512 attempts.",
+          "am-i-unlucky — exact drop-rate & pity math"
+        ],
+        "png": {
+          "bytes": 223835,
+          "sha256": "16a4303a477a059396d0ec483ccd2d528d2e3a2359831ff986315a42155fdc10",
+          "chunks": [
+            {
+              "type": "IHDR",
+              "count": 1,
+              "bytes": 13,
+              "sha256": "547efe46ab9438e75467c4560cf6b782dd4ff5a2a8a9f8038797b25082faa94c"
+            },
+            {
+              "type": "IDAT",
+              "count": 28,
+              "bytes": 223426,
+              "sha256": "28b1fae09f791e51fb2663932acb69b3cedd41e4e9dd15c9739cfe1f9a10778a"
+            },
+            {
+              "type": "deBG",
+              "count": 1,
+              "bytes": 16,
+              "sha256": "458649a1c4c1aa12068e10598135daec9e90f0d0bca01b7b759a65667c2b2b46"
+            },
+            {
+              "type": "IEND",
+              "count": 1,
+              "bytes": 0,
+              "sha256": "cd372fb85148700fa88095e3492d3f9f5beb43e555e5ff26d95f5a6adc36f8e6"
+            }
+          ],
+          "width": 1080,
+          "height": 1350
+        }
+      },
+      {
+        "input": {
+          "rate": "0",
+          "n": "4",
+          "k": "1",
+          "got": false
+        },
+        "copied": "?mode=simple&rate=0&n=4&k=1&got=0",
+        "text": "Your luck\n\nBased on the negative-binomial distribution for 1 success at never odds.\n\nA 0% rate never succeeds, no matter how many attempts you make — there's no meaningful luck percentile here.\n\nP(AT LEAST 1 BY 4)\n0%\nEXPECTED ATTEMPTS\n∞\n50% BY\n∞\n90% BY\n∞\n99% BY\n∞\nSTD. DEVIATION\n∞\nDistribution\n\nProbability mass (area) and cumulative probability (line) over attempts, with the 50/90/99% marks.\n\nNot enough data to chart yet.\n\nWhat's \"bad luck protection\", and why doesn't simple mode have it?",
+        "chart": null
+      },
+      {
+        "input": {
+          "rate": "1",
+          "n": "1",
+          "k": "1",
+          "got": true
+        },
+        "copied": "?mode=simple&rate=1&n=1&k=1&got=1",
+        "text": "Your luck\n\nBased on the negative-binomial distribution for 1 success at always odds.\n\nAt a 100% rate, copy 1 always arrives on attempt 1. Every player gets the same result, so there is no luck variation.\n\nP(AT LEAST 1 BY 1)\n100%\nEXPECTED ATTEMPTS\n1\n50% BY\n1\n90% BY\n1\n99% BY\n1\nSTD. DEVIATION\n0\nDistribution\n\nProbability mass (area) and cumulative probability (line) over attempts, with the 50/90/99% marks.\n\nNot enough data to chart yet.\n\nWhat's \"bad luck protection\", and why doesn't simple mode have it?",
+        "chart": null
+      },
+      {
+        "input": {
+          "rate": "0.5",
+          "n": "4e0",
+          "k": "2.0",
+          "got": true
+        },
+        "copied": "?mode=simple&rate=0.5&n=4&k=2&got=1",
+        "text": "Your luck\n\nBased on the negative-binomial distribution for 2 successes at 1 in 2 odds.\n\nAbout average\n\nSame-attempt finishes are ties, not faster or slower outcomes.\n\nFinished sooner\n50%\nSame attempt\n18.8%\nTook longer\n31.3%\nUNLUCKY\nAVERAGE\nLUCKY\nCOMMON\nbased on 4 attempts at 1 in 2 (50%) odds needing 2 copies\n\nThe outlined band includes ties. Rarity counts outcomes at least as extreme as yours, including same-attempt finishes.\n\nP(AT LEAST 2 BY 4)\n68.75%\nEXPECTED ATTEMPTS\n4\n50% BY\n3\n90% BY\n7\n99% BY\n11\nSTD. DEVIATION\n2\nExport luck card\nDistribution\n\nProbability mass (area) and cumulative probability (line) over attempts, with the 50/90/99% marks.\n\n50%90%99%2581114attempts\nWhat's \"bad luck protection\", and why doesn't simple mode have it?",
+        "chart": {
+          "bytes": 2314,
+          "sha256": "c1470e17e0c3688f32f1fdc3377823ef279baa178ee01c0e4dd697ad54eec7df"
+        },
+        "cardText": [
+          "AM I UNLUCKY?",
+          "SIMPLE DROP",
+          "COMMON",
+          "50%",
+          "FINISHED SOONER",
+          "18.8%",
+          "SAME ATTEMPT",
+          "31.3%",
+          "TOOK LONGER",
+          "ABOUT AVERAGE",
+          "Took 4 attempts at 1 in 2 odds for 2 copies.",
+          "common",
+          "P(at least 2 by 4) = 68.75%. Expected 4 attempts.",
+          "am-i-unlucky — exact drop-rate & pity math"
+        ],
+        "png": {
+          "bytes": 353127,
+          "sha256": "651d43e16f363469c9a96ab0afe69ca75be8b9092f142a085dc0d65cc1c48530",
+          "chunks": [
+            {
+              "type": "IHDR",
+              "count": 1,
+              "bytes": 13,
+              "sha256": "547efe46ab9438e75467c4560cf6b782dd4ff5a2a8a9f8038797b25082faa94c"
+            },
+            {
+              "type": "IDAT",
+              "count": 44,
+              "bytes": 352526,
+              "sha256": "f60aea8a8021bf1b1e92ab0047d7600b88df0a613b35193dc3ca183d39d13cf1"
+            },
+            {
+              "type": "deBG",
+              "count": 1,
+              "bytes": 16,
+              "sha256": "67ffd3324e434327d5603005b6362c4d4889c7d0dc95e699e8755f6a0f028cc1"
+            },
+            {
+              "type": "IEND",
+              "count": 1,
+              "bytes": 0,
+              "sha256": "cd372fb85148700fa88095e3492d3f9f5beb43e555e5ff26d95f5a6adc36f8e6"
+            }
+          ],
+          "width": 1080,
+          "height": 1350
+        }
+      }
+    ],
+    "errors": [],
+    "offlineRequests": []
+  },
+  {
+    "browser": "firefox",
+    "version": "155.0",
+    "width": 375,
+    "offlineAfterLoad": true,
+    "invalid": [
+      {
+        "field": "n",
+        "value": "1.5",
+        "pending": {
+          "shareDisabled": false,
+          "card": true,
+          "stats": 6
+        },
+        "displayed": "1.5",
+        "ariaInvalid": null,
+        "shareEnabled": true,
+        "copied": "?mode=simple&rate=0.5&n=1&k=1&got=1",
+        "card": 1,
+        "stats": 6,
+        "text": "Your luck\n\nBased on the negative-binomial distribution for 1 success at 1 in 2 odds.\n\nAbout average\n\nSame-attempt finishes are ties, not faster or slower outcomes.\n\nFinished sooner\n0%\nSame attempt\n50%\nTook longer\n50%\nUNLUCKY\nAVERAGE\nLUCKY\nCOMMON\nbased on 1 attempt at 1 in 2 (50%) odds needing 1 copy\n\nThe outlined band includes ties. Rarity counts outcomes at least as extreme as yours, including same-attempt finishes.\n\nP(AT LEAST 1 BY 1)\n50%\nEXPECTED ATTEMPTS\n2\n50% BY\n1\n90% BY\n4\n99% BY\n7\nSTD. DEVIATION\n1.4\nExport luck card\nDistribution\n\nProbability mass (area) and cumulative probability (line) over attempts, with the 50/90/99% marks.\n\n50%90%99%136810attempts\nWhat's \"bad luck protection\", and why doesn't simple mode have it?"
+      },
+      {
+        "field": "n",
+        "value": "-1",
+        "pending": {
+          "shareDisabled": false,
+          "card": true,
+          "stats": 6
+        },
+        "displayed": "-1",
+        "ariaInvalid": null,
+        "shareEnabled": true,
+        "copied": "?mode=simple&rate=0.5&n=0&k=1&got=1",
+        "card": 0,
+        "stats": 6,
+        "text": "Your luck\n\nBased on the negative-binomial distribution for 1 success at 1 in 2 odds.\n\nThat completion time is impossible under these settings. Check the attempts, copies and drop rate.\n\nP(AT LEAST 1 BY 0)\n0%\nEXPECTED ATTEMPTS\n2\n50% BY\n1\n90% BY\n4\n99% BY\n7\nSTD. DEVIATION\n1.4\nDistribution\n\nProbability mass (area) and cumulative probability (line) over attempts, with the 50/90/99% marks.\n\n50%90%99%136810attempts\nWhat's \"bad luck protection\", and why doesn't simple mode have it?"
+      },
+      {
+        "field": "n",
+        "value": "",
+        "pending": {
+          "shareDisabled": false,
+          "card": true,
+          "stats": 6
+        },
+        "displayed": "",
+        "ariaInvalid": null,
+        "shareEnabled": true,
+        "copied": "?mode=simple&rate=0.5&n=0&k=1&got=1",
+        "card": 0,
+        "stats": 6,
+        "text": "Your luck\n\nBased on the negative-binomial distribution for 1 success at 1 in 2 odds.\n\nThat completion time is impossible under these settings. Check the attempts, copies and drop rate.\n\nP(AT LEAST 1 BY 0)\n0%\nEXPECTED ATTEMPTS\n2\n50% BY\n1\n90% BY\n4\n99% BY\n7\nSTD. DEVIATION\n1.4\nDistribution\n\nProbability mass (area) and cumulative probability (line) over attempts, with the 50/90/99% marks.\n\n50%90%99%136810attempts\nWhat's \"bad luck protection\", and why doesn't simple mode have it?"
+      },
+      {
+        "field": "n",
+        "value": "9007199254740992",
+        "pending": {
+          "shareDisabled": false,
+          "card": true,
+          "stats": 6
+        },
+        "displayed": "9007199254740992",
+        "ariaInvalid": null,
+        "shareEnabled": true,
+        "copied": "?mode=simple&rate=0.5&n=9007199254740992&k=1&got=1",
+        "card": 0,
+        "stats": 0,
+        "text": "Attempts must be a non-negative safe integer."
+      },
+      {
+        "field": "k",
+        "value": "1.5",
+        "pending": {
+          "shareDisabled": false,
+          "card": true,
+          "stats": 6
+        },
+        "displayed": "1.5",
+        "ariaInvalid": null,
+        "shareEnabled": true,
+        "copied": "?mode=simple&rate=0.5&n=4&k=1&got=1",
+        "card": 1,
+        "stats": 6,
+        "text": "Your luck\n\nBased on the negative-binomial distribution for 1 success at 1 in 2 odds.\n\nUnlucky\n\n87.5% of players would have gotten it sooner.\n\nFinished sooner\n87.5%\nSame attempt\n6.3%\nTook longer\n6.3%\nUNLUCKY\nAVERAGE\nLUCKY\nUNCOMMON BAD LUCK\nbased on 4 attempts at 1 in 2 (50%) odds needing 1 copy\n\nThe outlined band includes ties. Rarity counts outcomes at least as extreme as yours, including same-attempt finishes.\n\nP(AT LEAST 1 BY 4)\n93.75%\nEXPECTED ATTEMPTS\n2\n50% BY\n1\n90% BY\n4\n99% BY\n7\nSTD. DEVIATION\n1.4\nExport luck card\nDistribution\n\nProbability mass (area) and cumulative probability (line) over attempts, with the 50/90/99% marks.\n\n50%90%99%136810attempts\nWhat's \"bad luck protection\", and why doesn't simple mode have it?"
+      },
+      {
+        "field": "k",
+        "value": "0",
+        "pending": {
+          "shareDisabled": false,
+          "card": true,
+          "stats": 6
+        },
+        "displayed": "0",
+        "ariaInvalid": null,
+        "shareEnabled": true,
+        "copied": "?mode=simple&rate=0.5&n=4&k=1&got=1",
+        "card": 1,
+        "stats": 6,
+        "text": "Your luck\n\nBased on the negative-binomial distribution for 1 success at 1 in 2 odds.\n\nUnlucky\n\n87.5% of players would have gotten it sooner.\n\nFinished sooner\n87.5%\nSame attempt\n6.3%\nTook longer\n6.3%\nUNLUCKY\nAVERAGE\nLUCKY\nUNCOMMON BAD LUCK\nbased on 4 attempts at 1 in 2 (50%) odds needing 1 copy\n\nThe outlined band includes ties. Rarity counts outcomes at least as extreme as yours, including same-attempt finishes.\n\nP(AT LEAST 1 BY 4)\n93.75%\nEXPECTED ATTEMPTS\n2\n50% BY\n1\n90% BY\n4\n99% BY\n7\nSTD. DEVIATION\n1.4\nExport luck card\nDistribution\n\nProbability mass (area) and cumulative probability (line) over attempts, with the 50/90/99% marks.\n\n50%90%99%136810attempts\nWhat's \"bad luck protection\", and why doesn't simple mode have it?"
+      },
+      {
+        "field": "k",
+        "value": "-1",
+        "pending": {
+          "shareDisabled": false,
+          "card": true,
+          "stats": 6
+        },
+        "displayed": "-1",
+        "ariaInvalid": null,
+        "shareEnabled": true,
+        "copied": "?mode=simple&rate=0.5&n=4&k=1&got=1",
+        "card": 1,
+        "stats": 6,
+        "text": "Your luck\n\nBased on the negative-binomial distribution for 1 success at 1 in 2 odds.\n\nUnlucky\n\n87.5% of players would have gotten it sooner.\n\nFinished sooner\n87.5%\nSame attempt\n6.3%\nTook longer\n6.3%\nUNLUCKY\nAVERAGE\nLUCKY\nUNCOMMON BAD LUCK\nbased on 4 attempts at 1 in 2 (50%) odds needing 1 copy\n\nThe outlined band includes ties. Rarity counts outcomes at least as extreme as yours, including same-attempt finishes.\n\nP(AT LEAST 1 BY 4)\n93.75%\nEXPECTED ATTEMPTS\n2\n50% BY\n1\n90% BY\n4\n99% BY\n7\nSTD. DEVIATION\n1.4\nExport luck card\nDistribution\n\nProbability mass (area) and cumulative probability (line) over attempts, with the 50/90/99% marks.\n\n50%90%99%136810attempts\nWhat's \"bad luck protection\", and why doesn't simple mode have it?"
+      },
+      {
+        "field": "k",
+        "value": "",
+        "pending": {
+          "shareDisabled": false,
+          "card": true,
+          "stats": 6
+        },
+        "displayed": "",
+        "ariaInvalid": null,
+        "shareEnabled": true,
+        "copied": "?mode=simple&rate=0.5&n=4&k=1&got=1",
+        "card": 1,
+        "stats": 6,
+        "text": "Your luck\n\nBased on the negative-binomial distribution for 1 success at 1 in 2 odds.\n\nUnlucky\n\n87.5% of players would have gotten it sooner.\n\nFinished sooner\n87.5%\nSame attempt\n6.3%\nTook longer\n6.3%\nUNLUCKY\nAVERAGE\nLUCKY\nUNCOMMON BAD LUCK\nbased on 4 attempts at 1 in 2 (50%) odds needing 1 copy\n\nThe outlined band includes ties. Rarity counts outcomes at least as extreme as yours, including same-attempt finishes.\n\nP(AT LEAST 1 BY 4)\n93.75%\nEXPECTED ATTEMPTS\n2\n50% BY\n1\n90% BY\n4\n99% BY\n7\nSTD. DEVIATION\n1.4\nExport luck card\nDistribution\n\nProbability mass (area) and cumulative probability (line) over attempts, with the 50/90/99% marks.\n\n50%90%99%136810attempts\nWhat's \"bad luck protection\", and why doesn't simple mode have it?"
+      },
+      {
+        "field": "k",
+        "value": "9007199254740992",
+        "pending": {
+          "shareDisabled": false,
+          "card": true,
+          "stats": 6
+        },
+        "displayed": "9007199254740992",
+        "ariaInvalid": null,
+        "shareEnabled": true,
+        "copied": "?mode=simple&rate=0.5&n=4&k=9007199254740992&got=1",
+        "card": 0,
+        "stats": 0,
+        "text": "Copies must be a positive safe integer."
+      },
+      {
+        "field": "rate",
+        "value": "",
+        "pending": {
+          "shareDisabled": false,
+          "card": true,
+          "stats": 6
+        },
+        "displayed": "",
+        "ariaInvalid": "true",
+        "shareEnabled": true,
+        "copied": "?mode=simple&rate=&n=4&k=1&got=1",
+        "card": 0,
+        "stats": 0,
+        "text": "Fix the rate above to see results."
+      },
+      {
+        "field": "rate",
+        "value": "nonsense",
+        "pending": {
+          "shareDisabled": false,
+          "card": true,
+          "stats": 6
+        },
+        "displayed": "nonsense",
+        "ariaInvalid": "true",
+        "shareEnabled": true,
+        "copied": "?mode=simple&rate=nonsense&n=4&k=1&got=1",
+        "card": 0,
+        "stats": 0,
+        "text": "Fix the rate above to see results."
+      },
+      {
+        "field": "rate",
+        "value": "120%",
+        "pending": {
+          "shareDisabled": false,
+          "card": true,
+          "stats": 6
+        },
+        "displayed": "120%",
+        "ariaInvalid": "true",
+        "shareEnabled": true,
+        "copied": "?mode=simple&rate=120%25&n=4&k=1&got=1",
+        "card": 0,
+        "stats": 0,
+        "text": "Fix the rate above to see results."
+      },
+      {
+        "field": "rate",
+        "value": "1/100000000000000000",
+        "pending": {
+          "shareDisabled": false,
+          "card": true,
+          "stats": 6
+        },
+        "displayed": "1/100000000000000000",
+        "ariaInvalid": null,
+        "shareEnabled": true,
+        "copied": "?mode=simple&rate=1%2F100000000000000000&n=4&k=1&got=1",
+        "card": 0,
+        "stats": 0,
+        "text": "This confidence level needs more than 1,000,000,000,000,000 attempts, the calculation limit. Increase the rate or reduce the number of copies."
+      }
+    ],
+    "valid": [
+      {
+        "input": {
+          "rate": "0.5",
+          "n": "4",
+          "k": "1",
+          "got": true
+        },
+        "copied": "?mode=simple&rate=0.5&n=4&k=1&got=1",
+        "text": "Your luck\n\nBased on the negative-binomial distribution for 1 success at 1 in 2 odds.\n\nUnlucky\n\n87.5% of players would have gotten it sooner.\n\nFinished sooner\n87.5%\nSame attempt\n6.3%\nTook longer\n6.3%\nUNLUCKY\nAVERAGE\nLUCKY\nUNCOMMON BAD LUCK\nbased on 4 attempts at 1 in 2 (50%) odds needing 1 copy\n\nThe outlined band includes ties. Rarity counts outcomes at least as extreme as yours, including same-attempt finishes.\n\nP(AT LEAST 1 BY 4)\n93.75%\nEXPECTED ATTEMPTS\n2\n50% BY\n1\n90% BY\n4\n99% BY\n7\nSTD. DEVIATION\n1.4\nExport luck card\nDistribution\n\nProbability mass (area) and cumulative probability (line) over attempts, with the 50/90/99% marks.\n\n50%90%99%136810attempts\nWhat's \"bad luck protection\", and why doesn't simple mode have it?",
+        "chart": {
+          "bytes": 2217,
+          "sha256": "5093f972f85ea117eb1f118211f13df89ca0eebdfb3808d13a4ec66a58b2141e"
+        },
+        "cardText": [
+          "AM I UNLUCKY?",
+          "SIMPLE DROP",
+          "UNCOMMON",
+          "87.5%",
+          "FINISHED SOONER",
+          "6.3%",
+          "SAME ATTEMPT",
+          "6.3%",
+          "TOOK LONGER",
+          "UNLUCKY",
+          "Took 4 attempts at 1 in 2 odds for 1 copy.",
+          "uncommon bad luck",
+          "P(at least 1 by 4) = 93.75%. Expected 2 attempts.",
+          "am-i-unlucky — exact drop-rate & pity math"
+        ],
+        "png": {
+          "bytes": 224808,
+          "sha256": "236b7d842457245269d243f65b1411b20d7f3b86b37ae8ca0fede7271669c564",
+          "chunks": [
+            {
+              "type": "IHDR",
+              "count": 1,
+              "bytes": 13,
+              "sha256": "547efe46ab9438e75467c4560cf6b782dd4ff5a2a8a9f8038797b25082faa94c"
+            },
+            {
+              "type": "IDAT",
+              "count": 28,
+              "bytes": 224399,
+              "sha256": "85693a18258573930aac7fa616065b2143f2ceb6ba8bc5626b27ae8960e002d7"
+            },
+            {
+              "type": "deBG",
+              "count": 1,
+              "bytes": 16,
+              "sha256": "8f3f1d0094de5e8369af7113e38f01f87d9503fcc8d20a0f1e6827c9c6d7cf76"
+            },
+            {
+              "type": "IEND",
+              "count": 1,
+              "bytes": 0,
+              "sha256": "cd372fb85148700fa88095e3492d3f9f5beb43e555e5ff26d95f5a6adc36f8e6"
+            }
+          ],
+          "width": 1080,
+          "height": 1350
+        }
+      },
+      {
+        "input": {
+          "rate": "0.5",
+          "n": "0",
+          "k": "1",
+          "got": false
+        },
+        "copied": "?mode=simple&rate=0.5&n=0&k=1&got=0",
+        "text": "Your luck\n\nBased on the negative-binomial distribution for 1 success at 1 in 2 odds.\n\nEnter at least 1 attempt to see your luck percentile.\n\nP(AT LEAST 1 BY 0)\n0%\nEXPECTED ATTEMPTS\n2\n50% BY\n1\n90% BY\n4\n99% BY\n7\nSTD. DEVIATION\n1.4\nDistribution\n\nProbability mass (area) and cumulative probability (line) over attempts, with the 50/90/99% marks.\n\n50%90%99%136810attempts\nWhat's \"bad luck protection\", and why doesn't simple mode have it?",
+        "chart": {
+          "bytes": 2217,
+          "sha256": "5093f972f85ea117eb1f118211f13df89ca0eebdfb3808d13a4ec66a58b2141e"
+        }
+      },
+      {
+        "input": {
+          "rate": "0.5",
+          "n": "1",
+          "k": "1",
+          "got": true
+        },
+        "copied": "?mode=simple&rate=0.5&n=1&k=1&got=1",
+        "text": "Your luck\n\nBased on the negative-binomial distribution for 1 success at 1 in 2 odds.\n\nAbout average\n\nSame-attempt finishes are ties, not faster or slower outcomes.\n\nFinished sooner\n0%\nSame attempt\n50%\nTook longer\n50%\nUNLUCKY\nAVERAGE\nLUCKY\nCOMMON\nbased on 1 attempt at 1 in 2 (50%) odds needing 1 copy\n\nThe outlined band includes ties. Rarity counts outcomes at least as extreme as yours, including same-attempt finishes.\n\nP(AT LEAST 1 BY 1)\n50%\nEXPECTED ATTEMPTS\n2\n50% BY\n1\n90% BY\n4\n99% BY\n7\nSTD. DEVIATION\n1.4\nExport luck card\nDistribution\n\nProbability mass (area) and cumulative probability (line) over attempts, with the 50/90/99% marks.\n\n50%90%99%136810attempts\nWhat's \"bad luck protection\", and why doesn't simple mode have it?",
+        "chart": {
+          "bytes": 2217,
+          "sha256": "5093f972f85ea117eb1f118211f13df89ca0eebdfb3808d13a4ec66a58b2141e"
+        },
+        "cardText": [
+          "AM I UNLUCKY?",
+          "SIMPLE DROP",
+          "COMMON",
+          "0%",
+          "FINISHED SOONER",
+          "50%",
+          "SAME ATTEMPT",
+          "50%",
+          "TOOK LONGER",
+          "ABOUT AVERAGE",
+          "Took 1 attempt at 1 in 2 odds for 1 copy.",
+          "common",
+          "P(at least 1 by 1) = 50%. Expected 2 attempts.",
+          "am-i-unlucky — exact drop-rate & pity math"
+        ],
+        "png": {
+          "bytes": 348067,
+          "sha256": "6fc3f577f673db1b14886fe58759e79aecbb9dfcd2d2c465534aa13c51ef0d36",
+          "chunks": [
+            {
+              "type": "IHDR",
+              "count": 1,
+              "bytes": 13,
+              "sha256": "547efe46ab9438e75467c4560cf6b782dd4ff5a2a8a9f8038797b25082faa94c"
+            },
+            {
+              "type": "IDAT",
+              "count": 43,
+              "bytes": 347478,
+              "sha256": "126bea63b63650649d5027a8193345ae24ba1ce65df17c9390cd77d2279d30f4"
+            },
+            {
+              "type": "deBG",
+              "count": 1,
+              "bytes": 16,
+              "sha256": "77c5c7e559561a4c711f936d151e84ec7c1dfa18d42be64cc5c526e1e3428e49"
+            },
+            {
+              "type": "IEND",
+              "count": 1,
+              "bytes": 0,
+              "sha256": "cd372fb85148700fa88095e3492d3f9f5beb43e555e5ff26d95f5a6adc36f8e6"
+            }
+          ],
+          "width": 1080,
+          "height": 1350
+        }
+      },
+      {
+        "input": {
+          "rate": "0.5",
+          "n": "2",
+          "k": "1",
+          "got": true
+        },
+        "copied": "?mode=simple&rate=0.5&n=2&k=1&got=1",
+        "text": "Your luck\n\nBased on the negative-binomial distribution for 1 success at 1 in 2 odds.\n\nAbout average\n\nSame-attempt finishes are ties, not faster or slower outcomes.\n\nFinished sooner\n50%\nSame attempt\n25%\nTook longer\n25%\nUNLUCKY\nAVERAGE\nLUCKY\nCOMMON\nbased on 2 attempts at 1 in 2 (50%) odds needing 1 copy\n\nThe outlined band includes ties. Rarity counts outcomes at least as extreme as yours, including same-attempt finishes.\n\nP(AT LEAST 1 BY 2)\n75%\nEXPECTED ATTEMPTS\n2\n50% BY\n1\n90% BY\n4\n99% BY\n7\nSTD. DEVIATION\n1.4\nExport luck card\nDistribution\n\nProbability mass (area) and cumulative probability (line) over attempts, with the 50/90/99% marks.\n\n50%90%99%136810attempts\nWhat's \"bad luck protection\", and why doesn't simple mode have it?",
+        "chart": {
+          "bytes": 2217,
+          "sha256": "5093f972f85ea117eb1f118211f13df89ca0eebdfb3808d13a4ec66a58b2141e"
+        },
+        "cardText": [
+          "AM I UNLUCKY?",
+          "SIMPLE DROP",
+          "COMMON",
+          "50%",
+          "FINISHED SOONER",
+          "25%",
+          "SAME ATTEMPT",
+          "25%",
+          "TOOK LONGER",
+          "ABOUT AVERAGE",
+          "Took 2 attempts at 1 in 2 odds for 1 copy.",
+          "common",
+          "P(at least 1 by 2) = 75%. Expected 2 attempts.",
+          "am-i-unlucky — exact drop-rate & pity math"
+        ],
+        "png": {
+          "bytes": 348970,
+          "sha256": "057e1b13d2264c5f01030c75a0f9449b7a7c9ece6ef5af148f32cd9102b1d44d",
+          "chunks": [
+            {
+              "type": "IHDR",
+              "count": 1,
+              "bytes": 13,
+              "sha256": "547efe46ab9438e75467c4560cf6b782dd4ff5a2a8a9f8038797b25082faa94c"
+            },
+            {
+              "type": "IDAT",
+              "count": 43,
+              "bytes": 348381,
+              "sha256": "9944e8b1f666571de3b9cf627f126e7fb6bc32ec0269c7d78b681fa4d02e16b3"
+            },
+            {
+              "type": "deBG",
+              "count": 1,
+              "bytes": 16,
+              "sha256": "59788f005c1d934aa24d3f86fb9282bd27724acbd8d4e280aa8488b13aeec5c7"
+            },
+            {
+              "type": "IEND",
+              "count": 1,
+              "bytes": 0,
+              "sha256": "cd372fb85148700fa88095e3492d3f9f5beb43e555e5ff26d95f5a6adc36f8e6"
+            }
+          ],
+          "width": 1080,
+          "height": 1350
+        }
+      },
+      {
+        "input": {
+          "rate": "0.5",
+          "n": "3",
+          "k": "1",
+          "got": true
+        },
+        "copied": "?mode=simple&rate=0.5&n=3&k=1&got=1",
+        "text": "Your luck\n\nBased on the negative-binomial distribution for 1 success at 1 in 2 odds.\n\nUnlucky\n\n75% of players would have gotten it sooner.\n\nFinished sooner\n75%\nSame attempt\n12.5%\nTook longer\n12.5%\nUNLUCKY\nAVERAGE\nLUCKY\nCOMMON\nbased on 3 attempts at 1 in 2 (50%) odds needing 1 copy\n\nThe outlined band includes ties. Rarity counts outcomes at least as extreme as yours, including same-attempt finishes.\n\nP(AT LEAST 1 BY 3)\n87.5%\nEXPECTED ATTEMPTS\n2\n50% BY\n1\n90% BY\n4\n99% BY\n7\nSTD. DEVIATION\n1.4\nExport luck card\nDistribution\n\nProbability mass (area) and cumulative probability (line) over attempts, with the 50/90/99% marks.\n\n50%90%99%136810attempts\nWhat's \"bad luck protection\", and why doesn't simple mode have it?",
+        "chart": {
+          "bytes": 2217,
+          "sha256": "5093f972f85ea117eb1f118211f13df89ca0eebdfb3808d13a4ec66a58b2141e"
+        },
+        "cardText": [
+          "AM I UNLUCKY?",
+          "SIMPLE DROP",
+          "COMMON",
+          "75%",
+          "FINISHED SOONER",
+          "12.5%",
+          "SAME ATTEMPT",
+          "12.5%",
+          "TOOK LONGER",
+          "UNLUCKY",
+          "Took 3 attempts at 1 in 2 odds for 1 copy.",
+          "common",
+          "P(at least 1 by 3) = 87.5%. Expected 2 attempts.",
+          "am-i-unlucky — exact drop-rate & pity math"
+        ],
+        "png": {
+          "bytes": 347220,
+          "sha256": "4432861dd61337f0135d188ccc6c2a8c052dc27d9e92324f2741e2825305db9c",
+          "chunks": [
+            {
+              "type": "IHDR",
+              "count": 1,
+              "bytes": 13,
+              "sha256": "547efe46ab9438e75467c4560cf6b782dd4ff5a2a8a9f8038797b25082faa94c"
+            },
+            {
+              "type": "IDAT",
+              "count": 43,
+              "bytes": 346631,
+              "sha256": "7405a8943ec49c601a7c8c41a483ae2d46ae95f3615d670227c82454f986931e"
+            },
+            {
+              "type": "deBG",
+              "count": 1,
+              "bytes": 16,
+              "sha256": "195c4183c0231c9a256bc352b01729d22cef11a1fa50daf2b650658f64f51945"
+            },
+            {
+              "type": "IEND",
+              "count": 1,
+              "bytes": 0,
+              "sha256": "cd372fb85148700fa88095e3492d3f9f5beb43e555e5ff26d95f5a6adc36f8e6"
+            }
+          ],
+          "width": 1080,
+          "height": 1350
+        }
+      },
+      {
+        "input": {
+          "rate": "0.5",
+          "n": "4",
+          "k": "2",
+          "got": true
+        },
+        "copied": "?mode=simple&rate=0.5&n=4&k=2&got=1",
+        "text": "Your luck\n\nBased on the negative-binomial distribution for 2 successes at 1 in 2 odds.\n\nAbout average\n\nSame-attempt finishes are ties, not faster or slower outcomes.\n\nFinished sooner\n50%\nSame attempt\n18.8%\nTook longer\n31.3%\nUNLUCKY\nAVERAGE\nLUCKY\nCOMMON\nbased on 4 attempts at 1 in 2 (50%) odds needing 2 copies\n\nThe outlined band includes ties. Rarity counts outcomes at least as extreme as yours, including same-attempt finishes.\n\nP(AT LEAST 2 BY 4)\n68.75%\nEXPECTED ATTEMPTS\n4\n50% BY\n3\n90% BY\n7\n99% BY\n11\nSTD. DEVIATION\n2\nExport luck card\nDistribution\n\nProbability mass (area) and cumulative probability (line) over attempts, with the 50/90/99% marks.\n\n50%90%99%2581114attempts\nWhat's \"bad luck protection\", and why doesn't simple mode have it?",
+        "chart": {
+          "bytes": 2314,
+          "sha256": "c1470e17e0c3688f32f1fdc3377823ef279baa178ee01c0e4dd697ad54eec7df"
+        },
+        "cardText": [
+          "AM I UNLUCKY?",
+          "SIMPLE DROP",
+          "COMMON",
+          "50%",
+          "FINISHED SOONER",
+          "18.8%",
+          "SAME ATTEMPT",
+          "31.3%",
+          "TOOK LONGER",
+          "ABOUT AVERAGE",
+          "Took 4 attempts at 1 in 2 odds for 2 copies.",
+          "common",
+          "P(at least 2 by 4) = 68.75%. Expected 4 attempts.",
+          "am-i-unlucky — exact drop-rate & pity math"
+        ],
+        "png": {
+          "bytes": 353127,
+          "sha256": "d047fafa740fdee4b6767ec2028b074c209e2bf153a4b365488e130938dbf972",
+          "chunks": [
+            {
+              "type": "IHDR",
+              "count": 1,
+              "bytes": 13,
+              "sha256": "547efe46ab9438e75467c4560cf6b782dd4ff5a2a8a9f8038797b25082faa94c"
+            },
+            {
+              "type": "IDAT",
+              "count": 44,
+              "bytes": 352526,
+              "sha256": "f60aea8a8021bf1b1e92ab0047d7600b88df0a613b35193dc3ca183d39d13cf1"
+            },
+            {
+              "type": "deBG",
+              "count": 1,
+              "bytes": 16,
+              "sha256": "d35e731d16658e8657046f96652e0cca8ad88e17df64376a42097174fff6a8cb"
+            },
+            {
+              "type": "IEND",
+              "count": 1,
+              "bytes": 0,
+              "sha256": "cd372fb85148700fa88095e3492d3f9f5beb43e555e5ff26d95f5a6adc36f8e6"
+            }
+          ],
+          "width": 1080,
+          "height": 1350
+        }
+      },
+      {
+        "input": {
+          "rate": "0.5",
+          "n": "4",
+          "k": "2",
+          "got": false
+        },
+        "copied": "?mode=simple&rate=0.5&n=4&k=2&got=0",
+        "text": "Your luck\n\nBased on the negative-binomial distribution for 2 successes at 1 in 2 odds.\n\nUnlucky\n\n68.8% of players would have it by now.\n\nFinished by now\n68.8%\nStill waiting too\n31.3%\nUNLUCKY\nAVERAGE\nLUCKY\nCOMMON\nstill waiting after 4 attempts at 1 in 2 (50%) odds, needing 2 copies\n\nThis compares the wait so far; it does not assume the drop arrives on the next attempt.\n\nP(AT LEAST 2 BY 4)\n68.75%\nEXPECTED ATTEMPTS\n4\n50% BY\n3\n90% BY\n7\n99% BY\n11\nSTD. DEVIATION\n2\nExport luck card\nDistribution\n\nProbability mass (area) and cumulative probability (line) over attempts, with the 50/90/99% marks.\n\n50%90%99%2581114attempts\nWhat's \"bad luck protection\", and why doesn't simple mode have it?",
+        "chart": {
+          "bytes": 2314,
+          "sha256": "c1470e17e0c3688f32f1fdc3377823ef279baa178ee01c0e4dd697ad54eec7df"
+        },
+        "cardText": [
+          "AM I UNLUCKY?",
+          "SIMPLE DROP",
+          "COMMON",
+          "68.8%",
+          "FINISHED BY NOW",
+          "31.3%",
+          "STILL WAITING TOO",
+          "UNLUCKY",
+          "4 attempts at 1 in 2 odds and still waiting for",
+          "copy 2.",
+          "common",
+          "P(at least 2 by 4) = 68.75%. Expected 4 attempts.",
+          "am-i-unlucky — exact drop-rate & pity math"
+        ],
+        "png": {
+          "bytes": 350813,
+          "sha256": "fcfda8a23fdf604188cbcd097029561bd2069777009d38aef0a846a2f5c4d048",
+          "chunks": [
+            {
+              "type": "IHDR",
+              "count": 1,
+              "bytes": 13,
+              "sha256": "547efe46ab9438e75467c4560cf6b782dd4ff5a2a8a9f8038797b25082faa94c"
+            },
+            {
+              "type": "IDAT",
+              "count": 43,
+              "bytes": 350224,
+              "sha256": "3c7c8dfd26a68cd4f0f07a961033caa9daafc5fb0411803b82b4706cfc2871e8"
+            },
+            {
+              "type": "deBG",
+              "count": 1,
+              "bytes": 16,
+              "sha256": "5391f2ca3852746482dfb219bf41a039d0ccc3c771c4555055e3969e4266965c"
+            },
+            {
+              "type": "IEND",
+              "count": 1,
+              "bytes": 0,
+              "sha256": "cd372fb85148700fa88095e3492d3f9f5beb43e555e5ff26d95f5a6adc36f8e6"
+            }
+          ],
+          "width": 1080,
+          "height": 1350
+        }
+      },
+      {
+        "input": {
+          "rate": "1/512",
+          "n": "900",
+          "k": "1",
+          "got": false
+        },
+        "copied": "?mode=simple&rate=1%2F512&n=900&k=1&got=0",
+        "text": "Your luck\n\nBased on the negative-binomial distribution for 1 success at 1 in 512 odds.\n\nUnlucky\n\n82.8% of players would have it by now.\n\nFinished by now\n82.8%\nStill waiting too\n17.2%\nUNLUCKY\nAVERAGE\nLUCKY\nUNCOMMON BAD LUCK\nstill waiting after 900 attempts at 1 in 512 (0.20%) odds, needing 1 copy\n\nThis compares the wait so far; it does not assume the drop arrives on the next attempt.\n\nP(AT LEAST 1 BY 900)\n82.79%\nEXPECTED ATTEMPTS\n512\n50% BY\n355\n90% BY\n1,178\n99% BY\n2,356\nSTD. DEVIATION\n511.5\nExport luck card\nDistribution\n\nProbability mass (area) and cumulative probability (line) over attempts, with the 50/90/99% marks.\n\n50%90%99%18811,7612,6403,520attempts\nWhat's \"bad luck protection\", and why doesn't simple mode have it?",
+        "chart": {
+          "bytes": 8326,
+          "sha256": "52b0b60322eb25677310837e65a1c3b1a9a502dee8cd3936769f7a14c6d6b576"
+        },
+        "cardText": [
+          "AM I UNLUCKY?",
+          "SIMPLE DROP",
+          "UNCOMMON",
+          "82.8%",
+          "FINISHED BY NOW",
+          "17.2%",
+          "STILL WAITING TOO",
+          "UNLUCKY",
+          "900 attempts at 1 in 512 odds and still waiting",
+          "for it.",
+          "uncommon bad luck",
+          "P(at least 1 by 900) = 82.79%. Expected 512 attempts.",
+          "am-i-unlucky — exact drop-rate & pity math"
+        ],
+        "png": {
+          "bytes": 223835,
+          "sha256": "a222cf03fe012f938c13881f4cc076345d5035c536263697fa3cc2b01fafbf88",
+          "chunks": [
+            {
+              "type": "IHDR",
+              "count": 1,
+              "bytes": 13,
+              "sha256": "547efe46ab9438e75467c4560cf6b782dd4ff5a2a8a9f8038797b25082faa94c"
+            },
+            {
+              "type": "IDAT",
+              "count": 28,
+              "bytes": 223426,
+              "sha256": "28b1fae09f791e51fb2663932acb69b3cedd41e4e9dd15c9739cfe1f9a10778a"
+            },
+            {
+              "type": "deBG",
+              "count": 1,
+              "bytes": 16,
+              "sha256": "1753ae3441df5ead8fc0afa0c523ccb2e71959e2425a3b7a19c0cbc7a6ddab5d"
+            },
+            {
+              "type": "IEND",
+              "count": 1,
+              "bytes": 0,
+              "sha256": "cd372fb85148700fa88095e3492d3f9f5beb43e555e5ff26d95f5a6adc36f8e6"
+            }
+          ],
+          "width": 1080,
+          "height": 1350
+        }
+      },
+      {
+        "input": {
+          "rate": "0",
+          "n": "4",
+          "k": "1",
+          "got": false
+        },
+        "copied": "?mode=simple&rate=0&n=4&k=1&got=0",
+        "text": "Your luck\n\nBased on the negative-binomial distribution for 1 success at never odds.\n\nA 0% rate never succeeds, no matter how many attempts you make — there's no meaningful luck percentile here.\n\nP(AT LEAST 1 BY 4)\n0%\nEXPECTED ATTEMPTS\n∞\n50% BY\n∞\n90% BY\n∞\n99% BY\n∞\nSTD. DEVIATION\n∞\nDistribution\n\nProbability mass (area) and cumulative probability (line) over attempts, with the 50/90/99% marks.\n\nNot enough data to chart yet.\n\nWhat's \"bad luck protection\", and why doesn't simple mode have it?",
+        "chart": null
+      },
+      {
+        "input": {
+          "rate": "1",
+          "n": "1",
+          "k": "1",
+          "got": true
+        },
+        "copied": "?mode=simple&rate=1&n=1&k=1&got=1",
+        "text": "Your luck\n\nBased on the negative-binomial distribution for 1 success at always odds.\n\nAt a 100% rate, copy 1 always arrives on attempt 1. Every player gets the same result, so there is no luck variation.\n\nP(AT LEAST 1 BY 1)\n100%\nEXPECTED ATTEMPTS\n1\n50% BY\n1\n90% BY\n1\n99% BY\n1\nSTD. DEVIATION\n0\nDistribution\n\nProbability mass (area) and cumulative probability (line) over attempts, with the 50/90/99% marks.\n\nNot enough data to chart yet.\n\nWhat's \"bad luck protection\", and why doesn't simple mode have it?",
+        "chart": null
+      },
+      {
+        "input": {
+          "rate": "0.5",
+          "n": "4e0",
+          "k": "2.0",
+          "got": true
+        },
+        "copied": "?mode=simple&rate=0.5&n=4&k=2&got=1",
+        "text": "Your luck\n\nBased on the negative-binomial distribution for 2 successes at 1 in 2 odds.\n\nAbout average\n\nSame-attempt finishes are ties, not faster or slower outcomes.\n\nFinished sooner\n50%\nSame attempt\n18.8%\nTook longer\n31.3%\nUNLUCKY\nAVERAGE\nLUCKY\nCOMMON\nbased on 4 attempts at 1 in 2 (50%) odds needing 2 copies\n\nThe outlined band includes ties. Rarity counts outcomes at least as extreme as yours, including same-attempt finishes.\n\nP(AT LEAST 2 BY 4)\n68.75%\nEXPECTED ATTEMPTS\n4\n50% BY\n3\n90% BY\n7\n99% BY\n11\nSTD. DEVIATION\n2\nExport luck card\nDistribution\n\nProbability mass (area) and cumulative probability (line) over attempts, with the 50/90/99% marks.\n\n50%90%99%2581114attempts\nWhat's \"bad luck protection\", and why doesn't simple mode have it?",
+        "chart": {
+          "bytes": 2314,
+          "sha256": "c1470e17e0c3688f32f1fdc3377823ef279baa178ee01c0e4dd697ad54eec7df"
+        },
+        "cardText": [
+          "AM I UNLUCKY?",
+          "SIMPLE DROP",
+          "COMMON",
+          "50%",
+          "FINISHED SOONER",
+          "18.8%",
+          "SAME ATTEMPT",
+          "31.3%",
+          "TOOK LONGER",
+          "ABOUT AVERAGE",
+          "Took 4 attempts at 1 in 2 odds for 2 copies.",
+          "common",
+          "P(at least 2 by 4) = 68.75%. Expected 4 attempts.",
+          "am-i-unlucky — exact drop-rate & pity math"
+        ],
+        "png": {
+          "bytes": 353127,
+          "sha256": "d047fafa740fdee4b6767ec2028b074c209e2bf153a4b365488e130938dbf972",
+          "chunks": [
+            {
+              "type": "IHDR",
+              "count": 1,
+              "bytes": 13,
+              "sha256": "547efe46ab9438e75467c4560cf6b782dd4ff5a2a8a9f8038797b25082faa94c"
+            },
+            {
+              "type": "IDAT",
+              "count": 44,
+              "bytes": 352526,
+              "sha256": "f60aea8a8021bf1b1e92ab0047d7600b88df0a613b35193dc3ca183d39d13cf1"
+            },
+            {
+              "type": "deBG",
+              "count": 1,
+              "bytes": 16,
+              "sha256": "d35e731d16658e8657046f96652e0cca8ad88e17df64376a42097174fff6a8cb"
+            },
+            {
+              "type": "IEND",
+              "count": 1,
+              "bytes": 0,
+              "sha256": "cd372fb85148700fa88095e3492d3f9f5beb43e555e5ff26d95f5a6adc36f8e6"
+            }
+          ],
+          "width": 1080,
+          "height": 1350
+        }
+      }
+    ],
+    "errors": [],
+    "offlineRequests": []
+  }
+]

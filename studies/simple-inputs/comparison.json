@@ -1,0 +1,17 @@
+{
+  "invalidInputs": 48,
+  "calculationLimitControls": 4,
+  "validResultsUnchanged": 44,
+  "pngImageChunksUnchanged": 32,
+  "pngBytesUnchanged": 16,
+  "before": {
+    "shareEnabled": 48,
+    "stats": 28,
+    "card": 20
+  },
+  "after": {
+    "shareEnabled": 0,
+    "stats": 0,
+    "card": 0
+  }
+}

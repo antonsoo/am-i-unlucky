@@ -150,6 +150,11 @@ stateDiagram-v2
 
 ## Accuracy and limitations
 
+- Simple mode requires whole counts: attempts start at 0, copies at 1. Invalid
+  counts stay visible for correction and cannot produce a result, card or share
+  link; editing any input removes the previous card immediately. Valid settings
+  remain immediately shareable. [Browser reproduction and before/after checks](studies/simple-inputs/README.md)
+  cover the source correction; the hosted demo has not received this update.
 - Simple-mode milestone and chart searches stop at 1,000,000,000,000,000 attempts.
   A result beyond that range shows a calculation-limit message; it does not mean
   the drop is impossible. Counts must be safe integers. This prevents very small

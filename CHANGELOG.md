@@ -9,6 +9,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- Reject fractional, negative, missing and unsafe simple-mode counts instead of
+  silently flooring or replacing them. Preserve invalid drafts across mode
+  changes, associate errors with their fields, and disable invalid sharing.
+  Retire old results and cards on each edit while keeping valid settings
+  immediately shareable.
 - Compare completed runs with strictly earlier, same-attempt and later outcomes.
   First-try common drops and tied guarantee finishes no longer become false
   unlucky or legendary results. Rarity includes ties; the meter shows their
