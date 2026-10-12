@@ -6,15 +6,32 @@ import {
   type LuckTier,
 } from "../math/tiers.js";
 
+import type { LuckObservation } from "../math/luck.js";
+import { comparisonRows, luckVerdict, meterPercentile } from "./verdict.js";
+
 export interface LuckCardData {
   headline: string;
-  percentile: number;
+  observation: LuckObservation;
   modeLabel: string;
   detail: string;
 }
 
 const W = 1080;
 const H = 1350;
+
+let fontsReady: Promise<void> | undefined;
+
+/** Request the card faces during page load, before a later offline export. */
+export function prepareLuckCardFonts(): Promise<void> {
+  fontsReady ??= Promise.allSettled(
+    [
+      "800 64px 'Bricolage Grotesque'",
+      "600 78px 'IBM Plex Mono'",
+      "400 42px 'IBM Plex Sans'",
+    ].map((font) => document.fonts.load(font, "Aa09%.,/<>—")),
+  ).then(() => undefined); // Failed faces use fallback after every load has settled.
+  return fontsReady;
+}
 
 const TIER_GLOW: Record<LuckTier, string> = {
   common: "#3a3f55",
@@ -50,7 +67,15 @@ export function renderLuckCard(
   const ctx = canvas.getContext("2d");
   if (!ctx) return;
 
-  const { tier, direction } = classifyLuck(data.percentile);
+  canvas.setAttribute("role", "img");
+  canvas.setAttribute(
+    "aria-label",
+    `${data.headline} ${comparisonRows(data.observation)
+      .map((row) => `${row.label}: ${row.value}`)
+      .join(". ")}`,
+  );
+
+  const { tier, direction } = classifyLuck(meterPercentile(data.observation));
   const tierColor = TIER_COLORS[tier];
   const glow = TIER_GLOW[tier];
 
@@ -82,7 +107,7 @@ export function renderLuckCard(
   ctx.textAlign = "center";
   ctx.fillText("AM I UNLUCKY?", W / 2, 160);
   ctx.fillStyle = "#848aad";
-  ctx.font = "500 26px 'IBM Plex Mono', monospace";
+  ctx.font = "600 26px 'IBM Plex Mono', monospace";
   ctx.fillText(data.modeLabel.toUpperCase(), W / 2, 200);
 
   // Tier badge.
@@ -90,14 +115,29 @@ export function renderLuckCard(
   ctx.fillStyle = tierColor;
   ctx.fillText(tier.toUpperCase(), W / 2, 330);
 
-  // Big percentile number.
-  ctx.font = "700 220px 'IBM Plex Mono', monospace";
-  ctx.fillStyle = "#f5f6fb";
-  const numberText = `${Math.round(data.percentile)}%`;
-  ctx.fillText(numberText, W / 2, 620);
+  // A completed run has three disjoint outcomes. A censored run has two.
+  // Never promote the strict-later share to a unique rank among tied players.
+  const rows = comparisonRows(data.observation);
+  const column = (W - 120) / rows.length;
+  rows.forEach((row, index) => {
+    const x = 60 + column * (index + 0.5);
+    ctx.font = "600 78px 'IBM Plex Mono', monospace";
+    ctx.fillStyle = "#f5f6fb";
+    ctx.fillText(row.value, x, 555, column - 20);
+    ctx.font = "600 22px 'IBM Plex Mono', monospace";
+    ctx.fillStyle = "#aab0d6";
+    ctx.fillText(row.label.toUpperCase(), x, 610, column - 12);
+  });
+  ctx.font = "600 30px 'IBM Plex Mono', monospace";
+  ctx.fillStyle = "#aab0d6";
+  ctx.fillText(
+    luckVerdict(data.observation).headline.toUpperCase(),
+    W / 2,
+    680,
+  );
 
   // Headline sentence.
-  ctx.font = "500 42px 'IBM Plex Sans', sans-serif";
+  ctx.font = "400 42px 'IBM Plex Sans', sans-serif";
   ctx.fillStyle = "#edeffb";
   wrapText(ctx, data.headline, W / 2, 760, W - 200, 52);
 
@@ -114,7 +154,7 @@ export function renderLuckCard(
   wrapText(ctx, data.detail, W / 2, 1010, W - 220, 38);
 
   // Footer.
-  ctx.font = "500 26px 'IBM Plex Mono', monospace";
+  ctx.font = "600 26px 'IBM Plex Mono', monospace";
   ctx.fillStyle = "#565b78";
   ctx.fillText("am-i-unlucky — exact drop-rate & pity math", W / 2, H - 90);
 }

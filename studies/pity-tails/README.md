@@ -16,16 +16,16 @@ Every pull reaches the item tier, then independently has a 1-in-10,000 chance
 of being featured. This is exactly a geometric distribution; no game data,
 simulation, or fitted estimate is needed to check it.
 
-| Quantity | Previous output | Corrected source | Independent full answer |
-| --- | --- | --- | --- |
-| Expected additional pulls | 902.3 | 10,000 | 1/p = 10,000 |
-| Standard deviation | 1,253.3 | 9,999.5 | sqrt(1-p)/p |
-| 50% milestone | 5,000 | >5,000; not yet calculated | 6,932 |
-| 90% milestone | 5,000 | >5,000; not yet calculated | 23,025 |
-| 99% milestone | 5,000 | >5,000; not yet calculated | 46,050 |
-| Success within 100,000 | 39.35% | Not calculated | 99.9954623% |
-| History at 100,000 | "Lucky", 60.7th percentile | Not calculated; no luck-card export | Strictly-more percentile 0.0045377 |
-| Success within 5,000 | 39.35% | 39.35% | 1 - (1-p)^5000 |
+| Quantity                  | Previous output            | Corrected source                    | Independent full answer            |
+| ------------------------- | -------------------------- | ----------------------------------- | ---------------------------------- |
+| Expected additional pulls | 902.3                      | 10,000                              | 1/p = 10,000                       |
+| Standard deviation        | 1,253.3                    | 9,999.5                             | sqrt(1-p)/p                        |
+| 50% milestone             | 5,000                      | >5,000; not yet calculated          | 6,932                              |
+| 90% milestone             | 5,000                      | >5,000; not yet calculated          | 23,025                             |
+| 99% milestone             | 5,000                      | >5,000; not yet calculated          | 46,050                             |
+| Success within 100,000    | 39.35%                     | Not calculated                      | 99.9954623%                        |
+| History at 100,000        | "Lucky", 60.7th percentile | Not calculated; no luck-card export | Strictly-more percentile 0.0045377 |
+| Success within 5,000      | 39.35%                     | 39.35%                              | 1 - (1-p)^5000                     |
 
 The positive tail after 5,000 is **60.65154956%**. The corrected calculator
 reports what its finite DP actually established. It does not extrapolate later

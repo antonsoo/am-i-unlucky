@@ -227,8 +227,8 @@ export function mountPityMode(
       return;
     }
     if (controller.signal.aborted) return;
-    const { withinBudget, historyPercentile, points } = plan;
-    const canRateHistory = historyPercentile !== null && plan.stdDevPulls !== 0;
+    const { withinBudget, historyComparison, points } = plan;
+    const canRateHistory = historyComparison !== null && plan.stdDevPulls !== 0;
     const milestone = (value: number | null) =>
       value === null
         ? `>${fmtInt(plan.horizon)}`
@@ -256,7 +256,7 @@ export function mountPityMode(
     const luckHtml =
       plan.stdDevPulls === 0
         ? `<p class="note">Completion is fixed at ${fmtInt(plan.expectedPulls)} pulls; there is no luck variation under these settings.</p>`
-        : historyPercentile === null
+        : historyComparison === null
           ? `<p class="note">${
               plan.impossible
                 ? "The featured item cannot drop with a 0% featured rate and no guarantee."
@@ -267,14 +267,14 @@ export function mountPityMode(
                     : "That completion time has no recorded probability under these settings; check your history and starting pity."
             }</p>`
           : renderLuckMeter(
-              historyPercentile,
-              `based on ${fmtInt(actualPulls)} pulls chasing ${target} cop${target === 1 ? "y" : "ies"}`,
+              historyComparison,
+              `based on ${fmtInt(actualPulls)} pull${actualPulls === 1 ? "" : "s"} chasing ${target} cop${target === 1 ? "y" : "ies"}`,
             );
 
     resultsEl.innerHTML = `
       <section class="panel">
         <h2 class="panel-title">How lucky was my history?</h2>
-        <p class="panel-subtitle">For additional pulls from the starting pity counter above. The percentile is the share of players taking strictly more pulls; ties are excluded.${tableLabel ? ` Exact for the table in use; the table itself is measured and carries sampling error and bias: ${esc(tableLabel)}.` : ""}</p>
+        <p class="panel-subtitle">For additional pulls from the starting pity counter above. Players who finish on the same pull are shown separately from those who finish earlier or later.${tableLabel ? ` Exact for the table in use; the table itself is measured and carries sampling error and bias: ${esc(tableLabel)}.` : ""}</p>
         ${luckHtml}
         <div class="stat-grid">
           <div class="stat-tile">
@@ -326,15 +326,15 @@ export function mountPityMode(
     exportBtn?.addEventListener("click", () => {
       if (
         !canRateHistory ||
-        historyPercentile === null ||
+        historyComparison === null ||
         controller.signal.aborted
       )
         return;
       ctx.openLuckCard({
-        headline: `Took ${fmtInt(actualPulls)} pulls for ${target} cop${target === 1 ? "y" : "ies"} under pity.`,
-        percentile: historyPercentile,
+        headline: `Took ${fmtInt(actualPulls)} pull${actualPulls === 1 ? "" : "s"} for ${target} cop${target === 1 ? "y" : "ies"} under pity.`,
+        observation: historyComparison,
         modeLabel: tableLabel ? "Pity system, community data" : "Pity system",
-        detail: `Expected ${fmtNum(plan.expectedPulls, 0)} pulls. P(success within ${fmtInt(budget)}) = ${budgetText}.${tableLabel ? ` Rates: ${tableLabel}.` : ""}`,
+        detail: `Expected ${fmtNum(plan.expectedPulls, 1)} pulls. P(success within ${fmtInt(budget)}) = ${budgetText}.${tableLabel ? ` Rates: ${tableLabel}.` : ""}`,
       });
     });
 

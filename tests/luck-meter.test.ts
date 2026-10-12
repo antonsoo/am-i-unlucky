@@ -1,28 +1,26 @@
 import { describe, expect, it } from "vitest";
-import { luckPercentile } from "../src/math/simple.js";
+import {
+  simpleLuckComparison,
+  simpleWaitingComparison,
+} from "../src/math/simple.js";
 import { fmtNum, fmtOrdinal } from "../src/ui/format.js";
 import { renderLuckMeter } from "../src/ui/luck-meter.js";
 
-describe("renderLuckMeter for a player still waiting", () => {
-  it("reads the best case as the drop coming on the next attempt, not on the last one", () => {
-    // A coin-flip drop, still missing after 3 tries: 12.5% of players would need
-    // more than 3, but a drop on try 4 only beats the 6.25% who need more than 4.
-    const now = luckPercentile(3, 0.5, 1);
-    const next = luckPercentile(4, 0.5, 1);
-    expect(now).toBeCloseTo(12.5, 10);
-    expect(next).toBeCloseTo(6.25, 10);
-    const html = renderLuckMeter(now, "ctx", false, next);
-    expect(html).toContain(
-      "At best the 6.3rd percentile, if it comes on your next attempt",
-    );
-    expect(html).toContain("87.5% of players would have it by now.");
-    expect(html).toContain('style="left: 6.25%;"');
+describe("renderLuckMeter", () => {
+  it("shows all three disjoint outcomes instead of treating ties as faster players", () => {
+    const html = renderLuckMeter(simpleLuckComparison(1, 0.9, 1)!, "ctx");
+    expect(html).toContain("About average");
+    expect(html).toContain("Finished sooner</dt><dd>0%");
+    expect(html).toContain("Same attempt</dt><dd>90%");
+    expect(html).toContain("Took longer</dt><dd>10%");
+    expect(html).toContain("The outlined band includes ties");
+    expect(html).not.toContain("90% of players would have gotten it sooner");
   });
-
-  it("reads a finished run exactly as before", () => {
-    const html = renderLuckMeter(71, "ctx");
-    expect(html).toContain("71st percentile");
-    expect(html).toContain("You beat 71% of players.");
+  it("shows observed waiting, not a completed-rank claim", () => {
+    const html = renderLuckMeter(simpleWaitingComparison(3, 0.5, 1), "ctx");
+    expect(html).toContain("Still waiting too</dt><dd>12.5%");
+    expect(html).toContain("87.5% of players would have it by now.");
+    expect(html).not.toContain("At best");
   });
 });
 

@@ -12,6 +12,7 @@
  * upper bound when the guarantee mechanic is enabled.
  */
 import { clampProbability } from "./numeric.js";
+import type { CompletedLuck } from "./luck.js";
 
 export interface PityConfig {
   /** Base per-pull probability of an item-tier hit, before soft pity. */
@@ -362,7 +363,31 @@ export function summarizePity(dist: PityDistribution): PitySummary {
   };
 }
 
-/** "How lucky was my history": percentile among players given actual pulls used. */
+/** Three disjoint completion outcomes, including the unplotted live tail. */
+export function pityLuckComparison(
+  dist: PityDistribution,
+  actualPulls: number,
+): CompletedLuck | null {
+  if (!Number.isSafeInteger(actualPulls) || actualPulls < 1 || dist.impossible)
+    return null;
+  const tied = dist.pmf[actualPulls];
+  if (actualPulls > dist.horizon || tied === undefined || tied === 0)
+    return null;
+  let earlier = 0;
+  let later = dist.tailMass;
+  for (let t = 0; t < dist.pmf.length; t++) {
+    if (t < actualPulls) earlier += dist.pmf[t]!;
+    else if (t > actualPulls) later += dist.pmf[t]!;
+  }
+  return {
+    kind: "completed",
+    earlier: clampProbability(earlier),
+    tied,
+    later: clampProbability(later),
+  };
+}
+
+/** Strictly-later share, retained for callers; alone it cannot rate same-attempt ties. */
 export function pityLuckPercentile(
   dist: PityDistribution,
   actualPulls: number,

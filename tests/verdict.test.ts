@@ -1,74 +1,97 @@
 import { describe, expect, it } from "vitest";
+import {
+  simpleLuckComparison,
+  simpleWaitingComparison,
+} from "../src/math/simple.js";
+import { pityDistribution, pityLuckComparison } from "../src/math/pity.js";
+import { classifyLuck } from "../src/math/tiers.js";
 import { luckVerdict, meterPercentile } from "../src/ui/verdict.js";
 
-describe("luckVerdict", () => {
-  it("leads with 'Lucky' above the 60th percentile and states the percentile directly", () => {
-    const v = luckVerdict(71);
-    expect(v.headline).toBe("Lucky");
-    expect(v.detail).toBe("You beat 71% of players.");
+describe("completed runs with same-attempt ties", () => {
+  it("does not call first-try success unlucky at a common rate", () => {
+    const observation = simpleLuckComparison(1, 0.9, 1)!;
+    expect(observation.earlier).toBe(0);
+    expect(observation.tied).toBeCloseTo(0.9, 14);
+    expect(observation.later).toBeCloseTo(0.1, 14);
+    expect(luckVerdict(observation).headline).toBe("About average");
+    expect(meterPercentile(observation)).toBe(50);
+    expect(classifyLuck(meterPercentile(observation)).tier).toBe("common");
   });
 
-  it("leads with 'Unlucky' below the 40th percentile and states the complement", () => {
-    // 900 attempts at 1/512 odds for 1 copy lands at the 17.2nd percentile.
-    const v = luckVerdict(17.2);
-    expect(v.headline).toBe("Unlucky");
-    expect(v.detail).toBe("82.8% of players would have gotten it sooner.");
+  it("does not turn a 50/50 loss followed by its guarantee into legendary bad luck", () => {
+    const config = {
+      baseRate: 1,
+      hardPity: 1,
+      softPityStart: 1,
+      softPityIncrement: 0,
+      featuredRate: 0.5,
+      hasGuarantee: true,
+    };
+    const dist = pityDistribution(config, { pity: 0, guaranteed: false }, 1);
+    const observation = pityLuckComparison(dist, 2)!;
+    expect(observation).toEqual({
+      kind: "completed",
+      earlier: 0.5,
+      tied: 0.5,
+      later: 0,
+    });
+    expect(luckVerdict(observation).headline).toBe("About average");
+    expect(classifyLuck(meterPercentile(observation)).tier).toBe("common");
   });
 
-  it("is 'About average' in the middle band", () => {
-    const v = luckVerdict(50);
-    expect(v.headline).toBe("About average");
-    expect(v.detail).toBe("Right in the middle of the pack.");
+  it("only counts strictly faster players in a slow-run verdict", () => {
+    const observation = simpleLuckComparison(2, 0.9, 1)!;
+    expect(luckVerdict(observation)).toEqual({
+      headline: "Unlucky",
+      detail: "90% of players would have gotten it sooner.",
+      tone: "unlucky",
+    });
+    // Reaching at least attempt 2 has probability .1, including its .09 tie.
+    expect(classifyLuck(meterPercentile(observation)).tailPercent).toBeCloseTo(
+      10,
+      12,
+    );
   });
 
-  it("exposes a stable tone independent of which side of 50 it's on, for styling", () => {
-    // 41 is below the median (classifyLuck's direction would be "unlucky")
-    // but still within the verdict's wider "About average" band — the tone
-    // must follow the verdict's own band, not classifyLuck's, or the
-    // headline text and its color would disagree.
-    expect(luckVerdict(41).tone).toBe("average");
-    expect(luckVerdict(41).headline).toBe("About average");
-    expect(luckVerdict(71).tone).toBe("lucky");
-    expect(luckVerdict(17.2).tone).toBe("unlucky");
+  it("retains a lucky verdict for genuinely early rare drops", () => {
+    const observation = simpleLuckComparison(1, 0.01, 1)!;
+    expect(luckVerdict(observation)).toEqual({
+      headline: "Lucky",
+      detail: "99% of players would need more attempts than you.",
+      tone: "lucky",
+    });
+    expect(classifyLuck(meterPercentile(observation)).tailPercent).toBeCloseTo(
+      1,
+      12,
+    );
   });
 
-  it("the average band covers roughly the 40th-60th percentile, inclusive", () => {
-    expect(luckVerdict(40).headline).toBe("About average");
-    expect(luckVerdict(60).headline).toBe("About average");
-    expect(luckVerdict(39.9).headline).toBe("Unlucky");
-    expect(luckVerdict(60.1).headline).toBe("Lucky");
-  });
-
-  it("clamps out-of-range percentiles instead of producing nonsense text", () => {
-    expect(luckVerdict(150).headline).toBe("Lucky");
-    expect(luckVerdict(-10).headline).toBe("Unlucky");
+  it("does not rank impossible completed histories", () => {
+    for (const [n, p, k] of [
+      [0, 0.5, 1],
+      [1, 0.5, 2],
+      [3, 1, 2],
+      [3, 0, 1],
+    ])
+      expect(simpleLuckComparison(n!, p!, k!)).toBeNull();
   });
 });
 
-describe("luckVerdict for a player still waiting", () => {
-  it("calls a long dry streak unlucky, stated as who would have it by now", () => {
-    // Still no drop after 900 attempts at 1/512: 82.8% of players would have it.
-    const v = luckVerdict(17.2, false);
-    expect(v.headline).toBe("Unlucky");
-    expect(v.detail).toBe("82.8% of players would have it by now.");
-    expect(v.tone).toBe("unlucky");
-  });
-
-  it("never calls a player lucky before the drop comes", () => {
-    // 100 attempts at 1/512 without it: 82.2% of players are still waiting too.
-    const v = luckVerdict(82.2, false);
-    expect(v.headline).toBe("Not unlucky yet");
-    expect(v.detail).toBe(
-      "Only 17.8% of players would have it by now, so still waiting is normal.",
+describe("waiting histories remain censored", () => {
+  it("rates the actual wait instead of a hypothetical later completion", () => {
+    const observation = simpleWaitingComparison(3, 0.5, 1);
+    expect(observation.completed).toBeCloseTo(0.875, 14);
+    expect(observation.waiting).toBeCloseTo(0.125, 14);
+    expect(luckVerdict(observation).detail).toBe(
+      "87.5% of players would have it by now.",
     );
-    expect(v.tone).toBe("average");
-    expect(luckVerdict(40, false).headline).toBe("Not unlucky yet");
-    expect(luckVerdict(39.9, false).headline).toBe("Unlucky");
+    expect(meterPercentile(observation)).toBeCloseTo(12.5, 14);
+    expect(classifyLuck(meterPercentile(observation)).tier).toBe("uncommon");
   });
 
-  it("keeps the meter's needle off the lucky side", () => {
-    expect(meterPercentile(82.2, false)).toBe(50);
-    expect(meterPercentile(17.2, false)).toBe(17.2);
-    expect(meterPercentile(82.2, true)).toBe(82.2);
+  it("never calls unfinished runs lucky when most players are also waiting", () => {
+    const observation = simpleWaitingComparison(100, 1 / 512, 1);
+    expect(luckVerdict(observation).headline).toBe("Not unlucky yet");
+    expect(meterPercentile(observation)).toBe(50);
   });
 });

@@ -10,7 +10,11 @@ import { mountSimpleMode } from "./ui/modes/simple.js";
 import { mountPityMode } from "./ui/modes/pity.js";
 import { mountCollectionMode } from "./ui/modes/collection.js";
 import { mountTimeMode } from "./ui/modes/time.js";
-import { renderLuckCard, type LuckCardData } from "./ui/luck-card.js";
+import {
+  prepareLuckCardFonts,
+  renderLuckCard,
+  type LuckCardData,
+} from "./ui/luck-card.js";
 import { debounce } from "./ui/debounce.js";
 
 const MODES: { id: Mode; label: string; key: string }[] = [
@@ -140,13 +144,21 @@ function openLuckCardModal(data: LuckCardData): void {
   document.body.appendChild(backdrop);
   const canvas =
     backdrop.querySelector<HTMLCanvasElement>("#luck-card-canvas")!;
-  renderLuckCard(canvas, data);
 
   const previouslyFocused = document.activeElement as HTMLElement | null;
   const downloadBtn =
     backdrop.querySelector<HTMLButtonElement>("#download-card")!;
   const closeBtn = backdrop.querySelector<HTMLButtonElement>("#close-card")!;
-  downloadBtn.focus();
+  // Canvas does not redraw itself when a font arrives after its first paint.
+  downloadBtn.disabled = true;
+  downloadBtn.textContent = "Preparing card…";
+  void prepareLuckCardFonts().then(() => {
+    if (!backdrop.isConnected) return;
+    renderLuckCard(canvas, data);
+    downloadBtn.textContent = "Download PNG";
+    downloadBtn.disabled = false;
+  });
+  closeBtn.focus();
 
   function close(): void {
     backdrop.remove();
@@ -161,7 +173,10 @@ function openLuckCardModal(data: LuckCardData): void {
     if (e.key === "Tab") {
       // Minimal focus trap: the modal only has two focusable controls.
       e.preventDefault();
-      (document.activeElement === downloadBtn ? closeBtn : downloadBtn).focus();
+      (downloadBtn.disabled || document.activeElement === downloadBtn
+        ? closeBtn
+        : downloadBtn
+      ).focus();
     }
   }
   document.addEventListener("keydown", onKey);
@@ -178,6 +193,7 @@ function openLuckCardModal(data: LuckCardData): void {
 }
 
 function main(): void {
+  void prepareLuckCardFonts();
   applyStoredTheme();
   const { tabsEl, mainEl, liveEl } = buildShell();
 

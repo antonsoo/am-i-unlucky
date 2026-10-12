@@ -1,4 +1,8 @@
 /**
+ * Discrete histories first pass through luckPosition, so these bands use
+ * inclusive tails and never break same-attempt ties arbitrarily. This scalar
+ * classifier alone has no information about ties.
+ *
  * "Luck tiers" for the luck meter and the shareable luck card: a fun,
  * rarity-flavored label for how extreme a percentile is, in either
  * direction. A run in the 1st percentile (brutally unlucky) is just as

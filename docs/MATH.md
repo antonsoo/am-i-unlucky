@@ -76,52 +76,64 @@ $n = 10^9$, $p = 0.5$ it put the chance of reaching the median at 0.
 `tests/oracle.test.ts` now checks 647 values from $n = 10$ to $10^{15}$
 against `scipy.stats.binom` to nine significant digits.
 
-**Luck percentile.** Given that you made $n$ attempts and needed $k$
-successes, define
+**Completed histories and ties (current source).** For a completed history at
+attempt $n$, show three disjoint model probabilities:
 
-$$\text{luckPercentile}(n, p, k) = 100 \times \bigl(1 - P(T_k \le n)\bigr) = 100 \times P(T_k > n).$$
+$$a=P(T_k<n), \qquad m=P(T_k=n), \qquad b=P(T_k>n).$$
 
-This is the share of players who would need _more_ attempts than you did —
-equivalently, the share of players who are less lucky. If you got the $k$-th
-success quickly, $n$ is small, $P(T_k \le n)$ is small, and the percentile is
-close to 100 (you're luckier than almost everyone). If you needed far more
-attempts than expected, $P(T_k \le n)$ is close to 1 and the percentile is
-close to 0. Because $P(T_k \le n) = P(X \ge k)$, this is literally
-`100 * (1 - binomialSurvival(n, p, k))` — the same function that answers
-"P(at least k by n)", just complemented.
+These are the shares finishing earlier, on the same attempt, and later.
+They sum to one. A player who finishes on the first attempt at a 90% rate has
+$(a,m,b)=(0,0.9,0.1)$: no player finished sooner. Previously the UI called
+$1-b=90\%$ "sooner", incorrectly including the 90% who tied. Similarly, the
+second roll of a 50/50 with a next-roll guarantee has $(0.5,0.5,0)$, not a
+zero-probability unlucky outcome.
 
-That reading assumes the $k$-th success came _on_ attempt $n$. A player
-**still waiting** after $n$ attempts will need more than $n$, so their best case
-is the drop coming on attempt $n + 1$, which scores
-$100 \times P(T_k > n + 1)$; every later attempt scores lower. So for a player
-still waiting, the app:
+Tied completions occupy the reversed-rank interval $[b,b+m]$. There is no
+unique scalar rank within that interval without choosing a tie-breaking
+convention. The UI outlines the interval and positions its marker at the point
+in it nearest $0.5$; the marker is a conservative display position, not an
+estimated percentile. Rarity uses
 
-- calls it **unlucky** once $P(T_k \le n) > 0.6$ — most players would have
-  it by now — and says so in those terms ("82.8% of players would have it by
-  now");
-- otherwise says **not unlucky yet**, never "lucky": being without the drop
-  when most players are too is ordinary;
-- shows that best case, labelled "at best", and keeps the meter's needle and
-  rarity badge at or below the median.
+$$\min\{0.5,\;P(T_k\le n),\;P(T_k\ge n)\}$$
 
-Shared links from before this distinction existed are read as "got it on
-attempt $n$", which is what the number meant then.
+as the nearer inclusive tail. Thus neither an earlier-versus-later comparison
+nor a rarity label treats ties as strictly better outcomes. The coarse verdict
+is **Lucky** when $b>0.6$, **Unlucky** when $a>0.6$, and **About average**
+otherwise. These labels and the rarity thresholds are presentation choices;
+the three probabilities remain visible and are what the model establishes.
+The label "average" refers to this rank band, not distance from the mean.
 
-Two edge cases are called out explicitly rather than silently producing a
-number that _looks_ fine but isn't:
+`simpleLuckComparison` returns these three probabilities, or `null` for an
+impossible completion: fewer attempts than copies, a completed drop at zero
+rate, or completion on a different attempt from the deterministic $p=1$ case.
+The lower binomial tail is summed directly on its smaller side so very small
+later shares are not lost by subtracting a CDF rounded to one. Calculations
+still use floating-point arithmetic and share the existing variance limits.
 
-- **$n = 0$.** $P(T_k \le 0) = 0$ for any $k \ge 1$ (you can't succeed in zero
-  attempts), so the percentile is trivially 100 — not because you're lucky,
-  but because _nobody_ could have succeeded in fewer attempts either. The UI
-  hides the luck meter until at least one attempt is entered.
-- **$p = 0$ or $p = 1$.** These are degenerate: at $p=0$ nobody ever
-  succeeds, so ranking "how lucky" you are against other players is
-  meaningless; at $p=1$ everybody succeeds identically on the $k$-th attempt,
-  so there's no variance to be lucky or unlucky about. `simpleDrop` still
-  returns honest numbers ($P(\text{at least } k) = 0$ or $1$, expected
-  attempts $= \infty$ or $k$), but the UI shows a plain-language note instead
-  of a luck-meter verdict, because "luckier than 100% of players" at $p=0$
-  would otherwise read as a (false) compliment.
+For compatibility, `luckPercentile` and `SimpleDropResult.luckPercentile`
+retain their original **strictly-later** definition $100P(T_k>n)$. That number
+alone does not establish how many players finished sooner or how rare a tied
+outcome was; consumers making such claims should use the comparison instead.
+The source UI and PNG use the full comparison.
+
+**Still waiting.** A history without the $k$-th copy after $n$ attempts is a
+censored observation $T_k>n$, not a completed run at $n+1$. The source UI shows
+$P(T_k\le n)$ (finished by now) and $P(T_k>n)$ (still waiting too). It says
+**Unlucky** once more than 60% would have finished, otherwise **Not unlucky
+yet**, and never places the marker on the lucky side. Its bad-luck rarity uses
+the probability of the actual wait so far, not a hypothetical next attempt.
+For a 50% single drop still missing after three attempts, 87.5% would have
+finished and 12.5% would still be waiting. The old next-attempt number, 6.25%,
+is not a rank for this unfinished history.
+
+No completed-history rating or card is available for an impossible history.
+Zero-attempt waiting and deterministic rates receive explanatory text instead
+of a luck rating. At $p=1$, copy $k$ always arrives on attempt $k$, not
+necessarily immediately. Share links still retain the same input meaning:
+`got=1` means the $k$-th copy arrived on attempt $n$; `got=0` means still waiting.
+Links predating that distinction retain their historical completed-run meaning.
+The [tied-outcome study](../studies/tied-outcomes/README.md) records before/after
+claims and checks against independent rational probabilities.
 
 **Attempts for 50/90/99% confidence.** `attemptsForConfidence(k, p, target)`
 finds the smallest $n$ with $P(T_k \le n) \ge \text{target}$. For $k = 1$ this
@@ -277,12 +289,15 @@ horizon as the answer. This means "beyond the calculated interval", not
 probabilities beyond an unbounded calculation return `null`; the UI says
 "Not calculated". A finite completed distribution still answers later budgets.
 
-For a completed history at $t$, the luck percentile uses $100P(T>t)$,
-matching simple mode: ties are excluded. Earlier pity code used $P(T\ge t)$.
-No luck card is available for an uncalculated or unsupported completion time,
-zero pulls, an impossible drop, or a deterministic completion. Percentiles
-are conditional on the selected starting pity and guarantee, and should not
-be interpreted as population measurements. The PMF and CDF charts retain
+For a completed history at $t$, `pityLuckComparison` returns $P(T<t)$,
+$P(T=t)$ and $P(T>t)$, using the same tie-aware display policy as simple mode.
+The later share includes both later PMF entries and the directly calculated
+live tail. An unplotted tail is not redistributed into ties or earlier pulls.
+`pityLuckPercentile` retains the strict-later percentage for callers, but that
+single value is insufficient to classify ties. No luck card is available for
+an uncalculated or unsupported completion time, zero pulls, an impossible drop,
+or a deterministic completion. Comparisons are conditional on the selected
+starting pity and guarantee, not measurements of a player population. The PMF and CDF charts retain
 their original probability scale; the missing tail is never renormalized.
 
 ```mermaid

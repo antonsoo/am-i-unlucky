@@ -9,6 +9,25 @@ Players constantly ask "is 900 runs for a 1/512 drop unlucky?" or "how many pull
 
 ![Simple drop mode, light theme](./docs/assets/hero-light.png)
 
+## Same-attempt finishes are ties
+
+The current source fixes a completed-history ranking error. First-try success
+at a 90% rate used to say **Unlucky: 90% finished sooner**. Nobody could have
+finished sooner. A two-roll 50/50 guarantee was labelled **Legendary bad luck**
+although half the players finish on that same second roll.
+
+| Completed model history            | Finished sooner | Same attempt | Took longer |
+| ---------------------------------- | --------------: | -----------: | ----------: |
+| First attempt, 90% drop rate       |              0% |          90% |         10% |
+| Second roll, 50/50 then guaranteed |             50% |          50% |          0% |
+
+Both now read **About average**. The page and exported PNG retain all three
+shares. Rarity includes tied outcomes; unfinished runs report the fraction
+still waiting, and impossible completed histories have no luck rating.
+[Counterexamples, rational oracle and browser evidence](studies/tied-outcomes/README.md)
+are retained. This is a source correction; it has not been deployed to the live
+demo or published as a package release.
+
 ## A small chance must not look like a short wait
 
 Pity mode fixes a truncated-tail error. With a
@@ -39,13 +58,13 @@ Open the printed `localhost` URL. That's the whole setup — no build step, no a
 
 ## Features
 
-- **Simple drop** — a fixed rate `p`, attempts `n`, copies needed `k`, and whether you've got it yet. Get your luck percentile, `P(at least k by n)`, expected attempts, and the attempts needed for 50/90/99% confidence, from the exact negative-binomial distribution. Still waiting, you can be unlucky but never "lucky": the percentile is then only your best case.
+- **Simple drop** — a fixed rate `p`, attempts `n`, copies needed `k`, and whether you've got it yet. Compare earlier, same-attempt and later finishes, plus `P(at least k by n)`, expected attempts, and the attempts needed for 50/90/99% confidence, from the exact negative-binomial distribution. Still waiting, see the fraction of players who would also be waiting; no next-attempt completion is assumed.
 - **Pity system** — base rate, soft-pity ramp, hard pity, and an optional 50/50-with-guarantee mechanic. Computed via an exact dynamic-programming pass over the pity Markov chain (not a simulation; exact for the rates given, which for a measured table carry sampling error): expected pulls, percentiles, `P(success within budget)`, and "how lucky was my history" for a pull count you actually used.
 - **Collection** — complete a set where each attempt drops at most one listed item. Stable calculated means and completion odds for up to 16 items; labeled simulation estimates through 32. Censored runs and confidence intervals stay visible.
 - **Time to drop** — combine daily and weekly attempt batches, count every successful copy, and see the chance of finishing within a day budget, the expected time, and 50/90/99% milestones.
 - **Presets with honest labels** — a generic soft-pity gacha archetype, a per-pull table measured from community-logged Genshin Impact pulls (source checkout, unreleased; source, date and sample size on its label), two shiny-hunt presets that cite Pokémon's actual documented encounter rates (1/4096, and 3/4096 with the Shiny Charm), and generic "MMO rare drop" / "loot box" archetypes. Every preset is fully editable; the UI says where each number comes from.
 - **Shareable URLs** — the full input state lives in the query string, so a link reproduces exactly what you saw.
-- **Luck card export** — a rarity-colored PNG ("common" through "legendary", by how far your percentile sits from the median in either direction) you can save and share.
+- **Luck card export** — a rarity-colored PNG ("common" through "legendary", using inclusive outcome tails, with ties kept visible) you can save and share.
 - **Light + dark**, keyboard accessible, responsive to 320px, respects `prefers-reduced-motion`, zero tracking. Calculations run locally; calculation workers load from the same origin and need their asset cached or a working connection.
 
 ![Pity system calculator, dark theme](./docs/assets/dark-hero.png)
@@ -58,12 +77,12 @@ Open the printed `localhost` URL. That's the whole setup — no build step, no a
 | -------------------- | ---------------------------------------------- |
 | Verdict              | Unlucky: 82.8% of players would have it by now |
 | P(at least 1 by 900) | 82.79%                                         |
-| Luck percentile      | at best 17.2%, if it drops on the next attempt |
+| Still waiting too    | 17.21% of players                              |
 | Expected attempts    | 512                                            |
 | 50% / 90% / 99% by   | 355 / 1,178 / 2,356 attempts                   |
 
-Had it dropped on attempt 900, the percentile would be exactly 17.2%
-("82.8% of players would have gotten it sooner"). Still waiting after 100
+Had it dropped on attempt 900, 82.75% of players would have finished sooner,
+0.03% on the same attempt, and 17.21% later (rounded). Still waiting after 100
 attempts reads "not unlucky yet": 17.8% of players would have it by then.
 
 **Pity system** — the bundled soft-pity gacha preset (0.6% base, soft pity from pull 74, hard pity 90, 50/50 with guarantee), asking for 1 copy from a fresh pity counter:

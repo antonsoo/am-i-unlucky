@@ -1,5 +1,6 @@
 import {
-  luckPercentile,
+  simpleLuckComparison,
+  simpleWaitingComparison,
   negativeBinomialDistribution,
   simpleDrop,
 } from "../../math/simple.js";
@@ -118,39 +119,39 @@ export function mountSimpleMode(
       return;
     }
     const { n, k, got } = s;
+    const attemptsText = `${fmtInt(n)} attempt${n === 1 ? "" : "s"}`;
     gotLabel.textContent =
       k === 1
         ? "Got it on the last of those attempts"
         : `Got copy ${k} on the last of those attempts`;
 
     const result = simpleDrop({ p, n, k });
-    // Still waiting, the best case is the drop coming on the next attempt.
-    const shownPercentile = got
-      ? result.luckPercentile
-      : luckPercentile(n + 1, p, k);
+    const observation = got
+      ? simpleLuckComparison(n, p, k)
+      : simpleWaitingComparison(n, p, k);
     // p=0 and p=1 are degenerate: everyone gets the same outcome (never, or
     // always on the k-th attempt), so a percentile against "other players"
     // is meaningless rather than 0% or 100% — show a plain note instead of
     // letting the luck meter imply an (unearned) verdict.
     const isDegenerate = p <= 0 || p >= 1;
-    const showPercentile = n >= 1 && !isDegenerate;
+    const showLuck = n >= 1 && !isDegenerate && observation !== null;
     const oddsLabel = formatRateAsOdds(p);
     const pctLabel = formatRateAsPercent(p);
 
     let luckHtml: string;
-    if (isDegenerate) {
+    if (got && observation === null) {
+      luckHtml = `<p class="note">That completion time is impossible under these settings. Check the attempts, copies and drop rate.</p>`;
+    } else if (isDegenerate) {
       luckHtml =
         p <= 0
           ? `<p class="note">A 0% rate never succeeds, no matter how many attempts you make — there's no meaningful luck percentile here.</p>`
-          : `<p class="note">A 100% rate always succeeds immediately — every player gets the same result, so there's no luck involved.</p>`;
-    } else if (showPercentile) {
+          : `<p class="note">At a 100% rate, copy ${k} always arrives on attempt ${k}. ${!got && n >= k ? "Still waiting after that does not match these settings." : "Every player gets the same result, so there is no luck variation."}</p>`;
+    } else if (showLuck) {
       luckHtml = renderLuckMeter(
-        result.luckPercentile,
+        observation,
         got
-          ? `based on ${fmtInt(n)} attempts at ${oddsLabel} (${pctLabel}) odds needing ${k} cop${k === 1 ? "y" : "ies"}`
-          : `still waiting after ${fmtInt(n)} attempts at ${oddsLabel} (${pctLabel}) odds, needing ${k} cop${k === 1 ? "y" : "ies"}`,
-        got,
-        shownPercentile,
+          ? `based on ${attemptsText} at ${oddsLabel} (${pctLabel}) odds needing ${k} cop${k === 1 ? "y" : "ies"}`
+          : `still waiting after ${attemptsText} at ${oddsLabel} (${pctLabel}) odds, needing ${k} cop${k === 1 ? "y" : "ies"}`,
       );
     } else {
       luckHtml = `<p class="note">Enter at least 1 attempt to see your luck percentile.</p>`;
@@ -200,7 +201,9 @@ export function mountSimpleMode(
         </div>
         ${
           // Still waiting and not yet unlucky: there is no verdict to put on a card.
-          showPercentile && (got || result.luckPercentile < 40)
+          showLuck &&
+          (got ||
+            (observation.kind === "waiting" && observation.completed > 0.6))
             ? `<button type="button" class="btn btn-primary" id="simple-export" style="margin-top:16px;">Export luck card</button>`
             : ""
         }
@@ -221,13 +224,14 @@ export function mountSimpleMode(
     const exportBtn =
       resultsEl.querySelector<HTMLButtonElement>("#simple-export");
     exportBtn?.addEventListener("click", () => {
+      if (!observation) return;
       ctx.openLuckCard({
         headline: got
-          ? `Took ${fmtInt(n)} attempts at ${oddsLabel} odds for ${k} cop${k === 1 ? "y" : "ies"}.`
-          : `${fmtInt(n)} attempts at ${oddsLabel} odds and still waiting for ${k === 1 ? "it" : `copy ${k}`}.`,
-        percentile: shownPercentile,
+          ? `Took ${attemptsText} at ${oddsLabel} odds for ${k} cop${k === 1 ? "y" : "ies"}.`
+          : `${attemptsText} at ${oddsLabel} odds and still waiting for ${k === 1 ? "it" : `copy ${k}`}.`,
+        observation,
         modeLabel: "Simple drop",
-        detail: `P(at least ${k} by ${fmtInt(n)}) = ${fmtPercent(result.probabilityAtLeastK)}. Expected ${fmtNum(result.expectedAttempts, 0)} attempts.`,
+        detail: `P(at least ${k} by ${fmtInt(n)}) = ${fmtPercent(result.probabilityAtLeastK)}. Expected ${fmtNum(result.expectedAttempts, 1)} attempts.`,
       });
     });
 

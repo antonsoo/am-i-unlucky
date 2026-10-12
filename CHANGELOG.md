@@ -9,6 +9,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- Compare completed runs with strictly earlier, same-attempt and later outcomes.
+  First-try common drops and tied guarantee finishes no longer become false
+  unlucky or legendary results. Rarity includes ties; the meter shows their
+  rank interval and the exported PNG preserves all three shares.
+- Keep unfinished histories censored instead of assigning a next-attempt rank.
+  Refuse impossible completed simple-drop histories, and state the correct
+  deterministic attempt when multiple copies are needed. Preserve the legacy
+  strict-later math helpers; add explicit completion/waiting comparisons.
+- Sum small lower binomial tails directly, and include the live unplotted tail
+  in pity comparisons. Rates, distributions, means and confidence milestones
+  are unchanged. See `studies/tied-outcomes/` for rational checks and replays.
+- Prepare the card's font faces during page load and wait before drawing, so
+  the first offline export does not request a previously unused font or capture
+  its fallback before the intended face arrives. Keep card mean precision in
+  agreement with the page. These changes are source-only, unreleased.
+
 - Simple-drop confidence searches now bound the initial interval as well as
   expansions. Very small rates no longer freeze the browser when integer
   midpoints stop advancing. Searches check the last interval before reporting
@@ -19,12 +35,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   was omitted. Unreached milestones and probabilities beyond the computed horizon
   remain uncalculated, distinct from impossible outcomes. The tail is summed from
   live states, and bounded chains retain their entire support.
-- Pity history percentiles now exclude ties, matching simple mode. Unsupported
-  histories and deterministic completions do not produce a luck card. Inputs are
-  validated without clamping, rounding or replacing invalid values.
+- Unsupported pity histories and deterministic completions do not produce a
+  luck card. Inputs are validated without clamping, rounding or replacing
+  invalid values.
 - Pity calculations use cancellable workers; replaced results, failed workers,
   retries and large calculations are exercised in Chromium and Firefox.
-
 
 ### Added
 

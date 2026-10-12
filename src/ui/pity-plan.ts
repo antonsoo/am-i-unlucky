@@ -2,6 +2,7 @@ import {
   pityDistribution,
   pityDistributionPoints,
   pityLuckPercentile,
+  pityLuckComparison,
   summarizePity,
   validatePityInput,
   type PityConfig,
@@ -45,6 +46,7 @@ export function calculatePityPlan(request: PityPlanRequest) {
     pullsFor: summary.pullsFor,
     withinBudget: summary.probabilityWithinBudget(request.budget),
     historyPercentile: pityLuckPercentile(dist, request.actualPulls),
+    historyComparison: pityLuckComparison(dist, request.actualPulls),
     points: pityDistributionPoints(dist, 220),
   };
 }

@@ -7,6 +7,7 @@
  * (see numeric.ts), subject to explicit variance and integer-search limits.
  */
 import { binomialPmf, clampProbability } from "./numeric.js";
+import type { CompletedLuck, WaitingLuck } from "./luck.js";
 
 export interface SimpleDropInput {
   /** Per-attempt success probability, in (0, 1]. */
@@ -20,7 +21,7 @@ export interface SimpleDropInput {
 export interface SimpleDropResult {
   /** P(at least k successes in n attempts). */
   probabilityAtLeastK: number;
-  /** "Luckier than this fraction of players" (0-100), see docs/MATH.md. */
+  /** Strictly-later share (0-100); use simpleLuckComparison to account for ties. */
   luckPercentile: number;
   /** E[attempts to get k successes] = k / p. */
   expectedAttempts: number;
@@ -107,8 +108,23 @@ export function binomialSurvival(n: number, p: number, k: number): number {
 
 /** P(X <= k) for X ~ Binomial(n, p). */
 export function binomialCdf(n: number, p: number, k: number): number {
+  // Validate before the support shortcuts, as the upper tail does.
+  validateProbability(p);
+  if (!Number.isSafeInteger(n) || n < 0)
+    throw new RangeError("Attempts must be a non-negative safe integer.");
+  if (!Number.isSafeInteger(k))
+    throw new RangeError("Copies must be a safe integer.");
   if (k < 0) return 0;
   if (k >= n) return 1;
+  if (p <= 0) return 1;
+  if (p >= 1) return 0;
+  if (n * p * (1 - p) > MAX_BINOMIAL_VARIANCE)
+    throw new RangeError(
+      "Too many expected drops to compute exactly: this handles up to about ten billion.",
+    );
+  // A long wait's small probability must not be lost by subtracting a CDF
+  // rounded to one. Sum the lower tail directly when it is the smaller side.
+  if (k < n * p) return clampProbability(tailSum(n, p, k, -1));
   return clampProbability(1 - binomialSurvival(n, p, k + 1));
 }
 
@@ -184,9 +200,40 @@ export function attemptsForConfidence(
   return lo;
 }
 
-/** Luck percentile: what fraction of players needed at least as many attempts as you. */
+/** Strictly-later percentage, retained for callers; not a unique rank among ties. */
 export function luckPercentile(n: number, p: number, k: number): number {
   return 100 * (1 - binomialSurvival(n, p, k));
+}
+
+/** A completed run's three disjoint outcomes; null for an impossible history. */
+export function simpleLuckComparison(
+  n: number,
+  p: number,
+  k: number,
+): CompletedLuck | null {
+  validateCopies(k);
+  const later = binomialCdf(n, p, k - 1);
+  if (n < k || p === 0 || (p === 1 && n !== k)) return null;
+  return {
+    kind: "completed",
+    earlier: binomialSurvival(n - 1, p, k),
+    tied: negativeBinomialPmf(k, p, n),
+    later,
+  };
+}
+
+/** Still waiting is a censored observation, not a hypothetical next-attempt completion. */
+export function simpleWaitingComparison(
+  n: number,
+  p: number,
+  k: number,
+): WaitingLuck {
+  validateCopies(k);
+  return {
+    kind: "waiting",
+    completed: binomialSurvival(n, p, k),
+    waiting: binomialCdf(n, p, k - 1),
+  };
 }
 
 export function simpleDrop(input: SimpleDropInput): SimpleDropResult {

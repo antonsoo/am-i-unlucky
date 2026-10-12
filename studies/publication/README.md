@@ -13,13 +13,13 @@ and 120 production browser workflows passed. The existing source repair was
 then published through the existing `gh-pages` branch in `fd36656`; this work
 does not claim new authorship of that math correction.
 
-| Same hosted input | Before | After |
-| --- | --- | --- |
-| Expected pulls | 902.3 | 10,000 |
-| Standard deviation | 1,253.3 | 9,999.5 |
-| 50/90/99% milestones | 5,000 | Beyond calculated 5,000-pull horizon |
-| Success within 100,000 | 39.35% | Not calculated |
-| 100,000-pull history | Lucky | Beyond calculated horizon; no verdict or card |
+| Same hosted input      | Before  | After                                         |
+| ---------------------- | ------- | --------------------------------------------- |
+| Expected pulls         | 902.3   | 10,000                                        |
+| Standard deviation     | 1,253.3 | 9,999.5                                       |
+| 50/90/99% milestones   | 5,000   | Beyond calculated 5,000-pull horizon          |
+| Success within 100,000 | 39.35%  | Not calculated                                |
+| 100,000-pull history   | Lucky   | Beyond calculated horizon; no verdict or card |
 
 The finite plot still leaves 60.6515% beyond its horizon. That mass is explicit
 and does not shorten the full-model mean. This verifies the supplied mathematical
