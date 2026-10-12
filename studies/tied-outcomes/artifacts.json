@@ -1,0 +1,733 @@
+{
+  "checkedAtUtc": "2026-10-12T02:38:12.824231+00:00",
+  "implementationCommit": "e57ce01156805c1d0ba8e0161cca6d828307e1db",
+  "baselineCommit": "d18d125805ef579f861a6e0280a4b7dcd7452da0",
+  "cleanArchive": {
+    "path": "source-e57ce01.tar",
+    "bytes": 11356160,
+    "sha256": "1dacb67405cfd0a08ec28b597e933c792b90051d3a1d78f9fbc05ae9abfd8994"
+  },
+  "node": "v24.21.0",
+  "checks": [
+    {
+      "check": "install",
+      "command": "npm ci",
+      "environment": {},
+      "exitCode": 0,
+      "logSha256": "d5ac802e945775151e2854d93bc50d3c7f570f0c6350bc133769aaf5ef47ec2c",
+      "resultLines": []
+    },
+    {
+      "check": "lint",
+      "command": "npm run lint",
+      "environment": {},
+      "exitCode": 0,
+      "logSha256": "6efb0ff09eed382b8c7918ac5fa9aa5088bcbb3d112dcfc9462504725d72c7d0",
+      "resultLines": []
+    },
+    {
+      "check": "types",
+      "command": "npm run typecheck",
+      "environment": {},
+      "exitCode": 0,
+      "logSha256": "2f6ff2365f8bc88ac51f402eb7e1dc23270ef3938ba02736e37f7cd8cf3a21f6",
+      "resultLines": []
+    },
+    {
+      "check": "unit",
+      "command": "npm test",
+      "environment": {},
+      "exitCode": 0,
+      "logSha256": "207906a093cbf35cd2ad25775365696eebbad443c0616774d0b70172e4585a91",
+      "resultLines": [
+        "Test Files  20 passed (20)",
+        "Tests  407 passed (407)"
+      ]
+    },
+    {
+      "check": "unit-de",
+      "command": "npm test",
+      "environment": {
+        "LC_ALL": "de_DE.UTF-8",
+        "LANG": "de_DE.UTF-8"
+      },
+      "exitCode": 0,
+      "logSha256": "ca5f519e7bb8f4aea6e3dc81f9654ca2f5068de285a6407f9da0d8484f2a7ddb",
+      "resultLines": [
+        "Test Files  20 passed (20)",
+        "Tests  407 passed (407)"
+      ]
+    },
+    {
+      "check": "format",
+      "command": "npm run fmt",
+      "environment": {},
+      "exitCode": 0,
+      "logSha256": "4cbd6709a5eb8e5a21cfbb593898d7edf28da95e9a697732ee4b4850ca16ba4b",
+      "resultLines": [
+        "All matched files use Prettier code style!"
+      ]
+    },
+    {
+      "check": "build",
+      "command": "npm run build",
+      "environment": {},
+      "exitCode": 0,
+      "logSha256": "7a179bcbb8908b1d0fc4b572645f0cff703baa13cdbeb34c2e326c42a9e09d7d",
+      "resultLines": [
+        "\u2713 built in 234ms"
+      ]
+    },
+    {
+      "check": "browser",
+      "command": "npm run test:browser",
+      "environment": {},
+      "exitCode": 0,
+      "logSha256": "9e3b8803699d54b561f232b6da50fe40bd26bb78c7a52ce10396fb24b93ca04c",
+      "resultLines": [
+        "134 passed (1.4m)"
+      ]
+    }
+  ],
+  "buildInputsIdenticalToCleanArchive": [
+    {
+      "path": "index.html",
+      "bytes": 1959,
+      "sha256": "3f85eaa6f670dd2df90d54980646ae7c77ced72f6c89c5d64e0fb9955fcaa4fa"
+    },
+    {
+      "path": "package-lock.json",
+      "bytes": 85011,
+      "sha256": "80441ccc708c785db60059f593b097f54a0895d91420d7f615a5f27d22563910"
+    },
+    {
+      "path": "package.json",
+      "bytes": 1304,
+      "sha256": "06dbbfc06b67236812ee23306281e36ae14b596f2a69b73395e48b489faa6726"
+    },
+    {
+      "path": "public/favicon.svg",
+      "bytes": 296,
+      "sha256": "923f1b1e9fbd6624acda8401f848104865d91e4a478c22b9a791f94921803075"
+    },
+    {
+      "path": "src/fonts/LICENSE.txt",
+      "bytes": 14078,
+      "sha256": "a920d007ad5ff4e39e6842bbff11f4eec2c8c0fe8033cf52b21e32f3d6f95ae1"
+    },
+    {
+      "path": "src/fonts/bricolage-grotesque-latin-ext.woff2",
+      "bytes": 30736,
+      "sha256": "776f6dcaf03636cd69a5802c94808cc8896c0a66c8e9ce0fe147231b6ee01957"
+    },
+    {
+      "path": "src/fonts/bricolage-grotesque-latin.woff2",
+      "bytes": 76888,
+      "sha256": "a79fdb52d4a5c76552452f69202add96e287401fff03d3e8c0e38b4dcb5a99cd"
+    },
+    {
+      "path": "src/fonts/bricolage-grotesque-vietnamese.woff2",
+      "bytes": 12984,
+      "sha256": "b50a9d90a5264f20d1e45be0b948fe947ddb3644557f1e85ef5d3bd06427c944"
+    },
+    {
+      "path": "src/fonts/fonts.css",
+      "bytes": 9293,
+      "sha256": "da2071fed182cb15d7755eea6568998fce166949bc182eac763cd21cadde2460"
+    },
+    {
+      "path": "src/fonts/ibm-plex-mono-400-cyrillic-ext.woff2",
+      "bytes": 6912,
+      "sha256": "f8c22ec1804bd6966b70f43ac7c327025645b4c09597117fca2a5a6c750106fe"
+    },
+    {
+      "path": "src/fonts/ibm-plex-mono-400-cyrillic.woff2",
+      "bytes": 8356,
+      "sha256": "7635422bd10ddbbcb0e0caa1154b928298f5c8319b8c00b30978d4395f4783ce"
+    },
+    {
+      "path": "src/fonts/ibm-plex-mono-400-latin-ext.woff2",
+      "bytes": 13348,
+      "sha256": "6bc0f226a5b7884a8170e3f62c63d7675609d4631bdc5931b5cdab81821f00eb"
+    },
+    {
+      "path": "src/fonts/ibm-plex-mono-400-latin.woff2",
+      "bytes": 14708,
+      "sha256": "08949f728dc52d528e69b1667d15c89a5686a4ee9a296ff90983985f99c380f7"
+    },
+    {
+      "path": "src/fonts/ibm-plex-mono-400-vietnamese.woff2",
+      "bytes": 5868,
+      "sha256": "62632b6375305e70ddcafdd895218e6ae41a184fcd280a69c739460604ca00a9"
+    },
+    {
+      "path": "src/fonts/ibm-plex-mono-500-cyrillic-ext.woff2",
+      "bytes": 6972,
+      "sha256": "3febe5c7f22e4b07b4552738673c3dbe8bced2dc5f48b866edf7ccd9552d109a"
+    },
+    {
+      "path": "src/fonts/ibm-plex-mono-500-cyrillic.woff2",
+      "bytes": 8460,
+      "sha256": "1d89462e86cb8e87e7e9d6f6635605bd7c3081baca6caaecee84916bf7b60edc"
+    },
+    {
+      "path": "src/fonts/ibm-plex-mono-500-latin-ext.woff2",
+      "bytes": 13432,
+      "sha256": "6bb06407c97584b0867a959e05e8874693bfeb8c317de190811c51598f2d99ea"
+    },
+    {
+      "path": "src/fonts/ibm-plex-mono-500-latin.woff2",
+      "bytes": 14888,
+      "sha256": "01d285447409c8a588692162439a038b8cbd7871309ee20267b0d2d91c6e8e22"
+    },
+    {
+      "path": "src/fonts/ibm-plex-mono-500-vietnamese.woff2",
+      "bytes": 6040,
+      "sha256": "781633d95de88040fb77141d1e65d928c87c0144691fbc74da5a64d137a7e910"
+    },
+    {
+      "path": "src/fonts/ibm-plex-mono-600-cyrillic-ext.woff2",
+      "bytes": 7692,
+      "sha256": "83109cdd4f8665b475dfc11d61bd44da328bf7e6eab3d3953d39c49b1b9f6015"
+    },
+    {
+      "path": "src/fonts/ibm-plex-mono-600-cyrillic.woff2",
+      "bytes": 9352,
+      "sha256": "2b05a8695c7f9f4abd7178b279646a3b005a8ce57546bef6fd145f25d131e0aa"
+    },
+    {
+      "path": "src/fonts/ibm-plex-mono-600-latin-ext.woff2",
+      "bytes": 14328,
+      "sha256": "32057cf50dd14bdb21a2c93766c4a2c43e4abe688ea3922df3203cac7751a98b"
+    },
+    {
+      "path": "src/fonts/ibm-plex-mono-600-latin.woff2",
+      "bytes": 15620,
+      "sha256": "0d1f0b8d0722224e32e9f28261bdc86c79115be73444ae5eceb73976a1bcdf83"
+    },
+    {
+      "path": "src/fonts/ibm-plex-mono-600-vietnamese.woff2",
+      "bytes": 6932,
+      "sha256": "51b74d53e106ba8a26dd33464b231a562069be2a234b923c115beb622e6f6bc6"
+    },
+    {
+      "path": "src/fonts/ibm-plex-sans-cyrillic-ext.woff2",
+      "bytes": 23568,
+      "sha256": "7d0037a170882a49e65a45c38ef195237bb07b1cc791d078379f0ac0d7ae1935"
+    },
+    {
+      "path": "src/fonts/ibm-plex-sans-cyrillic.woff2",
+      "bytes": 29512,
+      "sha256": "9409ee21811f0f5272b7e1d828fe8838005b0573481ef906e7e55b63f6610ab0"
+    },
+    {
+      "path": "src/fonts/ibm-plex-sans-greek.woff2",
+      "bytes": 19500,
+      "sha256": "f598dd0700f155e2facfaa8ecfacace397d4c2c153e9ce37ab7ad310e8505bc2"
+    },
+    {
+      "path": "src/fonts/ibm-plex-sans-latin-ext.woff2",
+      "bytes": 30964,
+      "sha256": "d160e20920ae4d6556518d352d3af27a74e9b0de3d8fe17b1c1044fc75aa2f81"
+    },
+    {
+      "path": "src/fonts/ibm-plex-sans-latin.woff2",
+      "bytes": 45712,
+      "sha256": "e2291e842cf5af167122a22881a740c7f2dda7716f1e8cd76680264f4a859470"
+    },
+    {
+      "path": "src/fonts/ibm-plex-sans-vietnamese.woff2",
+      "bytes": 13160,
+      "sha256": "73e7f7b1c980416ae0c2461268b14c7cfcce0668e683dc43fbb11a82a227b9f2"
+    },
+    {
+      "path": "src/logged-rates.ts",
+      "bytes": 1843,
+      "sha256": "ff7fef2aedb60f15739f81f56089d9c653a86252a6c18248ce62d07d918e8465"
+    },
+    {
+      "path": "src/main.ts",
+      "bytes": 13807,
+      "sha256": "09c3854e2189d059aba52b3dae87ff660f49167a7c3bf4f9c62a0b13c1d98ac7"
+    },
+    {
+      "path": "src/math/collection.ts",
+      "bytes": 11002,
+      "sha256": "f0b038a8c4f1df4c30e4d794fcd98167edff314759e75f197d595f148679b49b"
+    },
+    {
+      "path": "src/math/index.ts",
+      "bytes": 228,
+      "sha256": "ca3344cddb06d4df5db010c9a3be87c1fa00ebebbf2a57b827d30e29a9bbeab4"
+    },
+    {
+      "path": "src/math/luck.ts",
+      "bytes": 1219,
+      "sha256": "e08206e3454a9674ba564240076fd5d4663f1450d54cc968b446276db22eef6e"
+    },
+    {
+      "path": "src/math/numeric.ts",
+      "bytes": 7212,
+      "sha256": "8c08de45f37b01175103abb42f241457f0f00c5d9d7e149235ee92efba45a751"
+    },
+    {
+      "path": "src/math/pity.ts",
+      "bytes": 14501,
+      "sha256": "5db38570f399beb13fa86feda6e6df842f1f0df9807b6a3260f57f55b2e3f1f7"
+    },
+    {
+      "path": "src/math/rate.ts",
+      "bytes": 2459,
+      "sha256": "8fd1a9fa6f055154e1f465d4ae7d690222e5fd16f2565356e9a14fe600c45ba8"
+    },
+    {
+      "path": "src/math/simple.ts",
+      "bytes": 9774,
+      "sha256": "f8a5df4de97180ee3abe7c3a38dfc2fcdf9d725efa0e40a2296eb9cfefafe57e"
+    },
+    {
+      "path": "src/math/tiers.ts",
+      "bytes": 2978,
+      "sha256": "82dace7d0764ebba3c6d857ae80404e7a170b8a1e4b52478b2bc27b4d8e2d2bb"
+    },
+    {
+      "path": "src/math/time.ts",
+      "bytes": 10867,
+      "sha256": "50c4557d1f1e407aa9153ce934aa990be998dc40064e445fafcfdfce24a9b177"
+    },
+    {
+      "path": "src/presets.ts",
+      "bytes": 3828,
+      "sha256": "61b4779e87f899accf2882e76e298d3732cbf1215c677b83f61a3d4971fd5a02"
+    },
+    {
+      "path": "src/style.css",
+      "bytes": 19264,
+      "sha256": "efb46da81983f3e8ef0766eb25f72a72b5cf8e3027c4471b7ca8a149a187e937"
+    },
+    {
+      "path": "src/ui/app-state.ts",
+      "bytes": 7880,
+      "sha256": "f93ca2e13520b79dca6ce6afc14a5948115ddf1f86142270c85c263daeda1734"
+    },
+    {
+      "path": "src/ui/calculation-engine.ts",
+      "bytes": 2065,
+      "sha256": "681a5ab0b68276117e69569fc47890d272c766caf88f397903849da100ed3810"
+    },
+    {
+      "path": "src/ui/chart.ts",
+      "bytes": 4827,
+      "sha256": "89be006a41336931f9ac888aab61f82c88a601324ed5b78061a5d5e14b1d07d7"
+    },
+    {
+      "path": "src/ui/collection-engine.ts",
+      "bytes": 511,
+      "sha256": "e9f3200c96a0a14a8214c5a87b278f028227dd0a19095db5c160d9ada1b97387"
+    },
+    {
+      "path": "src/ui/collection-plan.ts",
+      "bytes": 2863,
+      "sha256": "3d1ea03238cde69e8a6e0e8cbee7bb04f4011b2cb2793fbb8152140c0a1377ef"
+    },
+    {
+      "path": "src/ui/collection-worker.ts",
+      "bytes": 470,
+      "sha256": "9197b3a0361ef257ebe99d80d52f89590ea91c4449d20df3ffcc688271906051"
+    },
+    {
+      "path": "src/ui/debounce.ts",
+      "bytes": 624,
+      "sha256": "0179f140dc9ccbf90f5c7da33d2f0565610bb0945b3838e92a6ff9fb78638422"
+    },
+    {
+      "path": "src/ui/format.ts",
+      "bytes": 1907,
+      "sha256": "25443e117dd541af245a2eedfd38146458243bb97675e78c990168205bca911e"
+    },
+    {
+      "path": "src/ui/luck-card.ts",
+      "bytes": 5236,
+      "sha256": "db75235bb4d4f3cfd192767453f27be9b79736becacb6b06da7df731fe3c471f"
+    },
+    {
+      "path": "src/ui/luck-meter.ts",
+      "bytes": 2211,
+      "sha256": "873da1568e7fe563acf6185934b18e63d352931723665839d20dd04b3595da4e"
+    },
+    {
+      "path": "src/ui/modes/collection.ts",
+      "bytes": 14812,
+      "sha256": "86e3f502ecc55be5325d3e0d161f77eaddec9a19ccb9bf855f42a13a274f59ed"
+    },
+    {
+      "path": "src/ui/modes/pity.ts",
+      "bytes": 17367,
+      "sha256": "727366094cd2583f04345e9f77f31bda0824a8885ddc91436b44dab80c1a072f"
+    },
+    {
+      "path": "src/ui/modes/simple.ts",
+      "bytes": 11327,
+      "sha256": "bfb8693a8d8d9a42f3b727fee2c2bee333aa9aa9f02ca6eefec4f37c0f9368da"
+    },
+    {
+      "path": "src/ui/modes/time.ts",
+      "bytes": 14610,
+      "sha256": "6841f4d447e606b17d258220d1512291980fad55047f03243cc817eed1c2c7b2"
+    },
+    {
+      "path": "src/ui/pity-engine.ts",
+      "bytes": 470,
+      "sha256": "5329a8d3a705559849ed2557e5c031d7931260df7e5e248df5c3958495efd1a0"
+    },
+    {
+      "path": "src/ui/pity-plan.ts",
+      "bytes": 1542,
+      "sha256": "a58a9a13e95bf41cd8eb3d560a2977f49f47b479ca5fec2d106789535c151bd9"
+    },
+    {
+      "path": "src/ui/pity-worker.ts",
+      "bytes": 401,
+      "sha256": "4d3a88213e0c1fb6d438084f2e689797fa1a0cfecdb373f59b867b31bad7ead3"
+    },
+    {
+      "path": "src/ui/time-engine.ts",
+      "bytes": 476,
+      "sha256": "46068616d4d392a8a0a920a21db7aab232e9fbcd8d46649a648c830ead492680"
+    },
+    {
+      "path": "src/ui/time-plan.ts",
+      "bytes": 1025,
+      "sha256": "43e690664059947f8be90cb4c4036bc3bac8d446ff3444aceee8c6ba38c309a1"
+    },
+    {
+      "path": "src/ui/time-worker.ts",
+      "bytes": 404,
+      "sha256": "28dbadee5504456743bd5a9046953c6a920d2b8b68d30b0fe7a566cd77a5d9c9"
+    },
+    {
+      "path": "src/ui/verdict.ts",
+      "bytes": 2339,
+      "sha256": "dedb759a9d6ff5ee8121194210ccc2a9676b442dd5f624e6c12fe5f2957370bc"
+    },
+    {
+      "path": "tsconfig.json",
+      "bytes": 750,
+      "sha256": "fc7f0fc77b19f86645cd3bf75849077885f1424596a58e06bec95f7d29b143c9"
+    },
+    {
+      "path": "vite.config.ts",
+      "bytes": 250,
+      "sha256": "e3cc237fcd50e2086697bb62794500312133e534d00307d7e07d4e8f33cf2728"
+    }
+  ],
+  "unchangedSourceFiles": [
+    {
+      "path": "src/logged-rates.ts",
+      "bytes": 1843,
+      "sha256": "ff7fef2aedb60f15739f81f56089d9c653a86252a6c18248ce62d07d918e8465"
+    },
+    {
+      "path": "src/math/collection.ts",
+      "bytes": 11002,
+      "sha256": "f0b038a8c4f1df4c30e4d794fcd98167edff314759e75f197d595f148679b49b"
+    },
+    {
+      "path": "src/math/numeric.ts",
+      "bytes": 7212,
+      "sha256": "8c08de45f37b01175103abb42f241457f0f00c5d9d7e149235ee92efba45a751"
+    },
+    {
+      "path": "src/math/rate.ts",
+      "bytes": 2459,
+      "sha256": "8fd1a9fa6f055154e1f465d4ae7d690222e5fd16f2565356e9a14fe600c45ba8"
+    },
+    {
+      "path": "src/math/time.ts",
+      "bytes": 10867,
+      "sha256": "50c4557d1f1e407aa9153ce934aa990be998dc40064e445fafcfdfce24a9b177"
+    },
+    {
+      "path": "src/presets.ts",
+      "bytes": 3828,
+      "sha256": "61b4779e87f899accf2882e76e298d3732cbf1215c677b83f61a3d4971fd5a02"
+    },
+    {
+      "path": "src/ui/app-state.ts",
+      "bytes": 7880,
+      "sha256": "f93ca2e13520b79dca6ce6afc14a5948115ddf1f86142270c85c263daeda1734"
+    },
+    {
+      "path": "src/ui/calculation-engine.ts",
+      "bytes": 2065,
+      "sha256": "681a5ab0b68276117e69569fc47890d272c766caf88f397903849da100ed3810"
+    },
+    {
+      "path": "src/ui/chart.ts",
+      "bytes": 4827,
+      "sha256": "89be006a41336931f9ac888aab61f82c88a601324ed5b78061a5d5e14b1d07d7"
+    },
+    {
+      "path": "src/ui/collection-engine.ts",
+      "bytes": 511,
+      "sha256": "e9f3200c96a0a14a8214c5a87b278f028227dd0a19095db5c160d9ada1b97387"
+    },
+    {
+      "path": "src/ui/collection-plan.ts",
+      "bytes": 2863,
+      "sha256": "3d1ea03238cde69e8a6e0e8cbee7bb04f4011b2cb2793fbb8152140c0a1377ef"
+    },
+    {
+      "path": "src/ui/collection-worker.ts",
+      "bytes": 470,
+      "sha256": "9197b3a0361ef257ebe99d80d52f89590ea91c4449d20df3ffcc688271906051"
+    },
+    {
+      "path": "src/ui/debounce.ts",
+      "bytes": 624,
+      "sha256": "0179f140dc9ccbf90f5c7da33d2f0565610bb0945b3838e92a6ff9fb78638422"
+    },
+    {
+      "path": "src/ui/format.ts",
+      "bytes": 1907,
+      "sha256": "25443e117dd541af245a2eedfd38146458243bb97675e78c990168205bca911e"
+    },
+    {
+      "path": "src/ui/modes/collection.ts",
+      "bytes": 14812,
+      "sha256": "86e3f502ecc55be5325d3e0d161f77eaddec9a19ccb9bf855f42a13a274f59ed"
+    },
+    {
+      "path": "src/ui/modes/time.ts",
+      "bytes": 14610,
+      "sha256": "6841f4d447e606b17d258220d1512291980fad55047f03243cc817eed1c2c7b2"
+    },
+    {
+      "path": "src/ui/pity-engine.ts",
+      "bytes": 470,
+      "sha256": "5329a8d3a705559849ed2557e5c031d7931260df7e5e248df5c3958495efd1a0"
+    },
+    {
+      "path": "src/ui/pity-worker.ts",
+      "bytes": 401,
+      "sha256": "4d3a88213e0c1fb6d438084f2e689797fa1a0cfecdb373f59b867b31bad7ead3"
+    },
+    {
+      "path": "src/ui/time-engine.ts",
+      "bytes": 476,
+      "sha256": "46068616d4d392a8a0a920a21db7aab232e9fbcd8d46649a648c830ead492680"
+    },
+    {
+      "path": "src/ui/time-plan.ts",
+      "bytes": 1025,
+      "sha256": "43e690664059947f8be90cb4c4036bc3bac8d446ff3444aceee8c6ba38c309a1"
+    },
+    {
+      "path": "src/ui/time-worker.ts",
+      "bytes": 404,
+      "sha256": "28dbadee5504456743bd5a9046953c6a920d2b8b68d30b0fe7a566cd77a5d9c9"
+    }
+  ],
+  "servedAssetsIdenticalToCleanBuild": [
+    {
+      "path": "assets/bricolage-grotesque-latin-Cre6nC2_.woff2",
+      "bytes": 76888,
+      "sha256": "a79fdb52d4a5c76552452f69202add96e287401fff03d3e8c0e38b4dcb5a99cd"
+    },
+    {
+      "path": "assets/ibm-plex-mono-400-latin-DMJ8VG8y.woff2",
+      "bytes": 14708,
+      "sha256": "08949f728dc52d528e69b1667d15c89a5686a4ee9a296ff90983985f99c380f7"
+    },
+    {
+      "path": "assets/ibm-plex-mono-600-latin-BgSNZQsw.woff2",
+      "bytes": 15620,
+      "sha256": "0d1f0b8d0722224e32e9f28261bdc86c79115be73444ae5eceb73976a1bcdf83"
+    },
+    {
+      "path": "assets/ibm-plex-sans-latin-IvpUvPa2.woff2",
+      "bytes": 45712,
+      "sha256": "e2291e842cf5af167122a22881a740c7f2dda7716f1e8cd76680264f4a859470"
+    },
+    {
+      "path": "assets/index-a94AJd8r.js",
+      "bytes": 72948,
+      "sha256": "bafc3c03b22bf18ee62ab06a4df04019cd80d2e9c41c463c891462267a606f46"
+    },
+    {
+      "path": "assets/index-CGianAed.css",
+      "bytes": 22001,
+      "sha256": "45451bee69a1ef0f2149d482e66b0d188a281409bff92c30c8932e99da7bec8c"
+    },
+    {
+      "path": "assets/pity-worker-BkaeeVK6.js",
+      "bytes": 5222,
+      "sha256": "24b51ef35d8d9fc3274550ac3b3427046443610391f6b991ee1f918946c98261"
+    },
+    {
+      "path": "favicon.svg",
+      "bytes": 296,
+      "sha256": "923f1b1e9fbd6624acda8401f848104865d91e4a478c22b9a791f94921803075"
+    },
+    {
+      "path": "index.html",
+      "bytes": 2364,
+      "sha256": "b81a3661f2c18b4b21335e502c4223499b45b8ac35a5a1c58907570f244a88da"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/assets/tied-outcomes/after/chromium-1440-first-try-common-drop.png",
+      "bytes": 160627,
+      "sha256": "2b94222d6235d22f43d43bb67fc185901f7a1aaf116ad58acee52e4db1619745"
+    },
+    {
+      "path": "docs/assets/tied-outcomes/after/chromium-375-first-try-common-drop-card.png",
+      "bytes": 1445006,
+      "sha256": "08ed5ab1fab3346c37c7a005626fb8cb8aa950fae1eeae35504c75fc61d58287"
+    },
+    {
+      "path": "docs/assets/tied-outcomes/after/chromium-375-first-try-common-drop.png",
+      "bytes": 142418,
+      "sha256": "c304dc18f10e2d295b309b34bd61f076fb4cc40494e1f8cfbd10df68501e2e70"
+    },
+    {
+      "path": "docs/assets/tied-outcomes/after/firefox-1440-second-roll-guarantee.png",
+      "bytes": 329050,
+      "sha256": "fa44ea4757d0c3a9cc70835c264ad8837f982b588d38f8970f048bda5b29057d"
+    },
+    {
+      "path": "docs/assets/tied-outcomes/after/firefox-375-second-roll-guarantee-card.png",
+      "bytes": 346536,
+      "sha256": "3a7c6214d00d3983c6c1c32e2ab9f0a37a2a8d3a8636cb40d1a0da7997216fdb"
+    },
+    {
+      "path": "docs/assets/tied-outcomes/after/firefox-375-second-roll-guarantee.png",
+      "bytes": 268387,
+      "sha256": "94447fae65aac40b9e1c3ec3b7cf3f18ce0ee42f44c72343e670cab9a473a002"
+    },
+    {
+      "path": "docs/assets/tied-outcomes/before/chromium-1440-first-try-common-drop.png",
+      "bytes": 154679,
+      "sha256": "20455551651c3e328614d23e4ec4569caae8f66aa83d518b33eb2c388ad782db"
+    },
+    {
+      "path": "docs/assets/tied-outcomes/before/chromium-375-first-try-common-drop-card.png",
+      "bytes": 1124336,
+      "sha256": "41ccbb5eb52bc818e13356ab47208888f38c4ae1a06577b1425def8dace31772"
+    },
+    {
+      "path": "docs/assets/tied-outcomes/before/chromium-375-first-try-common-drop.png",
+      "bytes": 136707,
+      "sha256": "093843260c742e6420335cb16eda4cfb8c5bdc67b1c3c37651d3770b91ac6d06"
+    },
+    {
+      "path": "docs/assets/tied-outcomes/before/firefox-1440-second-roll-guarantee.png",
+      "bytes": 314709,
+      "sha256": "6144dbac80f6b1758736201f6b4cca19d287efbac9126d7ffaba11680f564c36"
+    },
+    {
+      "path": "docs/assets/tied-outcomes/before/firefox-375-second-roll-guarantee-card.png",
+      "bytes": 349303,
+      "sha256": "eee04c9cae77e9e25b3390b84085c4dbc8a657b478d66102a84546b216f1a66e"
+    },
+    {
+      "path": "docs/assets/tied-outcomes/before/firefox-375-second-roll-guarantee.png",
+      "bytes": 255223,
+      "sha256": "5dc6ee056b8f5471b4cf04824d6f9b6f549a9e6d854885c1019950af18d8ebf9"
+    }
+  ],
+  "sansFontInspection": [
+    {
+      "path": "src/fonts/ibm-plex-sans-cyrillic-ext.woff2",
+      "bytes": 23568,
+      "sha256": "7d0037a170882a49e65a45c38ef195237bb07b1cc791d078379f0ac0d7ae1935",
+      "fontconfigFaces": [
+        "Regular|False",
+        "Thin|False",
+        "ExtraLight|False",
+        "Light|False",
+        "Medium|False",
+        "SemiBold|False",
+        "Bold|False",
+        "|True"
+      ]
+    },
+    {
+      "path": "src/fonts/ibm-plex-sans-cyrillic.woff2",
+      "bytes": 29512,
+      "sha256": "9409ee21811f0f5272b7e1d828fe8838005b0573481ef906e7e55b63f6610ab0",
+      "fontconfigFaces": [
+        "Regular|False",
+        "Thin|False",
+        "ExtraLight|False",
+        "Light|False",
+        "Medium|False",
+        "SemiBold|False",
+        "Bold|False",
+        "|True"
+      ]
+    },
+    {
+      "path": "src/fonts/ibm-plex-sans-greek.woff2",
+      "bytes": 19500,
+      "sha256": "f598dd0700f155e2facfaa8ecfacace397d4c2c153e9ce37ab7ad310e8505bc2",
+      "fontconfigFaces": [
+        "Regular|False",
+        "Thin|False",
+        "ExtraLight|False",
+        "Light|False",
+        "Medium|False",
+        "SemiBold|False",
+        "Bold|False",
+        "|True"
+      ]
+    },
+    {
+      "path": "src/fonts/ibm-plex-sans-latin-ext.woff2",
+      "bytes": 30964,
+      "sha256": "d160e20920ae4d6556518d352d3af27a74e9b0de3d8fe17b1c1044fc75aa2f81",
+      "fontconfigFaces": [
+        "Regular|False",
+        "Thin|False",
+        "ExtraLight|False",
+        "Light|False",
+        "Medium|False",
+        "SemiBold|False",
+        "Bold|False",
+        "|True"
+      ]
+    },
+    {
+      "path": "src/fonts/ibm-plex-sans-latin.woff2",
+      "bytes": 45712,
+      "sha256": "e2291e842cf5af167122a22881a740c7f2dda7716f1e8cd76680264f4a859470",
+      "fontconfigFaces": [
+        "Regular|False",
+        "Thin|False",
+        "ExtraLight|False",
+        "Light|False",
+        "Medium|False",
+        "SemiBold|False",
+        "Bold|False",
+        "|True"
+      ]
+    },
+    {
+      "path": "src/fonts/ibm-plex-sans-vietnamese.woff2",
+      "bytes": 13160,
+      "sha256": "73e7f7b1c980416ae0c2461268b14c7cfcce0668e683dc43fbb11a82a227b9f2",
+      "fontconfigFaces": [
+        "Regular|False",
+        "Thin|False",
+        "ExtraLight|False",
+        "Light|False",
+        "Medium|False",
+        "SemiBold|False",
+        "Bold|False",
+        "|True"
+      ]
+    }
+  ],
+  "scope": "Local clean-archive production build, numerical replay and offline browser/card captures. No package release or hosted deployment."
+}

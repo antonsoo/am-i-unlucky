@@ -1,0 +1,94 @@
+{
+  "simpleCases": 84,
+  "rationalPityModels": 84,
+  "bundledPresetScenarios": 6,
+  "distributionsMomentsMilestonesAndLegacyStrictSharesIdentical": true,
+  "oracle": {
+    "maximumAbsolute": 3.774758283725532e-14,
+    "maximumRelative": 1.4852277861680936e-13,
+    "supported": 1155,
+    "unsupported": 1617
+  },
+  "browsers": [
+    {
+      "engine": "chromium",
+      "width": 1440,
+      "name": "first-try-common-drop",
+      "beforeHeadline": "Unlucky",
+      "afterHeadline": "About average",
+      "unchangedStatistics": true,
+      "lateRequestsBefore": 1,
+      "lateRequestsAfter": 0
+    },
+    {
+      "engine": "chromium",
+      "width": 1440,
+      "name": "second-roll-guarantee",
+      "beforeHeadline": "Unlucky",
+      "afterHeadline": "About average",
+      "unchangedStatistics": true,
+      "lateRequestsBefore": 1,
+      "lateRequestsAfter": 0
+    },
+    {
+      "engine": "chromium",
+      "width": 375,
+      "name": "first-try-common-drop",
+      "beforeHeadline": "Unlucky",
+      "afterHeadline": "About average",
+      "unchangedStatistics": true,
+      "lateRequestsBefore": 1,
+      "lateRequestsAfter": 0
+    },
+    {
+      "engine": "chromium",
+      "width": 375,
+      "name": "second-roll-guarantee",
+      "beforeHeadline": "Unlucky",
+      "afterHeadline": "About average",
+      "unchangedStatistics": true,
+      "lateRequestsBefore": 1,
+      "lateRequestsAfter": 0
+    },
+    {
+      "engine": "firefox",
+      "width": 1440,
+      "name": "first-try-common-drop",
+      "beforeHeadline": "Unlucky",
+      "afterHeadline": "About average",
+      "unchangedStatistics": true,
+      "lateRequestsBefore": 1,
+      "lateRequestsAfter": 0
+    },
+    {
+      "engine": "firefox",
+      "width": 1440,
+      "name": "second-roll-guarantee",
+      "beforeHeadline": "Unlucky",
+      "afterHeadline": "About average",
+      "unchangedStatistics": true,
+      "lateRequestsBefore": 1,
+      "lateRequestsAfter": 0
+    },
+    {
+      "engine": "firefox",
+      "width": 375,
+      "name": "first-try-common-drop",
+      "beforeHeadline": "Unlucky",
+      "afterHeadline": "About average",
+      "unchangedStatistics": true,
+      "lateRequestsBefore": 1,
+      "lateRequestsAfter": 0
+    },
+    {
+      "engine": "firefox",
+      "width": 375,
+      "name": "second-roll-guarantee",
+      "beforeHeadline": "Unlucky",
+      "afterHeadline": "About average",
+      "unchangedStatistics": true,
+      "lateRequestsBefore": 1,
+      "lateRequestsAfter": 0
+    }
+  ]
+}

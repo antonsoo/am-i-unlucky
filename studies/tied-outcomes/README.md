@@ -61,7 +61,7 @@ remain floating-point models subject to the existing bounds.
 [oracle.py](oracle.py) generates [oracle.json](oracle.json). It uses exact
 combinatorial fractions for 84 simple histories, and the existing independent
 rational absorbing-chain oracle's 80-digit CDF values for 2,688 pity histories
-from 84 models. The input oracle hash is retained. In the working replay,
+from 84 models. The input oracle hash is retained. In the clean-archive replay,
 1,155 histories have supported positive-mass completions and 1,617 are correctly
 unavailable. Maximum absolute probability error is below 4e-14. A separate case
 checks an unbounded model with more than 60% unplotted live mass and refuses a
@@ -73,7 +73,11 @@ and from advanced guaranteed pity: six model scenarios. It hashes the entire
 PMF and distribution metadata, retains moments and confidence milestones, and
 retains all legacy strict-later outputs. This reuses the pinned bundled table;
 it is not a new community-data collection or a validation of a game's rates.
-[before.json](before.json) preserves the baseline output.
+[before.json](before.json) and [after.json](after.json) preserve both outputs.
+[comparison.json](comparison.json) verifies exact equality of the retained
+full distributions, moments, milestones, legacy strict-later shares and six
+browser statistics for each of the eight workflows. Only the added comparison
+objects are excluded from the numerical equality check.
 
 ```sh
 npm ci
@@ -106,6 +110,39 @@ font download can still use the fallback rather than preventing export.
 The bundled Sans files are variable fonts; one CSS face now covers their four
 used weights. The previous separate declarations could request the same file
 again in Firefox when a bold note below the fold became visible after load.
+
+## Clean build and inspected artifacts
+
+A fresh archive of `e57ce01156805c1d0ba8e0161cca6d828307e1db` was installed
+and built on Node 24.21.0. Lint, TypeScript, formatting, 407 unit checks in each
+of the default and comma-decimal locales, and all 134 Chromium/Firefox browser
+workflows passed. The [artifact receipt](artifacts.json) hashes the clean archive,
+records the checks, compares current build inputs with that archive, and
+byte-checks every locally served asset against its production build. It also
+records the bundled Sans files' variable-font inspection. Build with
+`npm run build`; the complete static output is `dist/`.
+
+The separate no-store, server-stopped replay in
+[browser-before.json](browser-before.json) and
+[browser-after.json](browser-after.json) retains the actual queries, page text,
+PNG hashes and drawn card text. All eight final workflows have no subsequent
+HTTP requests, page errors, CSP violations or horizontal overflow. No delay is
+inserted to warm a hidden first card. A further lifecycle check holds font
+completion until after the modal closes, then reopens it and verifies that the
+obsolete canvas was never painted and keyboard focus remains usable.
+
+All twelve retained images were opened and inspected. Full-page captures keep
+the surrounding inputs and statistics visible; card images are the downloaded
+1080x1350 PNGs, not reconstructed illustrations.
+
+| Capture                         | Baseline                                                                                  | Clean build                                                                              |
+| ------------------------------- | ----------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| Chromium desktop, first attempt | [Page](../../docs/assets/tied-outcomes/before/chromium-1440-first-try-common-drop.png)    | [Page](../../docs/assets/tied-outcomes/after/chromium-1440-first-try-common-drop.png)    |
+| Chromium 375 px, first attempt  | [Page](../../docs/assets/tied-outcomes/before/chromium-375-first-try-common-drop.png)     | [Page](../../docs/assets/tied-outcomes/after/chromium-375-first-try-common-drop.png)     |
+| Chromium first-attempt card     | [PNG](../../docs/assets/tied-outcomes/before/chromium-375-first-try-common-drop-card.png) | [PNG](../../docs/assets/tied-outcomes/after/chromium-375-first-try-common-drop-card.png) |
+| Firefox desktop, guarantee      | [Page](../../docs/assets/tied-outcomes/before/firefox-1440-second-roll-guarantee.png)     | [Page](../../docs/assets/tied-outcomes/after/firefox-1440-second-roll-guarantee.png)     |
+| Firefox 375 px, guarantee       | [Page](../../docs/assets/tied-outcomes/before/firefox-375-second-roll-guarantee.png)      | [Page](../../docs/assets/tied-outcomes/after/firefox-375-second-roll-guarantee.png)      |
+| Firefox guarantee card          | [PNG](../../docs/assets/tied-outcomes/before/firefox-375-second-roll-guarantee-card.png)  | [PNG](../../docs/assets/tied-outcomes/after/firefox-375-second-roll-guarantee-card.png)  |
 
 This work updates source only. It does not publish a registry package, release
 tag, or hosted deployment. The existing live demo is not evidence of this repair.
