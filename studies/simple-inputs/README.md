@@ -19,13 +19,13 @@ Constructed inputs, not player histories. Chromium and Firefox, each at 1440 and
 initial load. The clipboard API is replaced with a recorder; PNG downloads use
 the real export path. No page errors or network requests occurred while offline.
 
-| Observation | Baseline | Corrected |
-| --- | ---: | ---: |
-| Invalid-input trials | 48 | 48 |
-| Invalid inputs still shareable | 48 | 0 |
-| Invalid inputs displaying statistics | 28 | 0 |
-| Invalid inputs offering a card | 20 | 0 |
-| Previous card present immediately after an edit, including limit controls | 52 | 0 |
+| Observation                                                               | Baseline | Corrected |
+| ------------------------------------------------------------------------- | -------: | --------: |
+| Invalid-input trials                                                      |       48 |        48 |
+| Invalid inputs still shareable                                            |       48 |         0 |
+| Invalid inputs displaying statistics                                      |       28 |         0 |
+| Invalid inputs offering a card                                            |       20 |         0 |
+| Previous card present immediately after an edit, including limit controls |       52 |         0 |
 
 The 48 invalid trials comprise 36 count edits and 12 invalid-rate edits. Four
 additional calculation-limit controls use a valid rate of `1/100000000000000000`:
