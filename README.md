@@ -11,7 +11,7 @@ Players constantly ask "is 900 runs for a 1/512 drop unlucky?" or "how many pull
 
 ## Same-attempt finishes are ties
 
-The current source fixes a completed-history ranking error. First-try success
+The source checkout and live demo fix a completed-history ranking error. First-try success
 at a 90% rate used to say **Unlucky: 90% finished sooner**. Nobody could have
 finished sooner. A two-roll 50/50 guarantee was labelled **Legendary bad luck**
 although half the players finish on that same second roll.
@@ -25,8 +25,8 @@ Both now read **About average**. The page and exported PNG retain all three
 shares. Rarity includes tied outcomes; unfinished runs report the fraction
 still waiting, and impossible completed histories have no luck rating.
 [Counterexamples, rational oracle and browser evidence](studies/tied-outcomes/README.md)
-are retained. This is a source correction; it has not been deployed to the live
-demo or published as a package release.
+are retained. [Canonical hosted assets and actual offline downloads](studies/publication/tied-outcomes.md)
+verify the live correction. No registry package was released.
 
 ## A small chance must not look like a short wait
 
@@ -44,7 +44,7 @@ no registry package was published with that deployment.
 
 ## Checked against 27 million logged pulls
 
-The bundled pity preset was an archetype nobody had checked. [`studies/paimon-pity`](./studies/paimon-pity/README.md) compares it with the five-star tallies that paimon.moe publishes for Genshin Impact's character banners (26.9 million five-stars, 98 banner phases, retrieved 2026-10-08). On pulls 74 to 83 the logged chance is within a point of the preset's ramp. The 50/50 was the part that mattered: the preset's 50% matches the logs before version 5.0, and the publisher's February 2025 post gives 55%, which the tool reads as the win rate on a roll with no guarantee; that takes "one copy within 90 pulls" from 59.4% to 63.5%. The logs read higher than 55% from version 5.5 and show no step at 5.0, for reasons not found. Above pull 84 the logged tail holds a few hundred more long streaks than the ramp allows and looks like miscounted records, so the new preset uses the ramp there. The source checkout (unreleased) adds a preset built from the logs, labelled community data with its source, date and sample size, next to the old archetype. The answers are exact for the table; the table has sampling error and bias.
+The bundled pity preset was an archetype nobody had checked. [`studies/paimon-pity`](./studies/paimon-pity/README.md) compares it with the five-star tallies that paimon.moe publishes for Genshin Impact's character banners (26.9 million five-stars, 98 banner phases, retrieved 2026-10-08). On pulls 74 to 83 the logged chance is within a point of the preset's ramp. The 50/50 was the part that mattered: the preset's 50% matches the logs before version 5.0, and the publisher's February 2025 post gives 55%, which the tool reads as the win rate on a roll with no guarantee; that takes "one copy within 90 pulls" from 59.4% to 63.5%. The logs read higher than 55% from version 5.5 and show no step at 5.0, for reasons not found. Above pull 84 the logged tail holds a few hundred more long streaks than the ramp allows and looks like miscounted records, so the new preset uses the ramp there. The source checkout and live demo include a preset built from the logs, labelled community data with its source, date and sample size, next to the old archetype. The answers are exact for the table; the table has sampling error and bias.
 
 ## Quickstart
 
@@ -62,7 +62,7 @@ Open the printed `localhost` URL. That's the whole setup — no build step, no a
 - **Pity system** — base rate, soft-pity ramp, hard pity, and an optional 50/50-with-guarantee mechanic. Computed via an exact dynamic-programming pass over the pity Markov chain (not a simulation; exact for the rates given, which for a measured table carry sampling error): expected pulls, percentiles, `P(success within budget)`, and "how lucky was my history" for a pull count you actually used.
 - **Collection** — complete a set where each attempt drops at most one listed item. Stable calculated means and completion odds for up to 16 items; labeled simulation estimates through 32. Censored runs and confidence intervals stay visible.
 - **Time to drop** — combine daily and weekly attempt batches, count every successful copy, and see the chance of finishing within a day budget, the expected time, and 50/90/99% milestones.
-- **Presets with honest labels** — a generic soft-pity gacha archetype, a per-pull table measured from community-logged Genshin Impact pulls (source checkout, unreleased; source, date and sample size on its label), two shiny-hunt presets that cite Pokémon's actual documented encounter rates (1/4096, and 3/4096 with the Shiny Charm), and generic "MMO rare drop" / "loot box" archetypes. Every preset is fully editable; the UI says where each number comes from.
+- **Presets with honest labels** — a generic soft-pity gacha archetype, a per-pull table measured from community-logged Genshin Impact pulls (source, date and sample size on its label), two shiny-hunt presets that cite Pokémon's actual documented encounter rates (1/4096, and 3/4096 with the Shiny Charm), and generic "MMO rare drop" / "loot box" archetypes. Every preset is fully editable; the UI says where each number comes from.
 - **Shareable URLs** — the full input state lives in the query string, so a link reproduces exactly what you saw.
 - **Luck card export** — a rarity-colored PNG ("common" through "legendary", using inclusive outcome tails, with ties kept visible) you can save and share.
 - **Light + dark**, keyboard accessible, responsive to 320px, respects `prefers-reduced-motion`, zero tracking. Calculations run locally; calculation workers load from the same origin and need their asset cached or a working connection.

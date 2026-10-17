@@ -144,5 +144,7 @@ the surrounding inputs and statistics visible; card images are the downloaded
 | Firefox 375 px, guarantee       | [Page](../../docs/assets/tied-outcomes/before/firefox-375-second-roll-guarantee.png)      | [Page](../../docs/assets/tied-outcomes/after/firefox-375-second-roll-guarantee.png)      |
 | Firefox guarantee card          | [PNG](../../docs/assets/tied-outcomes/before/firefox-375-second-roll-guarantee-card.png)  | [PNG](../../docs/assets/tied-outcomes/after/firefox-375-second-roll-guarantee-card.png)  |
 
-This work updates source only. It does not publish a registry package, release
-tag, or hosted deployment. The existing live demo is not evidence of this repair.
+The original study verified source and local builds. The later
+[hosted deployment review](../publication/tied-outcomes.md) checks the canonical
+public assets and actual offline card downloads. No registry release or tag
+was created.

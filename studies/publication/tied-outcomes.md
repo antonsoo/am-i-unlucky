@@ -46,3 +46,26 @@ its incorrect Unlucky headline. Build with `npm run build`; the complete static
 output is `dist/`. Hosted publication is verified separately below once its
 canonical files match this production build. No registry release or tag is
 created.
+
+## Canonical hosted verification
+
+Pages revision `d4c1249a087c99dbf87b6516ca0840b02a211c73` serves the reviewed
+production build. [All 35 canonical files](results/hosted-after-bytes.json)
+match its exact bytes, including HTML, workers, scripts, styles, fonts and
+source maps. The branch push and an HTTP 200 alone were not used as freshness
+evidence.
+
+The [logged-out public replay](results/tied-after/receipt.json) loads both
+share links in Chromium and Firefox at 1280 and 375 px. Both outcomes now
+read About average, with the correct three shares on the page and in the
+actual 1080x1350 PNG. The first export runs offline with no HTTP requests
+after disconnection, page errors or horizontal overflow. All twelve hosted
+after captures were opened and inspected.
+
+| Model                  | Before              | Hosted after           | Earlier / same / later |
+| ---------------------- | ------------------- | ---------------------- | ---------------------- |
+| First try, 90%         | Unlucky / Rare      | About average / Common | 0 / 90 / 10%           |
+| Second roll, guarantee | Unlucky / Legendary | About average / Common | 50 / 50 / 0%           |
+
+The models, distributions and observed outcomes have not changed. The live
+verdicts and downloaded cards now account for same-attempt ties.
