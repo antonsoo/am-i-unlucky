@@ -1,0 +1,13 @@
+{
+  "name": "am-i-unlucky",
+  "html_sha256": "46ed423ab27644170fe867f307d991a0e08639933a3f65829f081554b2b361b6",
+  "scripts": [
+    {
+      "file": "/am-i-unlucky/assets/index-Bt8SN-lH.js",
+      "sha256": "4f560308c71c2d4fc06123cd234233b934fcd55c02bea5b9bdba972414ff5606",
+      "bytes": 70661,
+      "download_wav_literal": false,
+      "tie_shares_literal": false
+    }
+  ]
+}

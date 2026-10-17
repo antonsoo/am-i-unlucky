@@ -1,0 +1,174 @@
+{
+  "source": {
+    "repository": "am-i-unlucky",
+    "revision": "72a37c4b370298166c36eda10b9897c68540ffcc",
+    "clean_tree": true
+  },
+  "rows": [
+    {
+      "name": "node",
+      "command": [
+        "node",
+        "--version"
+      ],
+      "exit": 0,
+      "seconds": 0.007605574966873974,
+      "log_sha256": "f2ec568164f99546161909b0189b57bb5be3e80f8e2ccd8a51a4aed8c4055a04",
+      "tail": [
+        "v24.21.0"
+      ]
+    },
+    {
+      "name": "npm",
+      "command": [
+        "npm",
+        "--version"
+      ],
+      "exit": 0,
+      "seconds": 0.20954864501254633,
+      "log_sha256": "005206ab803f8881d8227540b7980b37e723b69a8849edb31734a90b7e7964e2",
+      "tail": [
+        "11.19.0"
+      ]
+    },
+    {
+      "name": "install",
+      "command": [
+        "npm",
+        "ci"
+      ],
+      "exit": 0,
+      "seconds": 9.51452663197415,
+      "log_sha256": "7cb147899315f142164614d9b04f3dc3b4f341e3ffb966ec758b087e2e0e0c78",
+      "tail": [
+        "",
+        "41 packages are looking for funding",
+        "  run `npm fund` for details",
+        "",
+        "found 0 vulnerabilities"
+      ]
+    },
+    {
+      "name": "lint",
+      "command": [
+        "npm",
+        "run",
+        "lint"
+      ],
+      "exit": 0,
+      "seconds": 11.964830656012055,
+      "log_sha256": "918e6040ef68698aaf7c83146ea69e189980ee7b4486b49c996b9ec977f240a2",
+      "tail": [
+        "",
+        "> am-i-unlucky@0.4.0 lint",
+        "> eslint . --max-warnings 0",
+        ""
+      ]
+    },
+    {
+      "name": "types",
+      "command": [
+        "npm",
+        "run",
+        "typecheck"
+      ],
+      "exit": 0,
+      "seconds": 7.816279674996622,
+      "log_sha256": "bdd19736dd05e534813c7da3fe3a51aab937171596c8e53f70861bcec2f7f48c",
+      "tail": [
+        "",
+        "> am-i-unlucky@0.4.0 typecheck",
+        "> tsc --noEmit",
+        ""
+      ]
+    },
+    {
+      "name": "format",
+      "command": [
+        "npm",
+        "run",
+        "fmt"
+      ],
+      "exit": 0,
+      "seconds": 7.011239554965869,
+      "log_sha256": "7ca1ce6064f18595b3c5f1952c8b729d8df4a08a4c01f4ccca579f56f57ec102",
+      "tail": [
+        "> am-i-unlucky@0.4.0 fmt",
+        "> prettier --check .",
+        "",
+        "Checking formatting...",
+        "All matched files use Prettier code style!"
+      ]
+    },
+    {
+      "name": "tests",
+      "command": [
+        "npm",
+        "test"
+      ],
+      "exit": 0,
+      "seconds": 5.261794755002484,
+      "log_sha256": "83e6b861d6c888f31de3822397dd3627b561bc5f588ef6b29ef2229632413d08",
+      "tail": [
+        "",
+        "  Transform  transforming modules took 20.74s \u00b7 63% of tracked time, re-done on every run",
+        "             persist transforms across runs with fsModuleCache: true",
+        "             learn more: https://vitest.dev/guide/improving-performance#caching-between-reruns",
+        ""
+      ]
+    },
+    {
+      "name": "comma-decimal",
+      "command": [
+        "npm",
+        "test"
+      ],
+      "exit": 0,
+      "seconds": 5.829690073034726,
+      "log_sha256": "33846ce99dabd0fc731b28e1f77a297ee20bebac7c6a5db1c81c23418f2537e0",
+      "tail": [
+        "",
+        "  Transform  transforming modules took 19.75s \u00b7 64% of tracked time, re-done on every run",
+        "             persist transforms across runs with fsModuleCache: true",
+        "             learn more: https://vitest.dev/guide/improving-performance#caching-between-reruns",
+        ""
+      ]
+    },
+    {
+      "name": "build",
+      "command": [
+        "npm",
+        "run",
+        "build"
+      ],
+      "exit": 0,
+      "seconds": 7.617838330974337,
+      "log_sha256": "209976e41b3f7e6d2259c114fdf5752623fe9b4880e6276987eec4e6796fcf6a",
+      "tail": [
+        "dist/assets/bricolage-grotesque-latin-Cre6nC2_.woff2       76.88 kB",
+        "dist/assets/index-CGianAed.css                             22.00 kB \u2502 gzip:  4.80 kB",
+        "dist/assets/index-D_Rs3EbA.js                              73.96 kB \u2502 gzip: 22.22 kB \u2502 map: 226.33 kB",
+        "",
+        "\u2713 built in 520ms"
+      ]
+    },
+    {
+      "name": "browser",
+      "command": [
+        "npm",
+        "run",
+        "test:browser"
+      ],
+      "exit": 0,
+      "seconds": 245.61091487802332,
+      "log_sha256": "6c3c27b9fe91ff6f909f5dc256eac4215890cd39461e934e263523656498418f",
+      "tail": [
+        "  \u2713  140 [firefox] \u203a tests/browser/time.spec.mjs:507:5 \u203a time planner accessibility at 320px in dark (2.1s)",
+        "  \u2713  141 [firefox] \u203a tests/browser/time.spec.mjs:507:5 \u203a time planner accessibility at 1360px in light (1.9s)",
+        "  \u2713  142 [firefox] \u203a tests/browser/time.spec.mjs:507:5 \u203a time planner accessibility at 1360px in dark (1.8s)",
+        "",
+        "  142 passed (4.1m)"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,237 @@
+{
+  "checked_at_utc": "2026-10-16T23:51:34.526Z",
+  "phase": "before",
+  "synthetic_models": true,
+  "rows": [
+    {
+      "engine": "chromium",
+      "case": "first-try-common-drop",
+      "url": "https://antonsoo.github.io/am-i-unlucky/?mode=simple&rate=90%25&n=1&k=1&got=1",
+      "headline": "Unlucky",
+      "shares": [],
+      "body": "Your luck\n\nBased on the negative-binomial distribution for 1 success at 1 in 1.1 odds.\n\nUnlucky\n\n90% of players would have gotten it sooner.\n\nUNLUCKY\nAVERAGE\nLUCKY\nRARE BAD LUCK\n10th percentile — based on 1 attempts at 1 in 1.1 (90%) odds needing 1 copy\nP(AT LEAST 1 BY 1)\n90%\nEXPECTED ATTEMPTS\n1.1\n50% BY\n1\n90% BY\n1\n99% BY\n2\nSTD. DEVIATION\n0.4\nExport luck card",
+      "card_text": [
+        "AM I UNLUCKY?",
+        "SIMPLE DROP",
+        "RARE",
+        "10%",
+        "Took 1 attempts at 1 in 1.1 odds for 1 copy.",
+        "rare bad luck",
+        "P(at least 1 by 1) = 90%. Expected 1 attempts.",
+        "am-i-unlucky — exact drop-rate & pity math"
+      ],
+      "card_sha256": "41ccbb5eb52bc818e13356ab47208888f38c4ae1a06577b1425def8dace31772",
+      "assets": {
+        "/am-i-unlucky/": {
+          "bytes": 2364,
+          "sha256": "46ed423ab27644170fe867f307d991a0e08639933a3f65829f081554b2b361b6"
+        },
+        "/am-i-unlucky/assets/index-Bt8SN-lH.js": {
+          "bytes": 70661,
+          "sha256": "4f560308c71c2d4fc06123cd234233b934fcd55c02bea5b9bdba972414ff5606"
+        },
+        "/am-i-unlucky/assets/index-B_eBJFXq.css": {
+          "bytes": 27028,
+          "sha256": "ef1a6e44ec94dc2bb6f36587125a34fd74c67cf0924fae55e0ec4a4ad4420ded"
+        },
+        "/am-i-unlucky/assets/ibm-plex-mono-600-latin-BgSNZQsw.woff2": {
+          "bytes": 15620,
+          "sha256": "0d1f0b8d0722224e32e9f28261bdc86c79115be73444ae5eceb73976a1bcdf83"
+        },
+        "/am-i-unlucky/assets/ibm-plex-sans-latin-IvpUvPa2.woff2": {
+          "bytes": 45712,
+          "sha256": "e2291e842cf5af167122a22881a740c7f2dda7716f1e8cd76680264f4a859470"
+        },
+        "/am-i-unlucky/assets/bricolage-grotesque-latin-Cre6nC2_.woff2": {
+          "bytes": 76888,
+          "sha256": "a79fdb52d4a5c76552452f69202add96e287401fff03d3e8c0e38b4dcb5a99cd"
+        },
+        "/am-i-unlucky/assets/ibm-plex-mono-400-latin-DMJ8VG8y.woff2": {
+          "bytes": 14708,
+          "sha256": "08949f728dc52d528e69b1667d15c89a5686a4ee9a296ff90983985f99c380f7"
+        }
+      },
+      "errors": [],
+      "asset_errors": [],
+      "offline_requests": [
+        "https://antonsoo.github.io/am-i-unlucky/assets/ibm-plex-mono-500-latin-DSY6xOcd.woff2"
+      ]
+    },
+    {
+      "engine": "chromium",
+      "case": "second-roll-guarantee",
+      "url": "https://antonsoo.github.io/am-i-unlucky/?mode=pity&base=1&soft=1&inc=0&hard=1&feat=.5&guar=1&pity0=0&g0=0&target=1&budget=2&actual=2",
+      "headline": "Unlucky",
+      "shares": [],
+      "body": "How lucky was my history?\n\nFor additional pulls from the starting pity counter above. The percentile is the share of players taking strictly more pulls; ties are excluded.\n\nUnlucky\n\n100% of players would have gotten it sooner.\n\nUNLUCKY\nAVERAGE\nLUCKY\nLEGENDARY BAD LUCK\n0th percentile — based on 2 pulls chasing 1 copy\nEXPECTED PULLS\n1.5\nSTD. DEVIATION\n0.5\nP(SUCCESS WITHIN 2)\n100%\n50% BY\n1\n90% BY\n2\n99% BY\n2\n\nMean and standard deviation use the full probability model, including the unplotted tail.\n\nExport luck card",
+      "card_text": [
+        "AM I UNLUCKY?",
+        "PITY SYSTEM",
+        "LEGENDARY",
+        "0%",
+        "Took 2 pulls for 1 copy under pity.",
+        "legendary bad luck",
+        "Expected 2 pulls. P(success within 2) = 100%.",
+        "am-i-unlucky — exact drop-rate & pity math"
+      ],
+      "card_sha256": "33229134a2ee2657e76bdacd96b9eb66a2bb4e0a5eefae1ff3e3b485f2e86737",
+      "assets": {
+        "/am-i-unlucky/": {
+          "bytes": 2364,
+          "sha256": "46ed423ab27644170fe867f307d991a0e08639933a3f65829f081554b2b361b6"
+        },
+        "/am-i-unlucky/assets/index-Bt8SN-lH.js": {
+          "bytes": 70661,
+          "sha256": "4f560308c71c2d4fc06123cd234233b934fcd55c02bea5b9bdba972414ff5606"
+        },
+        "/am-i-unlucky/assets/index-B_eBJFXq.css": {
+          "bytes": 27028,
+          "sha256": "ef1a6e44ec94dc2bb6f36587125a34fd74c67cf0924fae55e0ec4a4ad4420ded"
+        },
+        "/am-i-unlucky/assets/bricolage-grotesque-latin-Cre6nC2_.woff2": {
+          "bytes": 76888,
+          "sha256": "a79fdb52d4a5c76552452f69202add96e287401fff03d3e8c0e38b4dcb5a99cd"
+        },
+        "/am-i-unlucky/assets/ibm-plex-sans-latin-IvpUvPa2.woff2": {
+          "bytes": 45712,
+          "sha256": "e2291e842cf5af167122a22881a740c7f2dda7716f1e8cd76680264f4a859470"
+        },
+        "/am-i-unlucky/assets/ibm-plex-mono-600-latin-BgSNZQsw.woff2": {
+          "bytes": 15620,
+          "sha256": "0d1f0b8d0722224e32e9f28261bdc86c79115be73444ae5eceb73976a1bcdf83"
+        },
+        "/am-i-unlucky/assets/ibm-plex-mono-400-latin-DMJ8VG8y.woff2": {
+          "bytes": 14708,
+          "sha256": "08949f728dc52d528e69b1667d15c89a5686a4ee9a296ff90983985f99c380f7"
+        }
+      },
+      "errors": [],
+      "asset_errors": [
+        "response.body: Target page, context or browser has been closed"
+      ],
+      "offline_requests": [
+        "https://antonsoo.github.io/am-i-unlucky/assets/ibm-plex-mono-500-latin-DSY6xOcd.woff2"
+      ]
+    },
+    {
+      "engine": "firefox",
+      "case": "first-try-common-drop",
+      "url": "https://antonsoo.github.io/am-i-unlucky/?mode=simple&rate=90%25&n=1&k=1&got=1",
+      "headline": "Unlucky",
+      "shares": [],
+      "body": "Your luck\n\nBased on the negative-binomial distribution for 1 success at 1 in 1.1 odds.\n\nUnlucky\n\n90% of players would have gotten it sooner.\n\nUNLUCKY\nAVERAGE\nLUCKY\nRARE BAD LUCK\n10th percentile — based on 1 attempts at 1 in 1.1 (90%) odds needing 1 copy\nP(AT LEAST 1 BY 1)\n90%\nEXPECTED ATTEMPTS\n1.1\n50% BY\n1\n90% BY\n1\n99% BY\n2\nSTD. DEVIATION\n0.4\nExport luck card",
+      "card_text": [
+        "AM I UNLUCKY?",
+        "SIMPLE DROP",
+        "RARE",
+        "10%",
+        "Took 1 attempts at 1 in 1.1 odds for 1 copy.",
+        "rare bad luck",
+        "P(at least 1 by 1) = 90%. Expected 1 attempts.",
+        "am-i-unlucky — exact drop-rate & pity math"
+      ],
+      "card_sha256": "1205f0f43c67193f53a7e6e42583be7986d23609f5160fb5e9a8089530d98319",
+      "assets": {
+        "/am-i-unlucky/": {
+          "bytes": 2364,
+          "sha256": "46ed423ab27644170fe867f307d991a0e08639933a3f65829f081554b2b361b6"
+        },
+        "/am-i-unlucky/assets/index-B_eBJFXq.css": {
+          "bytes": 27028,
+          "sha256": "ef1a6e44ec94dc2bb6f36587125a34fd74c67cf0924fae55e0ec4a4ad4420ded"
+        },
+        "/am-i-unlucky/assets/index-Bt8SN-lH.js": {
+          "bytes": 70661,
+          "sha256": "4f560308c71c2d4fc06123cd234233b934fcd55c02bea5b9bdba972414ff5606"
+        },
+        "/am-i-unlucky/assets/ibm-plex-sans-latin-IvpUvPa2.woff2": {
+          "bytes": 45712,
+          "sha256": "e2291e842cf5af167122a22881a740c7f2dda7716f1e8cd76680264f4a859470"
+        },
+        "/am-i-unlucky/assets/ibm-plex-mono-400-latin-DMJ8VG8y.woff2": {
+          "bytes": 14708,
+          "sha256": "08949f728dc52d528e69b1667d15c89a5686a4ee9a296ff90983985f99c380f7"
+        },
+        "/am-i-unlucky/assets/ibm-plex-mono-600-latin-BgSNZQsw.woff2": {
+          "bytes": 15620,
+          "sha256": "0d1f0b8d0722224e32e9f28261bdc86c79115be73444ae5eceb73976a1bcdf83"
+        },
+        "/am-i-unlucky/assets/bricolage-grotesque-latin-Cre6nC2_.woff2": {
+          "bytes": 76888,
+          "sha256": "a79fdb52d4a5c76552452f69202add96e287401fff03d3e8c0e38b4dcb5a99cd"
+        },
+        "/am-i-unlucky/favicon.svg": {
+          "bytes": 296,
+          "sha256": "923f1b1e9fbd6624acda8401f848104865d91e4a478c22b9a791f94921803075"
+        }
+      },
+      "errors": [],
+      "asset_errors": [],
+      "offline_requests": [
+        "https://antonsoo.github.io/am-i-unlucky/assets/ibm-plex-mono-500-latin-DSY6xOcd.woff2"
+      ]
+    },
+    {
+      "engine": "firefox",
+      "case": "second-roll-guarantee",
+      "url": "https://antonsoo.github.io/am-i-unlucky/?mode=pity&base=1&soft=1&inc=0&hard=1&feat=.5&guar=1&pity0=0&g0=0&target=1&budget=2&actual=2",
+      "headline": "Unlucky",
+      "shares": [],
+      "body": "How lucky was my history?\n\nFor additional pulls from the starting pity counter above. The percentile is the share of players taking strictly more pulls; ties are excluded.\n\nUnlucky\n\n100% of players would have gotten it sooner.\n\nUNLUCKY\nAVERAGE\nLUCKY\nLEGENDARY BAD LUCK\n0th percentile — based on 2 pulls chasing 1 copy\nEXPECTED PULLS\n1.5\nSTD. DEVIATION\n0.5\nP(SUCCESS WITHIN 2)\n100%\n50% BY\n1\n90% BY\n2\n99% BY\n2\n\nMean and standard deviation use the full probability model, including the unplotted tail.\n\nExport luck card",
+      "card_text": [
+        "AM I UNLUCKY?",
+        "PITY SYSTEM",
+        "LEGENDARY",
+        "0%",
+        "Took 2 pulls for 1 copy under pity.",
+        "legendary bad luck",
+        "Expected 2 pulls. P(success within 2) = 100%.",
+        "am-i-unlucky — exact drop-rate & pity math"
+      ],
+      "card_sha256": "f4ab157d96c5d874e74552978d8fc00f7eb0a34d4fb5100ef62aaec514c1652b",
+      "assets": {
+        "/am-i-unlucky/": {
+          "bytes": 2364,
+          "sha256": "46ed423ab27644170fe867f307d991a0e08639933a3f65829f081554b2b361b6"
+        },
+        "/am-i-unlucky/assets/index-Bt8SN-lH.js": {
+          "bytes": 70661,
+          "sha256": "4f560308c71c2d4fc06123cd234233b934fcd55c02bea5b9bdba972414ff5606"
+        },
+        "/am-i-unlucky/assets/index-B_eBJFXq.css": {
+          "bytes": 27028,
+          "sha256": "ef1a6e44ec94dc2bb6f36587125a34fd74c67cf0924fae55e0ec4a4ad4420ded"
+        },
+        "/am-i-unlucky/assets/ibm-plex-sans-latin-IvpUvPa2.woff2": {
+          "bytes": 45712,
+          "sha256": "e2291e842cf5af167122a22881a740c7f2dda7716f1e8cd76680264f4a859470"
+        },
+        "/am-i-unlucky/assets/ibm-plex-mono-400-latin-DMJ8VG8y.woff2": {
+          "bytes": 14708,
+          "sha256": "08949f728dc52d528e69b1667d15c89a5686a4ee9a296ff90983985f99c380f7"
+        },
+        "/am-i-unlucky/assets/ibm-plex-mono-600-latin-BgSNZQsw.woff2": {
+          "bytes": 15620,
+          "sha256": "0d1f0b8d0722224e32e9f28261bdc86c79115be73444ae5eceb73976a1bcdf83"
+        },
+        "/am-i-unlucky/assets/pity-worker-D65o80cA.js": {
+          "bytes": 4906,
+          "sha256": "6e57fb9114188edbd050983e30b83c8fc47ea44b932c4198c58f0c009c50af72"
+        },
+        "/am-i-unlucky/assets/bricolage-grotesque-latin-Cre6nC2_.woff2": {
+          "bytes": 76888,
+          "sha256": "a79fdb52d4a5c76552452f69202add96e287401fff03d3e8c0e38b4dcb5a99cd"
+        },
+        "/am-i-unlucky/favicon.svg": {
+          "bytes": 296,
+          "sha256": "923f1b1e9fbd6624acda8401f848104865d91e4a478c22b9a791f94921803075"
+        }
+      },
+      "errors": [],
+      "asset_errors": [],
+      "offline_requests": [
+        "https://antonsoo.github.io/am-i-unlucky/assets/ibm-plex-mono-500-latin-DSY6xOcd.woff2"
+      ]
+    }
+  ]
+}

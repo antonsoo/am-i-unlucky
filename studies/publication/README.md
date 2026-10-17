@@ -41,3 +41,8 @@ Pages revision are separate, recorded in [verification.json](results/verificatio
 This is a static-site deployment. No registry package or tag was published,
 and local checks are not a claim about remote CI. Receipts are snapshots at
 their recorded check times.
+
+## Probability comparison deployment
+
+[The current hosted review](tied-outcomes.md) retains fresh clean-build checks,
+actual before/after user workflows and downloaded cards for same-attempt ties.

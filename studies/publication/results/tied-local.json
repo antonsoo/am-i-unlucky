@@ -1,0 +1,480 @@
+{
+  "mode": "verify",
+  "servedAssets": [
+    {
+      "path": "assets/bricolage-grotesque-latin-Cre6nC2_.woff2",
+      "bytes": 76888,
+      "sha256": "a79fdb52d4a5c76552452f69202add96e287401fff03d3e8c0e38b4dcb5a99cd"
+    },
+    {
+      "path": "assets/ibm-plex-mono-400-latin-DMJ8VG8y.woff2",
+      "bytes": 14708,
+      "sha256": "08949f728dc52d528e69b1667d15c89a5686a4ee9a296ff90983985f99c380f7"
+    },
+    {
+      "path": "assets/ibm-plex-mono-600-latin-BgSNZQsw.woff2",
+      "bytes": 15620,
+      "sha256": "0d1f0b8d0722224e32e9f28261bdc86c79115be73444ae5eceb73976a1bcdf83"
+    },
+    {
+      "path": "assets/ibm-plex-sans-latin-IvpUvPa2.woff2",
+      "bytes": 45712,
+      "sha256": "e2291e842cf5af167122a22881a740c7f2dda7716f1e8cd76680264f4a859470"
+    },
+    {
+      "path": "assets/index-CGianAed.css",
+      "bytes": 22001,
+      "sha256": "45451bee69a1ef0f2149d482e66b0d188a281409bff92c30c8932e99da7bec8c"
+    },
+    {
+      "path": "assets/index-D_Rs3EbA.js",
+      "bytes": 73969,
+      "sha256": "6addc4eba7447057b088590f7a1db4a472a55dbd6401ca9a618be4381468dd5a"
+    },
+    {
+      "path": "assets/pity-worker-BkaeeVK6.js",
+      "bytes": 5222,
+      "sha256": "24b51ef35d8d9fc3274550ac3b3427046443610391f6b991ee1f918946c98261"
+    },
+    {
+      "path": "favicon.svg",
+      "bytes": 296,
+      "sha256": "923f1b1e9fbd6624acda8401f848104865d91e4a478c22b9a791f94921803075"
+    },
+    {
+      "path": "index.html",
+      "bytes": 2364,
+      "sha256": "7b60168af416aaf70b4c3519cbf65886869a4e266ca9e2e70d5975a598ac4372"
+    }
+  ],
+  "results": [
+    {
+      "engine": "chromium",
+      "version": "153.0.8010.12",
+      "width": 1440,
+      "name": "first-try-common-drop",
+      "query": {
+        "mode": "simple",
+        "rate": "90%",
+        "n": "1",
+        "k": "1",
+        "got": "1"
+      },
+      "expected": {
+        "earlier": 0,
+        "tied": 0.9,
+        "later": 0.1
+      },
+      "headline": "About average",
+      "text": "Your luck\n\nBased on the negative-binomial distribution for 1 success at 1 in 1.1 odds.\n\nAbout average\n\nSame-attempt finishes are ties, not faster or slower outcomes.\n\nFinished sooner\n0%\nSame attempt\n90%\nTook longer\n10%\nUNLUCKY\nAVERAGE\nLUCKY\nCOMMON\nbased on 1 attempt at 1 in 1.1 (90%) odds needing 1 copy\n\nThe outlined band includes ties. Rarity counts outcomes at least as extreme as yours, including same-attempt finishes.\n\nP(AT LEAST 1 BY 1)\n90%\nEXPECTED ATTEMPTS\n1.1\n50% BY\n1\n90% BY\n1\n99% BY\n2\nSTD. DEVIATION\n0.4\nExport luck card",
+      "stats": [
+        "90%",
+        "1.1",
+        "1",
+        "1",
+        "2",
+        "0.4"
+      ],
+      "cardText": [
+        "AM I UNLUCKY?",
+        "SIMPLE DROP",
+        "COMMON",
+        "0%",
+        "FINISHED SOONER",
+        "90%",
+        "SAME ATTEMPT",
+        "10%",
+        "TOOK LONGER",
+        "ABOUT AVERAGE",
+        "Took 1 attempt at 1 in 1.1 odds for 1 copy.",
+        "common",
+        "P(at least 1 by 1) = 90%. Expected 1.1 attempts.",
+        "am-i-unlucky — exact drop-rate & pity math"
+      ],
+      "cardSha256": "08ed5ab1fab3346c37c7a005626fb8cb8aa950fae1eeae35504c75fc61d58287",
+      "serverStoppedBeforeExport": true,
+      "errors": [],
+      "lateRequests": [],
+      "csp": [],
+      "overflow": 0
+    },
+    {
+      "engine": "chromium",
+      "version": "153.0.8010.12",
+      "width": 1440,
+      "name": "second-roll-guarantee",
+      "query": {
+        "mode": "pity",
+        "base": "1",
+        "soft": "1",
+        "inc": "0",
+        "hard": "1",
+        "feat": ".5",
+        "guar": "1",
+        "pity0": "0",
+        "g0": "0",
+        "target": "1",
+        "budget": "2",
+        "actual": "2"
+      },
+      "expected": {
+        "earlier": 0.5,
+        "tied": 0.5,
+        "later": 0
+      },
+      "headline": "About average",
+      "text": "How lucky was my history?\n\nFor additional pulls from the starting pity counter above. Players who finish on the same pull are shown separately from those who finish earlier or later.\n\nAbout average\n\nSame-attempt finishes are ties, not faster or slower outcomes.\n\nFinished sooner\n50%\nSame attempt\n50%\nTook longer\n0%\nUNLUCKY\nAVERAGE\nLUCKY\nCOMMON\nbased on 2 pulls chasing 1 copy\n\nThe outlined band includes ties. Rarity counts outcomes at least as extreme as yours, including same-attempt finishes.\n\nEXPECTED PULLS\n1.5\nSTD. DEVIATION\n0.5\nP(SUCCESS WITHIN 2)\n100%\n50% BY\n1\n90% BY\n2\n99% BY\n2\n\nMean and standard deviation use the full probability model, including the unplotted tail.\n\nExport luck card",
+      "stats": [
+        "1.5",
+        "0.5",
+        "100%",
+        "1",
+        "2",
+        "2"
+      ],
+      "cardText": [
+        "AM I UNLUCKY?",
+        "PITY SYSTEM",
+        "COMMON",
+        "50%",
+        "FINISHED SOONER",
+        "50%",
+        "SAME ATTEMPT",
+        "0%",
+        "TOOK LONGER",
+        "ABOUT AVERAGE",
+        "Took 2 pulls for 1 copy under pity.",
+        "common",
+        "Expected 1.5 pulls. P(success within 2) = 100%.",
+        "am-i-unlucky — exact drop-rate & pity math"
+      ],
+      "cardSha256": "de426d3cd2000d4a7698615b66a14e11bc164891ddaf8685e4089099aaa64943",
+      "serverStoppedBeforeExport": true,
+      "errors": [],
+      "lateRequests": [],
+      "csp": [],
+      "overflow": 0
+    },
+    {
+      "engine": "chromium",
+      "version": "153.0.8010.12",
+      "width": 375,
+      "name": "first-try-common-drop",
+      "query": {
+        "mode": "simple",
+        "rate": "90%",
+        "n": "1",
+        "k": "1",
+        "got": "1"
+      },
+      "expected": {
+        "earlier": 0,
+        "tied": 0.9,
+        "later": 0.1
+      },
+      "headline": "About average",
+      "text": "Your luck\n\nBased on the negative-binomial distribution for 1 success at 1 in 1.1 odds.\n\nAbout average\n\nSame-attempt finishes are ties, not faster or slower outcomes.\n\nFinished sooner\n0%\nSame attempt\n90%\nTook longer\n10%\nUNLUCKY\nAVERAGE\nLUCKY\nCOMMON\nbased on 1 attempt at 1 in 1.1 (90%) odds needing 1 copy\n\nThe outlined band includes ties. Rarity counts outcomes at least as extreme as yours, including same-attempt finishes.\n\nP(AT LEAST 1 BY 1)\n90%\nEXPECTED ATTEMPTS\n1.1\n50% BY\n1\n90% BY\n1\n99% BY\n2\nSTD. DEVIATION\n0.4\nExport luck card",
+      "stats": [
+        "90%",
+        "1.1",
+        "1",
+        "1",
+        "2",
+        "0.4"
+      ],
+      "cardText": [
+        "AM I UNLUCKY?",
+        "SIMPLE DROP",
+        "COMMON",
+        "0%",
+        "FINISHED SOONER",
+        "90%",
+        "SAME ATTEMPT",
+        "10%",
+        "TOOK LONGER",
+        "ABOUT AVERAGE",
+        "Took 1 attempt at 1 in 1.1 odds for 1 copy.",
+        "common",
+        "P(at least 1 by 1) = 90%. Expected 1.1 attempts.",
+        "am-i-unlucky — exact drop-rate & pity math"
+      ],
+      "cardSha256": "08ed5ab1fab3346c37c7a005626fb8cb8aa950fae1eeae35504c75fc61d58287",
+      "serverStoppedBeforeExport": true,
+      "errors": [],
+      "lateRequests": [],
+      "csp": [],
+      "overflow": 0
+    },
+    {
+      "engine": "chromium",
+      "version": "153.0.8010.12",
+      "width": 375,
+      "name": "second-roll-guarantee",
+      "query": {
+        "mode": "pity",
+        "base": "1",
+        "soft": "1",
+        "inc": "0",
+        "hard": "1",
+        "feat": ".5",
+        "guar": "1",
+        "pity0": "0",
+        "g0": "0",
+        "target": "1",
+        "budget": "2",
+        "actual": "2"
+      },
+      "expected": {
+        "earlier": 0.5,
+        "tied": 0.5,
+        "later": 0
+      },
+      "headline": "About average",
+      "text": "How lucky was my history?\n\nFor additional pulls from the starting pity counter above. Players who finish on the same pull are shown separately from those who finish earlier or later.\n\nAbout average\n\nSame-attempt finishes are ties, not faster or slower outcomes.\n\nFinished sooner\n50%\nSame attempt\n50%\nTook longer\n0%\nUNLUCKY\nAVERAGE\nLUCKY\nCOMMON\nbased on 2 pulls chasing 1 copy\n\nThe outlined band includes ties. Rarity counts outcomes at least as extreme as yours, including same-attempt finishes.\n\nEXPECTED PULLS\n1.5\nSTD. DEVIATION\n0.5\nP(SUCCESS WITHIN 2)\n100%\n50% BY\n1\n90% BY\n2\n99% BY\n2\n\nMean and standard deviation use the full probability model, including the unplotted tail.\n\nExport luck card",
+      "stats": [
+        "1.5",
+        "0.5",
+        "100%",
+        "1",
+        "2",
+        "2"
+      ],
+      "cardText": [
+        "AM I UNLUCKY?",
+        "PITY SYSTEM",
+        "COMMON",
+        "50%",
+        "FINISHED SOONER",
+        "50%",
+        "SAME ATTEMPT",
+        "0%",
+        "TOOK LONGER",
+        "ABOUT AVERAGE",
+        "Took 2 pulls for 1 copy under pity.",
+        "common",
+        "Expected 1.5 pulls. P(success within 2) = 100%.",
+        "am-i-unlucky — exact drop-rate & pity math"
+      ],
+      "cardSha256": "de426d3cd2000d4a7698615b66a14e11bc164891ddaf8685e4089099aaa64943",
+      "serverStoppedBeforeExport": true,
+      "errors": [],
+      "lateRequests": [],
+      "csp": [],
+      "overflow": 0
+    },
+    {
+      "engine": "firefox",
+      "version": "155.0",
+      "width": 1440,
+      "name": "first-try-common-drop",
+      "query": {
+        "mode": "simple",
+        "rate": "90%",
+        "n": "1",
+        "k": "1",
+        "got": "1"
+      },
+      "expected": {
+        "earlier": 0,
+        "tied": 0.9,
+        "later": 0.1
+      },
+      "headline": "About average",
+      "text": "Your luck\n\nBased on the negative-binomial distribution for 1 success at 1 in 1.1 odds.\n\nAbout average\n\nSame-attempt finishes are ties, not faster or slower outcomes.\n\nFinished sooner\n0%\nSame attempt\n90%\nTook longer\n10%\nUNLUCKY\nAVERAGE\nLUCKY\nCOMMON\nbased on 1 attempt at 1 in 1.1 (90%) odds needing 1 copy\n\nThe outlined band includes ties. Rarity counts outcomes at least as extreme as yours, including same-attempt finishes.\n\nP(AT LEAST 1 BY 1)\n90%\nEXPECTED ATTEMPTS\n1.1\n50% BY\n1\n90% BY\n1\n99% BY\n2\nSTD. DEVIATION\n0.4\nExport luck card",
+      "stats": [
+        "90%",
+        "1.1",
+        "1",
+        "1",
+        "2",
+        "0.4"
+      ],
+      "cardText": [
+        "AM I UNLUCKY?",
+        "SIMPLE DROP",
+        "COMMON",
+        "0%",
+        "FINISHED SOONER",
+        "90%",
+        "SAME ATTEMPT",
+        "10%",
+        "TOOK LONGER",
+        "ABOUT AVERAGE",
+        "Took 1 attempt at 1 in 1.1 odds for 1 copy.",
+        "common",
+        "P(at least 1 by 1) = 90%. Expected 1.1 attempts.",
+        "am-i-unlucky — exact drop-rate & pity math"
+      ],
+      "cardSha256": "c3bf42384670af3e95709718ff8dda6b3b4b44f0373f04fbb62a80107ea91f4a",
+      "serverStoppedBeforeExport": true,
+      "errors": [],
+      "lateRequests": [],
+      "csp": [],
+      "overflow": 0
+    },
+    {
+      "engine": "firefox",
+      "version": "155.0",
+      "width": 1440,
+      "name": "second-roll-guarantee",
+      "query": {
+        "mode": "pity",
+        "base": "1",
+        "soft": "1",
+        "inc": "0",
+        "hard": "1",
+        "feat": ".5",
+        "guar": "1",
+        "pity0": "0",
+        "g0": "0",
+        "target": "1",
+        "budget": "2",
+        "actual": "2"
+      },
+      "expected": {
+        "earlier": 0.5,
+        "tied": 0.5,
+        "later": 0
+      },
+      "headline": "About average",
+      "text": "How lucky was my history?\n\nFor additional pulls from the starting pity counter above. Players who finish on the same pull are shown separately from those who finish earlier or later.\n\nAbout average\n\nSame-attempt finishes are ties, not faster or slower outcomes.\n\nFinished sooner\n50%\nSame attempt\n50%\nTook longer\n0%\nUNLUCKY\nAVERAGE\nLUCKY\nCOMMON\nbased on 2 pulls chasing 1 copy\n\nThe outlined band includes ties. Rarity counts outcomes at least as extreme as yours, including same-attempt finishes.\n\nEXPECTED PULLS\n1.5\nSTD. DEVIATION\n0.5\nP(SUCCESS WITHIN 2)\n100%\n50% BY\n1\n90% BY\n2\n99% BY\n2\n\nMean and standard deviation use the full probability model, including the unplotted tail.\n\nExport luck card",
+      "stats": [
+        "1.5",
+        "0.5",
+        "100%",
+        "1",
+        "2",
+        "2"
+      ],
+      "cardText": [
+        "AM I UNLUCKY?",
+        "PITY SYSTEM",
+        "COMMON",
+        "50%",
+        "FINISHED SOONER",
+        "50%",
+        "SAME ATTEMPT",
+        "0%",
+        "TOOK LONGER",
+        "ABOUT AVERAGE",
+        "Took 2 pulls for 1 copy under pity.",
+        "common",
+        "Expected 1.5 pulls. P(success within 2) = 100%.",
+        "am-i-unlucky — exact drop-rate & pity math"
+      ],
+      "cardSha256": "58b1a22960177c6ea170388ea54875765115d9514f25529e9dcc04ea77a6787d",
+      "serverStoppedBeforeExport": true,
+      "errors": [],
+      "lateRequests": [],
+      "csp": [],
+      "overflow": 0
+    },
+    {
+      "engine": "firefox",
+      "version": "155.0",
+      "width": 375,
+      "name": "first-try-common-drop",
+      "query": {
+        "mode": "simple",
+        "rate": "90%",
+        "n": "1",
+        "k": "1",
+        "got": "1"
+      },
+      "expected": {
+        "earlier": 0,
+        "tied": 0.9,
+        "later": 0.1
+      },
+      "headline": "About average",
+      "text": "Your luck\n\nBased on the negative-binomial distribution for 1 success at 1 in 1.1 odds.\n\nAbout average\n\nSame-attempt finishes are ties, not faster or slower outcomes.\n\nFinished sooner\n0%\nSame attempt\n90%\nTook longer\n10%\nUNLUCKY\nAVERAGE\nLUCKY\nCOMMON\nbased on 1 attempt at 1 in 1.1 (90%) odds needing 1 copy\n\nThe outlined band includes ties. Rarity counts outcomes at least as extreme as yours, including same-attempt finishes.\n\nP(AT LEAST 1 BY 1)\n90%\nEXPECTED ATTEMPTS\n1.1\n50% BY\n1\n90% BY\n1\n99% BY\n2\nSTD. DEVIATION\n0.4\nExport luck card",
+      "stats": [
+        "90%",
+        "1.1",
+        "1",
+        "1",
+        "2",
+        "0.4"
+      ],
+      "cardText": [
+        "AM I UNLUCKY?",
+        "SIMPLE DROP",
+        "COMMON",
+        "0%",
+        "FINISHED SOONER",
+        "90%",
+        "SAME ATTEMPT",
+        "10%",
+        "TOOK LONGER",
+        "ABOUT AVERAGE",
+        "Took 1 attempt at 1 in 1.1 odds for 1 copy.",
+        "common",
+        "P(at least 1 by 1) = 90%. Expected 1.1 attempts.",
+        "am-i-unlucky — exact drop-rate & pity math"
+      ],
+      "cardSha256": "072aa0f6cb3ba9b21b0f1c0fef71183da29e87c0c5219963ff7ba9e5d09bbe1e",
+      "serverStoppedBeforeExport": true,
+      "errors": [],
+      "lateRequests": [],
+      "csp": [],
+      "overflow": 0
+    },
+    {
+      "engine": "firefox",
+      "version": "155.0",
+      "width": 375,
+      "name": "second-roll-guarantee",
+      "query": {
+        "mode": "pity",
+        "base": "1",
+        "soft": "1",
+        "inc": "0",
+        "hard": "1",
+        "feat": ".5",
+        "guar": "1",
+        "pity0": "0",
+        "g0": "0",
+        "target": "1",
+        "budget": "2",
+        "actual": "2"
+      },
+      "expected": {
+        "earlier": 0.5,
+        "tied": 0.5,
+        "later": 0
+      },
+      "headline": "About average",
+      "text": "How lucky was my history?\n\nFor additional pulls from the starting pity counter above. Players who finish on the same pull are shown separately from those who finish earlier or later.\n\nAbout average\n\nSame-attempt finishes are ties, not faster or slower outcomes.\n\nFinished sooner\n50%\nSame attempt\n50%\nTook longer\n0%\nUNLUCKY\nAVERAGE\nLUCKY\nCOMMON\nbased on 2 pulls chasing 1 copy\n\nThe outlined band includes ties. Rarity counts outcomes at least as extreme as yours, including same-attempt finishes.\n\nEXPECTED PULLS\n1.5\nSTD. DEVIATION\n0.5\nP(SUCCESS WITHIN 2)\n100%\n50% BY\n1\n90% BY\n2\n99% BY\n2\n\nMean and standard deviation use the full probability model, including the unplotted tail.\n\nExport luck card",
+      "stats": [
+        "1.5",
+        "0.5",
+        "100%",
+        "1",
+        "2",
+        "2"
+      ],
+      "cardText": [
+        "AM I UNLUCKY?",
+        "PITY SYSTEM",
+        "COMMON",
+        "50%",
+        "FINISHED SOONER",
+        "50%",
+        "SAME ATTEMPT",
+        "0%",
+        "TOOK LONGER",
+        "ABOUT AVERAGE",
+        "Took 2 pulls for 1 copy under pity.",
+        "common",
+        "Expected 1.5 pulls. P(success within 2) = 100%.",
+        "am-i-unlucky — exact drop-rate & pity math"
+      ],
+      "cardSha256": "cb6afcd367c58393cf2061c9b4878a919f3b031b407aeca03ffd9b64d70d596b",
+      "serverStoppedBeforeExport": true,
+      "errors": [],
+      "lateRequests": [],
+      "csp": [],
+      "overflow": 0
+    }
+  ]
+}
