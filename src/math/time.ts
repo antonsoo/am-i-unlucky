@@ -19,9 +19,14 @@ export interface ScheduledAttemptSource {
   name: string;
   p: number;
   attempts: number;
-  /** First batch at the end of this day, then every 1 or 7 days. */
+  /** Repeat every 1 or 7 days. */
   everyDays: number;
+  /** First batch finishes at this day's end; defaults to everyDays.
+   * Must be a whole day from 1 through everyDays. */
+  firstDay?: number;
 }
+
+type ResolvedSource = ScheduledAttemptSource & { firstDay: number };
 
 export interface TimeToDropInput {
   sources: (AttemptSource | ScheduledAttemptSource)[];
@@ -38,7 +43,7 @@ export interface TimePoint {
 
 export interface TimeToDropResult {
   possible: boolean;
-  /** At least one copy on day 1 (weekly batches first arrive on day 7). */
+  /** At least one copy on day 1 under the chosen first-batch schedule. */
   dailySuccessRate: number;
   /** Long-run average, not an assumption of fractional daily attempts. */
   totalRunsPerDay: number;
@@ -51,13 +56,20 @@ export interface TimeToDropResult {
   distribution: (maxPoints?: number) => TimePoint[];
 }
 
-function sourcesFor(
-  input: TimeToDropInput["sources"],
-): ScheduledAttemptSource[] {
+function sourcesFor(input: TimeToDropInput["sources"]): ResolvedSource[] {
   if (input.length > MAX_TIME_SOURCES) {
     throw new RangeError(`Use at most ${MAX_TIME_SOURCES} attempt sources.`);
   }
   return input.map((source) => {
+    // Validate a supplied value before defaulting: an explicit null must not
+    // silently become a full week when this API is called from JavaScript.
+    if (
+      "firstDay" in source &&
+      source.firstDay !== undefined &&
+      !Number.isSafeInteger(source.firstDay)
+    ) {
+      throw new RangeError("First batch day must be a whole number.");
+    }
     const normalized =
       "runsPerDay" in source
         ? {
@@ -65,8 +77,12 @@ function sourcesFor(
             p: source.p,
             attempts: source.runsPerDay,
             everyDays: 1,
+            firstDay: 1,
           }
-        : { ...source };
+        : {
+            ...source,
+            firstDay: source.firstDay ?? source.everyDays,
+          };
     const { p, attempts, everyDays } = normalized;
     if (!Number.isFinite(p) || p < 0 || p > 1) {
       throw new RangeError("Each drop rate must be between 0 and 100%.");
@@ -85,14 +101,30 @@ function sourcesFor(
         "Choose a Daily or Weekly schedule for every source.",
       );
     }
+    if (
+      !Number.isSafeInteger(normalized.firstDay) ||
+      normalized.firstDay < 1 ||
+      normalized.firstDay > everyDays
+    ) {
+      throw new RangeError(
+        `First batch day must be a whole number from 1 to ${everyDays}.`,
+      );
+    }
     return normalized;
   });
 }
 
-function anySuccess(sources: ScheduledAttemptSource[], days: number): number {
+function attemptsBy(source: ResolvedSource, days: number): number {
+  return days < source.firstDay
+    ? 0
+    : source.attempts *
+        (1 + Math.floor((days - source.firstDay) / source.everyDays));
+}
+
+function anySuccess(sources: ResolvedSource[], days: number): number {
   let logMiss = 0;
   for (const source of sources) {
-    const n = source.attempts * Math.floor(days / source.everyDays);
+    const n = attemptsBy(source, days);
     // In particular, avoid 0 * log(0) for an inactive guaranteed source.
     if (n > 0) logMiss += n * Math.log1p(-source.p);
   }
@@ -129,17 +161,13 @@ function convolve(a: Float64Array, b: Float64Array): Float64Array {
  * The direct upper tail is only needed when its mean is < k (k <= 100), so
  * even enormous attempt counts never request an expensive central tail sum.
  */
-function chanceBy(
-  sources: ScheduledAttemptSource[],
-  k: number,
-  days: number,
-): number {
+function chanceBy(sources: ResolvedSource[], k: number, days: number): number {
   if (k === 1) return anySuccess(sources, days);
   // Equal-rate attempts have one binomial count regardless of how the user
   // splits their sources. Keep that identity (and exact symmetric medians).
   const groups: { n: number; p: number }[] = [];
   for (const source of sources) {
-    const n = source.attempts * Math.floor(days / source.everyDays);
+    const n = attemptsBy(source, days);
     if (n === 0) continue;
     const group = groups.find(
       (g) => g.p === source.p && Number.isSafeInteger(g.n + n),
@@ -195,10 +223,7 @@ function chanceBy(
  * This accounts for finishing during a cycle and for multiple copies per day.
  * See docs/MATH.md; no time horizon or simulation truncates this expectation.
  */
-function expectedDays(
-  sources: ScheduledAttemptSource[],
-  k: number,
-): number | null {
+function expectedDays(sources: ResolvedSource[], k: number): number | null {
   const cycle = sources.some((s) => s.everyDays === 7) ? 7 : 1;
   const batches = sources.map((s) => batchMass(s.attempts, s.p, k));
   const elapsed = new Float64Array(k + 1);
@@ -210,7 +235,7 @@ function expectedDays(
       elapsed[r]! += below;
     }
     for (let i = 0; i < sources.length; i++) {
-      if ((day + 1) % sources[i]!.everyDays === 0)
+      if ((day + 1 - sources[i]!.firstDay) % sources[i]!.everyDays === 0)
         mass = convolve(mass, batches[i]!);
     }
   }
@@ -228,9 +253,7 @@ function expectedDays(
   return expected[k]!;
 }
 
-export function validateTimeInput(
-  input: TimeToDropInput,
-): ScheduledAttemptSource[] {
+export function validateTimeInput(input: TimeToDropInput): ResolvedSource[] {
   const { k } = input;
   if (!Number.isInteger(k) || k < 1 || k > MAX_TIME_COPIES) {
     throw new RangeError(

@@ -780,7 +780,7 @@ main {
   gap: 12px;
 }
 .time-source-schedule {
-  grid-column: 1 / -1;
+  min-width: 0;
 }
 .collection-item-fields {
   display: grid;

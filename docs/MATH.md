@@ -409,11 +409,12 @@ cumulative probabilities at its endpoints.
 ## 5. Time to drop
 
 Each source has a fixed per-attempt probability $p_i$, an **integer**
-batch size $a_i$, and an interval $s_i$ of 1 or 7 days. The first batch
-finishes at the end of day $s_i$, with later batches on its multiples.
-After $d$ complete days, that source has made
+batch size $a_i$, an interval $s_i$ of 1 or 7 days, and a first batch
+day $f_i$ from 1 through $s_i$. The first batch finishes at the end of
+day $f_i$, then repeats every $s_i$ days. Omitting $f_i$ retains the old
+boundary default, $f_i=s_i$. After $d$ complete days, that source has made
 
-$$n_i(d) = a_i \lfloor d/s_i \rfloor$$
+$$n_i(d) = a_i \max\left(0, 1 + \left\lfloor\frac{d-f_i}{s_i}\right\rfloor\right)$$
 
 independent attempts. Its copy count is
 $X_i(d) \sim \operatorname{Binomial}(n_i(d),p_i)$. For $k$ required copies,
@@ -438,7 +439,8 @@ use one weekly attempt rather than $1/7$ of an attempt per day.
 
 ### Exact expected time
 
-The daily/weekly schedule repeats every $L=1$ or $7$ days. Let $Y_d$ be
+The daily/weekly schedule repeats every $L=1$ or $7$ days, including
+different first days for different weekly sources. Let $Y_d$ be
 the copies obtained in the first $d$ days of one cycle, and define
 $c_j=P(Y_L=j)$ and
 $g_r=\sum_{d=0}^{L-1}P(Y_d<r)=E[\min(D_r,L)]$.
@@ -456,7 +458,11 @@ The denominator is computed directly as the chance of at least one copy
 in a cycle, avoiding cancellation for rare drops. This finite recurrence
 does not truncate time or use simulation. Two daily attempts at 50%, for
 two required copies, give $E_2=20/9$ days; two weekly attempts give
-$140/9$ days.
+$140/9$ days when its first batch is on day 7. With the first batch
+on day 2, that same two-copy mean is $95/9$ days. For one weekly
+attempt at 50%, $E[D_1]=f_i+7(1-p_i)/p_i$: day 2 gives 9 days,
+while day 7 gives 14. Two independent weekly 50% sources starting
+on days 2 and 5 give $16/3$ days; their within-cycle order matters.
 
 ### Bounds and independent checks
 
@@ -474,8 +480,8 @@ $140/9$ days.
   (or the search limit), states its covered probability, and connects
   interval-end CDF values. It does not sample and discard intervening mass.
 - Fixed independent probabilities, no pity, no missed batches, and
-  synchronized starts as specified above. Calendar reset offsets and
-  within-day timing are not modeled.
+  whole-day first batches as specified above. Calendar dates, time zones
+  and within-day timing are not modeled.
 
 `scripts/time-oracle.py` independently advances **individual Bernoulli
 attempts**, using 80-digit Python Decimal arithmetic, and sums the survival
@@ -511,3 +517,7 @@ A few practices recur throughout `src/math/`:
   `tests/oracle.test.ts`; schedules and collections have independent Decimal
   fixtures in `tests/time-oracle.test.ts` and `tests/collection-oracle.test.ts`.
 $$
+
+The [next-batch study](../studies/next-batch/README.md) adds exact rational
+per-day enumeration and a separate $7k$-state linear-system mean for phased
+schedules. The production cycle recurrence preserves the full infinite tail.

@@ -55,9 +55,13 @@ export function mountTimeMode(
             <option value="1" ${src.everyDays === 1 ? "selected" : ""}>Daily</option>
             <option value="7" ${src.everyDays === 7 ? "selected" : ""}>Weekly</option>
           </select>
-          <p class="field-note src-timing"></p>
+        </div>
+        <div class="field">
+          <label class="field-label" for="${id}-first">First batch (day)</label>
+          <input type="number" id="${id}-first" class="src-first-day" value="${src.firstDay ?? src.everyDays}" min="1" max="${src.everyDays}" step="1" required />
         </div>
       </div>
+      <p class="field-note src-timing"></p>
     </fieldset>`;
   }
 
@@ -85,8 +89,8 @@ export function mountTimeMode(
       </section>
       <section class="panel time-assumptions">
         <h2 class="panel-title">How days are counted</h2>
-        <p>Start before day 1. Daily batches finish at each day's end. Weekly batches finish on days 7, 14, 21, and so on.</p>
-        <p>Attempts are independent, with fixed rates and no pity. All scheduled batches are completed. Reset offsets and time within a day are not modeled.</p>
+        <p>Start before day 1. Each source's first batch finishes at the end of its chosen day, then repeats daily or weekly. Choose day 1 for a daily source, or day 1–7 for a weekly source.</p>
+        <p>Attempts are independent, with fixed rates and no pity. All scheduled batches are completed. Calendar dates and time within a day are not modeled.</p>
       </section>
     </div>
     <div>
@@ -213,6 +217,8 @@ export function mountTimeMode(
       everyDays: Number(
         row.querySelector<HTMLSelectElement>(".src-schedule")!.value,
       ),
+      firstDay:
+        row.querySelector<HTMLInputElement>(".src-first-day")!.valueAsNumber,
     }));
     s.k = kInput.valueAsNumber;
     s.days = daysInput.valueAsNumber;
@@ -220,9 +226,15 @@ export function mountTimeMode(
       .querySelectorAll<HTMLFieldSetElement>(".time-source")
       .forEach((row, index) => {
         const cadence = s.sources[index]!.everyDays;
+        const firstDay = s.sources[index]!.firstDay ?? cadence;
+        row.querySelector<HTMLInputElement>(".src-first-day")!.max =
+          String(cadence);
+        // Keep ordinary old links compact and equivalent: an omitted first day
+        // still means the cadence boundary, including day 7 for weekly batches.
+        if (firstDay === cadence) delete s.sources[index]!.firstDay;
         row.querySelector(".src-timing")!.textContent =
           cadence === 1 || cadence === 7
-            ? `First batch finishes on day ${cadence}.`
+            ? `First batch finishes on day ${firstDay}; then every ${cadence === 1 ? "day" : "7 days"}.`
             : "Choose Daily or Weekly.";
       });
     function markInvalid(el: HTMLInputElement | HTMLSelectElement): void {
@@ -260,6 +272,7 @@ export function mountTimeMode(
             p,
             attempts: src.attempts,
             everyDays: src.everyDays,
+            ...(src.firstDay === undefined ? {} : { firstDay: src.firstDay }),
           };
         }),
         k: s.k,
@@ -299,7 +312,13 @@ export function mountTimeMode(
     row
       .querySelectorAll("input")
       .forEach((el) => el.addEventListener("input", prepare));
-    row.querySelector("select")!.addEventListener("change", prepare);
+    row.querySelector("select")!.addEventListener("change", () => {
+      // A changed cadence starts with its conventional boundary. Users can
+      // then move the weekly first batch without changing the repeat interval.
+      row.querySelector<HTMLInputElement>(".src-first-day")!.value =
+        row.querySelector<HTMLSelectElement>(".src-schedule")!.value;
+      prepare();
+    });
     row
       .querySelector<HTMLButtonElement>(".item-remove")!
       .addEventListener("click", () => {

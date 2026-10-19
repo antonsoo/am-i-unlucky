@@ -35,6 +35,7 @@ export interface TimeSourceState {
   rate: string;
   attempts: number;
   everyDays: number;
+  firstDay?: number;
 }
 
 export interface TimeState {
@@ -172,11 +173,19 @@ function timeSources(raw: unknown): TimeSourceState[] {
       typeof attempts !== "number" ||
       !Number.isFinite(attempts) ||
       typeof everyDays !== "number" ||
-      !Number.isFinite(everyDays)
+      !Number.isFinite(everyDays) ||
+      (record.firstDay !== undefined &&
+        (typeof record.firstDay !== "number" ||
+          !Number.isFinite(record.firstDay)))
     ) {
       throw new MalformedState();
     }
-    return { ...item, attempts, everyDays };
+    return {
+      ...item,
+      attempts,
+      everyDays,
+      ...(record.firstDay === undefined ? {} : { firstDay: record.firstDay }),
+    };
   });
 }
 

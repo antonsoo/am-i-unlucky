@@ -1,0 +1,9 @@
+{
+  "cases": 134,
+  "synchronizedControls": 10,
+  "cdfChecks": 9514,
+  "exactMeans": 134,
+  "scope": "Constructed independent daily/weekly models, not observed game histories. Exact rational day enumeration and 7*k phase-state linear equations; no truncated expectation or Monte Carlo.",
+  "uncompressedSha256": "8b7f0418405993a19416bd1068b05fa4f8dcfa25b7202fd33db23ad443c9f199",
+  "compressedSha256": "98fa5f6025ab27945347d7c17d447014a1392980b4fff03ae82f2baa705bc100"
+}

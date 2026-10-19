@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Choose the first batch day independently for each weekly source, then keep
+  seven-day spacing. Include those phases in budget probabilities, full-tail
+  means, milestones, charts and shareable URLs. Existing links retain day 7
+  for weekly batches and day 1 for daily batches. Keep invalid first-day drafts
+  visible, retire their results, and disable invalid sharing.
+
 ### Fixed
 
 - Reject fractional, negative, missing and unsafe simple-mode counts instead of
