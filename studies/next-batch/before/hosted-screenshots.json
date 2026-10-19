@@ -1,0 +1,12 @@
+[
+  {
+    "file": "chromium-1440.png",
+    "sha256": "df3612eb89121711af32888ea33a62b837b7071279b0dae584ece1d99e72a33b",
+    "identicalToLocal": true
+  },
+  {
+    "file": "firefox-375.png",
+    "sha256": "6c2d7f5f457fc1a3b68116f87ddfb73a24270a496b0e55af3b1d8b5b121a2349",
+    "identicalToLocal": true
+  }
+]

@@ -1,0 +1,60 @@
+{
+  "checkedAtUtc": "2026-10-19T09:42:51.080Z",
+  "url": "https://antonsoo.github.io/am-i-unlucky/",
+  "phase": "before",
+  "scope": "Actual UI, worker calculations and share-link reloads. Constructed independent weekly models, not observed game histories. OS clipboard is deliberately unavailable to exercise the real fallback dialog. App/network/worker responses are not mocked. Worker scripts load from the same origin; no cold-offline claim.",
+  "workflows": [
+    {
+      "engine": "chromium",
+      "version": "153.0.8010.12",
+      "width": 1440,
+      "before": true,
+      "oneSource": "Your schedule\n\nCollect 1 copy from 1 source.\n\nCHANCE WITHIN 2 DAYS\n0%\n\nChance of collecting your copy by the end of that day.\n\nEXPECTED TIME (MEAN)\n14 days\n50% BY\n7 days\n90% BY\n28 days\n99% BY\n49 days\n\nThe mean is an average over repeated outcomes. Each percentage marks the first whole day reaching that chance, not a guarantee.\n\nWhen you could finish\n50%\n90%\n99%\n0\n12\n25\n37\n49\ncompleted days\n\nShading shows the probability of finishing in each plotted day interval. The gold line joins cumulative probabilities at interval ends. The chart covers 99.22% of outcomes through day 49.",
+      "legacyBoundaryPreserved": true,
+      "errors": [],
+      "external": [],
+      "csp": [],
+      "accessibilityViolations": [],
+      "overflow": false
+    },
+    {
+      "engine": "chromium",
+      "version": "153.0.8010.12",
+      "width": 375,
+      "before": true,
+      "oneSource": "Your schedule\n\nCollect 1 copy from 1 source.\n\nCHANCE WITHIN 2 DAYS\n0%\n\nChance of collecting your copy by the end of that day.\n\nEXPECTED TIME (MEAN)\n14 days\n50% BY\n7 days\n90% BY\n28 days\n99% BY\n49 days\n\nThe mean is an average over repeated outcomes. Each percentage marks the first whole day reaching that chance, not a guarantee.\n\nWhen you could finish\n50%\n90%\n99%\n0\n12\n25\n37\n49\ncompleted days\n\nShading shows the probability of finishing in each plotted day interval. The gold line joins cumulative probabilities at interval ends. The chart covers 99.22% of outcomes through day 49.",
+      "legacyBoundaryPreserved": true,
+      "errors": [],
+      "external": [],
+      "csp": [],
+      "accessibilityViolations": [],
+      "overflow": false
+    },
+    {
+      "engine": "firefox",
+      "version": "155.0",
+      "width": 1440,
+      "before": true,
+      "oneSource": "Your schedule\n\nCollect 1 copy from 1 source.\n\nCHANCE WITHIN 2 DAYS\n0%\n\nChance of collecting your copy by the end of that day.\n\nEXPECTED TIME (MEAN)\n14 days\n50% BY\n7 days\n90% BY\n28 days\n99% BY\n49 days\n\nThe mean is an average over repeated outcomes. Each percentage marks the first whole day reaching that chance, not a guarantee.\n\nWhen you could finish\n50%90%99%012253749completed days\n\nShading shows the probability of finishing in each plotted day interval. The gold line joins cumulative probabilities at interval ends. The chart covers 99.22% of outcomes through day 49.",
+      "legacyBoundaryPreserved": true,
+      "errors": [],
+      "external": [],
+      "csp": [],
+      "accessibilityViolations": [],
+      "overflow": false
+    },
+    {
+      "engine": "firefox",
+      "version": "155.0",
+      "width": 375,
+      "before": true,
+      "oneSource": "Your schedule\n\nCollect 1 copy from 1 source.\n\nCHANCE WITHIN 2 DAYS\n0%\n\nChance of collecting your copy by the end of that day.\n\nEXPECTED TIME (MEAN)\n14 days\n50% BY\n7 days\n90% BY\n28 days\n99% BY\n49 days\n\nThe mean is an average over repeated outcomes. Each percentage marks the first whole day reaching that chance, not a guarantee.\n\nWhen you could finish\n50%90%99%012253749completed days\n\nShading shows the probability of finishing in each plotted day interval. The gold line joins cumulative probabilities at interval ends. The chart covers 99.22% of outcomes through day 49.",
+      "legacyBoundaryPreserved": true,
+      "errors": [],
+      "external": [],
+      "csp": [],
+      "accessibilityViolations": [],
+      "overflow": false
+    }
+  ]
+}
