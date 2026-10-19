@@ -18,6 +18,7 @@ mean**. Separate sources can have different next batch days, and shared links
 retain the choices. These are whole-day independent models, not game-history
 measurements or calendar/time-zone forecasts.
 [Exact rational reference, legacy controls and real browser workflows](studies/next-batch/README.md).
+The live demo includes this capability; [clean-build and canonical-publication evidence](docs/verification-next-batch-2026-10-19.md) records the shipped result.
 
 ## Same-attempt finishes are ties
 

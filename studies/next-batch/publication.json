@@ -1,0 +1,16 @@
+{
+  "checkedAtUtc": "2026-10-19T09:49:59.525560+00:00",
+  "sourceRevision": "378447f78a5e57ded088fc123ee42839c2529517",
+  "compiledRevision": "0621e984fb653f99220ae0f24f1d1220b5695e99",
+  "pagesCommit": "1ff66599428b73b20ae7b92ca45cbea66c171cdc",
+  "pagesParent": "d4c1249a087c99dbf87b6516ca0840b02a211c73",
+  "siteUrl": "https://antonsoo.github.io/am-i-unlucky/",
+  "exampleUrl": "https://antonsoo.github.io/am-i-unlucky/?mode=time&sources=%5B%7B%22name%22%3A%22Weekly+raid%22%2C%22rate%22%3A%2250%25%22%2C%22attempts%22%3A1%2C%22everyDays%22%3A7%2C%22firstDay%22%3A2%7D%5D&k=1&days=2",
+  "canonicalFilesVerified": 35,
+  "previousAssetResponsesVerified": 33,
+  "publicWorkflows": 4,
+  "browserRecordsIdenticalToLocal": true,
+  "screenshotsIdenticalToInspectedLocal": 3,
+  "captureDiagnostic": "The first public run stopped on a Chromium Page.captureScreenshot protocol error. A fresh complete run passed all functional checks and captured all three identical screenshots. No product code or test assertions changed for the retry.",
+  "scope": "Current public bytes and actual native UI/worker/share workflows are checked separately from rational-model accuracy. Previous assets remain byte-identical. No registry/tag release or successful CI run is claimed."
+}

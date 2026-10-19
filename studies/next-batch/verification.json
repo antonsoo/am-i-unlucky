@@ -6,7 +6,7 @@
     "npm": "11.19.0",
     "workingBuildNode": "26.7.0"
   },
-  "scope": "Fresh git archive, independent dependency installation, all production files match the working build across Node versions. Private static application; no installed registry artifact is implied.",
+  "scope": "Fresh git archive, independent dependency installation, all production files match the working build across Node versions. Static browser application; no installed registry artifact is implied.",
   "checks": {
     "installedPackages": 137,
     "reportedAuditVulnerabilities": 0,

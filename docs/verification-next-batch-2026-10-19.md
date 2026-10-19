@@ -56,3 +56,20 @@ These are whole-day independent rate models, not player histories, date/time-zon
 forecasts or empirical game validation. Existing numerical, overflow, source,
 copy and search limits remain. This is a static application; no registry
 package or tag was released by this work.
+
+## Public source and demo
+
+Source `378447f` is pushed. Pages `1ff6659` appends to `d4c1249`, publishing the
+clean `dist/` build. All [35 canonical files and both entry aliases](../studies/next-batch/hosted-bytes.json)
+match; all [33 previous asset responses](../studies/next-batch/preserved-assets-hosted.json)
+remain byte-identical. No force push or orphan deployment was used.
+
+All [four public UI/worker/share workflows](../studies/next-batch/hosted/browser.json)
+pass and have the same recorded results as the local candidate. All
+[three public screenshots](../studies/next-batch/hosted-screenshots.json) were
+opened and inspected and match the reviewed local PNGs byte for byte. A first
+Chromium screenshot attempt failed at the browser-protocol layer; a fresh
+complete replay captured the images with unchanged code/assertions.
+The [publication receipt](../studies/next-batch/publication.json) retains that
+diagnostic and the separate source/build/deployed revisions. No registry or
+tag release was made.

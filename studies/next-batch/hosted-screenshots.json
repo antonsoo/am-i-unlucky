@@ -1,0 +1,17 @@
+[
+  {
+    "file": "chromium-1440.png",
+    "sha256": "e8ed770720e440e7ea12fa8b9b61a876c91b6e16e1f48504c060090de5c41eba",
+    "identicalToInspectedLocal": true
+  },
+  {
+    "file": "firefox-375.png",
+    "sha256": "1247f2740ef830ce51c87b23392dd35a5de526cd8034e8a318f9e8b52cbb582b",
+    "identicalToInspectedLocal": true
+  },
+  {
+    "file": "two-weekly-sources.png",
+    "sha256": "eaa169e344f252ff42cff8615c3dced73ed6f62446035e46bac9862c6fa51b4a",
+    "identicalToInspectedLocal": true
+  }
+]

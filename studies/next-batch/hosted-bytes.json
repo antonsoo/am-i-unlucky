@@ -1,0 +1,390 @@
+{
+  "schemaVersion": 1,
+  "node": "v26.7.0",
+  "requestTimeoutMs": 10000,
+  "retryWindowMs": 180000,
+  "pollIntervalMs": 5000,
+  "concurrency": 6,
+  "baseURL": "https://antonsoo.github.io/am-i-unlucky/",
+  "state": "verified",
+  "attempts": 2,
+  "startedAtUtc": "2026-10-19T09:45:07.963Z",
+  "checkedAtUtc": "2026-10-19T09:45:14.279Z",
+  "buildManifestSha256": "3ac7014fcc4facf8345ebb3138d3a8c659846bf2ad042b31f1cbe69c1abaa052",
+  "expectedFileCount": 35,
+  "checkedFileCount": 35,
+  "verifiedFileCount": 35,
+  "rootBefore": {
+    "path": "index.html",
+    "bytes": 2364,
+    "sha256": "fbff5ec9234f3f481895c98f86ccaebb936513c38a3381220abd2bc2bf08a664",
+    "url": "https://antonsoo.github.io/am-i-unlucky/",
+    "httpStatus": 200,
+    "observedBytes": 2364,
+    "observedSha256": "fbff5ec9234f3f481895c98f86ccaebb936513c38a3381220abd2bc2bf08a664",
+    "state": "verified"
+  },
+  "rootAfter": {
+    "path": "index.html",
+    "bytes": 2364,
+    "sha256": "fbff5ec9234f3f481895c98f86ccaebb936513c38a3381220abd2bc2bf08a664",
+    "url": "https://antonsoo.github.io/am-i-unlucky/",
+    "httpStatus": 200,
+    "observedBytes": 2364,
+    "observedSha256": "fbff5ec9234f3f481895c98f86ccaebb936513c38a3381220abd2bc2bf08a664",
+    "state": "verified"
+  },
+  "files": [
+    {
+      "path": "assets/bricolage-grotesque-latin-Cre6nC2_.woff2",
+      "bytes": 76888,
+      "sha256": "a79fdb52d4a5c76552452f69202add96e287401fff03d3e8c0e38b4dcb5a99cd",
+      "url": "https://antonsoo.github.io/am-i-unlucky/assets/bricolage-grotesque-latin-Cre6nC2_.woff2",
+      "httpStatus": 200,
+      "observedBytes": 76888,
+      "observedSha256": "a79fdb52d4a5c76552452f69202add96e287401fff03d3e8c0e38b4dcb5a99cd",
+      "state": "verified"
+    },
+    {
+      "path": "assets/bricolage-grotesque-latin-ext-IcJDqblK.woff2",
+      "bytes": 30736,
+      "sha256": "776f6dcaf03636cd69a5802c94808cc8896c0a66c8e9ce0fe147231b6ee01957",
+      "url": "https://antonsoo.github.io/am-i-unlucky/assets/bricolage-grotesque-latin-ext-IcJDqblK.woff2",
+      "httpStatus": 200,
+      "observedBytes": 30736,
+      "observedSha256": "776f6dcaf03636cd69a5802c94808cc8896c0a66c8e9ce0fe147231b6ee01957",
+      "state": "verified"
+    },
+    {
+      "path": "assets/bricolage-grotesque-vietnamese-D9N6E8K1.woff2",
+      "bytes": 12984,
+      "sha256": "b50a9d90a5264f20d1e45be0b948fe947ddb3644557f1e85ef5d3bd06427c944",
+      "url": "https://antonsoo.github.io/am-i-unlucky/assets/bricolage-grotesque-vietnamese-D9N6E8K1.woff2",
+      "httpStatus": 200,
+      "observedBytes": 12984,
+      "observedSha256": "b50a9d90a5264f20d1e45be0b948fe947ddb3644557f1e85ef5d3bd06427c944",
+      "state": "verified"
+    },
+    {
+      "path": "assets/collection-worker-BbphLwwp.js",
+      "bytes": 4770,
+      "sha256": "a3ef2c7e8c187c19581a13166005669a9bdbb30c5f2417319812f22512017155",
+      "url": "https://antonsoo.github.io/am-i-unlucky/assets/collection-worker-BbphLwwp.js",
+      "httpStatus": 200,
+      "observedBytes": 4770,
+      "observedSha256": "a3ef2c7e8c187c19581a13166005669a9bdbb30c5f2417319812f22512017155",
+      "state": "verified"
+    },
+    {
+      "path": "assets/collection-worker-BbphLwwp.js.map",
+      "bytes": 29054,
+      "sha256": "ac74004b15aa281bc5837786d573eb8e29134994d1ab402011d81cf34dc38f88",
+      "url": "https://antonsoo.github.io/am-i-unlucky/assets/collection-worker-BbphLwwp.js.map",
+      "httpStatus": 200,
+      "observedBytes": 29054,
+      "observedSha256": "ac74004b15aa281bc5837786d573eb8e29134994d1ab402011d81cf34dc38f88",
+      "state": "verified"
+    },
+    {
+      "path": "assets/ibm-plex-mono-400-cyrillic-BSMlKf0J.woff2",
+      "bytes": 8356,
+      "sha256": "7635422bd10ddbbcb0e0caa1154b928298f5c8319b8c00b30978d4395f4783ce",
+      "url": "https://antonsoo.github.io/am-i-unlucky/assets/ibm-plex-mono-400-cyrillic-BSMlKf0J.woff2",
+      "httpStatus": 200,
+      "observedBytes": 8356,
+      "observedSha256": "7635422bd10ddbbcb0e0caa1154b928298f5c8319b8c00b30978d4395f4783ce",
+      "state": "verified"
+    },
+    {
+      "path": "assets/ibm-plex-mono-400-cyrillic-ext-xuaO2J-f.woff2",
+      "bytes": 6912,
+      "sha256": "f8c22ec1804bd6966b70f43ac7c327025645b4c09597117fca2a5a6c750106fe",
+      "url": "https://antonsoo.github.io/am-i-unlucky/assets/ibm-plex-mono-400-cyrillic-ext-xuaO2J-f.woff2",
+      "httpStatus": 200,
+      "observedBytes": 6912,
+      "observedSha256": "f8c22ec1804bd6966b70f43ac7c327025645b4c09597117fca2a5a6c750106fe",
+      "state": "verified"
+    },
+    {
+      "path": "assets/ibm-plex-mono-400-latin-DMJ8VG8y.woff2",
+      "bytes": 14708,
+      "sha256": "08949f728dc52d528e69b1667d15c89a5686a4ee9a296ff90983985f99c380f7",
+      "url": "https://antonsoo.github.io/am-i-unlucky/assets/ibm-plex-mono-400-latin-DMJ8VG8y.woff2",
+      "httpStatus": 200,
+      "observedBytes": 14708,
+      "observedSha256": "08949f728dc52d528e69b1667d15c89a5686a4ee9a296ff90983985f99c380f7",
+      "state": "verified"
+    },
+    {
+      "path": "assets/ibm-plex-mono-400-latin-ext-BmRBH3aV.woff2",
+      "bytes": 13348,
+      "sha256": "6bc0f226a5b7884a8170e3f62c63d7675609d4631bdc5931b5cdab81821f00eb",
+      "url": "https://antonsoo.github.io/am-i-unlucky/assets/ibm-plex-mono-400-latin-ext-BmRBH3aV.woff2",
+      "httpStatus": 200,
+      "observedBytes": 13348,
+      "observedSha256": "6bc0f226a5b7884a8170e3f62c63d7675609d4631bdc5931b5cdab81821f00eb",
+      "state": "verified"
+    },
+    {
+      "path": "assets/ibm-plex-mono-400-vietnamese-BulugwFq.woff2",
+      "bytes": 5868,
+      "sha256": "62632b6375305e70ddcafdd895218e6ae41a184fcd280a69c739460604ca00a9",
+      "url": "https://antonsoo.github.io/am-i-unlucky/assets/ibm-plex-mono-400-vietnamese-BulugwFq.woff2",
+      "httpStatus": 200,
+      "observedBytes": 5868,
+      "observedSha256": "62632b6375305e70ddcafdd895218e6ae41a184fcd280a69c739460604ca00a9",
+      "state": "verified"
+    },
+    {
+      "path": "assets/ibm-plex-mono-500-cyrillic-Bq9vWWag.woff2",
+      "bytes": 8460,
+      "sha256": "1d89462e86cb8e87e7e9d6f6635605bd7c3081baca6caaecee84916bf7b60edc",
+      "url": "https://antonsoo.github.io/am-i-unlucky/assets/ibm-plex-mono-500-cyrillic-Bq9vWWag.woff2",
+      "httpStatus": 200,
+      "observedBytes": 8460,
+      "observedSha256": "1d89462e86cb8e87e7e9d6f6635605bd7c3081baca6caaecee84916bf7b60edc",
+      "state": "verified"
+    },
+    {
+      "path": "assets/ibm-plex-mono-500-cyrillic-ext-BqneJy0T.woff2",
+      "bytes": 6972,
+      "sha256": "3febe5c7f22e4b07b4552738673c3dbe8bced2dc5f48b866edf7ccd9552d109a",
+      "url": "https://antonsoo.github.io/am-i-unlucky/assets/ibm-plex-mono-500-cyrillic-ext-BqneJy0T.woff2",
+      "httpStatus": 200,
+      "observedBytes": 6972,
+      "observedSha256": "3febe5c7f22e4b07b4552738673c3dbe8bced2dc5f48b866edf7ccd9552d109a",
+      "state": "verified"
+    },
+    {
+      "path": "assets/ibm-plex-mono-500-latin-DSY6xOcd.woff2",
+      "bytes": 14888,
+      "sha256": "01d285447409c8a588692162439a038b8cbd7871309ee20267b0d2d91c6e8e22",
+      "url": "https://antonsoo.github.io/am-i-unlucky/assets/ibm-plex-mono-500-latin-DSY6xOcd.woff2",
+      "httpStatus": 200,
+      "observedBytes": 14888,
+      "observedSha256": "01d285447409c8a588692162439a038b8cbd7871309ee20267b0d2d91c6e8e22",
+      "state": "verified"
+    },
+    {
+      "path": "assets/ibm-plex-mono-500-latin-ext-CAhNIIs5.woff2",
+      "bytes": 13432,
+      "sha256": "6bb06407c97584b0867a959e05e8874693bfeb8c317de190811c51598f2d99ea",
+      "url": "https://antonsoo.github.io/am-i-unlucky/assets/ibm-plex-mono-500-latin-ext-CAhNIIs5.woff2",
+      "httpStatus": 200,
+      "observedBytes": 13432,
+      "observedSha256": "6bb06407c97584b0867a959e05e8874693bfeb8c317de190811c51598f2d99ea",
+      "state": "verified"
+    },
+    {
+      "path": "assets/ibm-plex-mono-500-vietnamese-DZ4AoWbu.woff2",
+      "bytes": 6040,
+      "sha256": "781633d95de88040fb77141d1e65d928c87c0144691fbc74da5a64d137a7e910",
+      "url": "https://antonsoo.github.io/am-i-unlucky/assets/ibm-plex-mono-500-vietnamese-DZ4AoWbu.woff2",
+      "httpStatus": 200,
+      "observedBytes": 6040,
+      "observedSha256": "781633d95de88040fb77141d1e65d928c87c0144691fbc74da5a64d137a7e910",
+      "state": "verified"
+    },
+    {
+      "path": "assets/ibm-plex-mono-600-cyrillic-CTOM6hUh.woff2",
+      "bytes": 9352,
+      "sha256": "2b05a8695c7f9f4abd7178b279646a3b005a8ce57546bef6fd145f25d131e0aa",
+      "url": "https://antonsoo.github.io/am-i-unlucky/assets/ibm-plex-mono-600-cyrillic-CTOM6hUh.woff2",
+      "httpStatus": 200,
+      "observedBytes": 9352,
+      "observedSha256": "2b05a8695c7f9f4abd7178b279646a3b005a8ce57546bef6fd145f25d131e0aa",
+      "state": "verified"
+    },
+    {
+      "path": "assets/ibm-plex-mono-600-cyrillic-ext-V-xxqcpd.woff2",
+      "bytes": 7692,
+      "sha256": "83109cdd4f8665b475dfc11d61bd44da328bf7e6eab3d3953d39c49b1b9f6015",
+      "url": "https://antonsoo.github.io/am-i-unlucky/assets/ibm-plex-mono-600-cyrillic-ext-V-xxqcpd.woff2",
+      "httpStatus": 200,
+      "observedBytes": 7692,
+      "observedSha256": "83109cdd4f8665b475dfc11d61bd44da328bf7e6eab3d3953d39c49b1b9f6015",
+      "state": "verified"
+    },
+    {
+      "path": "assets/ibm-plex-mono-600-latin-BgSNZQsw.woff2",
+      "bytes": 15620,
+      "sha256": "0d1f0b8d0722224e32e9f28261bdc86c79115be73444ae5eceb73976a1bcdf83",
+      "url": "https://antonsoo.github.io/am-i-unlucky/assets/ibm-plex-mono-600-latin-BgSNZQsw.woff2",
+      "httpStatus": 200,
+      "observedBytes": 15620,
+      "observedSha256": "0d1f0b8d0722224e32e9f28261bdc86c79115be73444ae5eceb73976a1bcdf83",
+      "state": "verified"
+    },
+    {
+      "path": "assets/ibm-plex-mono-600-latin-ext-D38SheWl.woff2",
+      "bytes": 14328,
+      "sha256": "32057cf50dd14bdb21a2c93766c4a2c43e4abe688ea3922df3203cac7751a98b",
+      "url": "https://antonsoo.github.io/am-i-unlucky/assets/ibm-plex-mono-600-latin-ext-D38SheWl.woff2",
+      "httpStatus": 200,
+      "observedBytes": 14328,
+      "observedSha256": "32057cf50dd14bdb21a2c93766c4a2c43e4abe688ea3922df3203cac7751a98b",
+      "state": "verified"
+    },
+    {
+      "path": "assets/ibm-plex-mono-600-vietnamese-D2EvbN8M.woff2",
+      "bytes": 6932,
+      "sha256": "51b74d53e106ba8a26dd33464b231a562069be2a234b923c115beb622e6f6bc6",
+      "url": "https://antonsoo.github.io/am-i-unlucky/assets/ibm-plex-mono-600-vietnamese-D2EvbN8M.woff2",
+      "httpStatus": 200,
+      "observedBytes": 6932,
+      "observedSha256": "51b74d53e106ba8a26dd33464b231a562069be2a234b923c115beb622e6f6bc6",
+      "state": "verified"
+    },
+    {
+      "path": "assets/ibm-plex-sans-cyrillic-BAAhND-U.woff2",
+      "bytes": 29512,
+      "sha256": "9409ee21811f0f5272b7e1d828fe8838005b0573481ef906e7e55b63f6610ab0",
+      "url": "https://antonsoo.github.io/am-i-unlucky/assets/ibm-plex-sans-cyrillic-BAAhND-U.woff2",
+      "httpStatus": 200,
+      "observedBytes": 29512,
+      "observedSha256": "9409ee21811f0f5272b7e1d828fe8838005b0573481ef906e7e55b63f6610ab0",
+      "state": "verified"
+    },
+    {
+      "path": "assets/ibm-plex-sans-cyrillic-ext-d45eAU9y.woff2",
+      "bytes": 23568,
+      "sha256": "7d0037a170882a49e65a45c38ef195237bb07b1cc791d078379f0ac0d7ae1935",
+      "url": "https://antonsoo.github.io/am-i-unlucky/assets/ibm-plex-sans-cyrillic-ext-d45eAU9y.woff2",
+      "httpStatus": 200,
+      "observedBytes": 23568,
+      "observedSha256": "7d0037a170882a49e65a45c38ef195237bb07b1cc791d078379f0ac0d7ae1935",
+      "state": "verified"
+    },
+    {
+      "path": "assets/ibm-plex-sans-greek-CmyJS8uq.woff2",
+      "bytes": 19500,
+      "sha256": "f598dd0700f155e2facfaa8ecfacace397d4c2c153e9ce37ab7ad310e8505bc2",
+      "url": "https://antonsoo.github.io/am-i-unlucky/assets/ibm-plex-sans-greek-CmyJS8uq.woff2",
+      "httpStatus": 200,
+      "observedBytes": 19500,
+      "observedSha256": "f598dd0700f155e2facfaa8ecfacace397d4c2c153e9ce37ab7ad310e8505bc2",
+      "state": "verified"
+    },
+    {
+      "path": "assets/ibm-plex-sans-latin-IvpUvPa2.woff2",
+      "bytes": 45712,
+      "sha256": "e2291e842cf5af167122a22881a740c7f2dda7716f1e8cd76680264f4a859470",
+      "url": "https://antonsoo.github.io/am-i-unlucky/assets/ibm-plex-sans-latin-IvpUvPa2.woff2",
+      "httpStatus": 200,
+      "observedBytes": 45712,
+      "observedSha256": "e2291e842cf5af167122a22881a740c7f2dda7716f1e8cd76680264f4a859470",
+      "state": "verified"
+    },
+    {
+      "path": "assets/ibm-plex-sans-latin-ext-CIII54If.woff2",
+      "bytes": 30964,
+      "sha256": "d160e20920ae4d6556518d352d3af27a74e9b0de3d8fe17b1c1044fc75aa2f81",
+      "url": "https://antonsoo.github.io/am-i-unlucky/assets/ibm-plex-sans-latin-ext-CIII54If.woff2",
+      "httpStatus": 200,
+      "observedBytes": 30964,
+      "observedSha256": "d160e20920ae4d6556518d352d3af27a74e9b0de3d8fe17b1c1044fc75aa2f81",
+      "state": "verified"
+    },
+    {
+      "path": "assets/ibm-plex-sans-vietnamese-Dg1JeJN0.woff2",
+      "bytes": 13160,
+      "sha256": "73e7f7b1c980416ae0c2461268b14c7cfcce0668e683dc43fbb11a82a227b9f2",
+      "url": "https://antonsoo.github.io/am-i-unlucky/assets/ibm-plex-sans-vietnamese-Dg1JeJN0.woff2",
+      "httpStatus": 200,
+      "observedBytes": 13160,
+      "observedSha256": "73e7f7b1c980416ae0c2461268b14c7cfcce0668e683dc43fbb11a82a227b9f2",
+      "state": "verified"
+    },
+    {
+      "path": "assets/index-DOz8cGtf.css",
+      "bytes": 21996,
+      "sha256": "af3caaffa63cd4da2bc09e25660d61b4204f679c094dbfb51a2e01006689f4c0",
+      "url": "https://antonsoo.github.io/am-i-unlucky/assets/index-DOz8cGtf.css",
+      "httpStatus": 200,
+      "observedBytes": 21996,
+      "observedSha256": "af3caaffa63cd4da2bc09e25660d61b4204f679c094dbfb51a2e01006689f4c0",
+      "state": "verified"
+    },
+    {
+      "path": "assets/index-DtBLTq7w.js",
+      "bytes": 75100,
+      "sha256": "b2cecca0d0ff2fb5c7a4283ce90088f5731b3d1851a0d7322086b276f463f35f",
+      "url": "https://antonsoo.github.io/am-i-unlucky/assets/index-DtBLTq7w.js",
+      "httpStatus": 200,
+      "observedBytes": 75100,
+      "observedSha256": "b2cecca0d0ff2fb5c7a4283ce90088f5731b3d1851a0d7322086b276f463f35f",
+      "state": "verified"
+    },
+    {
+      "path": "assets/index-DtBLTq7w.js.map",
+      "bytes": 229739,
+      "sha256": "30fcaf5dba51effabf7de04f26bb4cd3d85db2ba877c2ac361608b6a388591c0",
+      "url": "https://antonsoo.github.io/am-i-unlucky/assets/index-DtBLTq7w.js.map",
+      "httpStatus": 200,
+      "observedBytes": 229739,
+      "observedSha256": "30fcaf5dba51effabf7de04f26bb4cd3d85db2ba877c2ac361608b6a388591c0",
+      "state": "verified"
+    },
+    {
+      "path": "assets/pity-worker-BkaeeVK6.js",
+      "bytes": 5222,
+      "sha256": "24b51ef35d8d9fc3274550ac3b3427046443610391f6b991ee1f918946c98261",
+      "url": "https://antonsoo.github.io/am-i-unlucky/assets/pity-worker-BkaeeVK6.js",
+      "httpStatus": 200,
+      "observedBytes": 5222,
+      "observedSha256": "24b51ef35d8d9fc3274550ac3b3427046443610391f6b991ee1f918946c98261",
+      "state": "verified"
+    },
+    {
+      "path": "assets/pity-worker-BkaeeVK6.js.map",
+      "bytes": 31154,
+      "sha256": "a9deb383ee596d3ba92ee3658a725051960c092318b91ae849decb055d7b3c06",
+      "url": "https://antonsoo.github.io/am-i-unlucky/assets/pity-worker-BkaeeVK6.js.map",
+      "httpStatus": 200,
+      "observedBytes": 31154,
+      "observedSha256": "a9deb383ee596d3ba92ee3658a725051960c092318b91ae849decb055d7b3c06",
+      "state": "verified"
+    },
+    {
+      "path": "assets/time-worker-CkOZM1Gf.js",
+      "bytes": 6029,
+      "sha256": "4c3d21d17bc332ad5f16c3b3fecd8fa78febf9d9849d8323d5f7a4a4fe9907ca",
+      "url": "https://antonsoo.github.io/am-i-unlucky/assets/time-worker-CkOZM1Gf.js",
+      "httpStatus": 200,
+      "observedBytes": 6029,
+      "observedSha256": "4c3d21d17bc332ad5f16c3b3fecd8fa78febf9d9849d8323d5f7a4a4fe9907ca",
+      "state": "verified"
+    },
+    {
+      "path": "assets/time-worker-CkOZM1Gf.js.map",
+      "bytes": 39802,
+      "sha256": "99f731dbf86a5a42ec123d4014a1125947857932dae372badaf83eae32d81831",
+      "url": "https://antonsoo.github.io/am-i-unlucky/assets/time-worker-CkOZM1Gf.js.map",
+      "httpStatus": 200,
+      "observedBytes": 39802,
+      "observedSha256": "99f731dbf86a5a42ec123d4014a1125947857932dae372badaf83eae32d81831",
+      "state": "verified"
+    },
+    {
+      "path": "favicon.svg",
+      "bytes": 296,
+      "sha256": "923f1b1e9fbd6624acda8401f848104865d91e4a478c22b9a791f94921803075",
+      "url": "https://antonsoo.github.io/am-i-unlucky/favicon.svg",
+      "httpStatus": 200,
+      "observedBytes": 296,
+      "observedSha256": "923f1b1e9fbd6624acda8401f848104865d91e4a478c22b9a791f94921803075",
+      "state": "verified"
+    },
+    {
+      "path": "index.html",
+      "bytes": 2364,
+      "sha256": "fbff5ec9234f3f481895c98f86ccaebb936513c38a3381220abd2bc2bf08a664",
+      "url": "https://antonsoo.github.io/am-i-unlucky/index.html",
+      "httpStatus": 200,
+      "observedBytes": 2364,
+      "observedSha256": "fbff5ec9234f3f481895c98f86ccaebb936513c38a3381220abd2bc2bf08a664",
+      "state": "verified"
+    }
+  ],
+  "scope": "Compares canonical responses with this captured build inventory during the recorded pass. Extra hosted files, browser behavior, public source, registry releases and deployment provenance are not established."
+}

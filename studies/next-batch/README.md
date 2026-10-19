@@ -99,4 +99,6 @@ time zones or times within a day. Models still require fixed independent rates,
 no pity and no missed batches. A first batch delayed beyond one complete period
 is unsupported. Existing 12-source, 100-copy, million-attempt batch and billion-day
 confidence-search limits remain. Means retain their separate overflow policy.
-This is a source capability; package and hosted publication need separate checks.
+[Clean source and canonical live verification](../../docs/verification-next-batch-2026-10-19.md)
+retain the shipped result separately from the numerical model checks. No registry
+package or tag was released.
