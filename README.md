@@ -208,8 +208,8 @@ Issues and PRs are welcome. Please keep `npm run lint`, `npm run typecheck`, and
 
 ## License
 
-[MIT](./LICENSE) © 2026 Anton Soloviev
+[MIT](./LICENSE) © 2026 Anthony Mercer
 
 ---
 
-<sub>Part of [Officina](https://antonsoo.github.io/officina/), a set of small open-source tools by [Anton Soloviev](https://github.com/antonsoo).</sub>
+<sub>Part of [Officina](https://antonsoo.github.io/officina/), a set of small open-source tools by [Anthony Mercer](https://github.com/antonsoo).</sub>

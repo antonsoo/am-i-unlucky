@@ -3,7 +3,7 @@
   "version": "0.4.0",
   "description": "Exact drop-rate and pity math for gamers. Find out whether you're unlucky, or the system is.",
   "type": "module",
-  "author": "Anton Soloviev",
+  "author": "Anthony Mercer",
   "license": "MIT",
   "homepage": "https://antonsoo.github.io/am-i-unlucky/",
   "repository": {
