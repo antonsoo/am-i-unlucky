@@ -8,7 +8,7 @@ reports for the tally). No login, no per-user endpoints.
 """
 import hashlib, json, sys, time, urllib.request, urllib.error, datetime, pathlib
 
-UA = "am-i-unlucky-study/0.1 (research; contact anton@praviel.com)"
+UA = "am-i-unlucky-study/0.1 (research; contact anthony@praviel.com)"
 BASE = "https://api.paimon.moe/wish?banner={}"
 out = pathlib.Path(sys.argv[1])
 out.mkdir(parents=True, exist_ok=True)

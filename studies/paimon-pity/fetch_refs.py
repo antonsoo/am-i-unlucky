@@ -8,7 +8,7 @@ Usage: python3 -I fetch_refs.py <study dir>
 """
 import datetime, hashlib, json, subprocess, sys, urllib.request
 
-UA = "am-i-unlucky-study/0.1 (research; contact anton@praviel.com)"
+UA = "am-i-unlucky-study/0.1 (research; contact anthony@praviel.com)"
 root = sys.argv[1]
 REFS = {
     "hoyoverse_capturing_radiance_qa": {
